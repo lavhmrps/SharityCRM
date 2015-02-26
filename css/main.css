@@ -1,0 +1,577 @@
+/******************** MAIN CSS ********************/
+body{
+	margin:0;
+	padding:0;
+}
+
+
+
+/******************** FONT-FACE ********************/
+@font-face {
+	font-family: CircularBook;
+	src: local(CircularStd-Book);
+}
+
+@font-face {
+	font-family: CircularBook;
+	src: local(CircularStd-Bold);
+	font-weight: bold;
+}
+* {
+	font-family: CircularBook, Circular Std Book,Calibri, Arial,Sans-serif !important;
+	margin: 0;
+	padding: 0;
+}
+
+
+
+
+
+/******************** NAVBAR ********************/
+
+#header{
+	background-color: #0153D2;
+	border:none;
+}
+
+#topheader{
+	margin: 0;
+	height:100px;
+	padding:20px;
+	border-bottom: 5px solid #a5be43;
+	border-radius: 0;
+
+}
+#topheader h2{
+	color:white;
+	padding:0;
+	text-align: center;
+	margin-top:8px;
+	position: relative;
+}
+
+
+
+
+
+/******************** STICKY HEADER ********************/
+.scroller_anchor{
+	height:0px; 
+	margin:0; 
+	padding:0;
+}
+.scroller{  	
+	background-color: #fff;
+	border:none;
+	border-radius: 0;
+	height:50px; 
+	margin: 0px;
+	width:100%;
+	z-index:100;
+}
+
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #FFFFFF;
+  background-color: #002d6f;
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #FFFFFF;
+    background-color: #002d6f;
+  }
+}
+
+
+
+
+
+
+/******************** CONTAINER ********************/
+
+#linkContainer{
+	padding:20px;
+	margin-top:80px;
+	background-color: #FFF;
+	border-radius: 5px;
+}
+
+#linkContainer p{
+	color: #000;
+	font-size: 24px;
+}
+
+#projectcontainer{
+	background: #DDD;
+	border:1px solid #000;
+	border-radius: 10px;
+	padding:20px;
+	padding-top:0;
+	margin:10px;
+	width:22.5%;
+	height: 200px;
+}
+
+#projectcontainer h1{
+	color:black;
+}
+
+#inproject{
+	border:1px solid black;	
+}
+
+#phone{
+	background-image: url(../img/mobile.png);
+	background-size: cover;
+}
+
+#page_organisation{
+	margin-left:57px;
+	margin-top: 125px;
+	margin-bottom: 110px;
+	margin-right:12px;
+}
+
+#phonemargin{
+	margin-left:-1px;
+	margin-top: 125px;
+	margin-bottom: 0px;
+	margin-right: 44px;
+}
+
+#phonemargin1{
+	margin-left:1px;
+	margin-top: 125px;
+	margin-bottom: 0px;
+	margin-right: 32px;
+}
+
+.btn_single_project_donate{
+	margin-right: 44px;
+}
+
+#aligncenter{
+	text-align: center;
+	padding:15px;
+}
+
+#aligncenternews{
+	text-align: center;
+	padding:15px;
+	margin-top: 75px;
+}
+
+
+
+
+
+
+
+/******************** DIFFERENT MEDIAS ********************/
+@media screen and (max-width: 1200px) {
+    #page_organisation{
+	margin-left:59px;
+	margin-top: 130px;
+	margin-bottom: 50px;
+	margin-right: 59px;
+	}
+	#phonemargin{
+		margin-left:3px;
+		margin-top: 135px;
+		margin-bottom: 0px;
+		margin-right: 0px;
+		width:100%;
+	}
+	#phonemargin1{
+		margin-left:3px;
+		margin-top: 135px;
+		margin-bottom: 0px;
+		margin-right: 0px;
+		width:100%;
+	}
+	#header_div, .portrait, .main-content{
+		width:363px;
+	}
+
+	#phone{
+		width:500px;
+		height:890px;
+	}
+	.btn_single_project_donate{
+	margin-right: 60px;
+	}
+	#aligncenter{
+	text-align: center;
+	padding:45px;
+	}
+
+	#aligncenternews{
+	text-align: center;
+	padding:70px;
+	}
+}
+
+
+@media screen and (max-width: 1000px) {
+    #phone{
+		background:transparent;
+	}
+    #page_organisation{
+	margin-left:59px;
+	margin-top: 130px;
+	margin-bottom: 110px;
+	margin-right: 59px;
+	border:1px solid black;
+	border-radius: 5px;
+	}
+	#phonemargin{
+		margin-left:3px;
+		margin-top: 135px;
+		margin-bottom: 0px;
+		margin-right: 0px;
+		width:100%;
+	}
+	#phonemargin1{
+		margin-left:3px;
+		margin-top: 135px;
+		margin-bottom: 0px;
+		margin-right: 0px;
+		width:100%;
+	}
+	#header_div, .portrait, .main-content{
+		width:350px;
+	}
+
+	#phone{
+		width:500px;
+	}
+	.btn_single_project_donate{
+	margin-right: 60px;
+	}
+	#aligncenter{
+	text-align: center;
+	padding:30px;
+	}
+}
+
+
+
+
+
+/******************** IMAGES ********************/
+
+#logoimg{
+	width:85px;
+	height:85px;
+	border-radius: 10000px;
+}
+
+
+
+
+
+
+
+/******************** FONT ********************/ 
+h1{
+	color: #FFFFFF;
+}
+#orgContainer h1{
+	color:#0467FF;
+}
+
+
+
+
+
+
+
+/******************** GLYPHICONS ********************/
+span.glyphicon-asterisk, span.glyphicon-user {
+	color: #FFF;
+    font-size: 2.5em;
+}
+
+
+
+
+
+
+
+
+
+/******************** INPUT ********************/
+
+#inputlabel{
+	color: #FFFFFF;
+	font-size: 24px;
+}
+
+#uname, #passwd{
+	background-color: transparent;
+	border-radius: 0px;
+	border:none;
+	border-bottom: 2px solid #FFFFFF;
+	box-shadow: none;
+	color: #FFFFFF;
+}
+
+#uname:focus, #passwd:focus{
+	border-bottom: 2px solid #999999;
+}
+
+input[type="text"], input[type="password"],#inputTextarea, input[type="tel"]{
+	font-size: 24px;
+}
+
+#orgName, #orgID, #newPasswd, #rptPasswd, #adr,  #zip, #tlfnmbr, #accountnmbr{
+	background-color: transparent;
+	border-radius: 0px;
+	border:none;
+	border-bottom: 2px solid #0467FF;
+	box-shadow: none;
+	color: #000;
+}
+#orgNames, #orgIDs{
+
+}
+
+#inputTextarea{
+	font-size: 24px;
+}
+
+#orgName.form-control::-webkit-input-placeholder, #orgID.form-control::-webkit-input-placeholder, #newPasswd.form-control::-webkit-input-placeholder, #rptPasswd.form-control::-webkit-input-placeholder { 
+	color: #777; 
+	opacity:0.5;
+}
+#orgName.form-control.form-control::-moz-placeholder, #orgID.form-control.form-control::-moz-placeholder, #newPasswd.form-control.form-control::-moz-placeholder, #rptPasswd.form-control.form-control::-moz-placeholder {
+  color: #777;
+  opacity:0.5;
+}
+#orgName.form-control:-ms-input-placeholder, #orgID.form-control:-ms-input-placeholder, #newPasswd.form-control:-ms-input-placeholder, #rptPasswd.form-control:-ms-input-placeholder {
+  color: #777;
+  opacity:0.5;
+}
+#orgName.form-control::-webkit-input-placeholder, #orgID.form-control::-webkit-input-placeholder, #newPasswd.form-control::-webkit-input-placeholder, #rptPasswd.form-control::-webkit-input-placeholder {
+  color: #777;
+  opacity:0.5;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    color: #0467FF !important;
+}
+
+input[id="uname"]:-webkit-autofill, input[id="passwd"]:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #0467FF inset !important;
+    color: #0467FF !important;
+}
+
+#uname.form-control::-webkit-input-placeholder, #passwd.form-control::-webkit-input-placeholder { 
+	color: #FFFFFF; 
+	opacity: 0.5;
+}
+#uname.form-control::-moz-placeholder, #passwd.form-control::-moz-placeholder {
+  color: #FFFFFF;
+  opacity: 0.5;
+}
+#uname.form-control:-ms-input-placeholder, #passwd.form-control:-ms-input-placeholder {
+  color: #FFFFFF;
+  opacity: 0.5;
+}
+#uname.form-control::-webkit-input-placeholder, #passwd.form-control::-webkit-input-placeholder {
+  color: #FFFFFF;
+  opacity: 0.5;
+}
+
+#inCountry{
+	width:140px;
+	border:none;
+}
+
+#inCity{
+	width:150px;
+	border:none;
+}
+
+/*input[type="text"]{
+	border:none;
+	box-shadow: none;
+}*/
+
+input[id="topTitle"]{
+	background-color: transparent;
+	margin-left: 100px;
+	border:none;
+	outline:0;
+}
+
+input[id="topTitle"]:focus{
+	border:none !important;
+	box-shadow: none !important;
+}
+
+#aboutPro{
+	border:none;
+	box-shadow: none;
+}
+
+input[id=aboutPro]:focus{
+	border:2px solid red;
+	box-shadow: none;
+
+}
+
+
+#topTitle::-webkit-input-placeholder{ 
+	color: #fff;
+	text-decoration: underline;
+}
+#topTitle::-moz-placeholder{
+  color: #fff;
+  text-decoration: underline;
+}
+#topTitle:-ms-input-placeholder{
+  color: #fff;
+  text-decoration: underline;
+}
+#topTitle::-webkit-input-placeholder{
+  color: #fff;
+  text-decoration: underline;
+}
+
+input[id="bottomTitle"]{
+	background-color: transparent;
+	border:none;
+}
+
+#bottomTitle::-webkit-input-placeholder{ 
+	color: #000;
+	text-decoration: underline;
+}
+#bottomTitle::-moz-placeholder{
+  color: #000;
+  text-decoration: underline;
+}
+#bottomTitle:-ms-input-placeholder{
+  color: #000;
+  text-decoration: underline;
+}
+#bottomTitle::-webkit-input-placeholder{
+  color: #000;
+  text-decoration: underline;
+}
+
+input[id=inCountry]::-webkit-input-placeholder, input[id="inCity"]::-webkit-input-placeholder{ 
+	text-decoration: underline;
+}
+input[id=inCountry]::-moz-placeholder, input[id="inCity"]::-moz-placeholder{
+  text-decoration: underline;
+}
+input[id=inCountry]:-ms-input-placeholder, input[id="inCity"]:-ms-input-placeholder{
+  text-decoration: underline;
+}
+input[id=inCountry]::-webkit-input-placeholder, input[id="inCity"]::-webkit-input-placeholder{
+  text-decoration: underline;
+}
+
+#aboutPro::-webkit-input-placeholder{ 
+	text-decoration: underline;
+}
+#aboutPro::-moz-placeholder{
+  text-decoration: underline;
+}
+#aboutPro:-ms-input-placeholder{
+  text-decoration: underline;
+}
+#aboutPro::-webkit-input-placeholder{
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+/******************** BUTTONS ********************/ 
+.greenbtn{
+	background-color: #10A810;
+	color: #F4F7CA;
+	font-size:18px;
+}
+
+.bluebtn{
+	background-color: #0467FF;
+	color: #FFFFFF;
+	font-size:18px;
+}
+
+.whitebtn{
+	background-color: #FFFFFF;
+	color: #337ab7;
+	font-size: 18px;
+	width:48%;
+}
+
+#uploadPhoto{
+	width:100%;
+}
+
+#completeReg{
+	width:100%;
+}
+
+#linkbutton{
+	background-color: #0467FF;
+	color: #FFF;
+}
+
+#linkbutton:hover{
+	background-color: #002d6f;
+	color:#FFF;
+}
+
+a.navbar-brand.page-scroll, #header ul.nav.navbar-nav a.page-scroll{
+	color: #FFFFFF;
+}
+
+a.navbar-brand.page-scroll:focus, #header ul.nav.navbar-nav a.page-scroll:focus{
+	color: #FFFFFF;
+}
+
+a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
+	color: #BBB;
+}
+
+#registerbutton a.page-scroll{
+	text-decoration: none;
+}
+
+#registerbutton a.page-scroll:hover{
+	text-decoration: none;
+	color: #000;
+}
+
+#registerphonebutton{
+	background-color: #10A810;
+	color: #F4F7CA;
+	font-size:18px;
+	border:none;
+	border-radius: 5px;
+	padding:5px;
+	width:30%;
+}
+
+
+
+/******************** NYTT ********************/
+
+select, option{
+	background-color: #006dfe;
+	border:none;
+	outline:none;
+}
+
