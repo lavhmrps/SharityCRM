@@ -88,7 +88,7 @@ body{
 
 
 
-/******************** CONTAINER ********************/
+/******************** CONTAINERS ********************/
 
 #linkContainer{
 	padding:20px;
@@ -148,7 +148,7 @@ body{
 }
 
 #phonemargin1{
-	margin-left:1px;
+	margin-left:-5px;
 	margin-top: 125px;
 	margin-bottom: 0px;
 	margin-right: 32px;
@@ -191,11 +191,20 @@ body{
 #copyrightcontainer{
 	color:white;
 }
-input[id="orgIDs"],input[id="orgNames"],input[id="newPasswds"],input[id="rptPasswds"]{
-	margin-top: 5px;
-	margin-bottom: 5px;
+
+#uploadpicContainer{
+	background-color: green;
+	color: #FFF;
+	height:34px;
+	padding: 1px 6px;
+	width:98%;
+
 }
 
+
+#somespace{
+	height:40px;
+}
 /******************** DIFFERENT MEDIAS ********************/
 @media screen and (max-width: 1200px) {
 	#page_organisation{
@@ -301,12 +310,21 @@ input[id="orgIDs"],input[id="orgNames"],input[id="newPasswds"],input[id="rptPass
 
 
 
-/******************** FONT ********************/ 
+/******************** FONTS ********************/ 
 h1{
 	color: #FFFFFF;
 }
 #orgContainer h1{
 	color:#0467FF;
+}
+
+#reg_pt2_head h1{
+	color: #000;
+}
+
+#skipContainer a{
+	font-size: 18px;
+	padding-right:40px;
 }
 
 
@@ -318,7 +336,7 @@ h1{
 /******************** GLYPHICONS ********************/
 span.glyphicon-ok-sign, span.glyphicon-remove-sign {
 	color: #000;
-	font-size: 2.5em;
+	font-size: 2.7em;
 }
 
 
@@ -329,7 +347,7 @@ span.glyphicon-ok-sign, span.glyphicon-remove-sign {
 
 
 
-/******************** INPUT ********************/
+/******************** INPUTS ********************/
 
 #inputlabel{
 	color: #FFFFFF;
@@ -349,7 +367,7 @@ span.glyphicon-ok-sign, span.glyphicon-remove-sign {
 	border-bottom: 2px solid #999999;
 }
 
-input[type="text"], input[type="password"],#inputTextarea, input[type="tel"]{
+input[type="text"], input[type="password"],#inputTextarea, input[type="tel"], input[type="email"]{
 	font-size: 20px;
 }
 
@@ -525,7 +543,34 @@ input[id=aboutProj]:focus{
 }
 
 
+input[id="orgIDs"],input[id="orgNames"],input[id="newPasswds"],input[id="rptPasswds"]{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
 
+#reg_pt2_input{
+	margin: 5px;
+	width:98%;
+}
+
+#aboutOrg{
+	margin:5px;
+	width:98%;
+	font-size: 14px;
+}
+
+#aboutOrg::-webkit-input-placeholder{ 
+	font-size: 14px;
+}
+#aboutOrg::-moz-placeholder{
+	font-size: 14px;
+}
+#aboutOrg:-ms-input-placeholder{
+	font-size: 14px;
+}
+#aboutOrg::-webkit-input-placeholder{
+	font-size: 14px;
+}
 
 
 
@@ -540,16 +585,102 @@ input[id=aboutProj]:focus{
 
 .bluebtn{
 	background-color: #0467FF;
+	border-radius: 4px;
+	padding: 1px 6px;
 	color: #FFFFFF;
-	font-size:18px;
+	font-size:14px;
+	width:98%;
+	height:34px;
+	margin: 5px;
+}
+.bluebtn:hover{
+	background-color: #0457FF;
+	color: #FFFFFF;
+}
+
+.bluebtn:focus{
+	background-color: #0467FF;
+	color: #FFFFFF;
 }
 
 .whitebtn{
 	background-color: #FFFFFF;
-	color: #337ab7;
-	font-size: 18px;
-	width:48%;
+	border:1px solid #CCC;
+	border-radius: 4px;
+	padding: 5px 6px;
+	color: #777;
+	font-size: 14px;
+	width:49.5%;
+	height:34px;
 }
+
+.whitebtn a{
+	color: #777;
+}
+
+
+.orgbtn{
+	background-color: transparent;
+	color: #777;
+	border: 1px solid #CCC;
+	border-radius: 4px;
+	padding: 1px 6px;
+	height: 34px;
+	width:98%;
+	margin:5px;
+	font-size:14px;
+}
+
+.orgbtn:focus{
+	background-color: transparent;
+	color: #777;
+	border: 1px solid #CCC;
+	font-size:14px;
+}
+/* Dropdown registration_pt2.php*/
+.orgbtn1{
+	background-color: #FFFFFF;
+	border:1px solid #CCC;
+	border-radius: 4px;
+	padding: 1px 6px;
+	color: #777;
+	font-size: 14px;
+	width:98%;
+	height:34px;
+	margin: 5px;
+}
+/*end dropdown*/
+
+.btn-success{
+	margin: 5px;
+	width:98%;
+}
+
+.orgbtn3{
+	background-color: #0467FF;
+	border-radius: 4px;
+	padding: 1px 6px;
+	color: #FFFFFF;
+	font-size:14px;
+	width:100%;
+	height:34px;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	margin:5px;
+}
+.orgbtn3:hover{
+	background-color: #0457FF;
+	color: #FFFFFF;
+}
+
+.orgbtn3:focus{
+	background-color: #0467FF;
+	color: #FFFFFF;
+}
+
+
+
 
 #uploadPhoto{
 	width:100%;
@@ -611,3 +742,20 @@ select, option{
 	outline:none;
 }
 
+.regOrgDropdown select,.regOrgDropdown option  {
+   background: transparent;
+   border-radius: 5px;
+   width: 268px;
+   padding: 5px;
+   font-size: 14px;
+   line-height: 1;
+   border: 1px solid #ccc;
+   width:98%;
+   border-radius: 0;
+   height: 34px;
+}
+
+#buttondiv{
+	padding-left:5px;
+	padding-right: 0px;
+}

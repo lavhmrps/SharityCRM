@@ -150,7 +150,7 @@ include 'connect.php';
 						<div class="col-lg-12">
 							<h1>Ny Organisasjon</h1>
 
-							<form method="post" >
+							<form method="post">
 								<div class="row">
 									<div class="col-md-3"></div>
 
@@ -158,7 +158,7 @@ include 'connect.php';
 										
 										<div class="form-group">
 											<div class="col-md-11">
-												<input type="tel" class="form-control" name="reg_organizationNr" id="orgIDs" placeholder="Orgnr">
+												<input type="tel" class="form-control" name="reg_organizationNr" id="orgIDs" placeholder="Orgnr"/>
 											</div>
 											<div class="col-md-1">
 												<span class="glyphicon glyphicon-ok-sign"></span>
@@ -166,7 +166,7 @@ include 'connect.php';
 										</div>
 										<div class="form-group">
 											<div class="col-md-11">
-												<input type="text" class="form-control" name="reg_name" id="orgNames" placeholder="Orgnavn">
+												<input type="text" class="form-control" name="reg_name" id="orgNames" placeholder="Orgnavn"/>
 											</div>
 											<div class="col-md-1">
 												<span class="glyphicon glyphicon-ok-sign"></span>
@@ -174,7 +174,7 @@ include 'connect.php';
 										</div>
 										<div class="form-group">
 											<div class="col-md-11">
-												<input type="password" class="form-control" name="reg_password" id="newPasswds" placeholder="Passord">
+												<input type="password" class="form-control" name="reg_password" id="newPasswds" placeholder="Passord"/>
 											</div>
 											<div class="col-md-1">
 												<span class="glyphicon glyphicon-ok-sign"></span>
@@ -182,7 +182,7 @@ include 'connect.php';
 										</div>
 										<div class="form-group">
 											<div class="col-md-11">
-												<input type="password" class="form-control" name="reg_password2" id="rptPasswds" placeholder="Gjenta passord">
+												<input type="password" class="form-control" name="reg_password2" id="rptPasswds" placeholder="Gjenta passord"/>
 											</div>
 											<div class="col-md-1">
 												<span class="glyphicon glyphicon-ok-sign"></span>
@@ -192,7 +192,7 @@ include 'connect.php';
 										<div class="form-group">
 											<div class="col-md-11">
 												<button  class="btn btn-success" name="complete_registration" id="completeReg">
-													Fullfør registrering
+													Fullfør (1/2)
 												</button>
 											</div>
 											<div class="col-md-1"></div>
@@ -208,7 +208,7 @@ include 'connect.php';
 				</div>
 			</section>
 			<section id="footer" class="footer-section">
-				<div id="indexfooter" class="text-center">
+				<div id="indexfooter">
 					<div class="container">
 						<div class="row">
 
@@ -220,7 +220,7 @@ include 'connect.php';
 									<a href="loginAdmin.php">Admin </a>
 								</div>
 								<div class="col-md-12">
-									<a href="#">Admin </a>
+									<a href="#">aifaosifa </a>
 								</div>
 								<div class="col-md-12">
 									<a href="#">Admin </a>
