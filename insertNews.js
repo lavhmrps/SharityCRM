@@ -82,7 +82,8 @@
 
 
  }); 
- function clearInputs(){
+
+function clearInputs(){
  	$('input[name=title]').val("");
  	$('textarea[name=txt]').val("");
  	$('select[name=projectID]').val("NULL");

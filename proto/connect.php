@@ -1,7 +1,6 @@
 <?php
 $connection = mysqli_connect("localhost", "root", "", "database");
 
-
 function insertInto($connection, $sql) {
 
 	if (mysqli_query($connection, $sql) === TRUE) {
