@@ -177,6 +177,7 @@ body{
 	height:200px;
 	background-color: #0153D2;
 	overflow-y:hidden;
+	border-top:1px solid black;
 }
 
 #indexfooter a{
@@ -187,7 +188,13 @@ body{
 	padding:50px;
 }
 
-
+#copyrightcontainer{
+	color:white;
+}
+input[id="orgIDs"],input[id="orgNames"],input[id="newPasswds"],input[id="rptPasswds"]{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
 
 /******************** DIFFERENT MEDIAS ********************/
 @media screen and (max-width: 1200px) {
@@ -309,8 +316,8 @@ h1{
 
 
 /******************** GLYPHICONS ********************/
-span.glyphicon-asterisk, span.glyphicon-user {
-	color: #FFF;
+span.glyphicon-ok-sign, span.glyphicon-remove-sign {
+	color: #000;
 	font-size: 2.5em;
 }
 
@@ -343,7 +350,7 @@ span.glyphicon-asterisk, span.glyphicon-user {
 }
 
 input[type="text"], input[type="password"],#inputTextarea, input[type="tel"]{
-	font-size: 24px;
+	font-size: 20px;
 }
 
 #orgName, #orgID, #newPasswd, #rptPasswd, #adr,  #zip, #tlfnmbr, #accountnmbr{
@@ -359,7 +366,7 @@ input[type="text"], input[type="password"],#inputTextarea, input[type="tel"]{
 }
 
 #inputTextarea{
-	font-size: 24px;
+	font-size: 20px;
 }
 
 #orgName.form-control::-webkit-input-placeholder, #orgID.form-control::-webkit-input-placeholder, #newPasswd.form-control::-webkit-input-placeholder, #rptPasswd.form-control::-webkit-input-placeholder { 
@@ -550,6 +557,7 @@ input[id=aboutProj]:focus{
 
 #completeReg{
 	width:100%;
+	margin-top: 5px;
 }
 
 #linkbutton{

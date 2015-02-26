@@ -154,30 +154,52 @@ include 'connect.php';
 								<div class="row">
 									<div class="col-md-3"></div>
 
-									<div class="col-md-6" id="inputforms">
+									<div class="col-md-7" id="inputforms">
 										
 										<div class="form-group">
+											<div class="col-md-11">
+												<input type="tel" class="form-control" name="reg_organizationNr" id="orgIDs" placeholder="Orgnr">
+											</div>
+											<div class="col-md-1">
+												<span class="glyphicon glyphicon-ok-sign"></span>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-md-11">
+												<input type="text" class="form-control" name="reg_name" id="orgNames" placeholder="Orgnavn">
+											</div>
+											<div class="col-md-1">
+												<span class="glyphicon glyphicon-ok-sign"></span>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-md-11">
+												<input type="password" class="form-control" name="reg_password" id="newPasswds" placeholder="Passord">
+											</div>
+											<div class="col-md-1">
+												<span class="glyphicon glyphicon-ok-sign"></span>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-md-11">
+												<input type="password" class="form-control" name="reg_password2" id="rptPasswds" placeholder="Gjenta passord">
+											</div>
+											<div class="col-md-1">
+												<span class="glyphicon glyphicon-ok-sign"></span>
+											</div>
+										</div>
 
-											<input type="tel" class="form-control" name="reg_organizationNr" id="orgIDs" placeholder="Orgnr">
-										</div>
 										<div class="form-group">
-											<input type="text" class="form-control" name="reg_name" id="orgNames" placeholder="Orgnavn">
-										</div>
-										<div class="form-group">
-											<input type="password" class="form-control" name="reg_password" id="newPasswds" placeholder="Passord">
-										</div>
-										<div class="form-group">
-											<input type="password" class="form-control" name="reg_password2" id="rptPasswds" placeholder="Gjenta passord">
-										</div>
-
-										<div class="form-group">
-											<button  class="btn btn-success" name="complete_registration" id="completeReg">
-												Fullfør registrering
-											</button>
+											<div class="col-md-11">
+												<button  class="btn btn-success" name="complete_registration" id="completeReg">
+													Fullfør registrering
+												</button>
+											</div>
+											<div class="col-md-1"></div>
 										</div>
 									</div>
 
-									<div class="col-md-3"></div>
+									<div class="col-md-2"></div>
 								</div>
 
 							</form>
@@ -191,24 +213,74 @@ include 'connect.php';
 						<div class="row">
 
 
+							<div class="col-md-2" id="footerpadding"></div>
+							<div class="col-md-2" id="footerpadding">
+								
+								<div class="col-md-12">
+									<a href="loginAdmin.php">Admin </a>
+								</div>
+								<div class="col-md-12">
+									<a href="#">Admin </a>
+								</div>
+								<div class="col-md-12">
+									<a href="#">Admin </a>
+								</div>
+								<div class="col-md-12">
+									<a href="#">Admin </a>
+								</div>
+							</div>
 							
-						<div class="col-md-3" id="footerpadding">
-
-								<a href="loginAdmin.php">Admin </a>
-
+							<div class="col-md-2" id="footerpadding">
+								<div class="col-md-12">
+									<a href="loginAdmin.php">Something </a>
+								</div>
+								<div class="col-md-12">
+									<a href="loginAdmin.php">Something </a>
+								</div>
+								<div class="col-md-12">
+									<a href="loginAdmin.php">Something </a>
+								</div>
+								<div class="col-md-12">
+									<a href="loginAdmin.php">Something </a>
+								</div>
+								
 							</div>
-							<div class="col-md-3" id="footerpadding">
-								<a href="loginAdmin.php">Something </a>
+							<div class="col-md-2" id="footerpadding">
+								<div class="col-md-12">
+									<a href="loginAdmin.php">About </a>
+								</div>
+								<div class="col-md-12">
+									<a href="loginAdmin.php">About </a>
+								</div>
+								<div class="col-md-12">
+									<a href="loginAdmin.php">About </a>
+								</div>
+								<div class="col-md-12">
+									<a href="loginAdmin.php">About </a>
+								</div>
 							</div>
-							<div class="col-md-3" id="footerpadding">
-								<a href="loginAdmin.php">Something else </a>
+							<div class="col-md-2" id="footerpadding">
+								<div class="col-md-12">
+									<a href="loginAdmin.php">FAQs </a>
+								</div>
+								<div class="col-md-12">
+									<a href="loginAdmin.php">FAQs </a>
+								</div>
+								<div class="col-md-12">
+									<a href="loginAdmin.php">FAQs </a>
+								</div>
+								<div class="col-md-12">
+									<a href="loginAdmin.php">FAQs </a>
+								</div>
+								
 							</div>
-							<div class="col-md-3" id="footerpadding">
-								<a href="loginAdmin.php">FAQ </a>
-							</div>
+							<div class="col-md-2" id="footerpadding"></div>
 
 
 						</div>
+					</div>
+					<div id="copyrightcontainer">
+
 					</div>
 				</div>
 			</div>
