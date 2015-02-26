@@ -1,0 +1,1 @@
+<nav><a href="home.php">Hjem</a> - <a href="showProjects.php">Vis prosjekter</a></nav>
