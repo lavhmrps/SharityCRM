@@ -106,7 +106,7 @@ include 'connect.php';
 
 									<div class="row">
 										<div class="col-md-1">
-											<label class="glyphicon glyphicon-user" id="sirkelen"></label>
+											
 										</div>
 										<div class="form-group col-md-11">
 											<input type="text" class="form-control" name="organizationNr" id="unames" placeholder="Organisasjonsnummer" onkeyup ="checkUsername()" />
@@ -114,7 +114,7 @@ include 'connect.php';
 									</div>
 									<div class="row">
 										<div class="col-md-1">
-											<span class="glyphicon glyphicon-asterisk" id="sirkelto"></span>
+											
 										</div>
 										<div class="form-group col-md-11">
 											<input type="password" class="form-control" name="password" id="passwds" placeholder="Passord" onkeyup="checkPassword()" />
@@ -185,76 +185,61 @@ include 'connect.php';
 					</div>
 				</div>
 			</section>
-
-			<p>****FOOTER KOMMER HER****</p>
-			<br/><br/><br/><br/><br/>
-			<a href="loginAdmin.php">Login as Admin </a>
-
-			<br/><br/><br/><br/><br/>
+			<section id="footer" class="footer-section">
+				<div id="indexfooter" class="text-center">
+					<div class="container">
+						<div class="row">
 
 
+							
+						<div class="col-md-3" id="footerpadding">
+
+								<a href="loginAdmin.php">Admin </a>
+
+							</div>
+							<div class="col-md-3" id="footerpadding">
+								<a href="loginAdmin.php">Something </a>
+							</div>
+							<div class="col-md-3" id="footerpadding">
+								<a href="loginAdmin.php">Something else </a>
+							</div>
+							<div class="col-md-3" id="footerpadding">
+								<a href="loginAdmin.php">FAQ </a>
+							</div>
 
 
-			<script type="text/javascript">
-			$(document).ready(function() {
-				$("#uname").attr('maxlength', '9');
-			});
-
-			$("#uname").focus(function() {
-				$('#sirkelen').css({
-					color : "yellow"
-				});
-				checkUsername();
-			});
-
-			$("div").focusout(function() {
-				$('#sirkelen').css({
-					color : "white"
-
-				});
-				checkUsername();
-			});
-
-			function checkUsername() {
-				var username = $('#uname').val();
-				var reg = new RegExp('^[0-9]+$');
-
-				if (reg.test(username) && username.length == 9) {
-					$('#sirkelen').css({
-						color : "#00FC08"
-					});
-
-					//document.getElementById("passwd").focus();
-				} else {
-					$('#sirkelen').css({
-						color : "#FFF"
-					});
-				}
-			}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 
 
-			
 
-			</script>
 
-			<!-- jQuery -->
-			<script src="js/jquery.js"></script>
 
-			<!-- Bootstrap Core JavaScript -->
-			<script src="js/bootstrap.min.js"></script>
 
-			<!-- Scrolling Nav JavaScript -->
-			<script src="js/jquery.easing.min.js"></script>
-			<script src="js/scrolling-nav.js"></script>
 
-			<!--Sript for insert organization to database through AJAX request-->
-			<script src="insertOrganization.js"></script>
 
-			<!--Check login-->
-			<script src="checkLogin.js"></script>
 
-		</body>
+		<!-- jQuery -->
+		<script src="js/jquery.js"></script>
 
-		</html>
+		<!-- Bootstrap Core JavaScript -->
+		<script src="js/bootstrap.min.js"></script>
+
+		<!-- Scrolling Nav JavaScript -->
+		<script src="js/jquery.easing.min.js"></script>
+		<script src="js/scrolling-nav.js"></script>
+
+		<!--Sript for insert organization to database through AJAX request-->
+		<script src="insertOrganization.js"></script>
+
+		<!--Check login-->
+		<script src="checkLogin.js"></script>
+
+	</body>
+
+	</html>
 

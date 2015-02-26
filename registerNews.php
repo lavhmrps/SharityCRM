@@ -47,7 +47,7 @@ if(isset($_POST['registerNews'])){
 	include "header_nav.php";
 	?>
 
-	<div class="container">
+	<div class="container" id="phonecontainer">
 
 		<div class="col-md-5" id="phone">
 			<div id="phonemargin">
@@ -93,7 +93,7 @@ if(isset($_POST['registerNews'])){
 
 							<input type="file" id="file1"  name="file1" style="display:none" />
 							<div id="uploadimg" >
-								<p style="cursor:pointer">
+								<p style="cursor:pointer; color:#000;">
 									<u>Last opp bakgrunnsbilde</u>
 								</p>
 							</div>
@@ -105,7 +105,7 @@ if(isset($_POST['registerNews'])){
 							<input type="text" id="bottomTitle" placeholder="Skriv nyhetsoverskrift" name="title"/>
 
 							<div class="form-group">
-								<textarea class="form-control" id="aboutProj" rows="5" id="aboutproject" placeholder="Skriv nyhetstekst" name="txt"></textarea>																		
+								<textarea class="form-control" id="aboutProj" rows="10" id="aboutproject" placeholder="Skriv nyhetstekst" name="txt"></textarea>																		
 
 
 

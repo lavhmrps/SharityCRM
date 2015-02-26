@@ -72,15 +72,15 @@ body{
 
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: #FFFFFF;
-  background-color: #002d6f;
+	color: #FFFFFF;
+	background-color: #002d6f;
 }
 
 @media (max-width: 767px) {
-    .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #FFFFFF;
-    background-color: #002d6f;
-  }
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: #FFFFFF;
+		background-color: #002d6f;
+	}
 }
 
 
@@ -121,16 +121,23 @@ body{
 	border:1px solid black;	
 }
 
+#phonecontainer{
+	max-height:550px;
+	background-color: lightblue;
+}
+
 #phone{
 	background-image: url(../img/mobile.png);
 	background-size: cover;
+
 }
 
 #page_organisation{
 	margin-left:57px;
 	margin-top: 125px;
-	margin-bottom: 110px;
+	margin-bottom: 100px;
 	margin-right:12px;
+	background-color: lightgreen
 }
 
 #phonemargin{
@@ -162,19 +169,33 @@ body{
 	margin-top: 75px;
 }
 
+#footercontainer{
+	width:100%;
+}
 
+#indexfooter{
+	height:200px;
+	background-color: #0153D2;
+	overflow-y:hidden;
+}
 
+#indexfooter a{
+	color:white;
+}
 
+#footerpadding{
+	padding:50px;
+}
 
 
 
 /******************** DIFFERENT MEDIAS ********************/
 @media screen and (max-width: 1200px) {
-    #page_organisation{
-	margin-left:59px;
-	margin-top: 130px;
-	margin-bottom: 50px;
-	margin-right: 59px;
+	#page_organisation{
+		margin-left:59px;
+		margin-top: 130px;
+		margin-bottom: 50px;
+		margin-right: 59px;
 	}
 	#phonemargin{
 		margin-left:3px;
@@ -199,31 +220,31 @@ body{
 		height:890px;
 	}
 	.btn_single_project_donate{
-	margin-right: 60px;
+		margin-right: 60px;
 	}
 	#aligncenter{
-	text-align: center;
-	padding:45px;
+		text-align: center;
+		padding:45px;
 	}
 
 	#aligncenternews{
-	text-align: center;
-	padding:70px;
+		text-align: center;
+		padding:70px;
 	}
 }
 
 
 @media screen and (max-width: 1000px) {
-    #phone{
+	#phone{
 		background:transparent;
 	}
-    #page_organisation{
-	margin-left:59px;
-	margin-top: 130px;
-	margin-bottom: 110px;
-	margin-right: 59px;
-	border:1px solid black;
-	border-radius: 5px;
+	#page_organisation{
+		margin-left:59px;
+		margin-top: 130px;
+		margin-bottom: 110px;
+		margin-right: 59px;
+		border:1px solid black;
+		border-radius: 5px;
 	}
 	#phonemargin{
 		margin-left:3px;
@@ -247,11 +268,11 @@ body{
 		width:500px;
 	}
 	.btn_single_project_donate{
-	margin-right: 60px;
+		margin-right: 60px;
 	}
 	#aligncenter{
-	text-align: center;
-	padding:30px;
+		text-align: center;
+		padding:30px;
 	}
 }
 
@@ -290,7 +311,7 @@ h1{
 /******************** GLYPHICONS ********************/
 span.glyphicon-asterisk, span.glyphicon-user {
 	color: #FFF;
-    font-size: 2.5em;
+	font-size: 2.5em;
 }
 
 
@@ -346,26 +367,26 @@ input[type="text"], input[type="password"],#inputTextarea, input[type="tel"]{
 	opacity:0.5;
 }
 #orgName.form-control.form-control::-moz-placeholder, #orgID.form-control.form-control::-moz-placeholder, #newPasswd.form-control.form-control::-moz-placeholder, #rptPasswd.form-control.form-control::-moz-placeholder {
-  color: #777;
-  opacity:0.5;
+	color: #777;
+	opacity:0.5;
 }
 #orgName.form-control:-ms-input-placeholder, #orgID.form-control:-ms-input-placeholder, #newPasswd.form-control:-ms-input-placeholder, #rptPasswd.form-control:-ms-input-placeholder {
-  color: #777;
-  opacity:0.5;
+	color: #777;
+	opacity:0.5;
 }
 #orgName.form-control::-webkit-input-placeholder, #orgID.form-control::-webkit-input-placeholder, #newPasswd.form-control::-webkit-input-placeholder, #rptPasswd.form-control::-webkit-input-placeholder {
-  color: #777;
-  opacity:0.5;
+	color: #777;
+	opacity:0.5;
 }
 
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
-    color: #0467FF !important;
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+	color: #0467FF !important;
 }
 
 input[id="uname"]:-webkit-autofill, input[id="passwd"]:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px #0467FF inset !important;
-    color: #0467FF !important;
+	-webkit-box-shadow: 0 0 0px 1000px #0467FF inset !important;
+	color: #0467FF !important;
 }
 
 #uname.form-control::-webkit-input-placeholder, #passwd.form-control::-webkit-input-placeholder { 
@@ -373,32 +394,30 @@ input[id="uname"]:-webkit-autofill, input[id="passwd"]:-webkit-autofill {
 	opacity: 0.5;
 }
 #uname.form-control::-moz-placeholder, #passwd.form-control::-moz-placeholder {
-  color: #FFFFFF;
-  opacity: 0.5;
+	color: #FFFFFF;
+	opacity: 0.5;
 }
 #uname.form-control:-ms-input-placeholder, #passwd.form-control:-ms-input-placeholder {
-  color: #FFFFFF;
-  opacity: 0.5;
+	color: #FFFFFF;
+	opacity: 0.5;
 }
 #uname.form-control::-webkit-input-placeholder, #passwd.form-control::-webkit-input-placeholder {
-  color: #FFFFFF;
-  opacity: 0.5;
+	color: #FFFFFF;
+	opacity: 0.5;
 }
 
 #inCountry{
 	width:140px;
 	border:none;
+	outline:0;
 }
 
 #inCity{
 	width:150px;
 	border:none;
+	outline:0;
 }
 
-/*input[type="text"]{
-	border:none;
-	box-shadow: none;
-}*/
 
 input[id="topTitle"]{
 	background-color: transparent;
@@ -412,38 +431,27 @@ input[id="topTitle"]:focus{
 	box-shadow: none !important;
 }
 
-#aboutPro{
-	border:none;
-	box-shadow: none;
-}
-
-input[id=aboutPro]:focus{
-	border:2px solid red;
-	box-shadow: none;
-
-}
-
-
 #topTitle::-webkit-input-placeholder{ 
 	color: #fff;
 	text-decoration: underline;
 }
 #topTitle::-moz-placeholder{
-  color: #fff;
-  text-decoration: underline;
+	color: #fff;
+	text-decoration: underline;
 }
 #topTitle:-ms-input-placeholder{
-  color: #fff;
-  text-decoration: underline;
+	color: #fff;
+	text-decoration: underline;
 }
 #topTitle::-webkit-input-placeholder{
-  color: #fff;
-  text-decoration: underline;
+	color: #fff;
+	text-decoration: underline;
 }
 
 input[id="bottomTitle"]{
 	background-color: transparent;
 	border:none;
+	outline:0;
 }
 
 #bottomTitle::-webkit-input-placeholder{ 
@@ -451,42 +459,62 @@ input[id="bottomTitle"]{
 	text-decoration: underline;
 }
 #bottomTitle::-moz-placeholder{
-  color: #000;
-  text-decoration: underline;
+	color: #000;
+	text-decoration: underline;
 }
 #bottomTitle:-ms-input-placeholder{
-  color: #000;
-  text-decoration: underline;
+	color: #000;
+	text-decoration: underline;
 }
 #bottomTitle::-webkit-input-placeholder{
-  color: #000;
-  text-decoration: underline;
+	color: #000;
+	text-decoration: underline;
 }
 
 input[id=inCountry]::-webkit-input-placeholder, input[id="inCity"]::-webkit-input-placeholder{ 
 	text-decoration: underline;
 }
 input[id=inCountry]::-moz-placeholder, input[id="inCity"]::-moz-placeholder{
-  text-decoration: underline;
-}
-input[id=inCountry]:-ms-input-placeholder, input[id="inCity"]:-ms-input-placeholder{
-  text-decoration: underline;
-}
-input[id=inCountry]::-webkit-input-placeholder, input[id="inCity"]::-webkit-input-placeholder{
-  text-decoration: underline;
-}
-
-#aboutPro::-webkit-input-placeholder{ 
 	text-decoration: underline;
 }
-#aboutPro::-moz-placeholder{
-  text-decoration: underline;
+input[id=inCountry]:-ms-input-placeholder, input[id="inCity"]:-ms-input-placeholder{
+	text-decoration: underline;
 }
-#aboutPro:-ms-input-placeholder{
-  text-decoration: underline;
+input[id=inCountry]::-webkit-input-placeholder, input[id="inCity"]::-webkit-input-placeholder{
+	text-decoration: underline;
 }
-#aboutPro::-webkit-input-placeholder{
-  text-decoration: underline;
+
+#aboutProj{
+	border:none;
+	box-shadow: none;
+	font-size: 18px;
+
+
+	width: 300px; 
+	min-width:300px; 
+	max-width:300px; 
+
+	height:115px; 
+	min-height:115px;  
+	max-height:115px;
+}
+
+input[id=aboutProj]:focus{
+	border:2px solid red;
+	box-shadow: none;
+}
+
+#aboutProj::-webkit-input-placeholder{ 
+	text-decoration: underline;
+}
+#aboutProj::-moz-placeholder{
+	text-decoration: underline;
+}
+#aboutProj:-ms-input-placeholder{
+	text-decoration: underline;
+}
+#aboutProj::-webkit-input-placeholder{
+	text-decoration: underline;
 }
 
 
