@@ -73,6 +73,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					<div class="col-md-8">
 
 
+
 						<?php
 
 						$sql = "SELECT * FROM Organization WHERE organizationNr = $organizationNr";

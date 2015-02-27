@@ -38,9 +38,8 @@ body{
 	margin: 0;
 	height:100px;
 	padding:20px;
-	border-bottom: 5px solid #a5be43;
 	border-radius: 0;
-
+	background-color: #333;
 }
 #topheader h2{
 	color:white;
@@ -146,10 +145,10 @@ body{
 }
 
 #phonemargin1{
-	margin-left:-5px;
+	margin-left:-1px;
 	margin-top: 125px;
 	margin-bottom: 0px;
-	margin-right: 32px;
+	margin-right: 39px;
 }
 
 .btn_single_project_donate{
@@ -203,6 +202,19 @@ body{
 #somespace{
 	height:40px;
 }
+
+#logoutContainer{
+	
+}
+
+#navbarContainer{
+	border-bottom: 1px solid #000;
+}
+
+
+
+
+
 /******************** DIFFERENT MEDIAS ********************/
 @media screen and (max-width: 1200px) {
 	#page_organisation{
@@ -555,6 +567,12 @@ input[id="orgIDs"],input[id="orgNames"],input[id="newPasswds"],input[id="rptPass
 	margin:5px;
 	width:98%;
 	font-size: 14px;
+	min-width:98%; 
+	max-width:98%; 
+
+	height:115px; 
+	min-height:115px;  
+	max-height:115px;
 }
 
 #aboutOrg::-webkit-input-placeholder{ 
@@ -730,7 +748,18 @@ a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
 	width:30%;
 }
 
+#logoutbtn{
+	background-color: transparent;
+	color: #777;
+	width:100%;
+	padding: 1px 6px;
+	margin-top:15px;
+	border:none;
+}
 
+#logoutbtn:hover{
+	color: #000;
+}
 
 /******************** NYTT ********************/
 
@@ -751,6 +780,7 @@ select, option{
    width:98%;
    border-radius: 0;
    height: 34px;
+   margin: 5px;
 }
 
 #buttondiv{
