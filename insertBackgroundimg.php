@@ -14,13 +14,19 @@ if (isset($_SESSION['organizationNr'])) {
 
 		$path = "Bilder/" . $organizationNr . "/";
 		if (!file_exists($path)) {
-			mkdir($path, 0777, true);
+			mkdir($path, 0755, true);
+
 		}
 
 		//chmod($path, 777);
 
 		$target_dir = $path;
 		$target_file = $target_dir . basename($_FILES["file_background"]["name"]);
+
+		chmod($target_file,0755);
+		chmod($path,0755);
+
+
 		$uploadOk = 1;
 		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
