@@ -14,7 +14,7 @@ if (isset($_SESSION['organizationNr'])) {
 
 		$path = "Bilder/" . $organizationNr . "/";
 		if (!file_exists($path)) {
-			mkdir($path, 0755, true);
+			mkdir($path, 0777, true);
 
 		}
 
@@ -23,8 +23,8 @@ if (isset($_SESSION['organizationNr'])) {
 		$target_dir = $path;
 		$target_file = $target_dir . basename($_FILES["file_background"]["name"]);
 
-		chmod($target_file,0755);
-		chmod($path,0755);
+		chmod($target_dir,0777);
+		chmod($target_file,0777);
 
 
 		$uploadOk = 1;
