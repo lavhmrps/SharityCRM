@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['organizationNr'])){
-	header("Location:home.php");
+	header("Location:registration_pt2.php");
 }
 
 include 'connect.php';
@@ -63,7 +63,7 @@ include 'connect.php';
 							<a class="page-scroll" href="#page-top"></a>
 						</li>
 						<li>
-							<a class="page-scroll" href="#login">Logg inn</a>
+							<a class="page-scroll" href="#login" id="goToLogin">Logg inn</a>
 						</li>
 						<li>
 							<a class="page-scroll" href="#register" id="goToRegister">Ny Organisasjon</a>

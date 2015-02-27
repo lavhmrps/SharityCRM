@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+include 'checkSession.php';
+include 'connect.php';
+
+$organizationNr = $_SESSION['organizationNr'];
+
+?>
 
 
 <!DOCTYPE html>
@@ -36,7 +45,19 @@
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
 			<div class="col-md-12 text-center" id="reg_pt2_head">
-				<h1>Organisasjonsnavn</h1>
+				<?php
+
+				$sql = "SELECT * FROM Organization WHERE organizationNr = $organizationNr";
+				$result = mysqli_query($connection, $sql);
+
+				if($result){
+					if(mysqli_num_rows($result) == 1){
+						$row = mysqli_fetch_assoc($result);
+						echo "<h1>" . $row['name'] . "</h1>";
+					}
+				}
+				?>
+
 			</div>
 			<div class="row">
 				<div class="col-md-2"></div>
@@ -50,40 +71,106 @@
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
-						<input type="text" class="form-control" name="address" id="reg_pt2_input" placeholder="Adresse"/>
-						<input type="tel" class="form-control" name="phone" id="reg_pt2_input" placeholder="Telefonnummer"/>
-						<input type="email" class="form-control" name="email" id="reg_pt2_input" placeholder="Email"/>
-						<input type="tel" class="form-control" name="zipcode" id="reg_pt2_input" placeholder="Postnummer"/>
-						<input type="text" class="form-control" name="website" id="reg_pt2_input" placeholder="Nettside"/>
-						<input type="tel" class="form-control" name="accountnumber" id="reg_pt2_input" placeholder="Kontonummer"/>
-						<textarea class="form-control" id="aboutOrg" rows="5" name="description" id="aboutOrg" placeholder="Om organisasjonen" ></textarea>
-						<div class="regOrgDropdown">
-							<select class="orgbtn1">
-								<option value="NULL">Velg kategori</option>
-								<option>Humanitært</option>
-								<option>Dyrevern</option>
-								<option>Forskning</option>
-								<option>Fundraising</option>
-							</select>
-						</div>
-						
-						<button  class="btn bluebtn" name="" >
-							Last opp bakgrunnsbilde
-							<input type="file" id="uploadBackground" name="file1" style="display:none;" />
-						</button>
-						
-						
-						<button  class="btn bluebtn" name="">
-							Last opp logo
-							<input type="file" id="uploadLogo" name="file1" style="display:none;" />
-						</button>
-						
 
-						
-						<button  class="btn btn-success" name="complete_registration">
-							Fullfør (2/2)
-						</button>
-						
+
+						<?php
+
+						$sql = "SELECT * FROM Organization WHERE organizationNr = $organizationNr";
+						$result = mysqli_query($connection, $sql);
+
+						if($result){
+							if(mysqli_num_rows($result) == 1){
+								$row = mysqli_fetch_assoc($result);
+
+
+
+								$category = $row['category'];
+								$phone = $row['phone'];
+								$address = $row['address'];
+								$zipcode = $row['zipcode'];
+								$logoURL = $row['logoURL'];
+								$backgroundimgURL = $row['backgroundimgURL'];
+								$website = $row['website'];
+								$accountnumber = $row['accountnumber'];
+								$email = $row['email'];
+								$about = $row['about'];
+
+								
+
+								if($address == NULL || $address == ""){
+									echo '<input type="text" class="form-control" name="address" id="reg_pt2_input" placeholder="Adresse"/>';
+								}
+								if($phone == NULL || $phone == "" ){
+									echo '<input type="tel" class="form-control" name="phone" id="reg_pt2_input" placeholder="Telefonnummer"/>';
+								}
+								if($email == NULL || $email == ""){
+									echo '<input type="email" class="form-control" name="email" id="reg_pt2_input" placeholder="Email"/>';
+								}
+								if($zipcode == NULL || $zipcode == ""){
+									echo '<input type="tel" class="form-control" name="zipcode" id="reg_pt2_input" placeholder="Postnummer"/>';
+								}
+								if($website == NULL || $website == ""){
+									echo '<input type="text" class="form-control" name="website" id="reg_pt2_input" placeholder="Nettside"/>';
+								}
+								if(strlen($accountnumber) != 11){
+									echo '<input type="tel" class="form-control" name="accountnumber" id="reg_pt2_input" placeholder="Kontonummer"/>';
+								}
+								if($category == NULL || $category == "NULL"){
+									echo '<div class="regOrgDropdown">
+									<select class="orgbtn1" name="category">
+									<option value="NULL">Velg kategori</option>
+									<option value="Humanitært" >Humanitært</option>
+									<option value="Dyrevern" >Dyrevern</option>
+									<option value="Forskning" >Forskning</option>
+									<option value="Fundraising" >Fundraising</option>
+									</select>
+									</div>';
+								}
+								if($about == NULL || $about == ""){
+									echo '<textarea class="form-control" id="aboutOrg" rows="5" name="about" id="aboutOrg" placeholder="Om organisasjonen" ></textarea>';
+								}
+
+								if($backgroundimgURL == NULL || $backgroundimgURL == ""){
+									echo '<button  class="btn bluebtn" name="" >
+									Last opp bakgrunnsbilde
+									<input type="file" id="uploadBackground" name="file1" style="display:none;" />
+									</button>';
+								}
+								if($logoURL == NULL || $logoURL == ""){
+									echo '<button  class="btn bluebtn" name="">
+									Last opp logo
+									<input type="file" id="uploadLogo" name="file1" style="display:none;" />
+									</button>';
+								}
+
+
+
+								if($category != NULL && $phone != NULL && $address != NULL && $zipcode != NULL
+									&& $logoURL != NULL && $backgroundimgURL != NULL && $website != NULL 
+									&& $accountnumber != NULL && $email != NULL && $about != NULL &&
+
+									$category != "" && $phone != "" && $address != "" && $zipcode != "" 
+									&& $logoURL != "" && $backgroundimgURL != "" && $website != "" 
+									&& $accountnumber != "" && $email != "" && $about != ""
+
+									){
+									header("Location: home.php");
+
+							}else{
+								echo '<button  class="btn btn-success" name="complete_registration">
+								Fullfør (2/2)
+								</button>';
+							}
+
+
+
+
+						}
+					}
+
+
+					?>
+
 						<!--
 						<button  class="btn bluebtn" name="complete_registration">
 							Hopp over
@@ -105,7 +192,7 @@
 
 			<div class="col-md-12" id="somespace"></div>
 			<div class="col-md-12 text-right" id="skipContainer">
-				<a href="#">Hopp over</a>
+				<a href="home.php">Hopp over</a>
 			</div>
 
 
@@ -120,7 +207,7 @@
 			<script src="js/scrolling-nav.js"></script>
 
 			<!--Sript for insert organization to database through AJAX request-->
-			<script src="insertOrganization.js"></script>
+			<script src="updateOrganization.js"></script>
 
 
 		</body>

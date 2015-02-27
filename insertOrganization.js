@@ -30,8 +30,17 @@ $('#completeReg').click(function(){
 		url: "insertOrganization.php",
 		data: {'organization': organizationJSON},
 		success: function(response){
-			alert(response);
-			
+			if(response == "OK"){
+				clearInputs();
+				$('input[name=organizationNr]').val(organizationNr);
+				$('input[name=password]').focus();
+				$("#goToLogin").trigger("click");
+
+				
+
+			}else{
+				alert(response);
+			}
 		},
 		error: function(response){
 			console.log(response.message); //skriver feilmelding i consol i nettleser
@@ -39,4 +48,9 @@ $('#completeReg').click(function(){
 	});
 	return false;
 });
-
+function clearInputs(){
+	$('input[name=reg_name]').val("");
+	$('input[name=reg_organizationNr]').val("");
+	$('input[name=reg_password]').val("");
+	$('input[name=reg_password2]').val("");
+}
