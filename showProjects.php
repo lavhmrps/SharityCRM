@@ -33,71 +33,77 @@ $organizationNr = $_SESSION['organizationNr'];
 	include 'header_nav.php';
 	?>
 	<div class="row">
-	<div class="col-md-3" id="projectmenu">
+		<div class="scroller_anchorproject"></div>
+		<div class="col-md-3 scrollerproject" id="projectmenu">
+
+			<form method="post" action="registerProject.php">
+				<input type="Submit" value="Registrer prosjekt" class="" name="" id="projectmenubtntop"/>
+			</form>
+
+			<input type="Submit" value="Something" class="" name="" id="projectmenubtn"/>
+			<input type="Submit" value="Something else" class="" name="" id="projectmenubtn"/>
+			<input type="Submit" value="Anything" class="" name="" id="projectmenubtn"/>
+			<input type="Submit" value="Anything really" class="" name="" id="projectmenubtnbottom"/>
+
+
+		</div>
+
+
+
 		
-		<form method="post" action="registerProject.php">
-			<input type="Submit" value="Registrer prosjekt" class="" name="" id="projectmenubtntop">
-		</form>
-
-		<input type="Submit" value="Something" class="" name="" id="projectmenubtn">
-		<input type="Submit" value="Something else" class="" name="" id="projectmenubtn">
-		<input type="Submit" value="Anything" class="" name="" id="projectmenubtn">
-		<input type="Submit" value="Anything really" class="" name="" id="projectmenubtnbottom">
-
-
-	</div>
-
-
-
 		
-		
-			
 
 
 
-			<?php
 
-			$sql = "SELECT name, title,about FROM Project WHERE organizationNr = $organizationNr";
-			$result = mysqli_query($connection, $sql);
+		<?php
+
+		$sql = "SELECT name, title,about FROM Project WHERE organizationNr = $organizationNr";
+		$result = mysqli_query($connection, $sql);
 
 
 
-			if (mysqli_num_rows($result) >= 1) {
-				while ($row = mysqli_fetch_assoc($result)) {
-					echo '<div class="col-md-3" id="projectcontainer">';
-					echo '<div class="col-md-12" id="projectcontent">';
-					echo "<h2>" . $row['name'] . "</h2>"; 
-					echo "<h3>" . $row['title'] . "</h3>";
-					echo "<p>" . $row['about'] . "</p><br/>";
-					echo "<div class='col-md-12' id='bottom'>";
-					echo '<a href="">Vis</a> - ';
-					echo '<a href="">Endre</a> - ';
-					echo '<a href="">Slett</a>';
-					echo '</div>';
-					echo '</div>';
-					echo '</div>';
-
-				}
+		if (mysqli_num_rows($result) >= 1) {
+			while ($row = mysqli_fetch_assoc($result)) {
+				echo '<div class="col-md-3" id="projectcontainer">';
+				echo '<div class="col-md-12" id="projectcontent">';
+				echo "<h2>" . $row['name'] . "</h2>"; 
+				echo "<h3>" . $row['title'] . "</h3>";
+				echo "<p>" . $row['about'] . "</p><br/>";
+				echo '</div>';
+				echo "<div class='col-md-12' id='bottom'>";
+				echo '<a href="">Vis</a> - ';
+				echo '<a href="">Endre</a> - ';
+				echo '<a href="">Slett</a>';
+				
+				echo '</div>';
+				echo '</div>';
 
 			}
-			?>
-		</div>
+
+		}
+		?>
 	</div>
+</div>
 
 
 
 
 
-	<!-- jQuery -->
-	<script src="js/jquery.js"></script>
-	<script src="js/stickyheader.js"></script>
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+<script src="js/stickyheader.js"></script>
+<script src="js/stickyproject.js"></script>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
 
-	<!-- Scrolling Nav JavaScript -->
-	<script src="js/jquery.easing.min.js"></script>
-	<script src="js/scrolling-nav.js"></script>
+<!-- Scrolling Nav JavaScript -->
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/scrolling-nav.js"></script>
+
+<!-- -->
+
 
 </body>
 </html>

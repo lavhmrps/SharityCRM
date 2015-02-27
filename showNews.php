@@ -32,17 +32,23 @@ $organizationNr = $_SESSION['organizationNr'];
 	<?php
 		include 'header_nav.php';
 	?>
-		<div class="container">
-			<div class="col-md-5"></div>
-			<div class="col-md-2">
-				<form method="post" action="registerNews.php">
-					<input type="Submit" value="Registrer nyhet" class="btn bluebtn" name="" id="">
-				</form>
-			</div>
-			<div class="col-md-5"></div>
-		</div>
-		<div class="container">
+		
 
+
+		<div class="row">
+		<div class="scroller_anchorproject"></div>
+		<div class="col-md-3 scrollerproject" id="projectmenu">
+			
+			
+			<form method="post" action="registerNews.php">
+			<input type="Submit" value="Registrer nyhet" class="" name="" id="projectmenubtntop">
+			</form>
+			<input type="Submit" value="Something else" class="" name="" id="projectmenubtn"/>
+			<input type="Submit" value="Anything" class="" name="" id="projectmenubtn"/>
+			<input type="Submit" value="Anything really" class="" name="" id="projectmenubtnbottom"/>
+
+
+		</div>
 			<?php
 
 			$sql = "SELECT News.title, News.txt FROM News INNER JOIN Project ON News.projectID = Project.projectID WHERE Project.organizationNr = $organizationNr";
@@ -55,10 +61,15 @@ $organizationNr = $_SESSION['organizationNr'];
 				
 				while ($row = mysqli_fetch_assoc($result)) {
 					echo '<div class="col-md-3" id="projectcontainer">';
+					echo '<div class="col-md-12" id="projectcontent">';
 					echo "<h3>" . $row['title'] . "</h3>";
 					echo "<p>" . $row['txt'] . "</p>";
+					echo '</div>';
+					echo "<div class='col-md-12' id='bottom'>";
+					echo '<a href="">Vis</a> - ';
 					echo '<a href="">Endre</a>';
 					echo '<a href="">Slett</a>';
+					echo '</div>';
 					echo '</div>';
 
 				}

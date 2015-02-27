@@ -797,8 +797,10 @@ select, option{
 	background-color: transparent;
 	height:100%;
 	width:225px;
+	float:right;
 
 }
+
 
 
 #projectmenubtn{
@@ -833,13 +835,13 @@ select, option{
 	font-size: 18px;
 	border:none;
 	border-bottom: 1px solid #777;
-	border-radius: 0px 20px 0px 0px;
+	border-radius: 20px 0px 0px 0px;
 }
 
 #projectmenubtntop:hover{
 	color: #fff;
 	background-color: #222;
-	border-radius: 0px 20px 0px 0px;
+	border-radius:20px 0px 0px 0px;
 }
 
 #projectmenubtntop:focus{
@@ -855,14 +857,14 @@ select, option{
 	color:white;
 	font-size: 18px;
 	border:none;
-	border-radius: 0 0 20px 0;
+	border-radius: 0 0 0px 20px;
 }
 
 #projectmenubtnbottom:hover{
 	color: #fff;
 	background-color: #222;
 	border-radius: 0;
-	border-radius: 0 0 20px 0;
+	border-radius: 0 0 0 20px;
 }
 
 #projectmenubtnbottom:focus{
@@ -887,7 +889,6 @@ select, option{
 	margin-left: 25px;
 	width:300px;
 	height:250px;
-
 }
 
 #projectcontainer h1{
@@ -909,5 +910,6 @@ select, option{
 	bottom:0;
 	position:absolute;
 	text-align: center;
-	margin-left:-20px;
+	margin-left:-15px;
 }
+
