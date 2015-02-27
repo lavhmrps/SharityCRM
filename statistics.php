@@ -48,42 +48,47 @@ include 'connect.php';
 
 		</div>
 
+		<div class="col-md-1"></div>
+		<div class="col-md-8">
+			<?php
 
-		<div class="col-md-9">
-		<?php
-		
-		$organizationNr = $_SESSION['organizationNr'];
-		
-		if (isset($_POST['showStatistics'])) {
-			
-			$sql = "SELECT Donation.*, Project.name FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE Project.organizationNr = $organizationNr";
-			$result = mysqli_query($connection, $sql);
+			$organizationNr = $_SESSION['organizationNr'];
 
-			if ($result) {
-				echo "Antall donasjoner: " . mysqli_num_rows($result) . "</br>";
-				while ($row = mysqli_fetch_assoc($result)) {
+			if (isset($_POST['showStatistics'])) {
 
-					echo "Donert til prosjektID: " . $row['projectID'];
-					echo "<br/>Sum donert: " . $row['sum'] . " kr";
-					echo "<br/>Prosjektnavn: " . $row['name'];
-					echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
+				$sql = "SELECT Donation.*, Project.name FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE Project.organizationNr = $organizationNr";
+				$result = mysqli_query($connection, $sql);
+
+				if ($result) {
+					echo "Antall donasjoner: " . mysqli_num_rows($result) . "</br>";
+					while ($row = mysqli_fetch_assoc($result)) {
+
+						echo "Donert til prosjektID: " . $row['projectID'];
+						echo "<br/>Sum donert: " . $row['sum'] . " kr";
+						echo "<br/>Prosjektnavn: " . $row['name'];
+						echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
+					}
+				} else {
+					echo "<h2>Failure</h2>";
 				}
-			} else {
-				echo "<h2>Failure</h2>";
 			}
-		}
-		
-		
 
-		?>
 
-		<form method="post">
-			<input type="submit" value="Vis statistikk" name="showStatistics"/>
 
-		</form>
+			?>
+
+			<form method="post">
+				<input type="submit" value="Vis statistikk" name="showStatistics"/>
+
+			</form>
 		</div>
-</div>
+	</div>
 
-	</body>
-	</html>
+	<!-- jQuery -->
+	<script src="js/jquery.js"></script>
+	<script src="js/stickyheader.js"></script>
+
+	
+</body>
+</html>
 

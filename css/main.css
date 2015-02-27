@@ -915,3 +915,29 @@ select, option{
 	margin-left:-15px;
 }
 
+#homebox{
+	background:#333;
+	border:1px solid #222;
+	color:#fff;
+	height:80%;
+	margin:20px;
+	margin-top:20px;
+	border-radius: 4px;
+}
+
+#homebox h2, #homebox h3{
+	text-align: center;
+
+}
+
+#orgLogo{
+	width:50px;
+	height:50px;
+}
+#orgBackground{
+	width:100%;
+	height:200px;
+}
+
+
+

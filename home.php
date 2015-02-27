@@ -36,8 +36,8 @@ include 'connect.php';
 		<?php
 		include 'header_nav.php';
 		?>
-		<div class="col-md-2"></div>
-		<div class="col-md-8">
+		
+		<div class="col-md-3" id="homebox">
 
 			<?php
 			$organizationNr = $_SESSION['organizationNr'];
@@ -47,13 +47,14 @@ include 'connect.php';
 			if ($result) {
 				if (mysqli_num_rows($result) == 1) {
 					$row = mysqli_fetch_assoc($result);
-					echo "<h2> Home of " . $row['name'] . "</h2>";
-					echo "<img src='" . $row['backgroundimgURL'] . " '/>";
-					echo "<img src='" . $row['logoURL'] . "'/>";
+					
+					echo "<h2>" . $row['name'] . "</h2>";
+					echo "<img src='" . $row['logoURL'] . "' id='orgLogo'/>";
+					echo "<img src='" . $row['backgroundimgURL'] . " ' id='orgBackground'/>";
+					
 					echo '
 					<br/>
 					<p>Organisasjonsnummer: ' . $row["organizationNr"] . '</p>
-					<p>Navn: ' . $row["name"] . '</p>
 					<p>Om: ' . $row["about"] . '</p>
 					<p>Kategori: ' . $row["category"]. '</p>
 					<p>Telefon: ' . $row["phone"]. '</p>
@@ -70,8 +71,10 @@ include 'connect.php';
 
 
 				}
-			}
-			
+			} ?>
+			</div>
+			<div class="col-md-6" id="homebox">
+			<?php
 			$sql = "SELECT Donation.*, Project.name FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE Project.organizationNr = $organizationNr";
 			$result = mysqli_query($connection, $sql);
 
@@ -98,15 +101,13 @@ include 'connect.php';
 			
 			
 			?>
+			</div>
+			
 
 			
 
-			<div class="content">
-
-			</div>
-
 		</div>
-		<div class="col-md-2"></div>
+		<div class="col-md-3"></div>
 
 		<!-- jQuery -->
 		<script src="js/jquery.js"></script>
