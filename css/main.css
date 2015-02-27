@@ -102,14 +102,16 @@ body{
 }
 
 #projectcontainer{
-	background: #DDD;
+	background: #555;
 	border:1px solid #000;
 	border-radius: 10px;
-	padding:20px;
+	padding:10px;
 	padding-top:0;
-	margin:10px;
-	width:22.5%;
+	margin:25px;
+	width:17.5%;
 	height: 200px;
+	color: #fff;
+	margin-top: 20px;
 }
 
 #projectcontainer h1{
@@ -786,4 +788,86 @@ select, option{
 #buttondiv{
 	padding-left:5px;
 	padding-right: 0px;
+}
+
+#projectmenu{
+	padding:0;
+	margin-top: 20px;
+	background-color: transparent;
+	height:100%;
+	width:15%;
+
+}
+
+
+#projectmenubtn{
+	background-color: #333;
+	padding:26px;
+	margin-right: -100px;
+	margin-left: 0;
+	width:100%;
+	color:white;
+	font-size: 18px;
+	border:none;
+	border-bottom: 1px solid #777;
+}
+
+#projectmenubtn:hover{
+	color: #fff;
+	background-color: #000;
+	border-radius: 0;
+}
+
+#projectmenubtn:focus{
+	outline:0;
+}
+
+#projectmenubtntop{
+	background-color: #333;
+	padding:26px;
+	margin-right: -100px;
+	margin-left: 0;
+	width:100%;
+	color:white;
+	font-size: 18px;
+	border:none;
+	border-bottom: 1px solid #777;
+	border-radius: 0px 20px 0px 0px;
+}
+
+#projectmenubtntop:hover{
+	color: #fff;
+	background-color: #000;
+	border-radius: 0px 20px 0px 0px;
+}
+
+#projectmenubtntop:focus{
+	outline:0;
+}
+
+#projectmenubtnbottom{
+	background-color: #333;
+	padding:26px;
+	margin-right: -100px;
+	margin-left: 0;
+	width:100%;
+	color:white;
+	font-size: 18px;
+	border:none;
+	border-radius: 0 0 20px 0;
+}
+
+#projectmenubtnbottom:hover{
+	color: #fff;
+	background-color: #000;
+	border-radius: 0;
+	border-radius: 0 0 20px 0;
+}
+
+#projectmenubtnbottom:focus{
+	outline:0;
+}
+
+#projects{
+	margin-left: -50px;
 }

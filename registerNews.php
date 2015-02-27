@@ -48,7 +48,7 @@ if(isset($_POST['registerNews'])){
 	?>
 
 	<div class="container" id="phonecontainer">
-
+	<div class="col-md-3"></div>
 		<div class="col-md-5" id="phone">
 			<div id="phonemargin">
 				<form method="post" enctype="multipart/form-data">
@@ -125,7 +125,7 @@ if(isset($_POST['registerNews'])){
 				</div>
 				<!-- End of #phone-->
 			</div>
-			<div class="col-md-7">
+			<div class="col-md-4">
 
 				
 				
