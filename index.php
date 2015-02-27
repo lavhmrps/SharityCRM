@@ -154,52 +154,44 @@ include 'connect.php';
 								<div class="row">
 									<div class="col-md-3"></div>
 
-									<div class="col-md-7" id="inputforms">
+									<div class="col-md-6" id="inputforms">
 										
 										<div class="form-group">
-											<div class="col-md-11">
+											<div class="col-md-12">
 												<input type="tel" class="form-control" name="reg_organizationNr" id="orgIDs" placeholder="Orgnr"/>
 											</div>
-											<div class="col-md-1">
-												<span class="glyphicon glyphicon-ok-sign"></span>
-											</div>
+											
 										</div>
 										<div class="form-group">
-											<div class="col-md-11">
+											<div class="col-md-12">
 												<input type="text" class="form-control" name="reg_name" id="orgNames" placeholder="Orgnavn"/>
 											</div>
-											<div class="col-md-1">
-												<span class="glyphicon glyphicon-ok-sign"></span>
-											</div>
+											
 										</div>
 										<div class="form-group">
-											<div class="col-md-11">
+											<div class="col-md-12">
 												<input type="password" class="form-control" name="reg_password" id="newPasswds" placeholder="Passord"/>
 											</div>
-											<div class="col-md-1">
-												<span class="glyphicon glyphicon-ok-sign"></span>
-											</div>
+											
 										</div>
 										<div class="form-group">
-											<div class="col-md-11">
+											<div class="col-md-12">
 												<input type="password" class="form-control" name="reg_password2" id="rptPasswds" placeholder="Gjenta passord"/>
 											</div>
-											<div class="col-md-1">
-												<span class="glyphicon glyphicon-ok-sign"></span>
-											</div>
+											
 										</div>
 
 										<div class="form-group">
-											<div class="col-md-11">
+											<div class="col-md-12">
 												<button  class="btn btn-success" name="complete_registration" id="completeReg">
 													Fullfør (1/2)
 												</button>
 											</div>
-											<div class="col-md-1"></div>
+											
 										</div>
 									</div>
 
-									<div class="col-md-2"></div>
+									<div class="col-md-3"></div>
 								</div>
 
 							</form>

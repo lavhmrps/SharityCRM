@@ -101,22 +101,7 @@ body{
 	font-size: 24px;
 }
 
-#projectcontainer{
-	background: #555;
-	border:1px solid #000;
-	border-radius: 10px;
-	padding:10px;
-	padding-top:0;
-	margin:25px;
-	width:17.5%;
-	height: 200px;
-	color: #fff;
-	margin-top: 20px;
-}
 
-#projectcontainer h1{
-	color:black;
-}
 
 #inproject{
 	border:1px solid black;	
@@ -361,10 +346,7 @@ span.glyphicon-ok-sign, span.glyphicon-remove-sign {
 
 /******************** INPUTS ********************/
 
-#inputlabel{
-	color: #FFFFFF;
-	font-size: 24px;
-}
+
 
 #uname, #passwd{
 	background-color: transparent;
@@ -443,6 +425,7 @@ input[id="uname"]:-webkit-autofill, input[id="passwd"]:-webkit-autofill {
 	opacity: 0.5;
 }
 
+/*registerProject*/
 #inCountry{
 	width:140px;
 	border:none;
@@ -520,7 +503,9 @@ input[id=inCountry]:-ms-input-placeholder, input[id="inCity"]:-ms-input-placehol
 input[id=inCountry]::-webkit-input-placeholder, input[id="inCity"]::-webkit-input-placeholder{
 	text-decoration: underline;
 }
+/*End of registerProject*/
 
+/*textarea*/
 #aboutProj{
 	border:none;
 	box-shadow: none;
@@ -553,7 +538,7 @@ input[id=aboutProj]:focus{
 #aboutProj::-webkit-input-placeholder{
 	text-decoration: underline;
 }
-
+/*End of textarea*/
 
 input[id="orgIDs"],input[id="orgNames"],input[id="newPasswds"],input[id="rptPasswds"]{
 	margin-top: 5px;
@@ -636,7 +621,7 @@ input[id="orgIDs"],input[id="orgNames"],input[id="newPasswds"],input[id="rptPass
 	color: #777;
 }
 
-
+/* btns registration_pt2 */
 .orgbtn{
 	background-color: transparent;
 	color: #777;
@@ -655,7 +640,7 @@ input[id="orgIDs"],input[id="orgNames"],input[id="newPasswds"],input[id="rptPass
 	border: 1px solid #CCC;
 	font-size:14px;
 }
-/* Dropdown registration_pt2.php*/
+
 .orgbtn1{
 	background-color: #FFFFFF;
 	border:1px solid #CCC;
@@ -697,7 +682,7 @@ input[id="orgIDs"],input[id="orgNames"],input[id="newPasswds"],input[id="rptPass
 	color: #FFFFFF;
 }
 
-
+/*** End of btns registration_pt2 ***/
 
 
 #uploadPhoto{
@@ -707,6 +692,7 @@ input[id="orgIDs"],input[id="orgNames"],input[id="newPasswds"],input[id="rptPass
 #completeReg{
 	width:100%;
 	margin-top: 5px;
+	margin-left: 0px;
 }
 
 #linkbutton{
@@ -750,6 +736,9 @@ a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
 	width:30%;
 }
 
+
+/*** logoutbtn ***/ 
+
 #logoutbtn{
 	background-color: transparent;
 	color: #777;
@@ -763,7 +752,8 @@ a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
 	color: #000;
 }
 
-/******************** NYTT ********************/
+/*** End of logoutbtn ***/ 
+
 
 select, option{
 	background-color: #006dfe;
@@ -790,12 +780,23 @@ select, option{
 	padding-right: 0px;
 }
 
+
+
+
+
+
+
+/******************** NYTT ********************/
+
+
+/*projectmenu*/ 
 #projectmenu{
 	padding:0;
+	margin:0;
 	margin-top: 20px;
 	background-color: transparent;
 	height:100%;
-	width:15%;
+	width:225px;
 
 }
 
@@ -814,7 +815,7 @@ select, option{
 
 #projectmenubtn:hover{
 	color: #fff;
-	background-color: #000;
+	background-color: #222;
 	border-radius: 0;
 }
 
@@ -828,7 +829,7 @@ select, option{
 	margin-right: -100px;
 	margin-left: 0;
 	width:100%;
-	color:white;
+	color:#fff;
 	font-size: 18px;
 	border:none;
 	border-bottom: 1px solid #777;
@@ -837,7 +838,7 @@ select, option{
 
 #projectmenubtntop:hover{
 	color: #fff;
-	background-color: #000;
+	background-color: #222;
 	border-radius: 0px 20px 0px 0px;
 }
 
@@ -859,7 +860,7 @@ select, option{
 
 #projectmenubtnbottom:hover{
 	color: #fff;
-	background-color: #000;
+	background-color: #222;
 	border-radius: 0;
 	border-radius: 0 0 20px 0;
 }
@@ -868,6 +869,45 @@ select, option{
 	outline:0;
 }
 
-#projects{
-	margin-left: -50px;
+
+
+
+
+
+/*project squares*/
+
+
+#projectcontainer{
+	background-color: #333 ;
+	border:1px solid #000;
+	border-radius: 0px;
+	color: #FFF;
+	margin:5px;
+	margin-top:20px;
+	margin-left: 25px;
+	width:300px;
+	height:250px;
+
+}
+
+#projectcontainer h1{
+	color:black;
+}
+#projectcontainer a{
+	color: #fff;
+}
+#projectcontent{
+	overflow:hidden;
+	height: 245px;
+	margin-bottom: 1000px;
+}
+
+#bottom{
+	background-color: #333;
+	border-top:1px solid #777;
+	font-size: 18px;
+	bottom:0;
+	position:absolute;
+	text-align: center;
+	margin-left:-20px;
 }
