@@ -38,9 +38,8 @@ body{
 	margin: 0;
 	height:100px;
 	padding:20px;
-	border-bottom: 5px solid #a5be43;
 	border-radius: 0;
-
+	background-color: #333;
 }
 #topheader h2{
 	color:white;
@@ -203,6 +202,19 @@ body{
 #somespace{
 	height:40px;
 }
+
+#logoutContainer{
+	
+}
+
+#navbarContainer{
+	border-bottom: 1px solid #000;
+}
+
+
+
+
+
 /******************** DIFFERENT MEDIAS ********************/
 @media screen and (max-width: 1200px) {
 	#page_organisation{
@@ -736,7 +748,18 @@ a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
 	width:30%;
 }
 
+#logoutbtn{
+	background-color: transparent;
+	color: #777;
+	width:100%;
+	padding: 1px 6px;
+	margin-top:15px;
+	border:none;
+}
 
+#logoutbtn:hover{
+	color: #000;
+}
 
 /******************** NYTT ********************/
 

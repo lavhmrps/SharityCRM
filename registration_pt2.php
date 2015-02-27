@@ -67,7 +67,7 @@
 							</select>
 						</div>
 						
-						<button  class="btn bluebtn" name="" >
+						<button  class="btn bluebtn" name="">
 							Last opp bakgrunnsbilde
 							<input type="file" id="uploadBackground" name="file1" style="display:none;" />
 						</button>
