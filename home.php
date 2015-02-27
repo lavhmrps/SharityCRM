@@ -47,27 +47,39 @@ include 'connect.php';
 			if ($result) {
 				if (mysqli_num_rows($result) == 1) {
 					$row = mysqli_fetch_assoc($result);
-					echo '<div class="col-md-8">';
+					echo '<div class="row">';
+					echo '<div class="col-md-9">';
 					echo "<h2>" . $row['name'] . "</h2>";
 					echo '</div>';
-					echo '<div class="col-md-4">';
+					echo '<div class="col-md-3">';
 					echo "<img src='" . $row['logoURL'] . "' id='orgLogo'/>";
+					echo '</div>';
 					echo '</div>';
 					echo "<img src='" . $row['backgroundimgURL'] . " ' id='orgBackground'/>";
 					
-					echo '
-					<br/>
-					<p>Organisasjonsnummer: ' . $row["organizationNr"] . '</p>
-					<p>Om: ' . $row["about"] . '</p>
-					<p>Kategori: ' . $row["category"]. '</p>
-					<p>Telefon: ' . $row["phone"]. '</p>
-					<p>Adresse: ' . $row["address"] . '</p>
-					<p>Postnummer: ' . $row["zipcode"]. '</p>
-					<p>Epost: ' . $row["email"]. '</p>
-					<p>Nettside: ' . $row["website"]. '</p>
-					<p>Kontonummer: ' . $row["accountnumber"] . '</p>
+					echo '<div class="row">';
+						echo '<div class="col-md-6">';
+							echo '<p>Organisasjonsnummer: ' . $row["organizationNr"] . '</p>
+							<p>Nettside: ' . $row["website"]. '</p>
+							<p>Telefon: ' . $row["phone"]. '</p>
+							<p>Epost: ' . $row["email"]. '</p>';
+						echo '</div>';
+					
+						echo '<div class="col-md-6">';
+					
+							echo '<p>Kategori: ' . $row["category"]. '</p>
+					
+							<p>Adresse: ' . $row["address"] . '</p>
+							<p>Postnummer: ' . $row["zipcode"]. '</p>
+					
+					
+							<p>Kontonummer: ' . $row["accountnumber"] . '</p>';
 
-
+							echo "</div>";
+						echo "</div>";
+					echo '<div class="col-md-12">';
+					echo '<p>Om: ' . $row["about"] . '</p>';
+					echo '</div>
 
 					';
 
@@ -83,8 +95,9 @@ include 'connect.php';
 
 			if ($result) {
 			
-				echo "Antall donasjoner: " . mysqli_num_rows($result) . "</br></br></br></br>";
-				
+				echo "Antall donasjoner: " . mysqli_num_rows($result) . "</br>";
+				echo "Antall unike givere?: </br></br></br></br>";
+				echo "";
 				$sum = 0;
 				
 				
@@ -110,7 +123,12 @@ include 'connect.php';
 			
 
 		</div>
-		<div class="col-md-3" id="homebox"></div>
+		<div class="col-md-3" id="homebox">
+			<h1><u>Denne mnd</u></h1>
+			<h3>Antall donasjoner:</h3>
+			<h3>Antall unike givere:</h3>
+			<h3>Totalt:</h3>
+		</div>
 
 		<!-- jQuery -->
 		<script src="js/jquery.js"></script>
