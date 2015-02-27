@@ -47,9 +47,12 @@ include 'connect.php';
 			if ($result) {
 				if (mysqli_num_rows($result) == 1) {
 					$row = mysqli_fetch_assoc($result);
-					
+					echo '<div class="col-md-8">';
 					echo "<h2>" . $row['name'] . "</h2>";
+					echo '</div>';
+					echo '<div class="col-md-4">';
 					echo "<img src='" . $row['logoURL'] . "' id='orgLogo'/>";
+					echo '</div>';
 					echo "<img src='" . $row['backgroundimgURL'] . " ' id='orgBackground'/>";
 					
 					echo '
@@ -73,7 +76,7 @@ include 'connect.php';
 				}
 			} ?>
 			</div>
-			<div class="col-md-6" id="homebox">
+			<div class="col-md-5" id="homebox">
 			<?php
 			$sql = "SELECT Donation.*, Project.name FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE Project.organizationNr = $organizationNr";
 			$result = mysqli_query($connection, $sql);
@@ -107,7 +110,7 @@ include 'connect.php';
 			
 
 		</div>
-		<div class="col-md-3"></div>
+		<div class="col-md-3" id="homebox"></div>
 
 		<!-- jQuery -->
 		<script src="js/jquery.js"></script>
