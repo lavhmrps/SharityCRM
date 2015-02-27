@@ -93,7 +93,6 @@ $organizationNr = $_SESSION['organizationNr'];
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
 <script src="js/stickyheader.js"></script>
-<script src="js/stickyproject.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>

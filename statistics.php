@@ -6,33 +6,50 @@ include 'connect.php';
 ?>
 
 <html>
-	<head>
-		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="">
-		<meta name="author" content="">
+<head>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-		<title>Sharity</title>
+	<title>Sharity</title>
 
-		<!-- Bootstrap Core CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet"/>
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet"/>
 
-		<!-- Custom CSS -->
-		<link href="css/scrolling-nav.css" rel="stylesheet"/>
-		<link rel="stylesheet" type="text/css" href="css/index.css" />
-		<link rel="stylesheet" type="text/css" href="css/list_project.css">
-		<link href="css/main.css" rel="stylesheet"/>
-		<link href="css/fonts.css" rel="stylesheet"/>
+	<!-- Custom CSS -->
+	<link href="css/scrolling-nav.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	<link rel="stylesheet" type="text/css" href="css/list_project.css">
+	<link href="css/main.css" rel="stylesheet"/>
+	<link href="css/fonts.css" rel="stylesheet"/>
 
-	</head>
-	<body>
-		<?php
-		include "header_nav.php";
-		?>
-		<h2>Statistikk</h2>
+</head>
+<body>
+	<?php
+	include "header_nav.php";
+	?>
 
+	<div class="row">
+		
+		<div class="col-md-3 " id="projectmenu">
+
+			<form method="post" action="#">
+				<input type="Submit" value="Statistikk?" class="" name="" id="projectmenubtntop"/>
+			</form>
+
+			<input type="Submit" value="Kronologisk" class="" name="" id="projectmenubtn"/>
+			<input type="Submit" value="Geografisk" class="" name="" id="projectmenubtn"/>
+			<input type="Submit" value="Demografisk" class="" name="" id="projectmenubtn"/>
+			<input type="Submit" value="Aristokratisk" class="" name="" id="projectmenubtnbottom"/>
+
+
+		</div>
+
+
+		<div class="col-md-9">
 		<?php
 		
 		$organizationNr = $_SESSION['organizationNr'];
@@ -64,6 +81,9 @@ include 'connect.php';
 			<input type="submit" value="Vis statistikk" name="showStatistics"/>
 
 		</form>
+		</div>
+</div>
+
 	</body>
-</html>
+	</html>
 

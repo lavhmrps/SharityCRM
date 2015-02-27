@@ -907,8 +907,8 @@ select, option{
 
 #bottom{
 	background-color: #333;
-	border-top:1px solid #777;
-	font-size: 18px;
+	/*border-top:1px solid #777;*/
+	font-size: 20px;
 	bottom:0;
 	position:absolute;
 	text-align: center;

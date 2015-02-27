@@ -32,7 +32,7 @@ $organizationNr = $_SESSION['organizationNr'];
 	<?php
 	include 'header_nav.php';
 	?>
-	
+
 
 
 	<div class="row">
@@ -54,11 +54,11 @@ $organizationNr = $_SESSION['organizationNr'];
 	$sql = "SELECT News.title, News.txt FROM News INNER JOIN Project ON News.projectID = Project.projectID WHERE Project.organizationNr = $organizationNr";
 			//$sql = "SELECT title, txt FROM News WHERE projectID = 1";
 	$result = mysqli_query($connection, $sql);
-	
-	
-	
+
+
+
 	if (mysqli_num_rows($result) >= 1) {
-		
+
 		while ($row = mysqli_fetch_assoc($result)) {
 			echo '<div class="col-md-3" id="projectcontainer">';
 			echo '<div class="col-md-12" id="projectcontent">';
@@ -67,7 +67,7 @@ $organizationNr = $_SESSION['organizationNr'];
 			echo '</div>';
 			echo "<div class='col-md-12' id='bottom'>";
 			echo '<a href="">Vis</a> - ';
-			echo '<a href="">Endre</a>';
+			echo '<a href="">Endre</a> - ';
 			echo '<a href="">Slett</a>';
 			echo '</div>';
 			echo '</div>';
