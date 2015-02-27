@@ -33,8 +33,8 @@ $organizationNr = $_SESSION['organizationNr'];
 	include 'header_nav.php';
 	?>
 	<div class="row">
-		<div class="scroller_anchorproject"></div>
-		<div class="col-md-3 scrollerproject" id="projectmenu">
+		
+		<div class="col-md-3 " id="projectmenu">
 
 			<form method="post" action="registerProject.php">
 				<input type="Submit" value="Registrer prosjekt" class="" name="" id="projectmenubtntop"/>
