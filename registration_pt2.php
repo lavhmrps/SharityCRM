@@ -101,15 +101,18 @@ $organizationNr = $_SESSION['organizationNr'];
 								if($address == NULL || $address == ""){
 									echo '<input type="text" class="form-control" name="address" id="reg_pt2_input" placeholder="Adresse"/>';
 								}
+
+								if($zipcode == NULL || $zipcode == ""){
+									echo '<input type="tel" class="form-control" name="zipcode" id="reg_pt2_input" placeholder="Postnummer"/>';
+								}
+
 								if($phone == NULL || $phone == "" ){
 									echo '<input type="tel" class="form-control" name="phone" id="reg_pt2_input" placeholder="Telefonnummer"/>';
 								}
 								if($email == NULL || $email == ""){
 									echo '<input type="email" class="form-control" name="email" id="reg_pt2_input" placeholder="Email"/>';
 								}
-								if($zipcode == NULL || $zipcode == ""){
-									echo '<input type="tel" class="form-control" name="zipcode" id="reg_pt2_input" placeholder="Postnummer"/>';
-								}
+								
 								if($website == NULL || $website == ""){
 									echo '<input type="text" class="form-control" name="website" id="reg_pt2_input" placeholder="Nettside"/>';
 								}
@@ -132,16 +135,29 @@ $organizationNr = $_SESSION['organizationNr'];
 								}
 
 								if($backgroundimgURL == NULL || $backgroundimgURL == ""){
-									echo '<button  class="btn bluebtn" name="" >
-									Last opp bakgrunnsbilde
-									<input type="file" id="uploadBackground" name="file1" style="display:none;" />
-									</button>';
+									echo '
+									<button  class="btn bluebtn" name="backgroundimgURLbutton" >
+										Last opp bakgrunnsbilde
+									</button>
+
+									<form enctype="multipart/form-data">
+										<input type="file" name="backgroundimgURL" style="display:none">
+									</form> 
+
+									';
+
 								}
 								if($logoURL == NULL || $logoURL == ""){
-									echo '<button  class="btn bluebtn" name="">
-									Last opp logo
-									<input type="file" id="uploadLogo" name="file1" style="display:none;" />
-									</button>';
+									echo '
+									<button  class="btn bluebtn" name="logoURLbutton">
+										Last opp logo
+									</button>
+
+									<form enctype="multipart/form-data">
+										<input type="file" name="logoURL" style="display:none">
+									</form> 
+
+									';
 								}
 
 
@@ -158,9 +174,15 @@ $organizationNr = $_SESSION['organizationNr'];
 									header("Location: home.php");
 
 							}else{
-								echo '<button  class="btn btn-success" name="complete_registration">
-								Fullfør (2/2)
-								</button>';
+								echo '
+								<button  class="btn btn-success" name="complete_registration">
+									Fullfør (2/2)
+								</button>
+
+								
+
+
+								';
 							}
 
 
@@ -209,6 +231,9 @@ $organizationNr = $_SESSION['organizationNr'];
 
 			<!--Sript for insert organization to database through AJAX request-->
 			<script src="updateOrganization.js"></script>
+			
+			<!--Sript for insert images to database through AJAX request-->
+			<script src="insertImg.js"></script>
 
 
 		</body>

@@ -11,7 +11,7 @@ $('#loginbutton').click(function(){
 
 	$.ajax({
 		type: "POST",
-		datatype: "JSON",
+		dataType: "text",
 		url: "checkLogin.php",
 		data: {'combination' : combinationJSON},
 		success: function(response){
@@ -49,7 +49,7 @@ $('input[name=login_admin]').click(function(){
 
 	$.ajax({
 		type: "POST",
-		datatype: "json",
+		dataType: "text",
 		url: "checkLogin.php",
 		data: {"adminCombination" : adminJSON},
 		success: function(response){

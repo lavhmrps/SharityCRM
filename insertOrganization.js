@@ -26,7 +26,7 @@ $('#completeReg').click(function(){
 
 	$.ajax({
 		type: "POST",
-		datatype: "JSON",
+		dataType: "text",
 		url: "insertOrganization.php",
 		data: {'organization': organizationJSON},
 		success: function(response){

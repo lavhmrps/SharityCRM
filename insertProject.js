@@ -26,7 +26,7 @@
 
  	$.ajax({
  		type: "POST",
- 		datatype: "json",
+ 		dataType: "text",
  		url: "insertProject.php",
  		data: {'project' : projectJSON},
  		success: function(response) {

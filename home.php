@@ -41,13 +41,34 @@ include 'connect.php';
 
 			<?php
 			$organizationNr = $_SESSION['organizationNr'];
-			$sql = "SELECT name FROM Organization WHERE organizationNr = $organizationNr";
+			$sql = "SELECT * FROM Organization WHERE organizationNr = $organizationNr";
 			$result = mysqli_query($connection, $sql);
 
 			if ($result) {
 				if (mysqli_num_rows($result) == 1) {
 					$row = mysqli_fetch_assoc($result);
 					echo "<h2> Home of " . $row['name'] . "</h2>";
+					echo "<img src='" . $row['backgroundimgURL'] . " '/>";
+					echo "<img src='" . $row['logoURL'] . "'/>";
+					echo '
+					<br/>
+					<p>Organisasjonsnummer: ' . $row["organizationNr"] . '</p>
+					<p>Navn: ' . $row["name"] . '</p>
+					<p>Om: ' . $row["about"] . '</p>
+					<p>Kategori: ' . $row["category"]. '</p>
+					<p>Telefon: ' . $row["phone"]. '</p>
+					<p>Adresse: ' . $row["address"] . '</p>
+					<p>Postnummer: ' . $row["zipcode"]. '</p>
+					<p>Epost: ' . $row["email"]. '</p>
+					<p>Nettside: ' . $row["website"]. '</p>
+					<p>Kontonummer: ' . $row["accountnumber"] . '</p>
+
+
+
+					';
+
+
+
 				}
 			}
 			

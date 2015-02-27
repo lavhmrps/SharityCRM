@@ -59,7 +59,7 @@
  	//if(status){
  		$.ajax({
  			type: "POST",
- 			datatype: "json",
+ 			dataType: "text",
  			url: "insertNews.php",
  			data: {'news' : newsJSON},
  			success: function (response) {
