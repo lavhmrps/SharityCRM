@@ -117,12 +117,7 @@
 <script src="js/bootstrap.min.js"></script>
 
 <!-- Upload img js -->
-<script type="text/JavaScript">
-	$("#uploadimg").click(function() {
-		$("#file1").trigger('click');
-	});
-
-</script>
+<script "js/autoUploadBackgroundimg.js"></script>
 
 <!--Sript for insert project to database through AJAX request-->
 <script src="insertProject.js"></script>

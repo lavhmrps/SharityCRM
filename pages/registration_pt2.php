@@ -147,6 +147,7 @@ $organizationNr = $_SESSION['organizationNr'];
 									';
 
 								}
+							
 								if($logoURL == NULL || $logoURL == ""){
 									echo '
 									<button  class="btn bluebtn" name="logoURLbutton">
