@@ -36,14 +36,7 @@ include 'connect.php';
     <?php
     include 'header_nav.php';
     ?>
-
-
-<<<<<<< Updated upstream
-=======
-
-
-
->>>>>>> Stashed changes
+    
     
     <div class="col-md-3" id="homebox">
 

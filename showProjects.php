@@ -52,7 +52,7 @@ $organizationNr = $_SESSION['organizationNr'];
 				echo "<p>" . $row['about'] . "</p><br/>";
 				echo '</div>';
 				echo "<div class='col-md-12' id='bottom'>";
-				echo '<a href="">Vis</a> - ';
+				echo '<a href="oneProject.php">Vis</a> - ';
 				echo '<a href="">Endre</a> - ';
 				echo '<a href="">Slett</a>';
 				

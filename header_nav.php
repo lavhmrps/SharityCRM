@@ -9,114 +9,28 @@ if(isset($_POST['logout'])){
 
 <style type="text/css">
 
-    #newsMenu{
+    #newsMenu, #statsMenu, #projectMenu, #organizationMenu{
         background-color: #333;
         height:0px;
         width: 100%;
         z-index: 100000;    
         overflow: hidden;
     }
-    #newsMenu ul{
-        margin-left: 37%;
+    #newsMenu ul, #statsMenu ul, #projectMenu ul, #organizationMenu ul{
+        margin-left: 36%;
         padding:12px;
     }
-    #newsMenu ul li{
-        margin-left:35px;
+    #newsMenu ul li, #statsMenu ul li, #projectMenu ul li, #organizationMenu ul li{
+        margin-left:50px;
     }
 
-    #newsMenu ul li a{
+    #newsMenu ul li a, #statsMenu ul li a, #projectMenu ul li a, #organizationMenu ul li a{
         color: #fff;
         padding:2px;
         font-size: 14px;
     }
 
-    #newsMenu ul li a:hover{
-        background-color: transparent;
-        color: #ccc;
-        text-decoration: none;
-    }
-
-
-
-    #statsMenu{
-        background-color: #333;
-        height:0px;
-        width: 100%;
-        z-index: 100000;    
-        overflow: hidden;
-    }
-
-    #statsMenu ul{
-        margin-left: 37%;
-        padding:12px;
-    }
-    #statsMenu ul li{
-        margin-left:35px;
-    }
-
-    #statsMenu ul li a{
-        color: #fff;
-        padding:2px;
-        font-size: 14px;
-    }
-
-    #statsMenu ul li a:hover{
-        background-color: transparent;
-        color: #ccc;
-        text-decoration: none;
-    }
-
-    #projectMenu{
-        background-color: #333;
-        height:0px;
-        width: 100%;
-        z-index: 100000;
-        overflow: hidden;
-    } 
-
-    #projectMenu ul{
-        margin-left: 37%;
-        padding:12px;
-    }
-    #projectMenu ul li{
-        margin-left:35px;
-    }
-
-    #projectMenu ul li a{
-        color: #fff;
-        padding:2px;
-        font-size: 14px;
-    }
-
-    #projectMenu ul li a:hover{
-        background-color: transparent;
-        color: #ccc;
-        text-decoration: none;
-    }
-
-    #organizationMenu{
-        background-color: #333;
-        height:0px;
-        width: 100%;
-        z-index: 100000;
-        overflow: hidden;
-    } 
-
-    #organizationMenu ul{
-        margin-left: 37%;
-        padding:12px;
-    }
-    #organizationMenu ul li{
-        margin-left:35px;
-    }
-
-    #organizationMenu ul li a{
-        color: #fff;
-        padding:2px;
-        font-size: 14px;
-    }
-
-    #organizationMenu ul li a:hover{
+    #newsMenu ul li a:hover, #organizationMenu ul li a:hover, #statsMenu ul li a:hover, #projectMenu ul li a:hover{
         background-color: transparent;
         color: #ccc;
         text-decoration: none;

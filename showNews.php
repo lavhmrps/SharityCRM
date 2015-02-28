@@ -57,7 +57,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					echo "<p>" . $row['txt'] . "</p>";
 					echo '</div>';
 					echo "<div class='col-md-12' id='bottom'>";
-					echo '<a href="">Vis</a> - ';
+					echo '<a href="oneNewscase.php">Vis</a> - ';
 					echo '<a href="">Endre</a> - ';
 					echo '<a href="">Slett</a>';
 					echo '</div>';
