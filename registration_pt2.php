@@ -193,11 +193,6 @@ $organizationNr = $_SESSION['organizationNr'];
 
 
 					?>
-
-						<!--
-						<button  class="btn bluebtn" name="complete_registration">
-							Hopp over
-						</button> -->
 						
 
 					</div>
@@ -215,7 +210,7 @@ $organizationNr = $_SESSION['organizationNr'];
 
 			<div class="col-md-12" id="somespace"></div>
 			<div class="col-md-12 text-right" id="skipContainer">
-				<a href="home.php">Hopp over</a>
+				<a style="cursor:pointer" onclick="skip()">Hopp over</a>
 			</div>
 
 
@@ -223,6 +218,12 @@ $organizationNr = $_SESSION['organizationNr'];
 
 			<!-- jQuery -->
 			<script src="js/jquery.js"></script>
+
+			<script type="text/javascript">
+				function skip(){
+					window.location.replace('home.php');
+				}
+			</script>
 
 			<!-- Bootstrap Core JavaScript -->
 			<script src="js/bootstrap.min.js"></script>
