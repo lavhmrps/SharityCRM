@@ -9,83 +9,32 @@ if(isset($_POST['logout'])){
 
 <style type="text/css">
 
-    #newsMenu{
-        background-color: #333;
-        height:0px;
-        width: 100%;
-        z-index: 100000;
-        overflow: hidden;
-    }
-
-    #newsMenu a{
-        color: #fff;
-        padding:2px;
-        font-size: 14px;
-    }
-
-    #newsMenu a:hover{
-        color: #ccc;
-        text-decoration: none;
-    }
-
-
-    #statsMenu{
+    #newsMenu, #statsMenu, #projectMenu, #organizationMenu{
         background-color: #333;
         height:0px;
         width: 100%;
         z-index: 100000;    
         overflow: hidden;
     }
+    #newsMenu ul, #statsMenu ul, #projectMenu ul, #organizationMenu ul{
+        margin-left: 36%;
+        padding:12px;
+    }
+    #newsMenu ul li, #statsMenu ul li, #projectMenu ul li, #organizationMenu ul li{
+        margin-left:50px;
+    }
 
-    #statsMenu a{
+    #newsMenu ul li a, #statsMenu ul li a, #projectMenu ul li a, #organizationMenu ul li a{
         color: #fff;
         padding:2px;
         font-size: 14px;
     }
 
-    #statsMenu a:hover{
+    #newsMenu ul li a:hover, #organizationMenu ul li a:hover, #statsMenu ul li a:hover, #projectMenu ul li a:hover{
+        background-color: transparent;
         color: #ccc;
         text-decoration: none;
     }
-
-    #projectMenu{
-        background-color: #333;
-        height:0px;
-        width: 100%;
-        z-index: 100000;
-        overflow: hidden;
-    } 
-
-    #projectMenu a{
-        color: #fff;
-        padding:2px;
-        font-size: 14px;
-    }
-
-    #projectMenu a:hover{
-        color: #ccc;
-        text-decoration: none;
-    }
-
-    #organizationMenu{
-        background-color: #333;
-        height:0px;
-        width: 100%;
-        z-index: 100000;
-        overflow: hidden;
-    } 
-
-    #organizationMenu a{
-        color: #fff;
-        padding:2px;
-        font-size: 14px;
-    }
-
-    #organizationMenu a:hover{
-        color: #ccc;
-        text-decoration: none;
-    }
-
 
 
 
@@ -117,7 +66,8 @@ if(isset($_POST['logout'])){
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="javascript:void(0)" id="menu_toggle">Menu</a>
+                <!--<a class="navbar-brand page-scroll" href="javascript:void(0)" id="menu_toggle"></a>
+            -->
             </div>
 
 
@@ -128,16 +78,16 @@ if(isset($_POST['logout'])){
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     
                     <li>
-                        <a class="page-scroll" name ="showProjectMenu" style="cursor:pointer;">Prosjekter</a>
+                        <a class="page-scroll" name ="showProjectMenu" id="scndmenu" style="cursor:pointer;">Prosjekter</a>
                     </li>
                     <li>
-                        <a class="page-scroll" name ="showNewsMenu" style="cursor:pointer;">News</a>
+                        <a class="page-scroll" name ="showNewsMenu" id="scndmenu" style="cursor:pointer;">News</a>
                     </li>
                     <li>
-                        <a class="page-scroll" name ="showStatsMenu" style="cursor:pointer;">Statistikk</a>
+                        <a class="page-scroll" name ="showStatsMenu" id="scndmenu" style="cursor:pointer;">Statistikk</a>
                     </li>
                     <li>
-                        <a class="page-scroll" name ="showOrganizationMenu" style="cursor:pointer;">My organization</a>
+                        <a class="page-scroll" name ="showOrganizationMenu" id="scndmenu" style="cursor:pointer;">Min organisasjon</a>
                     </li>
                 </ul>
 
@@ -164,10 +114,50 @@ if(isset($_POST['logout'])){
 
 <div class="menu_anchor"></div>
 <div id="menudropdown">
-    <div id="newsMenu" class="menus"><a href="showNews.php">News</a> - <a href="registerNews.php">Registrer news</a></div>
-    <div id="statsMenu" class="menus"><a href="statistics.php">Statistikk</a> </div>
-    <div id="projectMenu" class="menus"><a href="showProjects.php">Prosjekt</a></div>
-    <div id="organizationMenu" class="menus"><a href="home.php">Organization</a></div>
+    <div id="newsMenu" class="menus">
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="showNews.php">Vis alle</a>
+            </li>
+            <li>
+                <a href="registerNews.php">Registrer ny</a>
+            </li>
+        </ul> 
+    </div>
+    <div id="statsMenu" class="menus">
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="#">Månedvis</a>
+            </li>
+            <li>
+                <a href="#">År</a>
+            </li>
+            <li>
+                <a href="statistics.php">Totalt</a>
+            </li>
+        </ul>      
+    </div>
+    <div id="projectMenu" class="menus">
+        <ul class="nav navbar-nav">
+            <li>
+                 <a href="showProjects.php">Vis alle</a>
+            </li>
+            <li>
+                <a href="registerProject.php">Registrer nytt</a>
+            </li>
+        </ul>  
+    </div>
+    <div id="organizationMenu" class="menus">
+        <ul class="nav navbar-nav">
+            <li>
+                 <a href="home.php">Hjem</a>
+            </li>
+            <li>
+                 <a href="change_orginfo.php">Endre informasjon</a>
+            </li>
+        </ul>
+    
+    </div>
 </div>
 
 

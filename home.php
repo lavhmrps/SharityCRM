@@ -37,9 +37,6 @@ include 'connect.php';
     include 'header_nav.php';
     ?>
 
-
-
-    
     <div class="col-md-3" id="homebox">
 
       <?php
