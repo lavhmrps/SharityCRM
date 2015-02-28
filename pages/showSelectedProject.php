@@ -115,7 +115,7 @@ include "../pages/header_nav.php";
 			<input type="text" name="title" id="bottomTitle" placeholder="Tittel" value="' . $row["title"] . '" readonly/>
 
 			<div class="form-group">
-			<textarea class="form-control" name="about" id="aboutProj" rows="5" id="aboutproject" placeholder="Om prosjektet" readonly>' . $row["about"] . '</textarea>
+			<textarea class="form-control" name="about" id="aboutProj2" rows="5" placeholder="Om prosjektet" readonly>' . $row["about"] . '</textarea>
 			</div>
 
 			</div>
