@@ -34,27 +34,6 @@ $organizationNr = $_SESSION['organizationNr'];
 	?>
 	<div class="row">
 		
-		<div class="col-md-3 " id="projectmenu">
-
-			<form method="post" action="registerProject.php">
-				<input type="Submit" value="Registrer prosjekt" class="" name="" id="projectmenubtntop"/>
-			</form>
-
-			<input type="Submit" value="Something" class="" name="" id="projectmenubtn"/>
-			<input type="Submit" value="Something else" class="" name="" id="projectmenubtn"/>
-			<input type="Submit" value="Anything" class="" name="" id="projectmenubtn"/>
-			<input type="Submit" value="Anything really" class="" name="" id="projectmenubtnbottom"/>
-
-
-		</div>
-
-
-
-		
-		
-
-
-
 
 		<?php
 
@@ -84,13 +63,9 @@ $organizationNr = $_SESSION['organizationNr'];
 		}
 		?>
 	</div>
-</div>
 
 
-<br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/>
+
 
 
 <!-- jQuery -->
@@ -100,8 +75,6 @@ $organizationNr = $_SESSION['organizationNr'];
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 
-<!-- Scrolling Nav JavaScript -->
-<script src="js/jquery.easing.min.js"></script>
 
 
 <!-- -->

@@ -9,40 +9,82 @@ if(isset($_POST['logout'])){
 
 <style type="text/css">
 
-#newsMenu{
-    background-color: #333;
-    height:0px;
-    width: 100%;
-    z-index: 100000;
-    overflow: scroll;
+    #newsMenu{
+        background-color: #333;
+        height:0px;
+        width: 100%;
+        z-index: 100000;
+        overflow: hidden;
+    }
+
+    #newsMenu a{
+        color: #fff;
+        padding:2px;
+        font-size: 14px;
+    }
+
+    #newsMenu a:hover{
+        color: #ccc;
+        text-decoration: none;
+    }
 
 
+    #statsMenu{
+        background-color: #333;
+        height:0px;
+        width: 100%;
+        z-index: 100000;    
+        overflow: hidden;
+    }
 
-}
-#statsMenu{
-    background-color: #333;
-    height:0px;
-    width: 100%;
-    z-index: 100000;    
-    overflow: scroll;
+    #statsMenu a{
+        color: #fff;
+        padding:2px;
+        font-size: 14px;
+    }
 
-}
-#projectMenu{
-    background-color: #333;
-    height:0px;
-    width: 100%;
-    z-index: 100000;
-    overflow: scroll;
+    #statsMenu a:hover{
+        color: #ccc;
+        text-decoration: none;
+    }
 
-} 
-#organizationMenu{
-    background-color: #333;
-    height:0px;
-    width: 100%;
-    z-index: 100000;
-    overflow: scroll;
+    #projectMenu{
+        background-color: #333;
+        height:0px;
+        width: 100%;
+        z-index: 100000;
+        overflow: hidden;
+    } 
 
-} 
+    #projectMenu a{
+        color: #fff;
+        padding:2px;
+        font-size: 14px;
+    }
+
+    #projectMenu a:hover{
+        color: #ccc;
+        text-decoration: none;
+    }
+
+    #organizationMenu{
+        background-color: #333;
+        height:0px;
+        width: 100%;
+        z-index: 100000;
+        overflow: hidden;
+    } 
+
+    #organizationMenu a{
+        color: #fff;
+        padding:2px;
+        font-size: 14px;
+    }
+
+    #organizationMenu a:hover{
+        color: #ccc;
+        text-decoration: none;
+    }
 
 
 
@@ -83,32 +125,20 @@ if(isset($_POST['logout'])){
             <div class="collapse navbar-collapse navbar-ex1-collapse col-md-6">
 
                 <ul class="nav navbar-nav">
-
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a class="page-scroll" href="#page-top"></a>
-                    </li>
+                    
                     <li>
                         <a class="page-scroll" name ="showProjectMenu" style="cursor:pointer;">Prosjekter</a>
                     </li>
                     <li>
-
-
                         <a class="page-scroll" name ="showNewsMenu" style="cursor:pointer;">News</a>
-                        
-                        
-                        
                     </li>
                     <li>
                         <a class="page-scroll" name ="showStatsMenu" style="cursor:pointer;">Statistikk</a>
-                        
                     </li>
                     <li>
-
                         <a class="page-scroll" name ="showOrganizationMenu" style="cursor:pointer;">My organization</a>
                     </li>
-
-
                 </ul>
 
             </div>
@@ -133,16 +163,16 @@ if(isset($_POST['logout'])){
 </nav>
 
 <div class="menu_anchor"></div>
-
-<div id="newsMenu" class="menus"><a href="showNews.php">News</a> - <a href="registerNews.php">Registrer news</a></div>
-<div id="statsMenu" class="menus"><a href="statistics.php">Statistikk</a> </div>
-<div id="projectMenu" class="menus"><p style="color:white">Prosjekt</p></div>
-<div id="organizationMenu" class="menus"><p style="color:white">Organization</p></div>
-
+<div id="menudropdown">
+    <div id="newsMenu" class="menus"><a href="showNews.php">News</a> - <a href="registerNews.php">Registrer news</a></div>
+    <div id="statsMenu" class="menus"><a href="statistics.php">Statistikk</a> </div>
+    <div id="projectMenu" class="menus"><a href="showProjects.php">Prosjekt</a></div>
+    <div id="organizationMenu" class="menus"><a href="home.php">Organization</a></div>
+</div>
 
 
 <script type="text/javascript">
-$(window).scroll(function(e) {
+    $(window).scroll(function(e) {
 
     // Get the position of the location where the scroller starts.
     var scroller_anchor = $(".menu_anchor").offset().top;
@@ -191,28 +221,36 @@ $('a[name=showNewsMenu]').on("click", function() {
 
   if(newsToggle) {
 
-    $("#newsMenu").animate({'height': '50px'}, 0);
-
+    $("#newsMenu").animate({'height': '50px'}, 800);
 
     hideProject();
     hideOrganization();
     hideStats();
+    
 
 
+
+    //setTimeout(showNews, 8)
 
 } else {
 
     $("#newsMenu").animate({'height': '0'}, 800);
 }
+
+
 newsToggle = !newsToggle;
 });
+
+function showNews(){
+    $("#newsMenu").animate({'height': '50px'}, 800);
+}
 
 
 $('a[name=showStatsMenu]').on("click", function() {
 
   if(statsToggle) {
 
-    $("#statsMenu").animate({'height': '50px'}, 0);
+    $("#statsMenu").animate({'height': '50px'}, 800);
 
 
     hideNews();
@@ -233,7 +271,7 @@ $('a[name=showProjectMenu]').on("click", function() {
 
   if(projectToggle) {
 
-    $("#projectMenu").animate({'height': '50px'}, 0);
+    $("#projectMenu").animate({'height': '50px'}, 800);
 
     hideNews();
     hideOrganization();
@@ -259,7 +297,7 @@ $('a[name=showOrganizationMenu]').on("click", function() {
     hideStats();
     hideProject();
 
-    $("#organizationMenu").animate({'height': '50px'}, 0);
+    $("#organizationMenu").animate({'height': '50px'}, 800);
 
 
     

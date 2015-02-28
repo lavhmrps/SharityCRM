@@ -32,23 +32,11 @@ include 'connect.php';
 	include "header_nav.php";
 	?>
 
-	<div class="row">
+	
 		
-		<div class="col-md-3 " id="projectmenu">
+		
 
-			<form method="post" action="#">
-				<input type="Submit" value="Statistikk?" class="" name="" id="projectmenubtntop"/>
-			</form>
-
-			<input type="Submit" value="Kronologisk" class="" name="" id="projectmenubtn"/>
-			<input type="Submit" value="Geografisk" class="" name="" id="projectmenubtn"/>
-			<input type="Submit" value="Demografisk" class="" name="" id="projectmenubtn"/>
-			<input type="Submit" value="Aristokratisk" class="" name="" id="projectmenubtnbottom"/>
-
-
-		</div>
-
-		<div class="col-md-1"></div>
+		<div class="col-md-2"></div>
 		<div class="col-md-8">
 			<?php
 
@@ -82,8 +70,8 @@ include 'connect.php';
 
 			</form>
 		</div>
-	</div>
 
+		<div class="col-md-2"></div>
 
 
 	<!-- jQuery -->
