@@ -51,6 +51,7 @@ include 'connect.php';
                 echo "<h2>" . $row['name'] . "</h2>"; 
                 echo "<h3>" . $row['title'] . "</h3>";
                 echo "<p>" . $row['about'] . "</p><br/>";
+                echo "<img src" . $row['backgroundImgURL'] . "/>";
                 
                 
                 

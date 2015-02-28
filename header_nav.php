@@ -81,7 +81,7 @@ if(isset($_POST['logout'])){
                         <a class="page-scroll" name ="showProjectMenu" id="scndmenu" style="cursor:pointer;">Prosjekter</a>
                     </li>
                     <li>
-                        <a class="page-scroll" name ="showNewsMenu" id="scndmenu" style="cursor:pointer;">News</a>
+                        <a class="page-scroll" name ="showNewsMenu" id="scndmenu" style="cursor:pointer;">Nyheter</a>
                     </li>
                     <li>
                         <a class="page-scroll" name ="showStatsMenu" id="scndmenu" style="cursor:pointer;">Statistikk</a>
