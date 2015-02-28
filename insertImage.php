@@ -6,21 +6,30 @@ include "connect.php";
 if (isset($_SESSION['organizationNr'])) {
 	$organizationNr = $_SESSION['organizationNr'];
 
-	if ( $_FILES['file']['error'] > 0) {
-		echo 'Error: ' . $_FILES['file']['error'] . '<br>';
+	if ( $_FILES['file_background']['error'] > 0) {
+		echo 'Error: ' . $_FILES['file_background']['error'] . '<br>';
 	}
 	else {
 
-		$path = 'uploads/' . $_FILES['file']['name'];
+		
+		
+		$path = "Bilder/$organizationNr/";
+		if (!file_exists($path)) {
+			mkdir ( $path, 0777, true);
+
+		}
 
 		//chmod($path, 777);
 
-		$target_dir = "uploads/";
-		$target_file = $target_dir . basename($_FILES["file"]["name"]);
+		$target_dir = $path;
+		$target_file = $target_dir . basename($_FILES["file_background"]["name"]);
+
+
+
 		$uploadOk = 1;
 		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-		$check = getimagesize($_FILES["file"]["tmp_name"]);
+		$check = getimagesize($_FILES["file_background"]["tmp_name"]);
 		if($check !== false) {
 			$uploadOk = 1;
 		} else {
@@ -33,7 +42,7 @@ if (isset($_SESSION['organizationNr'])) {
 		}
 
 		// Check file size
-		if ($_FILES["file"]["size"] > 500000) {
+		if ($_FILES["file_background"]["size"] > 500000) {
 			//echo "Sorry, your file is too large.";
 			$uploadOk = 0;
 		}
@@ -51,7 +60,7 @@ if (isset($_SESSION['organizationNr'])) {
 		}
 
 		else {
-			if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+			if (move_uploaded_file($_FILES["file_background"]["tmp_name"], $target_file)) {
 				//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 				$sql = "UPDATE Organization SET backgroundimgURL = '$target_file' WHERE organizationNr = '$organizationNr'";
 				$mysql_status = insertInto($connection, $sql);
@@ -62,4 +71,5 @@ if (isset($_SESSION['organizationNr'])) {
 			}
 		}
 	}
-	?>
+}
+?>
