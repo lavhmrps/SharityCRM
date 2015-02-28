@@ -43,6 +43,7 @@ function insertInformation(){
 	organizationJSON = JSON.stringify(organizationJSON);
 	$.ajax({
 		type : "POST",
+
 		dataType : "text",
 		url : "updateOrganization.php",
 		data: {"organization" : organizationJSON},
@@ -71,7 +72,7 @@ function insertBackground(){
 		var form_data_background = new FormData();                  
 		form_data_background.append('file_background', file_data_background);
 		$.ajax({
-	        url: 'insertImg.php', // point to server-side PHP script 
+	        url: 'insertBackground.php', // point to server-side PHP script 
 	        datatype: 'text',  // what to expect back from the PHP script, if anything
 	        cache: false,
 	        contentType: false,
@@ -107,7 +108,7 @@ function insertLogo(){
 
 
 		$.ajax({
-            url: 'insertImg.php', // point to server-side PHP script 
+            url: 'insertLogo.php', // point to server-side PHP script 
             datatype: 'text',  // what to expect back from the PHP script, if anything
             cache: false,
             contentType: false,
