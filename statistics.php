@@ -84,6 +84,8 @@ include 'connect.php';
 		</div>
 	</div>
 
+
+
 	<!-- jQuery -->
 	<script src="js/jquery.js"></script>
 	<script src="js/stickyheader.js"></script>

@@ -87,7 +87,10 @@ $organizationNr = $_SESSION['organizationNr'];
 </div>
 
 
-
+<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/>
 
 
 <!-- jQuery -->
@@ -99,7 +102,7 @@ $organizationNr = $_SESSION['organizationNr'];
 
 <!-- Scrolling Nav JavaScript -->
 <script src="js/jquery.easing.min.js"></script>
-<script src="js/scrolling-nav.js"></script>
+
 
 <!-- -->
 

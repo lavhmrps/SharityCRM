@@ -11,7 +11,7 @@ $(window).scroll(function(e) {
             'top': '0px'
         });
         // Changing the height of the scroller anchor to that of scroller so that there is no change in the overall height of the page.
-        $('.scroller_anchor').css('height', '50px');
+        $('.scroller_anchor').css('height', '0');
     } 
     else if ($(this).scrollTop() < scroller_anchor && $('.scroller').css('position') != 'relative') 
     {    // If the user has scrolled back to the location above the scroller anchor place it back into the content.

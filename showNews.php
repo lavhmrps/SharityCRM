@@ -34,21 +34,11 @@ $organizationNr = $_SESSION['organizationNr'];
 	?>
 
 
-
-	<div class="row">
-		
-		<div class="col-md-3" id="projectmenu">
-			
-			
-			<form method="post" action="registerNews.php"/>
-			<input type="Submit" value="Registrer nyhet" class="" name="" id="projectmenubtntop">
-		</form>
-		<input type="Submit" value="Something else" class="" name="" id="projectmenubtn"/>
-		<input type="Submit" value="Anything" class="" name="" id="projectmenubtn"/>
-		<input type="Submit" value="Anything really" class="" name="" id="projectmenubtnbottom"/>
+	
 
 
-	</div>
+
+	
 	<?php
 
 	$sql = "SELECT News.title, News.txt FROM News INNER JOIN Project ON News.projectID = Project.projectID WHERE Project.organizationNr = $organizationNr";
