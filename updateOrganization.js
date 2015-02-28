@@ -1,11 +1,3 @@
-
-$('button[name=complete_registration]').click(function(){
-
-
-
-
-});
-
 $("button[name=backgroundimgURLbutton]").click(function () {
 	$("input[name=backgroundimgURL]").trigger('click');
 });
@@ -15,9 +7,15 @@ $("button[name=logoURLbutton]").click(function () {
 });
 
 $('button[name=complete_registration]').click(function(event){
+	insertInformation();
+	insertBackground();
+	insertLogo();
+	window.location.replace('home.php');
+
+});
 
 
-	
+function insertInformation(){
 	var address = $('input[name=address]').val();
 	var phone = $('input[name=phone]').val();
 	var email = $('input[name=email]').val();
@@ -38,6 +36,10 @@ $('button[name=complete_registration]').click(function(event){
 		"about" : about
 
 	};
+
+
+
+
 	organizationJSON = JSON.stringify(organizationJSON);
 	$.ajax({
 		type : "POST",
@@ -45,60 +47,66 @@ $('button[name=complete_registration]').click(function(event){
 		url : "updateOrganization.php",
 		data: {"organization" : organizationJSON},
 		success : function(response){
-			setStringStatus("OK");
-
+			alert("Org. info: " + response);
+			
 		},
 		error : function(response){
 			console.log(response.message);
 		}
 	});
+}
+
+function insertBackground(){
+
+	try{
+		var file_data_background = $('input[name=backgroundimgURL]').prop('files')[0];  
+	}catch(error){
+		alert(error.message);
+	}
+	
 
 
 
-
-
-
-	try {
-		var file_data_background = $('input[name=backgroundimgURL]').prop('files')[0];   
+	if(file_data_background != undefined){
 		var form_data_background = new FormData();                  
 		form_data_background.append('file_background', file_data_background);
+		$.ajax({
+	        url: 'insertBackgroundimg.php', // point to server-side PHP script 
+	        datatype: 'text',  // what to expect back from the PHP script, if anything
+	        cache: false,
+	        contentType: false,
+	        processData: false,
+	        data: form_data_background,                         
+	        type: 'POST',
+	        success: function(response){
 
+	        	alert("Bakgrunnsbilde: " + response);
+	        },
+	        error : function(response){
+	        	console.log(response.message);
+	        }
+	    });
 
-		if($('input[name=backgroundimgURL]').val() == ''){
-			setBackgroundStatus("OK");
-		}else{
-			$.ajax({
-            url: 'insertBackgroundimg.php', // point to server-side PHP script 
-            datatype: 'text',  // what to expect back from the PHP script, if anything
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data_background,                         
-            type: 'POST',
-            success: function(response){
-            	
-            	setBackgroundStatus("OK");
-            	
-            	
-            }
-        });
-		}
-	}
-	catch(err) {
-		setBackgroundStatus("OK");
 	}
 
+}
 
-	try {
-		var file_data_logo = $('input[name=logoURL]').prop('files')[0];   
+function insertLogo(){
+	try{
+		var file_data_logo = $('input[name=logoURL]').prop('files')[0];  
+	}catch(error){
+		alert(error.message);
+	}
+
+	
+
+	if(file_data_logo != undefined){
+
 		var form_data_logo = new FormData();                  
 		form_data_logo.append('file_logo', file_data_logo);
 
 
-		if($('input[name=logoURL]').val() == ''){
-			setLogoStatus("OK");
-		}else{
-			$.ajax({
+		$.ajax({
             url: 'insertLogo.php', // point to server-side PHP script 
             datatype: 'text',  // what to expect back from the PHP script, if anything
             cache: false,
@@ -107,72 +115,22 @@ $('button[name=complete_registration]').click(function(event){
             data: form_data_logo,                         
             type: 'POST',
             success: function(response){
-            	
-            	setLogoStatus("OK");         
+            	alert("Logo: " + response);        
+            },
+            error : function(response){
+            	console.log(response.message);
             }
         });
-		}
+
 	}
-	catch(err) {
-		setLogoStatus("OK");
-	}
-
-
-	
-		//window.location.replace("home.php")
-		if(getBackgroundStatus() == "OK" && getStringStatus() === "OK" && getLogoStatus() === "OK"){
-			window.location.replace("home.php");
-		}
-	
-
-	return false;
-
-});
-
-
-function clearInputs(){
-
-	$('input[name=address]').val("");
-	$('input[name=phone]').val("");
-	$('input[name=email]').val("");
-	
-	$('input[name=zipcode]').val("");
-	
-	$('input[name=website]').val("");
-	
-	$('input[name=accountnumber]').val("");
-	$('select[name=category]').val("");
-	$('textarea[name=about]').val("");
-
-}
-
-$background = "";
-$logo = "";
-$string = "";
-function setBackgroundStatus(status){
-	$background = status;
-}
-function getBackgroundStatus(){
-	return $background;
 }
 
 
 
-function setLogoStatus(status){
-	$logo = status;
-}
-function getLogoStatus(){
-	return $logo;
-}
 
 
 
-function setStringStatus(status){
-	$string = status;
-}
-function getStringStatus(){
-	return $string;
-}
+
 
 
 

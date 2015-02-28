@@ -137,11 +137,11 @@ $organizationNr = $_SESSION['organizationNr'];
 								if($backgroundimgURL == NULL || $backgroundimgURL == ""){
 									echo '
 									<button  class="btn bluebtn" name="backgroundimgURLbutton" >
-										Last opp bakgrunnsbilde
+									Last opp bakgrunnsbilde
 									</button>
 
 									<form enctype="multipart/form-data">
-										<input type="file" name="backgroundimgURL" style="display:none">
+									<input type="file" name="backgroundimgURL" style="display:none">
 									</form> 
 
 									';
@@ -150,11 +150,11 @@ $organizationNr = $_SESSION['organizationNr'];
 								if($logoURL == NULL || $logoURL == ""){
 									echo '
 									<button  class="btn bluebtn" name="logoURLbutton">
-										Last opp logo
+									Last opp logo
 									</button>
 
 									<form enctype="multipart/form-data">
-										<input type="file" name="logoURL" style="display:none">
+									<input type="file" name="logoURL" style="display:none">
 									</form> 
 
 									';
@@ -176,7 +176,7 @@ $organizationNr = $_SESSION['organizationNr'];
 							}else{
 								echo '
 								<button  class="btn btn-success" name="complete_registration">
-									Fullfør (2/2)
+								Fullfør (2/2)
 								</button>
 
 								
@@ -217,6 +217,8 @@ $organizationNr = $_SESSION['organizationNr'];
 			<div class="col-md-12 text-right" id="skipContainer">
 				<a href="home.php">Hopp over</a>
 			</div>
+
+
 
 
 			<!-- jQuery -->

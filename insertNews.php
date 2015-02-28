@@ -13,23 +13,13 @@ if (isset($_SESSION['organizationNr'])) {
 		$title = $news['title'];
 		$txt = $news['txt'];
 		$projectID = $news['projectID'];
-
-
 		if($projectID !='NULL'){
 			$sql = "INSERT INTO News (title, txt, projectID) VALUES('$title', '$txt', '$projectID')";
-
-
 			$mysql_status = insertInto($connection, $sql);
 			echo $mysql_status;
-
-
 		}else{
 			echo "<script>alert('Du valgte ikke prosjekt (Sjekkes med ajax uten refresh ..... -vegard)');</script>";
 		}
-		
-
-		
-		
 	}
 	
 
