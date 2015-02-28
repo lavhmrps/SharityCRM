@@ -153,7 +153,7 @@ if(isset($_POST['logout'])){
                  <a href="home.php">Hjem</a>
             </li>
             <li>
-                 <a href="change_org_info.php">Endre informasjon</a>
+                 <a href="change_orginfo.php">Endre informasjon</a>
             </li>
         </ul>
     
