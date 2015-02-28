@@ -13,7 +13,7 @@ if (isset($_SESSION['organizationNr'])) {
 
 		
 		
-		$path = "Bilder/$organizationNr/";
+		$path = "/Bilder/$organizationNr/";
 		if (!file_exists($path)) {
 			mkdir ( $path, 0777, true);
 
