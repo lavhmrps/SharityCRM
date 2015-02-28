@@ -40,7 +40,7 @@ body{
 	height:100px;
 	padding:20px;
 	border-radius: 0;
-	background-color: #333;
+	background-color: #006dfe; /*#333*/
 }
 #topheader h2{
 	color:white;
@@ -942,8 +942,14 @@ select, option{
 	
 }
 
+#scndmenu{
+	font-size: 16px;
+	font-weight: bold;
+}
+
 #menudropdown{
 	width:100%;
 	text-align: center;
 }
+
 
