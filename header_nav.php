@@ -13,15 +13,15 @@ if(isset($_POST['logout'])){
         background-color: #333;
         height:0px;
         width: 100%;
-        z-index: 100000;
+        z-index: 100000;    
         overflow: hidden;
-        font-weight: bold;
     }
     #newsMenu ul{
-        margin-left: 45%;
+        margin-left: 37%;
+        padding:12px;
     }
     #newsMenu ul li{
-        margin-left:10px;
+        margin-left:35px;
     }
 
     #newsMenu ul li a{
@@ -36,9 +36,6 @@ if(isset($_POST['logout'])){
         text-decoration: none;
     }
 
-    #newsMenu ul{
-        padding:12px;
-    }
 
 
     #statsMenu{
@@ -50,10 +47,11 @@ if(isset($_POST['logout'])){
     }
 
     #statsMenu ul{
-        margin-left: 45%;
+        margin-left: 37%;
+        padding:12px;
     }
     #statsMenu ul li{
-        margin-left:10px;
+        margin-left:35px;
     }
 
     #statsMenu ul li a{
@@ -68,10 +66,6 @@ if(isset($_POST['logout'])){
         text-decoration: none;
     }
 
-    #statsMenu ul{
-        padding:12px;
-    }
-
     #projectMenu{
         background-color: #333;
         height:0px;
@@ -81,10 +75,11 @@ if(isset($_POST['logout'])){
     } 
 
     #projectMenu ul{
-        margin-left: 45%;
+        margin-left: 37%;
+        padding:12px;
     }
     #projectMenu ul li{
-        margin-left:10px;
+        margin-left:35px;
     }
 
     #projectMenu ul li a{
@@ -99,10 +94,6 @@ if(isset($_POST['logout'])){
         text-decoration: none;
     }
 
-    #projectMenu ul{
-        padding:12px;
-    }
-
     #organizationMenu{
         background-color: #333;
         height:0px;
@@ -112,10 +103,11 @@ if(isset($_POST['logout'])){
     } 
 
     #organizationMenu ul{
-        margin-left: 45%;
+        margin-left: 37%;
+        padding:12px;
     }
     #organizationMenu ul li{
-        margin-left:10px;
+        margin-left:35px;
     }
 
     #organizationMenu ul li a{
@@ -129,11 +121,6 @@ if(isset($_POST['logout'])){
         color: #ccc;
         text-decoration: none;
     }
-
-    #organizationMenu ul{
-        padding:12px;
-    }
-
 
 
 
@@ -186,7 +173,7 @@ if(isset($_POST['logout'])){
                         <a class="page-scroll" name ="showStatsMenu" id="scndmenu" style="cursor:pointer;">Statistikk</a>
                     </li>
                     <li>
-                        <a class="page-scroll" name ="showOrganizationMenu" id="scndmenu" style="cursor:pointer;">My organization</a>
+                        <a class="page-scroll" name ="showOrganizationMenu" id="scndmenu" style="cursor:pointer;">Min organisasjon</a>
                     </li>
                 </ul>
 
@@ -221,17 +208,41 @@ if(isset($_POST['logout'])){
             <li>
                 <a href="registerNews.php">Registrer ny</a>
             </li>
-        </ul>
-        
+        </ul> 
     </div>
     <div id="statsMenu" class="menus">
-        <a href="statistics.php">Statistikk</a> 
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="#">Månedvis</a>
+            </li>
+            <li>
+                <a href="#">År</a>
+            </li>
+            <li>
+                <a href="statistics.php">Totalt</a>
+            </li>
+        </ul>      
     </div>
     <div id="projectMenu" class="menus">
-        <a href="showProjects.php">Vis alle</a> - <a href="registerProject.php">Registrer nytt</a>
+        <ul class="nav navbar-nav">
+            <li>
+                 <a href="showProjects.php">Vis alle</a>
+            </li>
+            <li>
+                <a href="registerProject.php">Registrer nytt</a>
+            </li>
+        </ul>  
     </div>
     <div id="organizationMenu" class="menus">
-        <a href="home.php">Organization</a>
+        <ul class="nav navbar-nav">
+            <li>
+                 <a href="home.php">Hjem</a>
+            </li>
+            <li>
+                 <a href="change_org_info.php">Endre informasjon</a>
+            </li>
+        </ul>
+    
     </div>
 </div>
 
