@@ -38,7 +38,7 @@ $organizationNr = $_SESSION['organizationNr'];
 
 		<?php
 
-		$sql = "SELECT name, title,about FROM Project WHERE organizationNr = $organizationNr";
+		$sql = "SELECT * FROM Project WHERE organizationNr = $organizationNr";
 		$result = mysqli_query($connection, $sql);
 
 
@@ -52,12 +52,13 @@ $organizationNr = $_SESSION['organizationNr'];
 				echo "<p>" . $row['about'] . "</p><br/>";
 				echo '</div>';
 				echo "<div class='col-md-12' id='bottom'>";
-				echo '<a href="oneProject.php">Vis</a> - ';
+				echo '<a href="showSelectedProject.php" onclick="showProject(' . $row['projectID'] . ')">Vis</a> - ';
 				echo '<a href="">Endre</a> - ';
 				echo '<a href="">Slett</a>';
+				echo '</div>';
+				echo '</div>';
+
 				
-				echo '</div>';
-				echo '</div>';
 
 			}
 
@@ -75,6 +76,9 @@ $organizationNr = $_SESSION['organizationNr'];
 
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
+
+
+<script src="showProject.js"></script>
 
 
 

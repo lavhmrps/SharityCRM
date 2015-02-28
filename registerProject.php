@@ -2,6 +2,7 @@
 
 	session_start();
 	include 'checkSession.php';
+	include 'connect.php';
 	?>
 
 	<!DOCTYPE html>
@@ -59,8 +60,20 @@
 							<div class="logodiv_top_right">
 								<?php
 
-								$orgNr = "1";
-								echo "<img id='logoimg' src='http://student.cs.hioa.no/~s188081/IKKEROR/Bilder/" . $orgNr . "/logo.jpg'/></p>";
+								$organizationNr = $_SESSION['organizationNr'];
+								$sql = "SELECT logoURL FROM Organization WHERE organizationNr = $organizationNr";
+								$logoURL = "..."; // husk å sette dette til default bilde
+								if($result = mysqli_query($connection, $sql)){
+									if(mysqli_num_rows($result) == 1){
+										$row = mysqli_fetch_assoc($result);
+										$logoURL = $row['logoURL'];
+									}else{	
+										die("Alvorlig feil, sprørring etter org med orgnr ". $organizationNr . " returnerte 0 eller flere enn 1 rad");
+									}
+								}else{
+									die('Feil i sql spørringen etter logoURL fra Organizaton');
+								}
+								echo "<img id='logoimg' src='" .  $logoURL . "'/>";
 								?>
 							</div>
 						</div>
