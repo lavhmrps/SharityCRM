@@ -172,8 +172,6 @@ include "header_nav.php";
 
 	</script>
 
-	<!--Sript for insert project to database through AJAX request-->
-	<script src="insertProject.js"></script>
 
 
 </body>

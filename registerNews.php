@@ -48,7 +48,7 @@ if(isset($_POST['registerNews'])){
 	?>
 
 	<div class="container" id="phonecontainer">
-	<div class="col-md-3"></div>
+		<div class="col-md-3"></div>
 		<div class="col-md-5" id="phone">
 			<div id="phonemargin">
 				<form method="post" enctype="multipart/form-data">
@@ -121,20 +121,19 @@ if(isset($_POST['registerNews'])){
 					</div>
 
 					<!-- End of #phonemargin-->
-
-				</div>
-				<!-- End of #phone-->
+				</form>
 			</div>
-			<div class="col-md-4">
 
-				
-				
-				
-			</div>
-		</form>
-		<!-- End of container -->
-
+		</div>
+		<!-- End of #phone-->
 	</div>
+	<div class="col-md-4"></div>	
+
+	
+
+	<!-- End of container -->
+
+
 
 	<!-- jQuery -->
 	<script src="js/jquery.js"></script>

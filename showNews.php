@@ -1,4 +1,4 @@
-<?php
+'<?php
 session_start();
 include 'checkSession.php';
 include 'connect.php';
@@ -42,7 +42,7 @@ $organizationNr = $_SESSION['organizationNr'];
 			
 			<?php
 
-			$sql = "SELECT News.title, News.txt FROM News INNER JOIN Project ON News.projectID = Project.projectID WHERE Project.organizationNr = $organizationNr";
+			$sql = "SELECT News.* FROM News INNER JOIN Project ON News.projectID = Project.projectID WHERE Project.organizationNr = $organizationNr";
 			//$sql = "SELECT title, txt FROM News WHERE projectID = 1";
 			$result = mysqli_query($connection, $sql);
 
@@ -57,7 +57,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					echo "<p>" . $row['txt'] . "</p>";
 					echo '</div>';
 					echo "<div class='col-md-12' id='bottom'>";
-					echo '<a href="oneNewscase.php">Vis</a> - ';
+					echo '<a href="showSelectedNews.php" onclick=showSelectedNews(' . $row['newsID'] . ')>Vis</a> - ';
 					echo '<a href="">Endre</a> - ';
 					echo '<a href="">Slett</a>';
 					echo '</div>';
@@ -76,6 +76,7 @@ $organizationNr = $_SESSION['organizationNr'];
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
+	<script src="showNews.js"></script>
 
 
 

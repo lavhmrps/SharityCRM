@@ -19,7 +19,7 @@ function showProject(projectID){
 		type : "POST",
 		url : "localStorageJStoPHP.php",
 		dataType : "text",
-		data : {"projectID" : projectID},
+		data : {"projectIDtoShow" : projectID},
 		success : function(response){
 			alert(response);
 		},
