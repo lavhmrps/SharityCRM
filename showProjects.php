@@ -32,6 +32,7 @@ $organizationNr = $_SESSION['organizationNr'];
 	<?php
 	include 'header_nav.php';
 	?>
+	<div class="container">
 	<div class="row">
 		
 
@@ -63,7 +64,7 @@ $organizationNr = $_SESSION['organizationNr'];
 		}
 		?>
 	</div>
-
+</div>
 
 
 

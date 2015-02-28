@@ -889,7 +889,7 @@ select, option{
 	margin:5px;
 	margin-top:20px;
 	margin-left: 25px;
-	width:300px;
+	width:260px;
 	height:250px;
 }
 
@@ -945,11 +945,6 @@ select, option{
 #scndmenu{
 	font-size: 16px;
 	font-weight: bold;
-}
-
-#menudropdown{
-	width:100%;
-	text-align: center;
 }
 
 
