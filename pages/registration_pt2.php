@@ -97,14 +97,16 @@ $organizationNr = $_SESSION['organizationNr'];
 								$about = $row['about'];
 
 								
-
+								echo '<div class="col-md-10" id="registration_pt2_margin">';
 								if($address == NULL || $address == ""){
 									echo '<input type="text" class="form-control" name="address" id="reg_pt2_input" placeholder="Adresse"/>';
 								}
-
+								echo '</div>';
+								echo '<div class="col-md-2" id="registration_pt2_margin2">';
 								if($zipcode == NULL || $zipcode == ""){
-									echo '<input type="tel" class="form-control" name="zipcode" id="reg_pt2_input" placeholder="Postnummer"/>';
+									echo '<input type="tel" class="form-control" name="zipcode" id="reg_pt2_inputZipcode" placeholder="Postnr"/>';
 								}
+								echo '</div>';
 
 								if($phone == NULL || $phone == "" ){
 									echo '<input type="tel" class="form-control" name="phone" id="reg_pt2_input" placeholder="Telefonnummer"/>';
@@ -131,7 +133,7 @@ $organizationNr = $_SESSION['organizationNr'];
 									</div>';
 								}
 								if($about == NULL || $about == ""){
-									echo '<textarea class="form-control" id="aboutOrg" rows="5" name="about" id="aboutOrg" placeholder="Om organisasjonen" ></textarea>';
+									echo '<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="about" id="aboutOrg" placeholder="Om organisasjonen" ></textarea>';
 								}
 
 								if($backgroundimgURL == NULL || $backgroundimgURL == ""){

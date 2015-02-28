@@ -47,41 +47,45 @@ include 'connect.php';
       if ($result) {
         if (mysqli_num_rows($result) == 1) {
           $row = mysqli_fetch_assoc($result);
-          echo '<div class="row">';
-          echo '<div class="col-md-9">';
-          echo "<h2>" . $row['name'] . "</h2>";
+          
+          echo '<div class="col-md-0"></div>';
+          echo '<div class=" text-center">';
+          echo "<img src='" . $row['logoURL'] . "' alt='Organisasjonslogo'  id='orgLogo'/>";
           echo '</div>';
-          echo '<div class="col-md-3">';
-          echo "<img src='" . $row['logoURL'] . "' id='orgLogo'/>";
-          echo '</div>';
-          echo '</div>';
-          echo "<img src='" . $row['backgroundimgURL'] . " ' id='orgBackground'/>";
+          echo '<div class="col-md-0"></div>';
+
+
+          echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='orgBackground'/>";
           
           echo '<div class="row">';
-            echo '<div class="col-md-6">';
-              echo '<p>Organisasjonsnummer: ' . $row["organizationNr"] . '</p>
-              <p>Nettside: ' . $row["website"]. '</p>
-              <p>Telefon: ' . $row["phone"]. '</p>
-              <p>Epost: ' . $row["email"]. '</p>';
+            echo '<div class="col-md-6" id="aboutOrgPadding">';
+              echo '<p>Orgnr: ' . $row["organizationNr"] . '</p>
+                   <p>Telefon: ' . $row["phone"]. '</p>';
+              
+
             echo '</div>';
           
-            echo '<div class="col-md-6">';
+            echo '<div class="col-md-6" id="aboutOrgPadding">';
           
               echo '<p>Kategori: ' . $row["category"]. '</p>
-          
-              <p>Adresse: ' . $row["address"] . '</p>
-              <p>Postnummer: ' . $row["zipcode"]. '</p>
-          
-          
-              <p>Kontonummer: ' . $row["accountnumber"] . '</p>';
+  
+                   <p>Kontonummer: ' . $row["accountnumber"] . '</p>';
 
               echo "</div>";
             echo "</div>";
-          echo '<div class="col-md-12">';
-          echo '<p>Om: ' . $row["about"] . '</p>';
-          echo '</div>
+             echo "<br/>";
 
-          ';
+          echo '<div class="col-md-12" id="orgInfo">';
+          echo '<p>Epost: ' . $row["email"]. '</p>
+                <p>Adresse: ' . $row["address"] . ', ' . $row["zipcode"]. ' Poststed?!?</p>
+               <p>Nettside: <a href="' . $row["website"]. '">' . $row["website"]. '</a></p><br/>
+               ';
+          echo '</div>';
+
+          echo '<textarea class="form-control" name="about" id="aboutOrg" rows="4" style="cursor:default;" id="aboutproject" readonly>' . $row["about"] . '</textarea>';
+
+
+         
 
 
 
@@ -89,13 +93,9 @@ include 'connect.php';
       } ?>
 
 
-
-
-
-
-
-
       </div>
+
+
       <div class="col-md-5" id="homebox">
       <?php
       $sql = "SELECT Donation.*, Project.name FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE Project.organizationNr = $organizationNr";

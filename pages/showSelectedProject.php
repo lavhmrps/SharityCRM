@@ -70,75 +70,74 @@ include "header_nav.php";
 			echo 
 			'
 			<div class="col-md-5" id="phone">
-				<div id="phonemargin1">
-					<div id="page_organisation">
-						<form id="registerProject">
+			<div id="phonemargin1">
+			<div id="page_organisation">
+			<form id="registerProject">
 
-						<div id="header_div" class="boxshadow">
-							<div page-role="header" class="header_top"></div>
-								<img src="img/arrow_left.png"
-								class="show-page-loading-msg menu_icon back_icon">
-								<h3 style="margin-left:100px; margin-top:30px;">' . $row['name'] . '</h3>
-							</div>
-
-						<!-- For toppbilde  -->
-						<div class="portrait">
-
-							<input type="file" id="file1"  name="file1" style="display:none" />
-							<div id="uploadimg" >
-								<p style="cursor:pointer; color:#000;">
-									<u>Bakgrunnsbilde / toppbilde</u>
-								</p>
-							</div>
-
-							<div class="logodiv_top_right">
-
-								<img id="logoimg" src="' . $logoURL .'"/>
-
-							</div>
-						</div>
-						<div class="space_btn">
-							<button class="ui-btn btn_single_project_donate">
-								DONÉR
-							</button>
-						</div>
-							<div class="main_content">
-
-								<h4>
-									<span>
-										<p>' . $row["country"] . ', ' . $row["city"] . '</p>
-										
-										
-									</span>
-								</h4>
-
-								<h4 style="font-size:20px;"><b>' . $row["title"] . '</b></h4>
-
-									<div class="form-group">
-										<textarea class="form-control" name="about" id="aboutProj" rows="5" id="aboutproject" placeholder="' . $row["about"] . '" readonly></textarea>
-									</div>
-
-							</div>
-						
-						</form>
-
-					</div>
-					</div>
-
-				</div>
+			<div id="header_div" class="boxshadow">
+			<div page-role="header" class="header_top"></div>
+			<img src="img/arrow_left.png"
+			class="show-page-loading-msg menu_icon back_icon">
+			<input type="text" name = "name" id="topTitle" value="' . $row['name'] . '" readonly />
 			</div>
 
-			<div col-md-5>
-				<p> ProsjektID: ' . $row["projectID"] . ' </p>
-				
-				Bakgrunnsbilde: <img src=' . $row["backgroundimgURL"]. '/>
-				<br/>
-				Logo: <img id="logoimg" src="' . $logoURL .'"/> 
-				
-				<p> Org.Navn / No. tilknyttet: ' . $organizationName . ' Org.No. ' .  $organizationNr . '</p>
-				<p> Sist oppdatert (egentlig er det opprettet, men dato oppdatere på update, burde ha begge deler - Vegard): ' . $row["date_added"] . '</p>
+			<!-- For toppbilde  -->
+			<div class="portrait">
+
+			<input type="file" id="file1"  name="file1" style="display:none" />
+			<div id="uploadimg" >
+			<p style="cursor:pointer; color:#000;">
+			<u>Bakgrunnsbilde / toppbilde</u>
+			</p>
+			</div>
+
+			<div class="logodiv_top_right">
+
+			<img id="logoimg" src="' . $logoURL .'"/>
 
 			</div>
+			</div>
+			<div class="space_btn">
+			<button class="ui-btn btn_single_project_donate">
+			DONÉR
+			</button>
+			</div>
+			<div class="main_content">
+
+			<h4>
+			<span>
+			<input type="text" name = "country" id="inCountry" placeholder="Land" value="' . $row["country"] . '" readonly/>, <input type="text" name="city" id="inCity" placeholder="By" value="' . $row["city"] . '"readonly />
+			
+			
+			</span>
+			</h4>
+
+			<input type="text" name="title" id="bottomTitle" placeholder="Tittel" value="' . $row["title"] . '" readonly/>
+
+			<div class="form-group">
+			<textarea class="form-control" name="about" id="aboutProj" rows="5" id="aboutproject" placeholder="Om prosjektet" readonly>' . $row["about"] . '</textarea>
+			</div>
+
+			</div>
+			
+			</form>
+
+			</div>
+			</div>
+
+			</div>
+			</div>
+
+			<p> ProsjektID: ' . $row["projectID"] . ' </p>
+			
+			Bakgrunnsbilde: <img src=' . $row["backgroundimgURL"]. '/>
+			<br/>
+			Logo: <img id="logoimg" src="' . $logoURL .'"/> 
+			
+			<p> Org.Navn / No. tilknyttet: ' . $organizationName . ' Org.No. ' .  $organizationNr . '</p>
+			<p> Sist oppdatert (egentlig er det opprettet, men dato oppdatere på update, burde ha begge deler - Vegard): ' . $row["date_added"] . '</p>
+
+			
 
 
 

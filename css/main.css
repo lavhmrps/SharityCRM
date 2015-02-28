@@ -53,6 +53,8 @@ body{
 #scndmenu{
 	font-size: 16px;
 	font-weight: bold;
+
+	height:49px;
 }
 
 
@@ -192,7 +194,7 @@ body{
 
 
 #somespace{
-	height:40px;
+	height:80px;
 }
 
 #logoutContainer{
@@ -208,7 +210,6 @@ body{
 	background:#333;
 	border:1px solid #222;
 	color:#fff;
-	height:75%;
 	margin:20px;
 	margin-top:20px;
 	border-radius: 4px;
@@ -219,7 +220,21 @@ body{
 }
 /*end home*/
 
+#registration_pt2_margin{
+	margin-left: -15px;
+	padding-right: 0;
+}
 
+#registration_pt2_margin2{
+	padding-left: 0;
+	padding-right: 0;
+}
+
+#reg_pt2_inputZipcode{
+	margin: 5px;
+	right:0;
+	width:105%;
+}
 
 
 
@@ -308,13 +323,19 @@ body{
 		text-align: center;
 		padding:30px;
 	}
+
+	#aboutOrgPadding2{
+		padding-left:30px;
+	}
+	
 }
 
 
-
-
-
 /******************** IMAGES ********************/
+
+img{
+}
+
 /*phoneLogo*/
 #logoimg{
 	width:85px;
@@ -324,9 +345,10 @@ body{
 
 /*Homelogo + background*/
 #orgLogo{
-	margin-top:5px;
-	width:50px;
-	height:50px;
+	width:100%;
+	height:70px;
+	margin-top: 15px;
+	margin-bottom: 1px;
 }
 #orgBackground{
 	width:100%;
@@ -355,6 +377,10 @@ h1{
 	padding-right:40px;
 }
 
+
+#orgInfo a{
+	color: #fff;
+}
 
 
 
@@ -536,327 +562,447 @@ input[id=inCountry]::-webkit-input-placeholder, input[id="inCity"]::-webkit-inpu
 }
 /*End of registerProject*/
 
-/*textarea*/
-#aboutProj{
+/************ Textarea ************/
+
+/*About organization*/
+#aboutOrg{
+	background-color: transparent;
+	color: #fff;
 	border:none;
 	box-shadow: none;
 	font-size: 18px;
+	resize: none;
 
+	width: 100%; 
+	min-width:100%; 
+	max-width:100%; 
 
-	width: 300px; 
-	min-width:300px; 
-	max-width:300px; 
-
-	height:115px; 
-	min-height:115px;  
-	max-height:115px;
+	height:150px; 
+	min-height:150px;  
+	max-height:150px;
 }
-
-input[id=aboutProj]:focus{
-	border:2px solid red;
+/*
+input[id=aboutOrg]:focus{
+	border:1px solid red;
 	box-shadow: none;
 }
 
-#aboutProj::-webkit-input-placeholder{ 
-	text-decoration: underline;
-}
-#aboutProj::-moz-placeholder{
-	text-decoration: underline;
-}
-#aboutProj:-ms-input-placeholder{
-	text-decoration: underline;
-}
-#aboutProj::-webkit-input-placeholder{
-	text-decoration: underline;
-}
-/*End of textarea*/
-
-input[id="orgIDs"],input[id="orgNames"],input[id="newPasswds"],input[id="rptPasswds"]{
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
-#reg_pt2_input{
-	margin: 5px;
-	width:98%;
-}
-
-#aboutOrg{
-	margin:5px;
-	width:98%;
-	font-size: 14px;
-	min-width:98%; 
-	max-width:98%; 
-
-	height:115px; 
-	min-height:115px;  
-	max-height:115px;
-}
-
 #aboutOrg::-webkit-input-placeholder{ 
-	font-size: 14px;
+	text-decoration: underline;
 }
 #aboutOrg::-moz-placeholder{
-	font-size: 14px;
+	text-decoration: underline;
 }
 #aboutOrg:-ms-input-placeholder{
-	font-size: 14px;
+	text-decoration: underline;
 }
 #aboutOrg::-webkit-input-placeholder{
-	font-size: 14px;
-}
+	text-decoration: underline;
+	}*/
+	/*end of about org*/
+
+	/*about project*/
+	#aboutProj{
+		border:none;
+		box-shadow: none;
+		font-size: 18px;
+		resize: none;
+
+		width: 300px; 
+		min-width:300px; 
+		max-width:300px; 
+
+		height:115px; 
+		min-height:115px;  
+		max-height:115px;
+	}
+
+	input[id=aboutProj]:focus{
+		border:2px solid red;
+		box-shadow: none;
+	}
+
+	#aboutProj::-webkit-input-placeholder{ 
+		text-decoration: underline;
+	}
+	#aboutProj::-moz-placeholder{
+		text-decoration: underline;
+	}
+	#aboutProj:-ms-input-placeholder{
+		text-decoration: underline;
+	}
+	#aboutProj::-webkit-input-placeholder{
+		text-decoration: underline;
+	}
+	/*End of about project*/
+
+	input[id="orgIDs"],input[id="orgNames"],input[id="newPasswds"],input[id="rptPasswds"]{
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	/*About org_pt2*/
+	#reg_pt2_input{
+		margin: 5px;
+		width:98%;
+	}
+
+	#aboutOrg_pt2{
+		margin:5px;
+		width:98%;
+		font-size: 14px;
+		min-width:98%; 
+		max-width:98%; 
+
+		height:115px; 
+		min-height:115px;  
+		max-height:115px;
+	}
+
+	#aboutOrg_pt2::-webkit-input-placeholder{ 
+		font-size: 14px;
+	}
+	#aboutOrg_pt2::-moz-placeholder{
+		font-size: 14px;
+	}
+	#aboutOrg_pt2:-ms-input-placeholder{
+		font-size: 14px;
+	}
+	#aboutOrg_pt2::-webkit-input-placeholder{
+		font-size: 14px;
+	}
+	/*end og about org_pt2*/
 
 
 
 
+	/******************** BUTTONS ********************/ 
+	.greenbtn{
+		background-color: #10A810;
+		color: #F4F7CA;
+		font-size:18px;
+	}
 
-/******************** BUTTONS ********************/ 
-.greenbtn{
-	background-color: #10A810;
-	color: #F4F7CA;
-	font-size:18px;
-}
+	.bluebtn{
+		background-color: #0467FF;
+		border-radius: 4px;
+		padding: 1px 6px;
+		color: #FFFFFF;
+		font-size:14px;
+		width:98%;
+		height:34px;
+		margin: 5px;
+	}
+	.bluebtn:hover{
+		background-color: #0457FF;
+		color: #FFFFFF;
+	}
 
-.bluebtn{
-	background-color: #0467FF;
-	border-radius: 4px;
-	padding: 1px 6px;
-	color: #FFFFFF;
-	font-size:14px;
-	width:98%;
-	height:34px;
-	margin: 5px;
-}
-.bluebtn:hover{
-	background-color: #0457FF;
-	color: #FFFFFF;
-}
+	.bluebtn:focus{
+		background-color: #0467FF;
+		color: #FFFFFF;
+	}
 
-.bluebtn:focus{
-	background-color: #0467FF;
-	color: #FFFFFF;
-}
+	.whitebtn{
+		background-color: #FFFFFF;
+		border:1px solid #CCC;
+		border-radius: 4px;
+		padding: 5px 6px;
+		color: #777;
+		font-size: 14px;
+		width:49.5%;
+		height:34px;
+	}
 
-.whitebtn{
-	background-color: #FFFFFF;
-	border:1px solid #CCC;
-	border-radius: 4px;
-	padding: 5px 6px;
-	color: #777;
-	font-size: 14px;
-	width:49.5%;
-	height:34px;
-}
+	.whitebtn a{
+		color: #777;
+	}
 
-.whitebtn a{
-	color: #777;
-}
+	/* btns registration_pt2 */
+	.orgbtn{
+		background-color: transparent;
+		color: #777;
+		border: 1px solid #CCC;
+		border-radius: 4px;
+		padding: 1px 6px;
+		height: 34px;
+		width:98%;
+		margin:5px;
+		font-size:14px;
+	}
 
-/* btns registration_pt2 */
-.orgbtn{
-	background-color: transparent;
-	color: #777;
-	border: 1px solid #CCC;
-	border-radius: 4px;
-	padding: 1px 6px;
-	height: 34px;
-	width:98%;
-	margin:5px;
-	font-size:14px;
-}
+	.orgbtn:focus{
+		background-color: transparent;
+		color: #777;
+		border: 1px solid #CCC;
+		font-size:14px;
+	}
 
-.orgbtn:focus{
-	background-color: transparent;
-	color: #777;
-	border: 1px solid #CCC;
-	font-size:14px;
-}
+	.orgbtn1{
+		background-color: #FFFFFF;
+		border:1px solid #CCC;
+		border-radius: 4px;
+		padding: 1px 6px;
+		color: #777;
+		font-size: 14px;
+		width:98%;
+		height:34px;
+		margin: 5px;
+	}
+	/*end dropdown*/
 
-.orgbtn1{
-	background-color: #FFFFFF;
-	border:1px solid #CCC;
-	border-radius: 4px;
-	padding: 1px 6px;
-	color: #777;
-	font-size: 14px;
-	width:98%;
-	height:34px;
-	margin: 5px;
-}
-/*end dropdown*/
+	.btn-success{
+		margin: 5px;
+		width:98%;
+	}
 
-.btn-success{
-	margin: 5px;
-	width:98%;
-}
+	.orgbtn3{
+		background-color: #0467FF;
+		border-radius: 4px;
+		padding: 1px 6px;
+		color: #FFFFFF;
+		font-size:14px;
+		width:100%;
+		height:34px;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		margin:5px;
+	}
+	.orgbtn3:hover{
+		background-color: #0457FF;
+		color: #FFFFFF;
+	}
 
-.orgbtn3{
-	background-color: #0467FF;
-	border-radius: 4px;
-	padding: 1px 6px;
-	color: #FFFFFF;
-	font-size:14px;
-	width:100%;
-	height:34px;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	margin:5px;
-}
-.orgbtn3:hover{
-	background-color: #0457FF;
-	color: #FFFFFF;
-}
+	.orgbtn3:focus{
+		background-color: #0467FF;
+		color: #FFFFFF;
+	}
 
-.orgbtn3:focus{
-	background-color: #0467FF;
-	color: #FFFFFF;
-}
-
-/*** End of btns registration_pt2 ***/
-
-
-#uploadPhoto{
-	width:100%;
-}
-
-#completeReg{
-	width:100%;
-	margin-top: 5px;
-	margin-left: 0px;
-}
-
-#linkbutton{
-	background-color: #0467FF;
-	color: #FFF;
-}
-
-#linkbutton:hover{
-	background-color: #002d6f;
-	color:#FFF;
-}
-
-a.navbar-brand.page-scroll, #header ul.nav.navbar-nav a.page-scroll{
-	color: #FFFFFF;
-}
-
-a.navbar-brand.page-scroll:focus, #header ul.nav.navbar-nav a.page-scroll:focus{
-	color: #FFFFFF;
-}
-
-a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
-	color: #BBB;
-}
-
-#registerbutton a.page-scroll{
-	text-decoration: none;
-}
-
-#registerbutton a.page-scroll:hover{
-	text-decoration: none;
-	color: #000;
-}
-
-#registerphonebutton{
-	background-color: #10A810;
-	color: #F4F7CA;
-	font-size:18px;
-	border:none;
-	border-radius: 5px;
-	padding:5px;
-	width:30%;
-}
+	/*** End of btns registration_pt2 ***/
 
 
-/*** logoutbtn ***/ 
+	#uploadPhoto{
+		width:100%;
+	}
 
-#logoutbtn{
-	background-color: transparent;
-	color: #777;
-	width:100%;
-	padding: 1px 6px;
-	margin-top:15px;
-	border:none;
-}
+	#completeReg{
+		width:100%;
+		margin-top: 5px;
+		margin-left: 0px;
+	}
 
-#logoutbtn:hover{
-	color: #000;
-}
-#logoutbtn:hover{
-	outline:none;
-}
+	#linkbutton{
+		background-color: #0467FF;
+		color: #FFF;
+	}
 
-/*** End of logoutbtn ***/ 
+	#linkbutton:hover{
+		background-color: #002d6f;
+		color:#FFF;
+	}
+
+	a.navbar-brand.page-scroll, #header ul.nav.navbar-nav a.page-scroll{
+		color: #FFFFFF;
+	}
+
+	a.navbar-brand.page-scroll:focus, #header ul.nav.navbar-nav a.page-scroll:focus{
+		color: #FFFFFF;
+	}
+
+	a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
+		color: #BBB;
+	}
+
+	#registerbutton a.page-scroll{
+		text-decoration: none;
+	}
+
+	#registerbutton a.page-scroll:hover{
+		text-decoration: none;
+		color: #000;
+	}
+
+	#registerphonebutton{
+		background-color: #10A810;
+		color: #F4F7CA;
+		font-size:18px;
+		border:none;
+		border-radius: 5px;
+		padding:5px;
+		width:30%;
+	}
 
 
-select, option{
-	background-color: #006dfe;
-	border:none;
-	outline:none;
-}
+	/*** logoutbtn ***/ 
 
-.regOrgDropdown select,.regOrgDropdown option  {
-   background: transparent;
-   border-radius: 5px;
-   width: 268px;
-   padding: 5px;
-   font-size: 14px;
-   line-height: 1;
-   border: 1px solid #ccc;
-   width:98%;
-   border-radius: 0;
-   height: 34px;
-   margin: 5px;
-}
+	#logoutbtn{
+		background-color: transparent;
+		color: #777;
+		width:100%;
+		padding: 1px 6px;
+		margin-top:15px;
+		border:none;
+	}
 
-#buttondiv{
-	padding-left:5px;
-	padding-right: 0px;
-}
+	#logoutbtn:hover{
+		color: #000;
+	}
+	#logoutbtn:hover{
+		outline:none;
+	}
 
+	/*** End of logoutbtn ***/ 
+
+
+	select, option{
+		background-color: #006dfe;
+		border:none;
+		outline:none;
+	}
+
+	.regOrgDropdown select,.regOrgDropdown option  {
+		background: transparent;
+		border-radius: 5px;
+		width: 268px;
+		padding: 5px;
+		font-size: 14px;
+		line-height: 1;
+		border: 1px solid #ccc;
+		width:98%;
+		border-radius: 0;
+		height: 34px;
+		margin: 5px;
+	}
+
+	#buttondiv{
+		padding-left:5px;
+		padding-right: 0px;
+	}
 
 
 
 
+	@media screen and (max-width: 600px) {
+		input#logoutbtn{
+			margin: 0;
+			padding-left: 30px;
+			height:34px;
+			text-align: left;
+			font-size: 16px;
+			font-weight: bold;
+			border-bottom: 1px solid black;
+			border-radius: 0 0px 5px 5px;
+		}
+		#ul.nav.navbar-nav{
+			margin-bottom: 0;
+		}
+		a#scndmenu.page-scroll, input#logoutbtn{
+			background-color: #FFF;
+		}
+
+		div.navbar-collapse.navbar-ex1-collapse.collapse.in{
+			border-top: none;
+			box-shadow: none;
+			outline: 0;
+		}
+
+		button.navbar-toggle.btncolor{
+			background-color: #fff;
+		}
+		button.navbar-toggle.btncolor:hover{
+			background-color: #fff;
+
+		}
+		button.navbar-toggle.btncolor:focus{
+			background-color: #fff;
+		}
+	}
+	@media screen and (max-width: 1024px) {
+		input#logoutbtn{
+			margin: 0;
+			padding-left: 30px;
+			height:34px;
+			text-align: left;
+			font-size: 16px;
+			font-weight: bold;
+
+		}
+	}
+	@media screen and (max-width: 767px) {
+		input#logoutbtn{
+			margin: 0;
+			padding:0;
+			padding-left: 30px;
+			height:50px;
+			text-align: left;
+			font-size: 16px;
+			font-weight: bold;
+			border-bottom: 1px solid black;
+			border-radius: 0 0px 5px 5px;
+		}
+		a#scndmenu.page-scroll, input#logoutbtn{
+			background-color: #FFF;
+		}
+		#menunav{
+			margin-bottom: 0;
+		}
+		#nobottommargin{
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+		#nomargintop{
+			margin-top: 0;
+			padding-top: 0;
+		}
+	}
 
 
-/******************** NYTT ********************/
 
-/*project squares*/
-#projectcontainer{
-	background-color: #333 ;
-	border:1px solid #000;
-	border-radius: 0px;
-	color: #FFF;
-	margin:5px;
-	margin-top:20px;
-	margin-left: 25px;
-	width:260px;
-	height:250px;
-}
+	/******************** NYTT ********************/
 
-#projectcontainer h1{
-	color:black;
-}
-#projectcontainer a{
-	color: #fff;
-}
-#projectcontent{
-	overflow:hidden;
-	height: 245px;
-	margin-bottom: 10px;
-}
+	/*project squares*/
+	#projectcontainer{
+		background-color: #333 ;
+		border:1px solid #000;
+		border-radius: 0px;
+		color: #FFF;
+		margin:5px;
+		margin-top:20px;
+		margin-left: 25px;
+		width:260px;
+		height:250px;
+	}
 
-#bottom{
-	background-color: #333;
-	/*border-top:1px solid #777;*/
-	font-size: 20px;
-	bottom:0;
-	position:absolute;
-	text-align: center;
-	margin-left:-15px;
-}
+	#projectcontainer h1{
+		color:black;
+	}
+	#projectcontainer a{
+		color: #fff;
+	}
+	#projectcontent{
+		overflow:hidden;
+		height: 245px;
+		margin-bottom: 10px;
+	}
 
+	#bottom{
+		background-color: #333;
+		/*border-top:1px solid #777;*/
+		font-size: 20px;
+		bottom:0;
+		position:absolute;
+		text-align: center;
+		margin-left:-15px;
+	}
+
+	#aboutOrgPadding{
+		padding-left:30px;
+	}
+
+	#aboutOrgPadding2{
+		padding-left:20px;
+	}
 
 
 

@@ -56,11 +56,11 @@ if(isset($_POST['logout'])){
 <div class="scroller_anchor"></div>
 <nav class="navbar navbar-default top-nav-collapse scroller" role="navigation" id="navbarContainer">
     <div class="col-md-1"></div>
-    <div class="col-md-10">
+    <div class="col-md-10" id="nobottommargin">
 
         <div class="container" >
             <div class="navbar-header page-scroll col-md-4">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <button type="button" class="navbar-toggle btncolor" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -71,45 +71,49 @@ if(isset($_POST['logout'])){
             </div>
 
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse col-md-6">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse col-md-6">
 
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    
-                    <li>
-                        <a class="page-scroll" name ="showProjectMenu" id="scndmenu" style="cursor:pointer;">Prosjekter</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" name ="showNewsMenu" id="scndmenu" style="cursor:pointer;">Nyheter</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" name ="showStatsMenu" id="scndmenu" style="cursor:pointer;">Statistikk</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" name ="showOrganizationMenu" id="scndmenu" style="cursor:pointer;">Min organisasjon</a>
-                    </li>
-                </ul>
+            <ul class="nav navbar-nav" id="menunav">
+                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
 
-            </div>
+                <li>
+                    <a class="page-scroll" name ="showProjectMenu" id="scndmenu" style="cursor:pointer;">Prosjekter</a>
+                </li>
+                <li>
+                    <a class="page-scroll" name ="showNewsMenu" id="scndmenu" style="cursor:pointer;">Nyheter</a>
+                </li>
+                <li>
+                    <a class="page-scroll" name ="showStatsMenu" id="scndmenu" style="cursor:pointer;">Statistikk</a>
+                </li>
+                <li>
+                    <a class="page-scroll" name ="showOrganizationMenu" id="scndmenu" style="cursor:pointer;">Min organisasjon</a>
+                </li>
+            </ul>
 
-            <!-- /.navbar-collapse -->
-            <div class="col-md-2"></div>
-
-            <!-- /.container -->
         </div>
 
-        
+        <!-- /.navbar-collapse -->
+        <div class="collapse col-md-2"></div>
 
-        
+        <!-- /.container -->
     </div>
-    
-    <div class="col-md-1" id="logoutContainer">
 
-        <form method="post">
-            <input type="submit" name="logout" id="logoutbtn" value="Logg ut"/>
-        </form>
-    </div>
+
+
+
+</div>
+
+<div class="collapse navbar-collapse navbar-ex1-collapse col-md-1" id="logoutContainer">
+    <ul class="nav navbar-nav" id="nomargintop">
+        <li>
+            <form method="post">
+                <input type="submit" name="logout" id="logoutbtn" value="Logg ut"/>
+            </form>
+        </li>
+    </ul>
+
+</div>
 </nav>
 
 <div class="menu_anchor"></div>
@@ -140,24 +144,24 @@ if(isset($_POST['logout'])){
     <div id="projectMenu" class="menus">
         <ul class="nav navbar-nav">
             <li>
-                 <a href="showProjects.php">Vis alle</a>
-            </li>
-            <li>
-                <a href="registerProject.php">Registrer nytt</a>
-            </li>
-        </ul>  
-    </div>
-    <div id="organizationMenu" class="menus">
-        <ul class="nav navbar-nav">
-            <li>
-                 <a href="home.php">Hjem</a>
-            </li>
-            <li>
-                 <a href="change_orginfo.php">Endre informasjon</a>
-            </li>
-        </ul>
-    
-    </div>
+               <a href="showProjects.php">Vis alle</a>
+           </li>
+           <li>
+            <a href="registerProject.php">Registrer nytt</a>
+        </li>
+    </ul>  
+</div>
+<div id="organizationMenu" class="menus">
+    <ul class="nav navbar-nav">
+        <li>
+           <a href="home.php">Hjem</a>
+       </li>
+       <li>
+           <a href="change_orginfo.php">Endre informasjon</a>
+       </li>
+   </ul>
+
+</div>
 </div>
 
 
