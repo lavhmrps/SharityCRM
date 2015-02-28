@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-include "SharityCRM/connect.php";
-include "SharityCRM/checkSession.php";
+include "../phpBackend/connect.php";
+include "../phpBackend/checkSession.php";
 
 
 $uid = 1;

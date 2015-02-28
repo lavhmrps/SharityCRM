@@ -2,7 +2,7 @@
 /*Finn ut av hva dette gjør*/
 ob_start();
 
-include 'connect.php';
+include '../phpBackend/connect.php';
 
 if (isset($_POST['combination'])) {
     $json = $_POST['combination'];

@@ -10,7 +10,7 @@ $('button[name=complete_registration]').click(function(event){
 	insertInformation();
 	insertBackground();
 	insertLogo();
-	window.location.replace('home.php');
+	window.location.replace('../pages/home.php');
 
 });
 
@@ -45,7 +45,7 @@ function insertInformation(){
 		type : "POST",
 
 		dataType : "text",
-		url : "updateOrganization.php",
+		url : "../phpBackend/updateOrganization.php",
 		data: {"organization" : organizationJSON},
 		success : function(response){
 			alert("Org. info: " + response);
@@ -72,7 +72,7 @@ function insertBackground(){
 		var form_data_background = new FormData();                  
 		form_data_background.append('file_background', file_data_background);
 		$.ajax({
-	        url: 'insertBackground.php', // point to server-side PHP script 
+	        url: '../phpBackend/insertBackground.php', // point to server-side PHP script 
 	        datatype: 'text',  // what to expect back from the PHP script, if anything
 	        cache: false,
 	        contentType: false,
@@ -108,7 +108,7 @@ function insertLogo(){
 
 
 		$.ajax({
-            url: 'insertLogo.php', // point to server-side PHP script 
+            url: '../phpBackend/insertLogo.php', // point to server-side PHP script 
             datatype: 'text',  // what to expect back from the PHP script, if anything
             cache: false,
             contentType: false,

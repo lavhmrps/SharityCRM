@@ -2,9 +2,8 @@
 <?php
 
 session_start();
-include 'checkSession.php';
-include 'checkSession.php';
-include 'connect.php';
+include '../phpBackend/checkSession.php';
+include '../phpBackend/connect.php';
 ?>
 
 <!DOCTYPE html>
@@ -21,18 +20,18 @@ include 'connect.php';
 	<title>Sharity</title>
 
 	<!-- Bootstrap Core CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
 
 	<!-- Custom CSS -->
-	<link href="css/scrolling-nav.css" rel="stylesheet"/>
-	<link rel="stylesheet" type="text/css" href="css/index.css" />
-	<link rel="stylesheet" type="text/css" href="css/list_project.css">
-	<link href="css/main.css" rel="stylesheet"/>
-	<link href="css/fonts.css" rel="stylesheet"/>
+	<link href="../css/scrolling-nav.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="../css/index.css" />
+	<link rel="stylesheet" type="text/css" href="../css/list_project.css">
+	<link href="../css/main.css" rel="stylesheet"/>
+	<link href="../css/fonts.css" rel="stylesheet"/>
 
 </head>
 <?php
-include "header_nav.php";
+include "../pages/header_nav.php";
 ?>
 
 <div class="container" id="phonecontainer">
@@ -150,11 +149,11 @@ include "header_nav.php";
 
 
 	<!-- jQuery -->
-	<script src="js/jquery.js"></script>
-	<script src="js/stickyheader.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/stickyheader.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 
 	<!-- Upload img js -->
 	<script type="text/JavaScript">

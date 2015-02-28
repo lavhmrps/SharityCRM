@@ -5,7 +5,7 @@ $("#uploadimg").click(function() {
 
 $(document).ready(function() { 
 	$.ajax({
-		url : 'insertBackground.php',
+		url : '../phpBackend/autoInsertBackgroundimg.php',
 		dataType: 'text',
 		success : function(response){
 			setImage(response);
@@ -46,7 +46,7 @@ $(document).ready(function() {
 			var form_data_background = new FormData();                  
 			form_data_background.append('file_background', file_data_background);
 			$.ajax({
-	        url: 'insertBackground.php', // point to server-side PHP script 
+	        url: '../phpBackend/autoInsertBackgroundimg.php', // point to server-side PHP script 
 	        datatype: 'text',  // what to expect back from the PHP script, if anything
 	        cache: false,
 	        contentType: false,

@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include 'checkSession.php';
-include 'connect.php';
+include '../phpBackend/checkSession.php';
+include '../phpBackend/connect.php';
 
 $organizationNr = $_SESSION['organizationNr'];
 
@@ -23,11 +23,11 @@ $organizationNr = $_SESSION['organizationNr'];
 	<title>Sharity</title>
 
 	<!-- Bootstrap Core CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
 
 	<!-- Custom CSS -->
-	<link href="css/main.css" rel="stylesheet"/>
-	<link href="css/fonts.css" rel="stylesheet"/>
+	<link href="../css/main.css" rel="stylesheet"/>
+	<link href="../css/fonts.css" rel="stylesheet"/>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -174,7 +174,7 @@ $organizationNr = $_SESSION['organizationNr'];
 									&& $accountnumber != "" && $email != "" && $about != ""
 
 									){
-									header("Location: home.php");
+									header("Location: ../pages/home.php");
 
 							}else{
 								echo '
@@ -220,22 +220,22 @@ $organizationNr = $_SESSION['organizationNr'];
 
 
 			<!-- jQuery -->
-			<script src="js/jquery.js"></script>
+			<script src="../js/jquery.js"></script>
 
 			<script type="text/javascript">
 				function skip(){
-					window.location.replace('home.php');
+					window.location.replace('../pages/home.php');
 				}
 			</script>
 
 			<!-- Bootstrap Core JavaScript -->
-			<script src="js/bootstrap.min.js"></script>
+			<script src="../js/bootstrap.min.js"></script>
 
 			<!--Sript for insert organization to database through AJAX request-->
-			<script src="updateOrganization.js"></script>
+			<script src="../js/updateOrganization.js"></script>
 			
 			<!--Sript for insert images to database through AJAX request-->
-			<script src="insertImg.js"></script>
+			<script src="../js/insertImg.js"></script>
 
 
 		</body>

@@ -5,8 +5,8 @@
 /*Starter session*/
 session_start();
 
-include 'checkSession.php';
-include 'connect.php';
+include '../phpBackend/checkSession.php';
+include '../phpBackend/connect.php';
 ?>
 
 <!DOCTYPE html>
@@ -23,18 +23,18 @@ include 'connect.php';
     <title>Sharity</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/scrolling-nav.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/font.css" rel="stylesheet">
+    <link href="../css/scrolling-nav.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/font.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <?php
-    include 'header_nav.php';
+    include '../pages/header_nav.php';
     ?>
 
     <div class="container">
@@ -44,11 +44,11 @@ include 'connect.php';
 
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-    <script src="js/stickyheader.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/stickyheader.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 
 
 </body>

@@ -2,6 +2,7 @@
 
 $('#completeReg').click(function(){
 
+
 	var name = $('input[name=reg_name]').val();
 	var organizationNr = $('input[name=reg_organizationNr]').val();
 	var password = $('input[name=reg_password]').val();
@@ -24,10 +25,12 @@ $('#completeReg').click(function(){
 
 
 
+
+
 	$.ajax({
 		type: "POST",
 		dataType: "text",
-		url: "insertOrganization.php",
+		url: "phpBackend/insertOrganization.php",
 		data: {'organization': organizationJSON},
 		success: function(response){
 			if(response == "OK"){
@@ -35,14 +38,12 @@ $('#completeReg').click(function(){
 				$('input[name=organizationNr]').val(organizationNr);
 				$('input[name=password]').focus();
 				$("#goToLogin").trigger("click");
-
-				
-
 			}else{
 				alert(response);
 			}
 		},
 		error: function(response){
+			alert("ERROR: INSERT ORGANIZATION : " + response.message);
 			console.log(response.message); //skriver feilmelding i consol i nettleser
 		}	
 	});

@@ -1,7 +1,7 @@
-'<?php
+<?php
 session_start();
-include 'checkSession.php';
-include 'connect.php';
+include '../phpBackend/checkSession.php';
+include '../phpBackend/connect.php';
 $organizationNr = $_SESSION['organizationNr'];
 ?>
 
@@ -19,18 +19,18 @@ $organizationNr = $_SESSION['organizationNr'];
 	<title>Sharity</title>
 
 	<!-- Bootstrap Core CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Custom CSS -->
-	<link href="css/scrolling-nav.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/font.css" rel="stylesheet">
+	<link href="../css/scrolling-nav.css" rel="stylesheet">
+	<link href="../css/main.css" rel="stylesheet">
+	<link href="../css/font.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 	<?php
-	include 'header_nav.php';
+	include '../pages/header_nav.php';
 	?>
 
 
@@ -57,7 +57,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					echo "<p>" . $row['txt'] . "</p>";
 					echo '</div>';
 					echo "<div class='col-md-12' id='bottom'>";
-					echo '<a href="showSelectedNews.php" onclick=showSelectedNews(' . $row['newsID'] . ')>Vis</a> - ';
+					echo '<a href="../pages/showSelectedNews.php" onclick=showSelectedNews(' . $row['newsID'] . ')>Vis</a> - ';
 					echo '<a href="">Endre</a> - ';
 					echo '<a href="">Slett</a>';
 					echo '</div>';
@@ -71,12 +71,12 @@ $organizationNr = $_SESSION['organizationNr'];
 	</div>
 
 	<!-- jQuery -->
-	<script src="js/jquery.js"></script>
-	<script src="js/stickyheader.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/stickyheader.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
-	<script src="showNews.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/showNews.js"></script>
 
 
 

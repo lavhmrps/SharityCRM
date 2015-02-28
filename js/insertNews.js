@@ -60,7 +60,7 @@
  		$.ajax({
  			type: "POST",
  			dataType: "text",
- 			url: "insertNews.php",
+ 			url: "../phpBackend/insertNews.php",
  			data: {'news' : newsJSON},
  			success: function (response) {
  				alert(response);

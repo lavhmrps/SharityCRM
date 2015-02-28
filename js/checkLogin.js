@@ -12,11 +12,11 @@ $('#loginbutton').click(function(){
 	$.ajax({
 		type: "POST",
 		dataType: "text",
-		url: "checkLogin.php",
+		url: "phpBackend/checkLogin.php",
 		data: {'combination' : combinationJSON},
 		success: function(response){
 			if(response == "OK"){
-				window.location.replace("registration_pt2.php");
+				window.location.replace("pages/registration_pt2.php");
 			}else if(response == "WRONG"){
 				alert("WRONG ORGANIZATION NUMBER / PASSWORD COMBINATION");
 				$('input[name=password]').val("");
@@ -50,11 +50,11 @@ $('input[name=login_admin]').click(function(){
 	$.ajax({
 		type: "POST",
 		dataType: "text",
-		url: "checkLogin.php",
+		url: "../phpBackend/checkLogin.php",
 		data: {"adminCombination" : adminJSON},
 		success: function(response){
 			if(response == "OK"){
-				window.location.replace("adminHome.php");
+				window.location.replace("../pages/admin/adminHome.php");
 
 			}
 		},

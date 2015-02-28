@@ -5,8 +5,8 @@
 /*Starter session*/
 session_start();
 
-include 'checkSession.php';
-include 'connect.php';
+include '../phpBackend/checkSession.php';
+include '../phpBackend/connect.php';
 ?>
 
 <!DOCTYPE html>
@@ -23,18 +23,18 @@ include 'connect.php';
     <title>Sharity</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/scrolling-nav.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/font.css" rel="stylesheet">
+    <link href="../css/scrolling-nav.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/font.css" rel="stylesheet">
 
   </head>
 
   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <?php
-    include 'header_nav.php';
+    include '../pages/header_nav.php';
     ?>
 
     <div class="col-md-3" id="homebox">
@@ -50,12 +50,14 @@ include 'connect.php';
           
           echo '<div class="col-md-0"></div>';
           echo '<div class=" text-center">';
-          echo "<img src='" . $row['logoURL'] . "' alt='Organisasjonslogo'  id='orgLogo'/>";
+          echo "<img src='../phpBackend/" . $row['logoURL'] . "' alt='Organisasjonslogo'  id='orgLogo'/>";
           echo '</div>';
           echo '<div class="col-md-0"></div>';
 
 
-          echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='orgBackground'/>";
+          echo "<img src='../phpBackend/" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='orgBackground'/>";
+
+         
           
           echo '<div class="row">';
             echo '<div class="col-md-6" id="aboutOrgPadding">';
@@ -137,14 +139,13 @@ include 'connect.php';
       <h3>Antall unike givere:</h3>
       <h3>Totalt:</h3>
     </div>
-  
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-    <script src="js/stickyheader.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/stickyheader.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
   
   
   </body>

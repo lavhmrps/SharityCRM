@@ -1,5 +1,5 @@
 <?php
 if(!isset($_SESSION['organizationNr'])){
-	header("Location: index.php#login");//en kommentar
+	header("Location: ../pages/index.php#login");//en kommentar
 }
 ?>

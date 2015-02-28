@@ -1,8 +1,8 @@
 	<?php
 
 	session_start();
-	include '../phpBackend/checkSession.php';
-	include '../phpBackend/connect.php';
+	include 'phpBackend/checkSession.php';
+	include 'phpBackend/connect.php';
 	?>
 
 	<!DOCTYPE html>
@@ -19,18 +19,18 @@
 		<title>Sharity</title>
 
 		<!-- Bootstrap Core CSS -->
-		<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="css/bootstrap.min.css" rel="stylesheet"/>
 
 		<!-- Custom CSS -->
-		<link href="../css/scrolling-nav.css" rel="stylesheet"/>
-		<link rel="stylesheet" type="text/css" href="../css/index.css" />
-		<link rel="stylesheet" type="text/css" href="../css/list_project.css">
-		<link href="../css/main.css" rel="stylesheet"/>
-		<link href="../css/fonts.css" rel="stylesheet"/>
+		<link href="css/scrolling-nav.css" rel="stylesheet"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/list_project.css">
+		<link href="css/main.css" rel="stylesheet"/>
+		<link href="css/fonts.css" rel="stylesheet"/>
 
 	</head>
 	<?php
-	include "../pages/header_nav.php";
+	include "pages/header_nav.php";
 	?>
 
 	<div class="container" id="phonecontainer">
@@ -42,7 +42,7 @@
 
 						<div id="header_div" class="boxshadow">
 							<div page-role="header" class="header_top"></div>
-							<img src="../img/arrow_left.png"
+							<img src="img/arrow_left.png"
 							class="show-page-loading-msg menu_icon back_icon">
 							<input type="text" name = "name" id="topTitle" placeholder="Skriv navn" />
 						</div>
@@ -73,7 +73,7 @@
 								}else{
 									die('Feil i sql spørringen etter logoURL fra Organizaton');
 								}
-								echo "<img id='logoimg' src='../phpBackend/" .  $logoURL . "'/>";
+								echo "<img id='logoimg' src='" .  $logoURL . "'/>";
 								?>
 							</div>
 						</div>
@@ -110,17 +110,17 @@
 </div>
 
 <!-- jQuery -->
-<script src="../js/jquery.js"></script>
-<script src="../js/stickyheader.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/stickyheader.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="../js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 <!-- Upload img js -->
-<script "../js/autoUploadBackgroundimg.js"></script>
+<script "js/autoUploadBackgroundimg.js"></script>
 
 <!--Sript for insert project to database through AJAX request-->
-<script src="../js/insertProject.js"></script>
+<script src="insertProject.js"></script>
 
 
 </body>

@@ -1,10 +1,14 @@
 <?php
 session_start();
+
+
+
+
 if(isset($_SESSION['organizationNr'])){
-	header("Location:registration_pt2.php");
+	header("Location: pages/registration_pt2.php");
 }
 
-include 'connect.php';
+include "../phpBackend/connect.php";
 
 ?>
 
@@ -209,7 +213,7 @@ include 'connect.php';
 							<div class="col-md-2" id="footerpadding">
 								
 								<div class="col-md-12">
-									<a href="loginAdmin.php">Admin </a>
+									<a href="pages/admin/loginAdmin.php">Admin </a>
 								</div>
 								<div class="col-md-12">
 									<a href="#">aifaosifa </a>
@@ -224,45 +228,45 @@ include 'connect.php';
 							
 							<div class="col-md-2" id="footerpadding">
 								<div class="col-md-12">
-									<a href="loginAdmin.php">Something </a>
+									<a href="pages/admin/loginAdmin.php">Something </a>
 								</div>
 								<div class="col-md-12">
-									<a href="loginAdmin.php">Something </a>
+									<a href="pages/admin/loginAdmin.php">Something </a>
 								</div>
 								<div class="col-md-12">
-									<a href="loginAdmin.php">Something </a>
+									<a href="pages/admin/loginAdmin.php">Something </a>
 								</div>
 								<div class="col-md-12">
-									<a href="loginAdmin.php">Something </a>
+									<a href="pages/admin/loginAdmin.php">Something </a>
 								</div>
 								
 							</div>
 							<div class="col-md-2" id="footerpadding">
 								<div class="col-md-12">
-									<a href="loginAdmin.php">About </a>
+									<a href="pages/admin/loginAdmin.php">About </a>
 								</div>
 								<div class="col-md-12">
-									<a href="loginAdmin.php">About </a>
+									<a href="pages/admin/loginAdmin.php">About </a>
 								</div>
 								<div class="col-md-12">
-									<a href="loginAdmin.php">About </a>
+									<a href="pages/admin/loginAdmin.php">About </a>
 								</div>
 								<div class="col-md-12">
-									<a href="loginAdmin.php">About </a>
+									<a href="pages/admin/loginAdmin.php">About </a>
 								</div>
 							</div>
 							<div class="col-md-2" id="footerpadding">
 								<div class="col-md-12">
-									<a href="loginAdmin.php">FAQs </a>
+									<a href="pages/admin/loginAdmin.php">FAQs </a>
 								</div>
 								<div class="col-md-12">
-									<a href="loginAdmin.php">FAQs </a>
+									<a href="pages/admin/loginAdmin.php">FAQs </a>
 								</div>
 								<div class="col-md-12">
-									<a href="loginAdmin.php">FAQs </a>
+									<a href="pages/admin/loginAdmin.php">FAQs </a>
 								</div>
 								<div class="col-md-12">
-									<a href="loginAdmin.php">FAQs </a>
+									<a href="pages/admin/loginAdmin.php">FAQs </a>
 								</div>
 								
 							</div>
@@ -298,10 +302,10 @@ include 'connect.php';
 		<script src="js/scrolling-nav.js"></script>
 
 		<!--Sript for insert organization to database through AJAX request-->
-		<script src="insertOrganization.js"></script>
+		<script src="js/insertOrganization.js"></script>
 
 		<!--Check login-->
-		<script src="checkLogin.js"></script>
+		<script src="js/checkLogin.js"></script>
 
 	</body>
 

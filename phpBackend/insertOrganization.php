@@ -2,7 +2,7 @@
 
 
 
-include 'connect.php';
+include '../phpBackend/connect.php';
 
 if (isset($_POST['organization'])) {
 	$json = $_POST['organization'];

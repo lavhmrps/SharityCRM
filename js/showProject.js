@@ -17,7 +17,7 @@ function showProject(projectID){
 	setProjectID(projectID);
 	$.ajax({
 		type : "POST",
-		url : "localStorageJStoPHP.php",
+		url : "../phpBackend/localStorageJStoPHP.php",
 		dataType : "text",
 		data : {"projectIDtoShow" : projectID},
 		success : function(response){

@@ -18,7 +18,7 @@ function showSelectedNews(newsID){
 	setNewsID(newsID);
 	$.ajax({
 		type : "POST",
-		url : "localStorageJStoPHP.php",
+		url : "../phpBackend/localStorageJStoPHP.php",
 		dataType : "text",
 		data : {"newsIDtoShow" : newsID},
 		success : function(response){

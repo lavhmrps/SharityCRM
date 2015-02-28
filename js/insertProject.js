@@ -27,7 +27,7 @@
  	$.ajax({
  		type: "POST",
  		dataType: "text",
- 		url: "insertProject.php",
+ 		url: "../phpBackend/insertProject.php",
  		data: {'project' : projectJSON},
  		success: function(response) {
  			if(response == "OK"){
@@ -36,7 +36,7 @@
 
  		},
  		error : function(response){
- 			alert(response.message);
+ 			alert("ERROR INSRT PROJECT : " + response.message);
  		}
  	});
 

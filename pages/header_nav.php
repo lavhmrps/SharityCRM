@@ -3,7 +3,7 @@
 if(isset($_POST['logout'])){
     session_destroy();
     session_unset();
-    header("Location:index.php");
+    header("Location: ../index.php");
 }
 ?>
 
@@ -121,10 +121,10 @@ if(isset($_POST['logout'])){
     <div id="newsMenu" class="menus">
         <ul class="nav navbar-nav">
             <li>
-                <a href="showNews.php">Vis alle</a>
+                <a href="../pages/showNews.php">Vis alle</a>
             </li>
             <li>
-                <a href="registerNews.php">Registrer ny</a>
+                <a href="../pages/registerNews.php">Registrer ny</a>
             </li>
         </ul> 
     </div>
@@ -137,27 +137,27 @@ if(isset($_POST['logout'])){
                 <a href="#">År</a>
             </li>
             <li>
-                <a href="statistics.php">Totalt</a>
+                <a href="../pages/statistics.php">Totalt</a>
             </li>
         </ul>      
     </div>
     <div id="projectMenu" class="menus">
         <ul class="nav navbar-nav">
             <li>
-               <a href="showProjects.php">Vis alle</a>
+               <a href="../pages/showProjects.php">Vis alle</a>
            </li>
            <li>
-            <a href="registerProject.php">Registrer nytt</a>
+            <a href="../pages/registerProject.php">Registrer nytt</a>
         </li>
     </ul>  
 </div>
 <div id="organizationMenu" class="menus">
     <ul class="nav navbar-nav">
         <li>
-           <a href="home.php">Hjem</a>
+           <a href="../pages/home.php">Hjem</a>
        </li>
        <li>
-           <a href="change_orginfo.php">Endre informasjon</a>
+           <a href="../pages/change_orginfo.php">Endre informasjon</a>
        </li>
    </ul>
 

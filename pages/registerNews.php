@@ -1,7 +1,7 @@
 <?php
 session_start();
-include 'checkSession.php';
-include 'connect.php';
+include '../phpBackend/checkSession.php';
+include '../phpBackend/connect.php';
 
 if(isset($_POST['registerNews'])){
 	$organizationNr = $_SESSION['organizationNr'];
@@ -32,19 +32,19 @@ if(isset($_POST['registerNews'])){
 	<title>Sharity</title>
 
 	<!-- Bootstrap Core CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
 
 	<!-- Custom CSS -->
-	<link href="css/scrolling-nav.css" rel="stylesheet"/>
-	<link rel="stylesheet" type="text/css" href="css/index.css" />
-	<link rel="stylesheet" type="text/css" href="css/list_project.css">
-	<link href="css/main.css" rel="stylesheet"/>
-	<link href="css/fonts.css" rel="stylesheet"/>
+	<link href="../css/scrolling-nav.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="../css/index.css" />
+	<link rel="stylesheet" type="text/css" href="../css/list_project.css">
+	<link href="../css/main.css" rel="stylesheet"/>
+	<link href="../css/fonts.css" rel="stylesheet"/>
 
 </head>
 <body>
 	<?php
-	include "header_nav.php";
+	include "../pages/header_nav.php";
 	?>
 
 	<div class="container" id="phonecontainer">
@@ -57,7 +57,7 @@ if(isset($_POST['registerNews'])){
 						
 						<div id="header_div" class="boxshadow">
 							<div page-role="header" class="header_top"></div>
-							<img src="img/menu.png"
+							<img src="../img/menu.png"
 							class="show-page-loading-msg menu_icon back_icon">
 							
 							<p>
@@ -136,14 +136,14 @@ if(isset($_POST['registerNews'])){
 
 
 	<!-- jQuery -->
-	<script src="js/jquery.js"></script>
-	<script src="js/stickyheader.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/stickyheader.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 
 	<!--Sript for insert news to database through AJAX request-->
-	<script src="insertNews.js"></script>
+	<script src="../js/insertNews.js"></script>
 
 	<script type="text/JavaScript">
 	$("#uploadimg").click(function() {
