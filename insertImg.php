@@ -65,7 +65,7 @@ if (isset($_SESSION['organizationNr'])) {
 				chmod($target_file, 0777);	
 
 				$backgroundimgURL = "http://localhost/sharityCRM/" . $target_file;
-				$sql = "UPDATE Organization SET backgroundimgURL = '$backgroundimgURL' WHERE organizationNr = '$organizationNr'";
+				$sql = "UPDATE Organization SET backgroundimgURL = '$target_file' WHERE organizationNr = '$organizationNr'";
 
 				if (mysqli_query($connection, $sql)) {
 					echo "Successful MySQL queru INSERT";
@@ -140,7 +140,7 @@ if (isset($_SESSION['organizationNr'])) {
 				chmod($target_file, 0777);	
 
 				$logoURL = "http://localhost/sharityCRM/" . $target_file;
-				$sql = "UPDATE Organization SET logoURL = '$logoURL' WHERE organizationNr = '$organizationNr'";
+				$sql = "UPDATE Organization SET logoURL = '$target_file' WHERE organizationNr = '$organizationNr'";
 
 				if (mysqli_query($connection, $sql)) {
 					echo "Successful MySQL queru INSERT";
