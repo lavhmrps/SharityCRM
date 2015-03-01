@@ -258,6 +258,10 @@ input[id="topTitle"]:focus{
 	border-radius: 10000px;
 }
 
+#showImage{
+	height:130px; 
+	width: 100%;
+}
 #uploadimg{
 	position: absolute;
 	width:100%;
@@ -583,9 +587,199 @@ input[id="projectSavebtn"]{
 }
 
 
-@media screen and (max-width: 1024px) {
-	
-	
+@media screen and (max-width: 991px) {
+	#phone{
+		margin-top: 10px;
+		background: transparent;
+		border: 1px solid black;
+		border-radius: 10px 10px 10px 10px;
+		width:400px;
+		height:620px;
+		margin-bottom: 30px;
+
+	}
+
+	#phonemargin1{
+		margin-left: 0;
+		margin-right: 0;
+		margin-top: -95px;
+		margin-bottom: 100px;
+		
+	}
+
+	#projectphoneHeader{
+		margin-top: 0px;
+		margin-left: 0px;
+		margin-right:0px;
+		margin-bottom: 0;
+		height:80px;
+	}
+
+	#projectphoneTopheader{
+		background-color: #0057cb;
+		height:40px;
+		margin-top: 94px;
+		margin-left: 0px;
+		margin-right:0px;
+		border-radius: 10px 10px 0 0;
+		margin-bottom: 0;
+	}
+
+	#backkey{
+		height:70px;
+		width:70px;
+		margin-left: 5px;
+	}
+
+	#topTitle{
+		padding-top:10px;
+		height: 75px;
+		font-size: 18px;
+	}
+
+	input[id="topTitle"]{
+		margin-left: 20px;
+		width: 290px;
+	}
+
+	#topTitle::-webkit-input-placeholder{ 
+		font-size: 18px;
+
+	}
+	#topTitle::-moz-placeholder{
+		font-size: 18px;
+	}
+	#topTitle:-ms-input-placeholder{
+		font-size: 18px;
+	}
+	#topTitle::-webkit-input-placeholder{
+		font-size: 18px;
+	}
+	#projectphoneContent{
+		width:100%;
+		height:500px;
+		margin:0;
+		margin-top: 0;
+	}
+
+	#backgroundAndLogo{
+		height:170px;
+		margin-top: 0;
+	}
+
+	#showImage{
+		height:200px; 
+	}
+
+	#logocircle{
+		width:90px;
+		height:90px;
+		margin-top:10px;
+		margin-left:295px;
+	}
+
+	/*phoneLogo*/
+	#logoimg{
+		width:91px;
+		height:91px;
+
+	}
+
+	#uploadimg{
+		width:100%;
+		height:200px;
+		margin-top: -10px;
+	}
+
+	#donationcontainer{
+		height:40px;
+	}
+
+	#donationbtn{
+		height:40px;
+		width:130px;
+		margin-top: 25px;
+		margin-left: 230px;
+	}
+
+	#donationbtn p{
+		padding:9px 42px;
+		font-size: 16px;
+	}
+
+	#countryCitycontainer{
+		height:35px;
+	}
+
+	#countryCitycontainer p{
+		color: #777;
+	}
+
+	#inCountry{
+		width:145px;
+		margin-top: 10px;
+		margin-left: 10px;
+		font-size: 16px;
+	}
+
+	#inCity{
+		width:145px;
+		font-size: 16px;
+	}
+
+	#projectTitleContainer{
+		height:35px;
+	}
+
+	#bottomTitle{
+		margin-left: 10px;
+		margin-top: 5px;
+		font-size: 20px;
+	}
+
+	input[id="bottomTitle"]{
+		font-size: 20px;
+	}
+
+	#bottomTitle::-webkit-input-placeholder{ 
+		font-size: 20px;
+	}
+	#bottomTitle::-moz-placeholder{
+		font-size: 20px;
+	}
+	#bottomTitle:-ms-input-placeholder{
+		font-size: 20px;
+	}
+	#bottomTitle::-webkit-input-placeholder{
+		font-size: 20px;
+	}
+
+	#aboutProj{
+		font-size: 16px;
+
+		width: 100%; 
+		min-width:100%; 
+		max-width:100%; 
+
+		height:135px; 
+		min-height:135px;  
+		max-height:135px;
+	}
+
+	input[id=aboutProj]:focus{
+
+		box-shadow: none;
+	}
+
+	#projectSavebtn{
+		background-color: #15a700;
+		height:40px;
+		width:140px;
+		border-radius: 5px 5px 5px 5px;
+		margin-left: 132px;
+		margin-top: 0px
+	}
+
 }
 
 @media screen and (max-width: 767px) {
