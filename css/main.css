@@ -113,22 +113,18 @@ body{
 #inproject{
 	border:1px solid black;	
 }
-
+/*Projectphone*/
 #phonecontainer{
-	max-height:550px;
+	max-height:630px;
 }
 
 #phone{
 	background-image: url(../img/mobile.png);
-	background-size: cover;
-
-}
-
-#page_organisation{
-	margin-left:57px;
-	margin-top: 125px;
-	margin-bottom: 100px;
-	margin-right:12px;
+	background-size: 75%;
+	background-repeat: no-repeat;
+	visibility: visible;
+	padding:0;
+	margin:0;
 }
 
 #phonemargin{
@@ -138,16 +134,280 @@ body{
 	margin-right: 44px;
 }
 
-#phonemargin1{
-	margin-left:-1px;
-	margin-top: 125px;
-	margin-bottom: 0px;
-	margin-right: 39px;
+#projectphonemargin{
+	margin-left:-4px;
+	margin-top: -32px;
+	margin-bottom: 30px;
+	margin-right: 160px;
 }
 
-.btn_single_project_donate{
-	margin-right: 44px;
+#projectphoneHeader{
+	margin-top: 0px;
+	margin-left: 53px;
+	margin-right:172px;
+	margin-bottom: 0;
+	height:50px;
+	background-color: #006dfe;
 }
+
+#projectphoneTopheader{
+	background-color: #0057cb;
+	height:20px;
+	margin-top: 94px;
+	margin-left: 53px;
+	margin-right:172px;
+	margin-bottom: 0;
+}
+
+#backkey{
+	height:40px;
+	width:40px;
+	margin-left: 5px;
+}
+
+#topTitle{
+	color: #fff;
+	padding-top:10px;
+}
+
+input[id="topTitle"]{
+	background-color: transparent;
+	margin-left: 20px;
+
+	border:none;
+	outline:0;
+	width: 180px;
+}
+
+input[id="topTitle"]:focus{
+	border:none !important;
+	box-shadow: none !important;
+}
+
+#topTitle::-webkit-input-placeholder{ 
+	color: #fff;
+	text-decoration: underline;
+}
+#topTitle::-moz-placeholder{
+	color: #fff;
+	text-decoration: underline;
+}
+#topTitle:-ms-input-placeholder{
+	color: #fff;
+	text-decoration: underline;
+}
+#topTitle::-webkit-input-placeholder{
+	color: #fff;
+	text-decoration: underline;
+}
+#projectphoneContent{
+	height:450px;
+	margin-left: 53px;
+	margin-right:172px;
+}
+
+#backgroundAndLogo{
+	height:130px;
+	width:100%;
+	border-bottom: 1px solid black;
+}
+#logocircle{
+	border-radius: 10000px;
+	width:55px;
+	height:55px;
+	margin-top:8px;
+	margin-left:185px;
+}
+
+/*phoneLogo*/
+#logoimg{
+	width:56px;
+	height:56px;
+	border-radius: 10000px;
+}
+
+#donationcontainer{
+
+	height:30px;
+}
+
+#donationbtn{
+	background-color: #15a700;
+	height:30px;
+	width:90px;
+	margin-top: 5px;
+	margin-left: 140px;
+}
+
+#donationbtn p{
+	color:#fff;
+	font-weight: bold;
+	padding:6px 23px;
+}
+
+#countryCitycontainer{
+	background-color: transparent;
+	height:45px;
+}
+
+#countryCitycontainer p{
+	color: #777;
+}
+
+#inCountry{
+	background-color: transparent;
+	color:#777;
+	width:110px;
+	border:none;
+	outline:0;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+
+#inCity{
+	background-color: transparent;
+	color:#777;
+	width:120px;
+	border:none;
+	outline:0;
+}
+
+input[id=inCountry]::-webkit-input-placeholder, input[id="inCity"]::-webkit-input-placeholder{ 
+	text-decoration: underline;
+	color: #777;
+	font-size: 18px;
+}
+input[id=inCountry]::-moz-placeholder, input[id="inCity"]::-moz-placeholder{
+	text-decoration: underline;
+}
+input[id=inCountry]:-ms-input-placeholder, input[id="inCity"]:-ms-input-placeholder{
+	text-decoration: underline;
+}
+input[id=inCountry]::-webkit-input-placeholder, input[id="inCity"]::-webkit-input-placeholder{
+	text-decoration: underline;
+}
+
+#projectTitleContainer{
+	background-color: transparent;
+	height:25px;
+}
+
+#bottomTitle{
+	color:#000;
+	margin-left: 10px;
+}
+
+input[id="bottomTitle"]{
+	background-color: transparent;
+	border:none;
+	outline:0;
+}
+
+#bottomTitle::-webkit-input-placeholder{ 
+	color: #000;
+	text-decoration: underline;
+}
+#bottomTitle::-moz-placeholder{
+	color: #000;
+	text-decoration: underline;
+}
+#bottomTitle:-ms-input-placeholder{
+	color: #000;
+	text-decoration: underline;
+}
+#bottomTitle::-webkit-input-placeholder{
+	color: #000;
+	text-decoration: underline;
+}
+
+#projectAboutContainer{
+	color: #000;
+}
+
+#aboutProj{
+	background-color: transparent;
+	color: #000;
+	border:none;
+	box-shadow: none;
+	font-size: 14px;
+	resize: none;
+
+	width: 100%; 
+	min-width:100%; 
+	max-width:100%; 
+
+	height:115px; 
+	min-height:115px;  
+	max-height:115px;
+}
+
+input[id=aboutProj]:focus{
+
+	box-shadow: none;
+}
+
+#aboutProj::-webkit-input-placeholder{ 
+	text-decoration: underline;
+	color: #000;
+}
+#aboutProj::-moz-placeholder{
+	text-decoration: underline;
+	color: #000;
+}
+#aboutProj:-ms-input-placeholder{
+	text-decoration: underline;
+	color: #000;
+}
+#aboutProj::-webkit-input-placeholder{
+	text-decoration: underline;
+	color: #000;
+}
+
+#projectSavebtnContainer{
+	background-color: transparent;
+	height:80px;
+	width:100%;
+}
+
+#projectSavebtn{
+	background-color: #15a700;
+	height:40px;
+	width:70px;
+	border-radius: 10px 10px 10px 10px;
+	margin-left: 92px;
+	margin-top: 25px
+}
+
+input[id="projectSavebtn"]{
+	font-weight: bold;
+	color: #fff;
+}
+/*
+#projectSavebtn{
+	background-color: #15a700;
+	height:40px;
+	width:45px;
+	border-radius: 1000px;
+	margin-top: 25px;
+	margin-left: 100px;
+}*/
+/*
+#projectSavebtn p{
+	color: #fff;
+	font-weight: bold;
+	padding:3px;
+	padding-top: 10px;
+}
+*/
+
+
+
+
+
+
+
+
+/*End of projectphone*/
 
 #aligncenter{
 	text-align: center;
@@ -290,89 +550,12 @@ body{
 
 /******************** DIFFERENT MEDIAS ********************/
 @media screen and (max-width: 1200px) {
-	#page_organisation{
-		margin-left:59px;
-		margin-top: 130px;
-		margin-bottom: 50px;
-		margin-right: 59px;
-	}
-	#phonemargin{
-		margin-left:3px;
-		margin-top: 135px;
-		margin-bottom: 0px;
-		margin-right: 0px;
-		width:100%;
-	}
-	#phonemargin1{
-		margin-left:3px;
-		margin-top: 135px;
-		margin-bottom: 0px;
-		margin-right: 0px;
-		width:100%;
-	}
-	#header_div, .portrait, .main-content{
-		width:363px;
-	}
-
-	#phone{
-		width:500px;
-		height:890px;
-	}
-	.btn_single_project_donate{
-		margin-right: 60px;
-	}
-	#aligncenter{
-		text-align: center;
-		padding:45px;
-	}
-
-	#aligncenternews{
-		text-align: center;
-		padding:70px;
-	}
+	
 }
 
 
 @media screen and (max-width: 1024px) {
-	#phone{
-		background:transparent;
-	}
-	#page_organisation{
-		margin-left:59px;
-		margin-top: 130px;
-		margin-bottom: 110px;
-		margin-right: 59px;
-		border:1px solid black;
-		border-radius: 5px;
-	}
-	#phonemargin{
-		margin-left:3px;
-		margin-top: 135px;
-		margin-bottom: 0px;
-		margin-right: 0px;
-		width:100%;
-	}
-	#phonemargin1{
-		margin-left:3px;
-		margin-top: 135px;
-		margin-bottom: 0px;
-		margin-right: 0px;
-		width:100%;
-	}
-	#header_div, .portrait, .main-content{
-		width:350px;
-	}
-
-	#phone{
-		width:500px;
-	}
-	.btn_single_project_donate{
-		margin-right: 60px;
-	}
-	#aligncenter{
-		text-align: center;
-		padding:30px;
-	}
+	
 
 	#aboutOrgPadding2{
 		padding-left:30px;
@@ -462,12 +645,7 @@ body{
 img{
 }
 
-/*phoneLogo*/
-#logoimg{
-	width:85px;
-	height:85px;
-	border-radius: 10000px;
-}
+
 
 /*Homelogo + background*/
 #orgLogo{
@@ -609,85 +787,7 @@ h1{
 		opacity: 0.5;
 	}
 
-	/*registerProject*/
-	#inCountry{
-		width:140px;
-		border:none;
-		outline:0;
-	}
 
-	#inCity{
-		width:150px;
-		border:none;
-		outline:0;
-	}
-
-
-	input[id="topTitle"]{
-		background-color: transparent;
-		margin-left: 100px;
-		border:none;
-		outline:0;
-	}
-
-	input[id="topTitle"]:focus{
-		border:none !important;
-		box-shadow: none !important;
-	}
-
-	#topTitle::-webkit-input-placeholder{ 
-		color: #fff;
-		text-decoration: underline;
-	}
-	#topTitle::-moz-placeholder{
-		color: #fff;
-		text-decoration: underline;
-	}
-	#topTitle:-ms-input-placeholder{
-		color: #fff;
-		text-decoration: underline;
-	}
-	#topTitle::-webkit-input-placeholder{
-		color: #fff;
-		text-decoration: underline;
-	}
-
-	input[id="bottomTitle"]{
-		background-color: transparent;
-		border:none;
-		outline:0;
-	}
-
-	#bottomTitle::-webkit-input-placeholder{ 
-		color: #000;
-		text-decoration: underline;
-	}
-	#bottomTitle::-moz-placeholder{
-		color: #000;
-		text-decoration: underline;
-	}
-	#bottomTitle:-ms-input-placeholder{
-		color: #000;
-		text-decoration: underline;
-	}
-	#bottomTitle::-webkit-input-placeholder{
-		color: #000;
-		text-decoration: underline;
-	}
-
-	input[id=inCountry]::-webkit-input-placeholder, input[id="inCity"]::-webkit-input-placeholder{ 
-		text-decoration: underline;
-	}
-	input[id=inCountry]::-moz-placeholder, input[id="inCity"]::-moz-placeholder{
-		text-decoration: underline;
-	}
-	input[id=inCountry]:-ms-input-placeholder, input[id="inCity"]:-ms-input-placeholder{
-		text-decoration: underline;
-	}
-	input[id=inCountry]::-webkit-input-placeholder, input[id="inCity"]::-webkit-input-placeholder{
-		text-decoration: underline;
-	}
-	/*End of registerProject*/
 
 	/************ Textarea ************/
 
@@ -766,40 +866,6 @@ input[id=aboutOrg]:focus{
 	}
 	/*end*/
 
-	/*about project*/
-	#aboutProj{
-		border:none;
-		box-shadow: none;
-		font-size: 18px;
-		resize: none;
-
-		width: 300px; 
-		min-width:300px; 
-		max-width:300px; 
-
-		height:115px; 
-		min-height:115px;  
-		max-height:115px;
-	}
-
-	input[id=aboutProj]:focus{
-		border:2px solid red;
-		box-shadow: none;
-	}
-
-	#aboutProj::-webkit-input-placeholder{ 
-		text-decoration: underline;
-	}
-	#aboutProj::-moz-placeholder{
-		text-decoration: underline;
-	}
-	#aboutProj:-ms-input-placeholder{
-		text-decoration: underline;
-	}
-	#aboutProj::-webkit-input-placeholder{
-		text-decoration: underline;
-	}
-	/*End of about project*/
 
 	input[id="orgIDs"],input[id="orgNames"],input[id="newPasswds"],input[id="rptPasswds"]{
 		margin-top: 5px;
@@ -988,16 +1054,7 @@ input[id=aboutOrg]:focus{
 		color: #000;
 	}
 
-	#registerphonebutton{
-		background-color: #10A810;
-		color: #F4F7CA;
-		font-size:18px;
-		border:none;
-		border-radius: 5px;
-		padding:5px;
-		width:30%;
-	}
-
+	
 
 	/*** logoutbtn ***/ 
 

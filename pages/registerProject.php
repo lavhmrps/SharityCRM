@@ -37,28 +37,17 @@
 
 		<div class="col-md-5" id="phone">
 			<div id="phonemargin1">
-				<div id="page_organisation">
-					<form id="registerProject">
-
-						<div id="header_div" class="boxshadow">
-							<div page-role="header" class="header_top"></div>
-							<img src="../img/arrow_left.png"
-							class="show-page-loading-msg menu_icon back_icon">
-							<input type="text" name = "name" id="topTitle" placeholder="Skriv navn" />
-						</div>
-
-						<!-- For toppbilde  -->
-						<div class="portrait">
-
-							<input type="file" id="file1"  name="file1" style="display:none" />
-							<div id="uploadimg" >
-								<p style="cursor:pointer; color:#000;">
-									<u>Bakgrunnsbilde / toppbilde</u>
-								</p>
-							</div>
-
-							<div class="logodiv_top_right">
-								<?php
+				<div id="projectphoneTopheader">
+						
+				</div>
+				<div id="projectphoneHeader">
+					<img src="../img/arrow_left.png" id="backkey" alt="back-key">
+					<input type="text" name = "name" id="topTitle" placeholder="Skriv navn" />
+				</div>
+				<div id="projectphoneContent">
+					<div id="backgroundAndLogo">
+						<div id="logocircle">
+							<?php
 
 								$organizationNr = $_SESSION['organizationNr'];
 								$sql = "SELECT logoURL FROM Organization WHERE organizationNr = $organizationNr";
@@ -75,53 +64,58 @@
 								}
 								echo "<img id='logoimg' src='../phpBackend/" .  $logoURL . "'/>";
 								?>
-							</div>
 						</div>
-						<div class="space_btn">
-							<button class="ui-btn btn_single_project_donate">
-								DONÉR
-							</button>
+					<!-- End of backgroundAndLogo-->
+					</div>
+					<div id="donationcontainer">
+						<div id="donationbtn">
+							<p>DONÉR</p>
 						</div>
-						<div class="main_content">
+					</div>
+					<div id="countryCitycontainer">
+						<p>
+							<span>
+								<input type="text" name = "country" id="inCountry" placeholder="Skriv inn land" />
+							</span> , <span>
+								<input type="text" name="city" id="inCity" placeholder="Skriv inn by" />
+							</span>
+						</p>
+					</div>
 
-							<h4>
-								<span>
-									<input type="text" name = "country" id="inCountry" placeholder="Skriv inn land" />
-								</span> , <span>
-									<input type="text" name="city" id="inCity" placeholder="Skriv inn by" />
-								</span>
-							</h4>
-
+					<div id="projectTitleContainer">
 						<input type="text" name="title" id="bottomTitle" placeholder="Skriv prosjektets tittel"/>
-
-						<div class="form-group">
-							<textarea class="form-control" name="about" id="aboutProj" rows="5" id="aboutproject" placeholder="Skriv om prosjektet"></textarea>
-						</div>
-
 					</div>
-					<div class="col-md-12" id="aligncenter">
-						<input type="button" name="complete_ProjectReg" id="registerphonebutton" value="Lagre"/>
+					<div id="projectAboutContainer">
+						<textarea class="form-control" name="about" id="aboutProj" rows="5" id="aboutproject" placeholder="Skriv om prosjektet"></textarea>
 					</div>
-				</form>
 
+					<div id="projectSavebtnContainer">
+						
+							
+								<input type="button" name="complete_ProjectReg" id="projectSavebtn" value="LAGRE"/>
+							
+						
+					</div>
+
+				<!-- End of projectphoneContent-->
+				</div>
 			</div>
 		</div>
+
 	</div>
 
-</div>
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/stickyheader.js"></script>
 
-<!-- jQuery -->
-<script src="../js/jquery.js"></script>
-<script src="../js/stickyheader.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="../js/bootstrap.min.js"></script>
+	<!-- Upload img js -->
+	<script "../js/autoUploadBackgroundimg.js"></script>
 
-<!-- Upload img js -->
-<script "../js/autoUploadBackgroundimg.js"></script>
-
-<!--Sript for insert project to database through AJAX request-->
-<script src="../js/insertProject.js"></script>
+	<!--Sript for insert project to database through AJAX request-->
+	<script src="../js/insertProject.js"></script>
 
 
 </body>
