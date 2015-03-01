@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 	<?php
 
 	session_start();
@@ -60,11 +61,17 @@
 										die("Alvorlig feil, sprørring etter org med orgnr ". $organizationNr . " returnerte 0 eller flere enn 1 rad");
 									}
 								}else{
-									die('Feil i sql spørringen etter logoURL fra Organizaton');
+								die('Feil i sql spørringen etter logoURL fra Organizaton');
 								}
+
 								echo "<img id='logoimg' src='../phpBackend/" .  $logoURL . "'/>";
 								?>
 						</div>
+
+						<!-- <!-- <input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
+									<div id="uploadimg">
+										<img src="../img/default.png" id="showImage" style="height:200px; width: 330px;"/>
+									</div>-->-->
 					<!-- End of backgroundAndLogo-->
 					</div>
 					<div id="donationcontainer">
@@ -118,7 +125,7 @@
 	<script src="../js/insertProject.js"></script>
 
 
-</body>
-<!--  -->
-</html>
 
+</body>
+
+</html>
