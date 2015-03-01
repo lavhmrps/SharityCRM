@@ -7,48 +7,48 @@ include '../phpBackend/connect.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<title>Sharity</title>
-<!-- Bootstrap Core CSS -->
-<link href="../css/bootstrap.min.css" rel="stylesheet"/>
-<!-- Custom CSS -->
-<link href="../css/scrolling-nav.css" rel="stylesheet"/>
-<link rel="stylesheet" type="text/css" href="../css/index.css" />
-<link rel="stylesheet" type="text/css" href="../css/list_project.css">
-<link href="../css/main.css" rel="stylesheet"/>
-<link href="../css/fonts.css" rel="stylesheet"/>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Sharity</title>
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+	<!-- Custom CSS -->
+	<link href="../css/scrolling-nav.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="../css/index.css" />
+	<link rel="stylesheet" type="text/css" href="../css/list_project.css">
+	<link href="../css/main.css" rel="stylesheet"/>
+	<link href="../css/fonts.css" rel="stylesheet"/>
 </head>
 <?php
 include "../pages/header_nav.php";
 ?>
 <div class="container" id="phonecontainer">
-<?php
-$projectID = $_SESSION['projectIDtoShow'];
-$sql = "SELECT * FROM Project WHERE projectID = $projectID";
-$result = mysqli_query($connection, $sql);
-if($result){
-if(mysqli_num_rows($result) == 1){
-$row = mysqli_fetch_assoc($result);
-$organizationNr = $row['organizationNr'];
-$organizationName = "Mangler";
+	<?php
+	$projectID = $_SESSION['projectIDtoShow'];
+	$sql = "SELECT * FROM Project WHERE projectID = $projectID";
+	$result = mysqli_query($connection, $sql);
+	if($result){
+		if(mysqli_num_rows($result) == 1){
+			$row = mysqli_fetch_assoc($result);
+			$organizationNr = $row['organizationNr'];
+			$organizationName = "Mangler";
 $logoURL = "..."; // sett til default !!!!!VIKTIG MÅ MINNES PÅ!
 $sql1 = "SELECT * FROM Organization WHERE organizationNr = '$organizationNr'";
 $result1 = mysqli_query($connection, $sql1);
 if($result1){
-if(mysqli_num_rows($result1) == 1){
-$row1 = mysqli_fetch_assoc($result1);
-$organizationName = $row1['name'];
-$logoURL = $row1['logoURL'];
+	if(mysqli_num_rows($result1) == 1){
+		$row1 = mysqli_fetch_assoc($result1);
+		$organizationName = $row1['name'];
+		$logoURL = $row1['logoURL'];
+	}else{
+		die('Noe alvorlig galt, prosjekt er ikke knyttet til en eksisterende organisasjon, dersom organisasjonen er slettet burde også prosjekt slettes, spørringen etter organisasjon med gitt orgnummer (hentet fra prosjekt) returnerte 0 eller flere rader og skal bare returnere 1 -vegard');
+	}
 }else{
-die('Noe alvorlig galt, prosjekt er ikke knyttet til en eksisterende organisasjon, dersom organisasjonen er slettet burde også prosjekt slettes, spørringen etter organisasjon med gitt orgnummer (hentet fra prosjekt) returnerte 0 eller flere rader og skal bare returnere 1 -vegard');
-}
-}else{
-die("Noe galt i spørringen");
+	die("Noe galt i spørringen");
 }
 echo
 '
@@ -104,10 +104,10 @@ Logo: <img id="logoimg" src="../phpBackend/' . $logoURL .'"/>
 <p> Sist oppdatert (egentlig er det opprettet, men dato oppdatere på update, burde ha begge deler - Vegard): ' . $row["date_added"] . '</p>
 ';
 }else{
-die("Alvorlig feil! SQL sprørringen etter " . $projectID . " returnerte mindre enn 1 eller mer enn 1 Prosjekt");
+	die("Alvorlig feil! SQL sprørringen etter " . $projectID . " returnerte mindre enn 1 eller mer enn 1 Prosjekt");
 }
 }else{
-die("Feil i SQL spørringen");
+	die("Feil i SQL spørringen");
 }
 ?>
 <!-- jQuery -->
@@ -118,7 +118,7 @@ die("Feil i SQL spørringen");
 <!-- Upload img js -->
 <script type="text/JavaScript">
 $("#uploadimg").click(function() {
-$("#file1").trigger('click');
+	$("#file1").trigger('click');
 });
 </script>
 </body>
