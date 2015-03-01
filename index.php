@@ -8,7 +8,7 @@ if(isset($_SESSION['organizationNr'])){
 	header("Location: pages/registration_pt2.php");
 }
 
-include "../phpBackend/connect.php";
+include "phpBackend/connect.php";
 
 ?>
 

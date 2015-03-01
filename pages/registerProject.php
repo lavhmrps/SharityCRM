@@ -127,8 +127,11 @@ include "../pages/header_nav.php";
 				</div>
 			</div>
 		</div>
+		<p id="errorPhp">Hello</p>
 
 	</div>
+
+
 
 	<!-- jQuery -->
 	<script src="../js/jquery.js"></script>

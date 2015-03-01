@@ -8,6 +8,7 @@ $("#clear").click(function(){
 		dataType: 'text',
 		success : function(response){
 			alert("insertImageTemp.js : document ready, ajx request success: response: " + response);
+
 		},
 		error: function(error){
 			alert("insertImageTemp.js #clear click : ajax request error: " + response.message);
@@ -15,8 +16,6 @@ $("#clear").click(function(){
 
 	});
 });
-
-
 
 
 $(document).ready(function() { 

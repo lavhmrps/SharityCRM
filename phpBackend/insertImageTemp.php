@@ -12,7 +12,7 @@ if(isset($_FILES['file_background'])){
 		if (!file_exists($path)) {
 			mkdir($path, 0777, true);
 		}
-		chmod($path, 0777);
+		//chmod($path, 0777);
 
 
 		$files = glob($path . '*'); // get all file names
@@ -28,7 +28,7 @@ if(isset($_FILES['file_background'])){
 
 	move_uploaded_file($_FILES["file_background"]["tmp_name"], $target_file);
 
-	chmod($target_file, 0777);	
+	//chmod($target_file, 0777);	
 
 	$result_delete = mysqli_query($connection, "DELETE FROM imageTemp");
 
@@ -49,7 +49,11 @@ if(isset($_FILES['file_background'])){
 	if (!file_exists($path)) {
 		mkdir($path, 0777, true);
 	}
-	chmod($path, 0777);
+
+
+	//chmod($path, 0777);
+
+
 	$files = glob($path . '*'); // get all file names
 	foreach($files as $file){ // iterate files
 		if(is_file($file))
