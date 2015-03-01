@@ -54,7 +54,7 @@ include "../pages/header_nav.php";
 
 					<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
 					<div id="uploadimg">
-					<img src="../img/default.png" id="showImage" style="height:130px; width: 100%;"/>
+					<img src="../img/default.png" id="showImage"/>
 					</div>
 					<div id="logocircle">
 						<?php
