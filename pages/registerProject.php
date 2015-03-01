@@ -48,14 +48,22 @@ include "../pages/header_nav.php";
 			<div id="projectphoneContent">
 
 
-			
+
 				<div id="backgroundAndLogo">
 
 
-					<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
+					<input type="file" id="file_background" style="display:none;" accept="image/*" name="backgroundimgURL" />
+					<button id="clear" style="display:none;"></button>
 					<div id="uploadimg">
-					<img src="../img/default.png" id="showImage" style="height:130px; width: 100%;"/>
+						<img src="../img/default.png" id="showImage" name="imagePreview" style="height:100%; width: 100%;"/>
 					</div>
+
+
+
+
+
+
+
 					<div id="logocircle">
 						<?php
 
@@ -133,7 +141,7 @@ include "../pages/header_nav.php";
 	<script src="../js/insertProject.js"></script>
 
 	<!-- preview img js -->
-	<script src= "../js/previewBackgroundimg.js"></script>
+	<script src= "../js/insertImageTemp.js"></script>
 
 
 
