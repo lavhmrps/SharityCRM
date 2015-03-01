@@ -8,6 +8,12 @@ if(isset($_POST['registerNews'])){
 	$title = $_POST['title'];
 	$txt = $_POST['txt'];
 	$projectID = $_POST['projectID'];
+
+	
+	
+	
+
+	
 }
 
 ?>
@@ -51,9 +57,6 @@ if(isset($_POST['registerNews'])){
 						
 						<div id="header_div" class="boxshadow">
 							<div page-role="header" class="header_top"></div>
-							
-
-
 							<img src="../img/menu.png"
 							class="show-page-loading-msg menu_icon back_icon">
 							
@@ -88,10 +91,11 @@ if(isset($_POST['registerNews'])){
 						<!-- For toppbilde  -->
 						<div class="portrait">
 
-							<input type="file"  id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
-
-							<div id="uploadimg">
-								<img src="../img/default.png"  id="showImage" style="height:200px; width: 330px;"/>
+							<input type="file" id="file1"  name="file1" style="display:none" />
+							<div id="uploadimg" >
+								<p style="cursor:pointer; color:#000;">
+									<u>Last opp bakgrunnsbilde</u>
+								</p>
 							</div>
 
 						</div>
@@ -141,7 +145,12 @@ if(isset($_POST['registerNews'])){
 	<!--Sript for insert news to database through AJAX request-->
 	<script src="../js/insertNews.js"></script>
 
-	<script src="../js/previewBackgroundimg.js"></script>
+	<script type="text/JavaScript">
+	$("#uploadimg").click(function() {
+		$("#file1").trigger('click');
+	});
+
+	</script>
 
 </body>
 

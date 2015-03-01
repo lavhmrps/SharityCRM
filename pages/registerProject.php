@@ -44,71 +44,20 @@
 							<div page-role="header" class="header_top"></div>
 							<img src="../img/arrow_left.png"
 							class="show-page-loading-msg menu_icon back_icon">
-							<input type="text" name = "name" id="topTitle" placeholder="Skriv navn"/>
+							<input type="text" name = "name" id="topTitle" placeholder="Skriv navn" />
 						</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 						<!-- For toppbilde  -->
 						<div class="portrait">
 
-							<input type="file"  id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
-
-							<div id="uploadimg">
-								<img src="../img/default.png"  id="showImage" style="height:200px; width: 330px;"/>
+							<input type="file" id="file1"  name="file1" style="display:none" />
+							<div id="uploadimg" >
+								<p style="cursor:pointer; color:#000;">
+									<u>Bakgrunnsbilde / toppbilde</u>
+								</p>
 							</div>
 
-						<div class="logodiv_top_right">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+							<div class="logodiv_top_right">
 								<?php
 
 								$organizationNr = $_SESSION['organizationNr'];
@@ -158,6 +107,7 @@
 			</div>
 		</div>
 	</div>
+
 </div>
 
 <!-- jQuery -->
@@ -172,17 +122,6 @@
 
 <!--Sript for insert project to database through AJAX request-->
 <script src="../js/insertProject.js"></script>
-
-
-
-<script src="../js/previewBackgroundimg.js"></script>
-
-
-
-
-
-
-
 
 
 </body>

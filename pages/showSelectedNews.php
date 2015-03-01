@@ -79,7 +79,7 @@ include "../pages/header_nav.php";
 
 			<div id="header_div" class="boxshadow">
 			<div page-role="header" class="header_top"></div>
-			<img src="../img/menu.png"
+			<img src="../img/arrow_left.png"
 			class="show-page-loading-msg menu_icon back_icon">
 
 			<p>
@@ -97,7 +97,7 @@ include "../pages/header_nav.php";
 			<input type="file" id="file1"  name="file1" style="display:none" />
 			
 
-			<img id="uploadimg" style="width: 100%; height:100%; cursor: pointer" src="../phpBackend/' . $row['backgroundimgURL'] . '"/>
+			<img id="uploadimg" style="width: 100%; height:100%; cursor: pointer" src="http://i.imgur.com/7f2N9DT.jpg"/>
 
 			<p style="cursor:pointer; color:#000;">
 			</p>
@@ -110,7 +110,7 @@ include "../pages/header_nav.php";
 			<input type="text" id="bottomTitle" placeholder="Skriv nyhetsoverskrift" name="title" value="' . $row['title'] . '" readonly/>
 
 			<div class="form-group">
-			<textarea class="form-control" id="aboutProj" rows="10" id="aboutproject" placeholder="Skriv nyhetstekst" name="txt" readonly>' . $row['txt'].'</textarea>																		
+			<textarea class="form-control" id="aboutProj2" rows="10"  placeholder="Skriv nyhetstekst" name="txt" readonly>' . $row['txt'].'</textarea>																		
 			</div>
 
 			</div>
