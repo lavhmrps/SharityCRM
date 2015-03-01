@@ -1,15 +1,23 @@
+$('#clear').click(function(){
+	alert("insertProject.js du trykka clear");
+	var image = $("in");
+	image.replaceWith( image = image.clone( true ) );
+});
 
-var file_background = $("#file_background");
-
-$("#clear").on("click", function () {
-	$("#file_background").replaceWith( file_background = file_background.clone( true ) );
+$("img[name=preview]").click(function(){
+	$("#file_background").trigger('click');
 });
 
 
+
+$("#file_background").change(function(){
+	previewImage(this);
+
+});
+
+
+//register project, ajax request .php script (insertProject.php) to insert into database
 $("input[name=complete_ProjectReg]").click(function(){
-	
-
-
 	var name = $('input[name=name]').val();
 	var title = $('input[name=title]').val();
 	var about = $('textarea[name=about]').val();
@@ -35,11 +43,16 @@ $("input[name=complete_ProjectReg]").click(function(){
 		data: {'project' : projectJSON},
 		success: function(response) {
 			if(response == "OK"){
-				insertBackground();
+				try{
+					var file_data_background = $('input[name=backgroundimgURL]').prop('files')[0];
+				}catch(error){
+					alert(error.message);
+				}
+				if(file_data_background != undefined){
+					insertBackground();
+				}
 				clearInput();
-				
 			}
-
 		},
 		error : function(response){
 			alert("ERROR INSRT PROJECT.js ajax request error : " + response.message);
@@ -48,17 +61,13 @@ $("input[name=complete_ProjectReg]").click(function(){
 	
 	return false;
 });
-function insertBackground(){
-	try{
-		var file_data_background = $('input[name=backgroundimgURL]').prop('files')[0];
-	}catch(error){
-		alert(error.message);
-	}
-	if(file_data_background != undefined){
-		alert("InsertProject.js: insertBackgroud() : FIL ER SATT");
-		var form_data_background = new FormData();
-		form_data_background.append('file_background', file_data_background);
-		$.ajax({
+
+//ajax request to .php script (insertBackgroundimgProject.php) to insert image into database
+function insertBackground(){	
+	alert("InsertProject.js: insertBackgroud() : FIL ER SATT");
+	var form_data_background = new FormData();
+	form_data_background.append('file_background', file_data_background);
+	$.ajax({
 		url: '../phpBackend/insertBackgroundimgProject.php', // point to server-side PHP script
 		datatype: 'text', // what to expect back from the PHP script, if anything
 		cache: false,
@@ -74,10 +83,22 @@ function insertBackground(){
 			console.log(response.message);
 		}
 	});
+}
+
+function previewImage(input) {
+	if (input.files && input.files[0]) {
+		var fileReader = new FileReader();
+
+		fileReader.onload = function (e) {
+			$('img[name=preview]').attr('src', e.target.result);
+			$("img[name=preview]").show();
+		}
+
+		fileReader.readAsDataURL(input.files[0]);
 	}
 }
-function clearInput(){
 
+function clearInput(){
 	$('input[name=name]').val("");
 	$('input[name=title]').val("");
 	$('textarea[name=about]').val("");
@@ -85,5 +106,4 @@ function clearInput(){
 	$('input[name=city]').val("");
 	$("img[name=imagePreview]").attr("src", "../img/default.png");
 	$('#clear').trigger('click');
-
 }

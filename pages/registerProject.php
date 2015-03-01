@@ -52,13 +52,64 @@ include "../pages/header_nav.php";
 				<div id="backgroundAndLogo">
 
 
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 					<input type="file" id="file_background" style="display:none;" accept="image/*" name="backgroundimgURL" />
 					<button id="clear" style="display:none;"></button>
 					<div id="uploadimg">
 
-						<img src="../img/default.png" id="showImage" name="imagePreview" />
+						<img src="../img/default.png" style="height: 100px; width:200px" id="preview" alt="Click to upload img" name="preview" />
 
 					</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -127,7 +178,7 @@ include "../pages/header_nav.php";
 				</div>
 			</div>
 		</div>
-		<p id="errorPhp">Hello</p>
+		<p id="errorPhp">Error goes here</p>
 
 	</div>
 
