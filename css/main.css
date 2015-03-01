@@ -57,6 +57,34 @@ body{
 	height:49px;
 }
 
+/* Dropdownheader */
+#newsMenu, #statsMenu, #projectMenu, #organizationMenu{
+	background-color: #333;
+	height:0px;
+	width: 100%;
+	z-index: 100000;    
+	overflow: hidden;
+}
+#newsMenu ul, #statsMenu ul, #projectMenu ul, #organizationMenu ul{
+	margin-left: 36%;
+	padding:12px;
+}
+#newsMenu ul li, #statsMenu ul li, #projectMenu ul li, #organizationMenu ul li{
+	margin-left:50px;
+}
+
+#newsMenu ul li a, #statsMenu ul li a, #projectMenu ul li a, #organizationMenu ul li a{
+	color: #fff;
+	padding:2px;
+	font-size: 14px;
+}
+
+#newsMenu ul li a:hover, #organizationMenu ul li a:hover, #statsMenu ul li a:hover, #projectMenu ul li a:hover{
+	background-color: transparent;
+	color: #ccc;
+	text-decoration: none;
+}
+
 
 
 
@@ -113,11 +141,21 @@ body{
 #inproject{
 	border:1px solid black;	
 }
-/*Projectphone*/
+
 #phonecontainer{
 	max-height:630px;
 }
 
+
+
+#phonemargin{
+	margin-left:-1px;
+	margin-top: 125px;
+	margin-bottom: 0px;
+	margin-right: 44px;
+}
+
+/*Projectphone*/
 #phone{
 	background-image: url(../img/mobile.png);
 	background-size: 75%;
@@ -125,13 +163,6 @@ body{
 	visibility: visible;
 	padding:0;
 	margin:0;
-}
-
-#phonemargin{
-	margin-left:-1px;
-	margin-top: 125px;
-	margin-bottom: 0px;
-	margin-right: 44px;
 }
 
 #projectphonemargin{
@@ -399,7 +430,7 @@ input[id="projectSavebtn"]{
 	border-radius: 1000px;
 	margin-top: 25px;
 	margin-left: 100px;
-}*/
+	}*/
 /*
 #projectSavebtn p{
 	color: #fff;
@@ -410,8 +441,162 @@ input[id="projectSavebtn"]{
 */
 
 
+@media screen and (max-width: 1200px) {
+	#phonemargin1{
+		margin-top: -17px;
+		margin-left: -10px;
+		margin-right: -31px;
+		margin-bottom: 30px;
+	}
+	#projectphoneHeader{
+		height:30px;
+	}
+
+	#projectphoneTopheader{
+		height:15px;
+	}
+
+	#backkey{
+		height:25px;
+		width:30px;
+	}
+
+	#topTitle{
+		color: #fff;
+		padding-top:5px;
+		font-size: 16px;
+	}
+	input[id="topTitle"]{
+		margin-left: 10px;
+		width: 155px;
+	}
+
+	#projectphoneContent{
+		height:370px;
+		margin-left: 53px;
+		margin-right:172px;
+	}
+
+	#backgroundAndLogo{
+		height:120px;
+	}
+
+	#logocircle{
+		width:45px;
+		height:45px;
+		margin-top:7px;
+		margin-left:152px;
+
+	}
+
+	/*phoneLogo*/
+	#logoimg{
+		width:46px;
+		height:46px;
+		border-radius: 10000px;
+	}
+
+	#uploadimg{
+		height:120px;
+		margin-top: -8px;
+	}
+
+	#donationcontainer{
+
+		height:25px;
+	}
+
+	#donationbtn{
+		height:25px;
+		width:75px;
+		margin-top: 5px;
+		margin-left: 125px;
+	}
+
+	#donationbtn p{
+		padding:4px 18px;
+	}
 
 
+	#countryCitycontainer{
+		height:30px;
+	}
+
+	#inCountry{
+		width:90px;
+		margin-top: 10px;
+		margin-left: 7px;
+	}
+
+	#inCity{
+		width:95px;
+	}
+
+	input[id=inCountry]::-webkit-input-placeholder, input[id="inCity"]::-webkit-input-placeholder{ 		
+		font-size: 14px;
+	}
+	input[id=inCountry]::-moz-placeholder, input[id="inCity"]::-moz-placeholder{
+		font-size: 14px;
+	}
+	input[id=inCountry]:-ms-input-placeholder, input[id="inCity"]:-ms-input-placeholder{
+		font-size: 14px;
+	}
+	input[id=inCountry]::-webkit-input-placeholder, input[id="inCity"]::-webkit-input-placeholder{
+		font-size: 14px;
+	}
+
+
+	#projectTitleContainer{
+		height:20px;
+	}
+
+	#bottomTitle{
+		margin-left: 10px;
+	}
+
+	#bottomTitle::-webkit-input-placeholder{ 
+		font-size: 16px;
+	}
+	#bottomTitle::-moz-placeholder{
+		font-size: 16px;
+	}
+	#bottomTitle:-ms-input-placeholder{
+		font-size: 16px;
+	}
+	#bottomTitle::-webkit-input-placeholder{
+		font-size: 16px;
+	}
+
+	#projectSavebtnContainer{
+		height:60px;
+		width:100%;
+	}
+
+	#projectSavebtn{
+		height:30px;
+		width:60px;
+		border-radius: 7px 7px 7px 7px;
+		margin-left:74px;
+		margin-top: 8px
+	}
+
+}
+
+
+@media screen and (max-width: 1024px) {
+	
+	
+}
+
+@media screen and (max-width: 767px) {
+	
+}
+
+
+@media screen and (max-width: 600px) {
+	
+
+}
 
 
 
@@ -466,9 +651,7 @@ input[id="projectSavebtn"]{
 	height:80px;
 }
 
-#logoutContainer{
-	
-}
+
 
 #navbarContainer{
 	border-bottom: 1px solid #000;
@@ -556,10 +739,27 @@ input[id="projectSavebtn"]{
 	margin-bottom: 20px;
 }
 
+input#logoutbtn{
+	color:777;
+	font-weight: bold;
+	font-size: 16px;
+	margin-left: 700%;
+	margin-top: 13px;
+}
 
 /******************** DIFFERENT MEDIAS ********************/
+@media screen and (max-width: 1470px) {
+	input#logoutbtn{
+		margin-left: 300%;
+
+	}
+}
+
 @media screen and (max-width: 1200px) {
-	
+	input#logoutbtn{
+		margin-left: 100%;
+
+	}
 }
 
 
@@ -570,12 +770,7 @@ input[id="projectSavebtn"]{
 		padding-left:30px;
 	}
 	input#logoutbtn{
-		margin: 0;
-		padding-left: 30px;
-		height:34px;
-		text-align: left;
-		font-size: 16px;
-		font-weight: bold;
+		margin-left: 0;
 
 	}
 	
@@ -583,9 +778,9 @@ input[id="projectSavebtn"]{
 
 @media screen and (max-width: 767px) {
 	input#logoutbtn{
-		margin: 0;
+		margin-top: -30px;
 		padding:0;
-		padding-left: 30px;
+		padding-left: 15px;
 		height:50px;
 		text-align: left;
 		font-size: 16px;
@@ -607,14 +802,18 @@ input[id="projectSavebtn"]{
 		margin-top: 0;
 		padding-top: 0;
 	}
+	#navbarmenucontainer{
+		background-color: #fff;
+	}
 }
 
 
 @media screen and (max-width: 600px) {
 	input#logoutbtn{
-		margin: 0;
-		padding-left: 30px;
-		height:34px;
+		margin-top: -30px;
+		padding:0;
+		padding-left: 15px;
+		height:50px;
 		text-align: left;
 		font-size: 16px;
 		font-weight: bold;
@@ -1074,6 +1273,7 @@ input[id=aboutOrg]:focus{
 		padding: 1px 6px;
 		margin-top:15px;
 		border:none;
+		margin-left:800%;
 	}
 
 	#logoutbtn:hover{

@@ -7,38 +7,7 @@ if(isset($_POST['logout'])){
 }
 ?>
 
-<style type="text/css">
 
-    #newsMenu, #statsMenu, #projectMenu, #organizationMenu{
-        background-color: #333;
-        height:0px;
-        width: 100%;
-        z-index: 100000;    
-        overflow: hidden;
-    }
-    #newsMenu ul, #statsMenu ul, #projectMenu ul, #organizationMenu ul{
-        margin-left: 36%;
-        padding:12px;
-    }
-    #newsMenu ul li, #statsMenu ul li, #projectMenu ul li, #organizationMenu ul li{
-        margin-left:50px;
-    }
-
-    #newsMenu ul li a, #statsMenu ul li a, #projectMenu ul li a, #organizationMenu ul li a{
-        color: #fff;
-        padding:2px;
-        font-size: 14px;
-    }
-
-    #newsMenu ul li a:hover, #organizationMenu ul li a:hover, #statsMenu ul li a:hover, #projectMenu ul li a:hover{
-        background-color: transparent;
-        color: #ccc;
-        text-decoration: none;
-    }
-
-
-
-</style>
 
 <div class="navbar navbar-inverse" id="topheader">
     <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -58,7 +27,7 @@ if(isset($_POST['logout'])){
     <div class="col-md-1"></div>
     <div class="col-md-10" id="nobottommargin">
 
-        <div class="container" >
+        <div class="container" id="navbarmenucontainer">
             <div class="navbar-header page-scroll col-md-4">
                 <button type="button" class="navbar-toggle btncolor" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -68,7 +37,7 @@ if(isset($_POST['logout'])){
                 </button>
                 <!--<a class="navbar-brand page-scroll" href="javascript:void(0)" id="menu_toggle"></a>
             -->
-            </div>
+        </div>
 
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -90,7 +59,14 @@ if(isset($_POST['logout'])){
                     <a class="page-scroll" name ="showOrganizationMenu" id="scndmenu" style="cursor:pointer;">Min organisasjon</a>
                 </li>
             </ul>
-
+            
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form method="post">
+                        <input type="submit" name="logout" id="logoutbtn" value="Logg ut"/>
+                    </form>
+                </li>
+            </ul>
         </div>
 
         <!-- /.navbar-collapse -->
@@ -104,16 +80,7 @@ if(isset($_POST['logout'])){
 
 </div>
 
-<div class="collapse navbar-collapse navbar-ex1-collapse col-md-1" id="logoutContainer">
-    <ul class="nav navbar-nav" id="nomargintop">
-        <li>
-            <form method="post">
-                <input type="submit" name="logout" id="logoutbtn" value="Logg ut"/>
-            </form>
-        </li>
-    </ul>
 
-</div>
 </nav>
 
 <div class="menu_anchor"></div>
