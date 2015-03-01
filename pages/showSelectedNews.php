@@ -79,7 +79,7 @@ include "../pages/header_nav.php";
 
 			<div id="header_div" class="boxshadow">
 			<div page-role="header" class="header_top"></div>
-			<img src="img/menu.png"
+			<img src="../img/menu.png"
 			class="show-page-loading-msg menu_icon back_icon">
 
 			<p>
@@ -97,7 +97,7 @@ include "../pages/header_nav.php";
 			<input type="file" id="file1"  name="file1" style="display:none" />
 			
 
-			<img id="uploadimg" style="width: 100%; height:100%; cursor: pointer" src="http://i.imgur.com/7f2N9DT.jpg"/>
+			<img id="uploadimg" style="width: 100%; height:100%; cursor: pointer" src="../phpBackend/' . $row['backgroundimgURL'] . '"/>
 
 			<p style="cursor:pointer; color:#000;">
 			</p>

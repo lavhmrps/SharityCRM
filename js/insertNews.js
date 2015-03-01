@@ -76,6 +76,7 @@
  		});
  	//}
 
+ 	insertBackground();
  	
 
  	return false;
@@ -83,7 +84,42 @@
 
  }); 
 
-function clearInputs(){
+ function insertBackground(){
+ 	try{
+ 		var file_data_background = $('input[name=backgroundimgURL]').prop('files')[0];  
+ 	}catch(error){
+ 		alert(error.message);
+ 	}
+
+
+
+
+ 	if(file_data_background != undefined){
+ 		alert("insertNews.js : FIL ER VALGT");
+ 		var form_data_background = new FormData();                  
+ 		form_data_background.append('file_background', file_data_background);
+ 		$.ajax({
+	        url: '../phpBackend/insertBackgroundimgNews.php', // point to server-side PHP script 
+	        datatype: 'text',  // what to expect back from the PHP script, if anything
+	        cache: false,
+	        contentType: false,
+	        processData: false,
+	        data: form_data_background,                         
+	        type: 'POST',
+	        success: function(response){
+
+	        	alert("Bakgrunnsbilde: " + response);
+	        },
+	        error : function(response){
+	        	alert("ERROR : " + response.message);
+	        	console.log(response.message);
+	        }
+	    });
+	    return false;
+ 	}
+ }
+
+ function clearInputs(){
  	$('input[name=title]').val("");
  	$('textarea[name=txt]').val("");
  	$('select[name=projectID]').val("NULL");

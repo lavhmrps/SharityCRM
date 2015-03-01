@@ -87,7 +87,7 @@ include "../pages/header_nav.php";
 			<input type="file" id="file1"  name="file1" style="display:none" />
 			<div id="uploadimg" >
 			<p style="cursor:pointer; color:#000;">
-			<u>Bakgrunnsbilde / toppbilde</u>
+						<img src="../phpBackend/' . $row['backgroundimgURL']  . '" style="height:200px; width:340px"/ >
 			</p>
 			</div>
 
@@ -130,9 +130,12 @@ include "../pages/header_nav.php";
 
 			<p> ProsjektID: ' . $row["projectID"] . ' </p>
 			
-			Bakgrunnsbilde: <img src=' . $row["backgroundimgURL"]. '/>
+			Bakgrunnsbilde: <img src="../phpBackend/' . $row['backgroundimgURL']  . '" style="height:200px; width:340px"/>
+			' .  $row['backgroundimgURL']. '
+
+
 			<br/>
-			Logo: <img id="logoimg" src="' . $logoURL .'"/> 
+			Logo: <img id="logoimg" src="../phpBackend/' . $logoURL .'"/> 
 			
 			<p> Org.Navn / No. tilknyttet: ' . $organizationName . ' Org.No. ' .  $organizationNr . '</p>
 			<p> Sist oppdatert (egentlig er det opprettet, men dato oppdatere på update, burde ha begge deler - Vegard): ' . $row["date_added"] . '</p>

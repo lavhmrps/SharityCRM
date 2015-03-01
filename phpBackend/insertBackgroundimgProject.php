@@ -5,16 +5,17 @@ include "../phpBackend/connect.php";
 include "../phpBackend/checkSession.php";
 
 
-$uid = 1;
+
+if (isset($_SESSION['organizationNr'])) {
+	$organizationNr = $_SESSION['organizationNr'];
+	$projectID = $_SESSION['IDofLastProjectInsert'];
 
 
-
-if(isset($_FILES['file_background'])){
 	if ( $_FILES['file_background']['error'] > 0) {
 		echo 'Error: ' . $_FILES['file_background']['error'] . '<br>';
-		echo "Fil forsøkt lastet opp men ingen fil er valgt";
-	}else {
-		$path = "Uploads/";
+	}
+	else {
+		$path = "Bilder/" . $organizationNr . "/". $projectID . "/Bakgrunnsbilde/";
 		if (!file_exists($path)) {
 			mkdir($path, 0777, true);
 		}
@@ -33,33 +34,19 @@ if(isset($_FILES['file_background'])){
 
 		chmod($target_file, 0777);	
 
-		$backgroundimgURL = $target_file;
-		$sql = "UPDATE users SET profile_image = '$target_file' WHERE uid = '$uid'";
+		
+
+		$backgroundimgURL = "http://localhost/sharityCRM/" . $target_file;
+		$sql = "UPDATE Project SET backgroundimgURL = '$target_file' WHERE projectID = $projectID";
 
 		if (mysqli_query($connection, $sql)) {
-			echo $path . $_FILES["file_background"]["name"];
+			echo "Successful MySQL query INSERT Background";
 		} else {
 
 			die('Error: ' . mysqli_error($connection));
 			db_close($connection);
 		}
 	}
-
-}else{
-
-	$sql = "SELECT profile_image FROM users WHERE uid = $uid ";
-	$result = mysqli_query($connection, $sql);
-	if($result){
-		if(mysqli_num_rows($result) == 1){
-			$row = mysqli_fetch_assoc($result);
-			echo $row['profile_image'];
-		}
-	}
-
-}
-
-
-
-
+}	
 
 ?>
