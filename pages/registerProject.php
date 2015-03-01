@@ -1,57 +1,66 @@
-<<<<<<< HEAD
-	<?php
 
-	session_start();
-	include '../phpBackend/checkSession.php';
-	include '../phpBackend/connect.php';
-	?>
+<?php
 
-	<!DOCTYPE html>
-	<html lang="en">
+session_start();
+include '../phpBackend/checkSession.php';
+include '../phpBackend/connect.php';
+?>
 
-	<head>
-		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="">
-		<meta name="author" content="">
+<!DOCTYPE html>
+<html lang="en">
 
-		<title>Sharity</title>
+<head>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-		<!-- Bootstrap Core CSS -->
-		<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+	<title>Sharity</title>
 
-		<!-- Custom CSS -->
-		<link href="../css/scrolling-nav.css" rel="stylesheet"/>
-		<link rel="stylesheet" type="text/css" href="../css/index.css" />
-		<link rel="stylesheet" type="text/css" href="../css/list_project.css">
-		<link href="../css/main.css" rel="stylesheet"/>
-		<link href="../css/fonts.css" rel="stylesheet"/>
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
 
-	</head>
-	<?php
-	include "../pages/header_nav.php";
-	?>
+	<!-- Custom CSS -->
+	<link href="../css/scrolling-nav.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="../css/index.css" />
+	<link rel="stylesheet" type="text/css" href="../css/list_project.css">
+	<link href="../css/main.css" rel="stylesheet"/>
+	<link href="../css/fonts.css" rel="stylesheet"/>
 
-	<div class="container" id="phonecontainer">
+</head>
+<?php
+include "../pages/header_nav.php";
+?>
 
-		<div class="col-md-5" id="phone">
-			<div id="phonemargin1">
-				<div id="projectphoneTopheader">
-						
-				</div>
-				<div id="projectphoneHeader">
-					<img src="../img/arrow_left.png" id="backkey" alt="back-key">
-					<input type="text" name = "name" id="topTitle" placeholder="Skriv navn" />
-				</div>
-				<div id="projectphoneContent">
-					<div id="backgroundAndLogo">
-						<div id="logocircle">
-							<?php
+<div class="container" id="phonecontainer">
 
-								$organizationNr = $_SESSION['organizationNr'];
-								$sql = "SELECT logoURL FROM Organization WHERE organizationNr = $organizationNr";
+	<div class="col-md-5" id="phone">
+		<div id="phonemargin1">
+			<div id="projectphoneTopheader">
+
+			</div>
+			<div id="projectphoneHeader">
+				<img src="../img/arrow_left.png" id="backkey" alt="back-key">
+				<input type="text" name = "name" id="topTitle" placeholder="Skriv navn" />
+			</div>
+			<div id="projectphoneContent">
+
+
+			
+				<div id="backgroundAndLogo">
+
+
+					<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
+					<div id="uploadimg">
+					<img src="../img/default.png" id="showImage" style="height:130px; width: 100%;"/>
+					</div>
+					<div id="logocircle">
+						<?php
+
+						$organizationNr = $_SESSION['organizationNr'];
+						$sql = "SELECT logoURL FROM Organization WHERE organizationNr = $organizationNr";
 								$logoURL = "..."; // husk å sette dette til default bilde
 								if($result = mysqli_query($connection, $sql)){
 									if(mysqli_num_rows($result) == 1){
@@ -61,29 +70,29 @@
 										die("Alvorlig feil, sprørring etter org med orgnr ". $organizationNr . " returnerte 0 eller flere enn 1 rad");
 									}
 								}else{
-								die('Feil i sql spørringen etter logoURL fra Organizaton');
+									die('Feil i sql spørringen etter logoURL fra Organizaton');
 								}
 
 								echo "<img id='logoimg' src='../phpBackend/" .  $logoURL . "'/>";
 								?>
+							</div>
+
+
+							<!-- End of backgroundAndLogo-->
 						</div>
 
-						<!-- <!-- <input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
-									<div id="uploadimg">
-										<img src="../img/default.png" id="showImage" style="height:200px; width: 330px;"/>
-									</div>-->-->
-					<!-- End of backgroundAndLogo-->
-					</div>
-					<div id="donationcontainer">
-						<div id="donationbtn">
-							<p>DONÉR</p>
+
+
+						<div id="donationcontainer">
+							<div id="donationbtn">
+								<p>DONÉR</p>
+							</div>
 						</div>
-					</div>
-					<div id="countryCitycontainer">
-						<p>
-							<span>
-								<input type="text" name = "country" id="inCountry" placeholder="Skriv inn land" />
-							</span> , <span>
+						<div id="countryCitycontainer">
+							<p>
+								<span>
+									<input type="text" name = "country" id="inCountry" placeholder="Skriv inn land" />
+								</span> , <span>
 								<input type="text" name="city" id="inCity" placeholder="Skriv inn by" />
 							</span>
 						</p>
@@ -98,13 +107,13 @@
 
 					<div id="projectSavebtnContainer">
 						
-							
-								<input type="button" name="complete_ProjectReg" id="projectSavebtn" value="LAGRE"/>
-							
+
+						<input type="button" name="complete_ProjectReg" id="projectSavebtn" value="LAGRE"/>
+
 						
 					</div>
 
-				<!-- End of projectphoneContent-->
+					<!-- End of projectphoneContent-->
 				</div>
 			</div>
 		</div>
@@ -118,11 +127,13 @@
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
 
-	<!-- Upload img js -->
-	<script "../js/autoUploadBackgroundimg.js"></script>
+	
 
 	<!--Sript for insert project to database through AJAX request-->
 	<script src="../js/insertProject.js"></script>
+
+	<!-- preview img js -->
+	<script src= "../js/previewBackgroundimg.js"></script>
 
 
 

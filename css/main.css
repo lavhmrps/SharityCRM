@@ -209,7 +209,7 @@ input[id="topTitle"]:focus{
 #backgroundAndLogo{
 	height:130px;
 	width:100%;
-	border-bottom: 1px solid black;
+	position:relative;
 }
 #logocircle{
 	border-radius: 10000px;
@@ -217,6 +217,7 @@ input[id="topTitle"]:focus{
 	height:55px;
 	margin-top:8px;
 	margin-left:185px;
+	position: relative;
 }
 
 /*phoneLogo*/
@@ -224,6 +225,14 @@ input[id="topTitle"]:focus{
 	width:56px;
 	height:56px;
 	border-radius: 10000px;
+}
+
+#uploadimg{
+	position: absolute;
+	width:100%;
+	height:130px;
+	margin-top: -8px;
+
 }
 
 #donationcontainer{
