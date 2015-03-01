@@ -62,9 +62,13 @@ if(isset($_POST['registerNews'])){
 						</div>
 						<!-- For toppbilde -->
 						<div class="portrait">
-							<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
+
+
+
+							<input type="file" id="file_background" style="display:none;" accept="image/*" name="backgroundimgURL" />
+							<button id="clear" style="display:none;"></button>
 							<div id="uploadimg">
-								<img src="../img/default.png" id="showImage" style="height:200px; width: 330px;"/>
+								<img src="../img/default.png" id="showImage" name="imagePreview" style="height:100%; width: 100%;"/>
 							</div>
 						</div>
 						<div class="main_content">
@@ -92,6 +96,6 @@ if(isset($_POST['registerNews'])){
 	<script src="../js/bootstrap.min.js"></script>
 	<!--Sript for insert news to database through AJAX request-->
 	<script src="../js/insertNews.js"></script>
-	<script src="../js/previewBackgroundimg.js"></script>
+	<script src="../js/insertImageTemp.js"></script>
 </body>
 </html>

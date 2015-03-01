@@ -1,3 +1,11 @@
+
+var file_background = $("#file_background");
+
+$("#clear").on("click", function () {
+	$("#file_background").replaceWith( file_background = file_background.clone( true ) );
+});
+
+
 $("input[name=complete_ProjectReg]").click(function(){
 	
 
@@ -27,13 +35,14 @@ $("input[name=complete_ProjectReg]").click(function(){
 		data: {'project' : projectJSON},
 		success: function(response) {
 			if(response == "OK"){
-				clearInput();
 				insertBackground();
+				clearInput();
+				
 			}
 
 		},
 		error : function(response){
-			alert("ERROR INSRT PROJECT : " + response.message);
+			alert("ERROR INSRT PROJECT.js ajax request error : " + response.message);
 		}
 	});
 	
@@ -46,7 +55,7 @@ function insertBackground(){
 		alert(error.message);
 	}
 	if(file_data_background != undefined){
-		alert("FIL ER SATT");
+		alert("InsertProject.js: insertBackgroud() : FIL ER SATT");
 		var form_data_background = new FormData();
 		form_data_background.append('file_background', file_data_background);
 		$.ajax({
@@ -58,10 +67,10 @@ function insertBackground(){
 		data: form_data_background,
 		type: 'POST',
 		success: function(response){
-			alert("Bakgrunnsbilde: " + response);
+			alert("insertProject.js ajax request success Bakgrunnsbilde: " + response);
 		},
 		error : function(response){
-			alert("ERROR : " + response);
+			alert(" insertProject.js : insertBackground ajax request ERROR : " + response);
 			console.log(response.message);
 		}
 	});
@@ -74,5 +83,7 @@ function clearInput(){
 	$('textarea[name=about]').val("");
 	$('input[name=country]').val("");
 	$('input[name=city]').val("");
-	$("#img").attr("src", "../img/default.png");
+	$("img[name=imagePreview]").attr("src", "../img/default.png");
+	$('#clear').trigger('click');
+
 }

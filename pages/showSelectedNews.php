@@ -7,44 +7,44 @@ include '../phpBackend/connect.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<title>Sharity</title>
-<!-- Bootstrap Core CSS -->
-<link href="../css/bootstrap.min.css" rel="stylesheet"/>
-<!-- Custom CSS -->
-<link href="../css/scrolling-nav.css" rel="stylesheet"/>
-<link rel="stylesheet" type="text/css" href="../css/index.css" />
-<link rel="stylesheet" type="text/css" href="../css/list_project.css">
-<link href="../css/main.css" rel="stylesheet"/>
-<link href="../css/fonts.css" rel="stylesheet"/>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Sharity</title>
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+	<!-- Custom CSS -->
+	<link href="../css/scrolling-nav.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="../css/index.css" />
+	<link rel="stylesheet" type="text/css" href="../css/list_project.css">
+	<link href="../css/main.css" rel="stylesheet"/>
+	<link href="../css/fonts.css" rel="stylesheet"/>
 </head>
 <?php
 include "../pages/header_nav.php";
 ?>
 <div class="container" id="phonecontainer">
-<?php
-$newsID = $_SESSION['newsIDtoShow'];
-$sql = "SELECT * FROM News WHERE newsID = $newsID";
-$result = mysqli_query($connection, $sql);
-if($result){
-if(mysqli_num_rows($result) == 1){
-$row = mysqli_fetch_assoc($result);
-$projectID = $row['projectID'];
-$sql1 = "SELECT * FROM Project WHERE projectID = $projectID";
-$result1 = mysqli_query($connection, $sql1);
+	<?php
+	$newsID = $_SESSION['newsIDtoShow'];
+	$sql = "SELECT * FROM News WHERE newsID = $newsID";
+	$result = mysqli_query($connection, $sql);
+	if($result){
+		if(mysqli_num_rows($result) == 1){
+			$row = mysqli_fetch_assoc($result);
+			$projectID = $row['projectID'];
+			$sql1 = "SELECT * FROM Project WHERE projectID = $projectID";
+			$result1 = mysqli_query($connection, $sql1);
 $projectName = "..."; // her har det skjedd noe feil
 $projectID = "...";
 if($result1){
-if(mysqli_num_rows($result1) == 1){
-$row1 = mysqli_fetch_assoc($result1);
-$projectName = $row1['name'];
-$projectID = $row1['projectID'];
-}
+	if(mysqli_num_rows($result1) == 1){
+		$row1 = mysqli_fetch_assoc($result1);
+		$projectName = $row1['name'];
+		$projectID = $row1['projectID'];
+	}
 }
 echo
 '
@@ -90,10 +90,10 @@ class="show-page-loading-msg menu_icon back_icon">
 <div class="col-md-4"></div>
 ';
 }else{
-die("Alvorlig feil! SQL sprørringen etter " . $projectID . " returnerte mindre enn 1 eller mer enn 1 Prosjekt");
+	die("Alvorlig feil! SQL sprørringen etter " . $projectID . " returnerte mindre enn 1 eller mer enn 1 Prosjekt");
 }
 }else{
-die("Feil i SQL spørringen");
+	die("Feil i SQL spørringen");
 }
 ?>
 <!-- jQuery -->
@@ -104,7 +104,7 @@ die("Feil i SQL spørringen");
 <!-- Upload img js -->
 <script type="text/JavaScript">
 $("#uploadimg").click(function() {
-$("#file1").trigger('click');
+	$("#file1").trigger('click');
 });
 </script>
 <!--Sript for insert project to database through AJAX request-->

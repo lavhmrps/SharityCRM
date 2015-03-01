@@ -7,8 +7,10 @@ function setProjectID(projectID){
 function getProjectID(){
 	var projectID = localStorage['projectIDtoShow'];
     if (!projectID) {
+    	alert("alerted from showProject.js getProjectID() function projectID not set " );
         return "NOT SEt alerted from showProject getProjectID() function";
     }else{
+    	alert("alerted from showProject.js getProjectID() function projectID  set:  " + projectID);
     	return projectID;
     }
 }
@@ -21,10 +23,10 @@ function showProject(projectID){
 		dataType : "text",
 		data : {"projectIDtoShow" : projectID},
 		success : function(response){
-			alert(response);
+			alert("showProject.js : showProject() : ajax request success: " + response);
 		},
 		error : function(response){
-			alert(response);
+			alert("showProject.js : showProject() : ajax request error: "  +  response.message);
 		}
 	});
 }

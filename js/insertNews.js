@@ -1,3 +1,9 @@
+
+$("#clear").on("click", function () {
+	$("#file_background").replaceWith( file_background = file_background.clone( true ) );
+});
+
+
 $("#registerphonebutton").click(function(){
 	var title = $('input[name=title]').val();
 	var txt = $('textarea[name=txt]').val();
@@ -50,6 +56,7 @@ alert(newsJSON);
 		success: function (response) {
 			alert(response);
 			if(response == "OK"){
+				insertBackground();
 				clearInputs();
 			}else{
 				alert("ERROR: Alert fra insertNews.js Feil ved insert til MySQL database");
@@ -96,4 +103,6 @@ function clearInputs(){
 	$('input[name=title]').val("");
 	$('textarea[name=txt]').val("");
 	$('select[name=projectID]').val("NULL");
+	$("img[name=imagePreview]").attr("src", "../img/default.png");
+	$('#clear').trigger('click');
 }
