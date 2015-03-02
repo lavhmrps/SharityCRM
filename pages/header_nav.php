@@ -101,7 +101,7 @@ if(isset($_POST['logout'])){
                 <a href="#">Månedvis</a>
             </li>
             <li>
-                <a href="#">År</a>
+                <a href="../pages/statistics1.php">År</a>
             </li>
             <li>
                 <a href="../pages/statistics.php">Totalt</a>
