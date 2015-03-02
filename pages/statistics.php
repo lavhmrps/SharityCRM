@@ -8,6 +8,13 @@ include '../phpBackend/connect.php';
 <html>
 <head>
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/draggableStats.css">
+  <script type="text/javascript" src="../js/draggableStats.js"></script>
+
+
+
+
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,52 +40,233 @@ include '../phpBackend/connect.php';
 	?>
 
 	
-		
-		
-
-		<div class="col-md-2"></div>
-		<div class="col-md-8">
-			<?php
-
-			$organizationNr = $_SESSION['organizationNr'];
-
-			if (isset($_POST['showStatistics'])) {
-
-				$sql = "SELECT Donation.*, Project.name FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE Project.organizationNr = $organizationNr";
-				$result = mysqli_query($connection, $sql);
-
-				if ($result) {
-					echo "Antall donasjoner: " . mysqli_num_rows($result) . "</br>";
-					while ($row = mysqli_fetch_assoc($result)) {
-
-						echo "Donert til prosjektID: " . $row['projectID'];
-						echo "<br/>Sum donert: " . $row['sum'] . " kr";
-						echo "<br/>Prosjektnavn: " . $row['name'];
-						echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
-					}
-				} else {
-					echo "<h2>Failure</h2>";
-				}
-			}
 
 
 
-			?>
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+   <?php
+   /*
+   $organizationNr = $_SESSION['organizationNr'];
 
-			<form method="post">
-				<input type="submit" value="Vis statistikk" name="showStatistics"/>
+   if (isset($_POST['showStatistics'])) {
 
-			</form>
-		</div>
+    $sql = "SELECT Donation.*, Project.name FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE Project.organizationNr = $organizationNr";
+    $result = mysqli_query($connection, $sql);
 
-		<div class="col-md-2"></div>
+    if ($result) {
+     echo "Antall donasjoner: " . mysqli_num_rows($result) . "</br>";
+     while ($row = mysqli_fetch_assoc($result)) {
+
+      echo "Donert til prosjektID: " . $row['projectID'];
+      echo "<br/>Sum donert: " . $row['sum'] . " kr";
+      echo "<br/>Prosjektnavn: " . $row['name'];
+      echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
+    }
+  } else {
+   echo "<h2>Failure</h2>";
+ }
+}
 
 
-	<!-- jQuery -->
-	<script src="../js/jquery.js"></script>
-	<script src="../js/stickyheader.js"></script>
+*/
+?>
 
-	
+
+</div>
+
+<div class="col-md-2"></div>
+
+<div id="menubar">
+  Meny: 
+  <button id="showlast12months">Siste 12 mnd</button> 
+</div>
+<div id="draggable" class="ui-widget-content">
+  <div id="framebar">
+    <strong><u>Siste 12 mnd</u></strong> <!--Sett id og gi mouse over: pointer-->
+    <button id="maximize">MAX</button>
+    <button id="minimize">MIN</button>
+    <button id="close">CLOSE</button>
+  </div>
+  <canvas id="graph" width="1000" height="500">   
+  </canvas> 
+</div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<p>do you think im pretty?</p>
+
+
+<script src="../js/stickyheader.js"></script>
+
+
 </body>
 </html>
 

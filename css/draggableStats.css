@@ -1,0 +1,27 @@
+#draggable {
+ width: 1010px; 
+ height: 550px;
+ border:2px solid #007ec5;
+}
+
+#framebar{
+  background: #007ec5;
+  height:50px;
+  width:100%;
+  cursor:grab;
+}
+
+
+#graph{
+  width:100%;
+background-color: white; /*Gjennomsiktig hvis ikke*/}
+
+#menubar{
+  background: #333;
+  width:1010px;
+  height:50px;
+  z-index:1000;
+  color:white; 
+  border:2px solid #333;
+  position: fixed;
+}

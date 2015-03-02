@@ -1,21 +1,15 @@
 $('#clear').click(function(){
-	alert("insertProject.js du trykka clear");
-	var image = $("in");
+	var image = $("#file_background");
 	image.replaceWith( image = image.clone( true ) );
 });
 
 $("img[name=preview]").click(function(){
 	$("#file_background").trigger('click');
 });
-
-
-
+//triggered when user selects image to upload
 $("#file_background").change(function(){
 	previewImage(this);
-
 });
-
-
 //register project, ajax request .php script (insertProject.php) to insert into database
 $("input[name=complete_ProjectReg]").click(function(){
 	var name = $('input[name=name]').val();
@@ -49,7 +43,7 @@ $("input[name=complete_ProjectReg]").click(function(){
 					alert(error.message);
 				}
 				if(file_data_background != undefined){
-					insertBackground();
+					insertBackground(file_data_background);
 				}
 				clearInput();
 			}
@@ -58,13 +52,10 @@ $("input[name=complete_ProjectReg]").click(function(){
 			alert("ERROR INSRT PROJECT.js ajax request error : " + response.message);
 		}
 	});
-	
 	return false;
 });
-
 //ajax request to .php script (insertBackgroundimgProject.php) to insert image into database
-function insertBackground(){	
-	alert("InsertProject.js: insertBackgroud() : FIL ER SATT");
+function insertBackground(file_data_background){	
 	var form_data_background = new FormData();
 	form_data_background.append('file_background', file_data_background);
 	$.ajax({
@@ -84,7 +75,7 @@ function insertBackground(){
 		}
 	});
 }
-
+//preview selected image
 function previewImage(input) {
 	if (input.files && input.files[0]) {
 		var fileReader = new FileReader();
@@ -97,13 +88,12 @@ function previewImage(input) {
 		fileReader.readAsDataURL(input.files[0]);
 	}
 }
-
 function clearInput(){
 	$('input[name=name]').val("");
 	$('input[name=title]').val("");
 	$('textarea[name=about]').val("");
 	$('input[name=country]').val("");
 	$('input[name=city]').val("");
-	$("img[name=imagePreview]").attr("src", "../img/default.png");
+	$("img[name=preview]").attr("src", "../img/default.png");
 	$('#clear').trigger('click');
 }
