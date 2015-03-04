@@ -71,18 +71,20 @@ if(isset($_POST['registerNews'])){
 	<div class="col-md-3"></div>
 	<div class="col-md-12" id="somespace"></div>
 </div>
+
+<script src="../js/stickyheader.js"></script>
 </body>
 </html>
 
 <script type="text/javascript">
 
-$("button[name=registerProject]").click(function(){
-	insertProject();
-});
+	$("button[name=registerProject]").click(function(){
+		insertProject();
+	});
 
-$("#preview").click(function(){
-	$("#file_background").trigger("click");
-});
+	$("#preview").click(function(){
+		$("#file_background").trigger("click");
+	});
 
 //triggered when user selects image to upload
 $("#file_background").change(function(){
