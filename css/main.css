@@ -1516,3 +1516,24 @@ input[id=aboutOrg]:focus{
 
 
 
+
+
+
+
+/******Vegards KNOT*******/
+
+
+
+#reg_news_input{
+	margin: 5px;
+	width:98%;
+}
+
+#preview{
+	width:98%; 
+	height:30%;
+	margin:5px; 
+	
+}
+
+.tokenize-sample { width: 98%; margin:5px;o}
