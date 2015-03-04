@@ -26,7 +26,7 @@ $organizationNr = $_SESSION['organizationNr'];
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
 
     <!-- Custom CSS -->
-    <link href="../css/main.css" rel="stylesheet"/>
+    <link href="../css/vegard_main.css" rel="stylesheet"/>
     <link href="../css/fonts.css" rel="stylesheet"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -99,28 +99,37 @@ $organizationNr = $_SESSION['organizationNr'];
                             $about = $row['about'];
 
 
-                            echo '<div class="col-md-10" id="registration_pt2_margin">';
-                            echo '<input type="text" class="form-control" name="address" id="reg_pt2_input" placeholder="Adresse" value="' . $address . '"/>';
-                            echo '</div>';
-                            echo '<div class="col-md-2" id="registration_pt2_margin2">';
-                            echo '<input type="tel" class="form-control" name="zipcode" id="reg_pt2_inputZipcode" placeholder="Postnr" value="' . $zipcode . '"/>';
-                            echo '</div>';
-                            echo '<input type="tel" class="form-control" name="phone" id="reg_pt2_input" placeholder="Telefonnummer" value = "' . $phone . '"/>';
-                            echo '<input type="email" class="form-control" name="email" id="reg_pt2_input" placeholder="Email" value="'. $email . '"/>';
-                            echo '<input type="text" class="form-control" name="website" id="reg_pt2_input" placeholder="Nettside" value="' . $website . '"/>';
-                            echo '<input type="tel" class="form-control" name="accountnumber" id="reg_pt2_input" placeholder="Kontonummer" value="' . $accountnumber . '"/>';
+                            echo "<label>Adresse</label>";
+                            echo '<input type="text" class="form-control" name="address" id="reg_pt2_input" placeholder="" value="' . $address . '"/>';
+
+                            echo "<label>Postnummer</label>";
+                            echo '<input type="tel" class="form-control" name="zipcode" id="reg_pt2_input" placeholder="" value="' . $zipcode . '"/>';
+
+                            echo "<label>Telefonnummer</label>";
+                            echo '<input type="tel" class="form-control" name="phone" id="reg_pt2_input" placeholder="" value = "' . $phone . '"/>';
+                            
+                            echo "<label>E-postadresse</label>";
+                            echo '<input type="email" class="form-control" name="email" id="reg_pt2_input" placeholder="" value="'. $email . '"/>';
+                            
+                            echo "<label>Link til hjemmeside</label>";
+                            echo '<input type="text" class="form-control" name="website" id="reg_pt2_input" placeholder="" value="' . $website . '"/>';
+                            
+                            echo "<label>Kontonummer</label>";
+                            echo '<input type="tel" class="form-control" name="accountnumber" id="reg_pt2_input" placeholder="" value="' . $accountnumber . '"/>';
 
 
-
+                            echo "<label>Velg kategori</label>";
                             echo '<div class="regOrgDropdown">
                             <select class="orgbtn1" name="category">
-                            <option value="NULL">Velg kategori</option>
+                            <option value="NULL"></option>
                             <option value="Humanitært" >Humanitært</option>
                             <option value="Dyrevern" >Dyrevern</option>
                             <option value="Forskning" >Forskning</option>
                             <option value="Fundraising" >Fundraising</option>
                             </select>
                             </div>';
+
+                            echo "<label>Beskrivelse av organisasjonen</label>";
                             echo '<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="about" id="aboutOrg" placeholder="Om organisasjonen">' . $about . '</textarea>';
                             echo '
                             <button class="btn bluebtn" name="backgroundimgURLbutton">
@@ -175,12 +184,58 @@ $organizationNr = $_SESSION['organizationNr'];
             var accountnumber = $('input[name=accountnumber]').val();
             var email = $('input[name=email]').val();
             var about = $('textarea[name=about]').val();
-
-
-
             var category = $('select[name=category]').val();
 
-          
+            $('input[name=phone]').removeClass('empty_input');
+            $('input[name=address]').removeClass('empty_input');
+            $('input[name=zipcode]').removeClass('empty_input');
+            $('input[name=website]').removeClass('empty_input');
+            $('input[name=accountnumber]').removeClass('empty_input');
+            $('input[name=email]').removeClass('empty_input');
+            $('textarea[name=about]').removeClass('empty_input');
+            $('select[name=category]').removeClass('empty_input');
+
+
+
+            var ok = 1;
+
+            if(phone == ""){
+                $('input[name=phone]').addClass('empty_input');
+                ok = 0;
+            }
+            if(address == ""){
+                $('input[name=address]').addClass('empty_input');
+                ok = 0;
+            }
+            if(zipcode == ""){
+                $('input[name=zipcode]').addClass('empty_input');
+                ok= 0;
+            }
+            if(website == ""){
+                $('input[name=website]').addClass('empty_input');
+                ok = 0;
+            }
+            if(accountnumber == "" || accountnumber.length != 11){
+                $('input[name=accountnumber]').addClass('empty_input');
+                ok = 0;
+            }
+            if(email == ""){
+                $('input[name=email]').addClass('empty_input');
+                ok = 0;
+            }
+            if(about == ""){
+                $('textarea[name=about]').addClass('empty_input');
+                ok = 0; 
+            }
+            if(category == "NULL"){
+                $('select[name=category]').addClass('empty_input');
+                ok = 0;
+            }
+
+            if(ok == 0){
+                alert("Fyll inn alle felters, informasjon kan gå tapt, trykk ok for å samtykke");
+            }
+
 
 
             var json = {
@@ -202,7 +257,13 @@ $organizationNr = $_SESSION['organizationNr'];
                 url : "../phpBackend/updateOrganization.php",
                 data : {"organization" : json},
                 success : function(response){
-                    alert("Successful ajax request from change_orginfo.js calling to updateOrganization.php" + response);
+                    if(response == "OK"){
+                        alert("Successful ajax request from change_orginfo.js calling to updateOrganization.php " + response);
+                        window.location.replace("../pages/home.php");
+
+                    }
+                    
+
                 },
                 error : function(response){
                     alert("changeorginfor.js error feil fra update organization.php feil i ajax request");
@@ -212,10 +273,10 @@ $organizationNr = $_SESSION['organizationNr'];
 
         });
 
-        </script>
+</script>
 
 
-    </body>
+</body>
 
-    </html>
+</html>
 

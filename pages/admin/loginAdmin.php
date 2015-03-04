@@ -1,38 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin</title>
-
-	<link href="../../css/bootstrap.min.css" rel="stylesheet">
-	<link href="../../css/admin.css" rel="stylesheet">
+	<title></title>
 </head>
 <body>
+	<h1>Admin login</h1>
+	<form>
+		<input type="text" name="admin_username" placeholder="Username"/>
+		<input type="password" name="admin_password" placeholder="Password"/>
+		<input type="submit" name="login_admin" id="login_admin" value="I am ADMIN"/>
+	</form>
 
 
 
-	<div class="container">
-
-	<div class="col-md-3"></div>
-		<div class="col-md-6 text-center" id="adminlogin">
-			<form>
-				<h1 style="color:white;">Admin</h1>
-				<input type="text" name="admin_username" class="form-control" id="username" placeholder="Username"/>
-				<input type="password" name="admin_password" class="form-control" id="passwd" placeholder="Password"/>
-				<input type="submit" name="login_admin" class="form-control" id="login_admin" value="Logg inn"/>
-
-			</form>
-		</div>
-		<div class="col-md-3"></div>
+	<!-- jQuery -->
+	<script src="js/jquery.js"></script>
+	<!--Check login information-->
+	<script src="checkLogin.js"></script
+</body>
 
 
-		<!-- jQuery -->
-		<script src="js/jquery.js"></script>
-		<!--Check login information-->
-		<script src="checkLogin.js"></script>
-		<!-- Bootstrap Core JavaScript -->
-		<script src="../js/bootstrap.min.js"></script>
-
-	</body>
-
-
-	</html>
+</html>

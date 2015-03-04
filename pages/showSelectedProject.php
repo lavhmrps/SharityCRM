@@ -35,7 +35,19 @@ if($result){
 	if(mysqli_num_rows($result) == 1){
 		$row = mysqli_fetch_assoc($result);
 		$organizationNr = $row['organizationNr'];
+
 		$backgroundimgURL = $row['backgroundimgURL'];
+
+		if($backgroundimgURL == ""){
+			$backgroundimgURL = "../img/default.png";
+		}else{
+			$backgroundimgURL = "../phpBackend/". $row['backgroundimgURL'];
+		}
+		
+
+
+
+		
 		$name = $row['name'];
 		$title = $row['title'];
 		$about = $row['about'];
@@ -61,7 +73,7 @@ if($result){
 		<div class="col-md-8 text-center">
 			<?php
 
-				echo "<h1 style='color:black'>" . $name . "</h1>";
+			echo "<h1 style='color:black'>" . $name . "</h1>";
 
 			?>
 		</div>
@@ -79,7 +91,7 @@ if($result){
 
 			<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL"/>
 
-			<img src="../phpBackend/'. $backgroundimgURL.'" id="preview" alt="Click to upload img" name="preview"/>
+			<img src="'. $backgroundimgURL.'" id="preview" alt="Click to upload img" name="preview"/>
 			<input type="text" id="reg_project_input" class="form-control" name="country" placeholder="Land" value="' . $country. '" readonly/>
 			<input type="text" id="reg_project_input" class="form-control" name="city" placeholder="By" value="' . $city . '" readonly/>
 			<input type="text" id="reg_project_input" class="form-control" name="title" placeholder="Prosjekt tittel" value="' . $title . '" readonly/>

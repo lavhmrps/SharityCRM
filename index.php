@@ -154,51 +154,56 @@ include "phpBackend/connect.php";
 						<div class="col-lg-12">
 							<h1>Ny Organisasjon</h1>
 
-							<form method="post">
-								<div class="row">
-									<div class="col-md-3"></div>
+							
+							<div class="row">
+								<div class="col-md-3"></div>
 
-									<div class="col-md-6" id="inputforms">
+								<div class="col-md-6" id="inputforms">
+									
+									<div class="form-group">
+										<div class="col-md-12">
+											<label>Organisasjonsnummer</label>
+											<input type="tel" class="form-control" name="reg_organizationNr" id="orgIDs" placeholder=""/>
+										</div>
 										
-										<div class="form-group">
-											<div class="col-md-12">
-												<input type="tel" class="form-control" name="reg_organizationNr" id="orgIDs" placeholder="Orgnr"/>
-											</div>
-											
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<label>Organisasjonsnavn</label>
+											<input type="text" class="form-control" name="reg_name" id="orgNames" placeholder=""/>
 										</div>
-										<div class="form-group">
-											<div class="col-md-12">
-												<input type="text" class="form-control" name="reg_name" id="orgNames" placeholder="Orgnavn"/>
-											</div>
-											
+										
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<label>Passord</label>
+											<input type="password" class="form-control" name="reg_password" id="newPasswds" placeholder=""/>
 										</div>
-										<div class="form-group">
-											<div class="col-md-12">
-												<input type="password" class="form-control" name="reg_password" id="newPasswds" placeholder="Passord"/>
-											</div>
-											
+										
+									</div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<label>Gjennta passord</label>
+											<input type="password" class="form-control" name="reg_password2" id="rptPasswds" placeholder=""/>
 										</div>
-										<div class="form-group">
-											<div class="col-md-12">
-												<input type="password" class="form-control" name="reg_password2" id="rptPasswds" placeholder="Gjenta passord"/>
-											</div>
-											
-										</div>
-
-										<div class="form-group">
-											<div class="col-md-12">
-												<button  class="btn btn-success" name="complete_registration" id="completeReg">
-													Fullfør (1/2)
-												</button>
-											</div>
-											
-										</div>
+										
 									</div>
 
-									<div class="col-md-3"></div>
+									<div class="form-group">
+										<div class="col-md-12">
+											<label></label>
+											<button  class="btn btn-success" name="complete_registration" id="completeReg">
+												Fullfør (1/2)
+											</button>
+										</div>
+										
+									</div>
 								</div>
 
-							</form>
+								<div class="col-md-3"></div>
+							</div>
+
+							
 						</div>
 					</div>
 				</div>
@@ -210,38 +215,66 @@ include "phpBackend/connect.php";
 
 
 							<div class="col-md-2" id="footerpadding"></div>
-							<div class="col-md-1" id="footerpadding"></div>
-							<div class="col-md-3" id="footerpadding">
+							<div class="col-md-2" id="footerpadding">
 								
-								<div class="col-md-6">
-									<a href="pages/FAQ.php">FAQs</a>
-								</div>
-								<div class="col-md-6">
-									<a href="pages/aboutSharity.php">About</a>
-								</div>
-								<div class="col-md-6">
-									<a href="pages/admin/loginAdmin.php">Admin</a>
-								</div>
-								<div class="col-md-6">
-									<a href="http://www.simpleness.no" target="_blank">Simplenæss</a>
-								</div>
-							</div>
-							
-							
-							
-							<div class="col-md-4" id="footerpadding">
 								<div class="col-md-12">
-									<a href="http://www.facebook.com/vlokreim" target="_blank"><img
-										src="http://static.viewbook.com/images/social_icons/facebook_32.png"/></a> <a href="http://www.twitter.com/mv700" target="_blank"><img src="http://static.viewbook.com/images/social_icons/twitter_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
-										src="http://static.viewbook.com/images/social_icons/linkedin_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
-										src="http://static.viewbook.com/images/social_icons/google_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
-										src="http://static.viewbook.com/images/social_icons/vimeo_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
-										src="http://static.viewbook.com/images/social_icons/tumblr_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
-										src="http://static.viewbook.com/images/social_icons/wordpress_32.png"/></a> 
+									<a href="pages/admin/loginAdmin.php">Admin </a>
+								</div>
+								<div class="col-md-12">
+									<a href="#">aifaosifa </a>
+								</div>
+								<div class="col-md-12">
+									<a href="#">Admin </a>
+								</div>
+								<div class="col-md-12">
+									<a href="#">Admin </a>
 								</div>
 							</div>
-
 							
+							<div class="col-md-2" id="footerpadding">
+								<div class="col-md-12">
+									<a href="pages/admin/loginAdmin.php">Something </a>
+								</div>
+								<div class="col-md-12">
+									<a href="pages/admin/loginAdmin.php">Something </a>
+								</div>
+								<div class="col-md-12">
+									<a href="pages/admin/loginAdmin.php">Something </a>
+								</div>
+								<div class="col-md-12">
+									<a href="pages/admin/loginAdmin.php">Something </a>
+								</div>
+								
+							</div>
+							<div class="col-md-2" id="footerpadding">
+								<div class="col-md-12">
+									<a href="pages/admin/loginAdmin.php">About </a>
+								</div>
+								<div class="col-md-12">
+									<a href="pages/admin/loginAdmin.php">About </a>
+								</div>
+								<div class="col-md-12">
+									<a href="pages/admin/loginAdmin.php">About </a>
+								</div>
+								<div class="col-md-12">
+									<a href="pages/admin/loginAdmin.php">About </a>
+								</div>
+							</div>
+							<div class="col-md-2" id="footerpadding">
+								<div class="col-md-12">
+									<a href="pages/admin/loginAdmin.php">FAQs </a>
+								</div>
+								<div class="col-md-12">
+									<a href="pages/admin/loginAdmin.php">FAQs </a>
+								</div>
+								<div class="col-md-12">
+									<a href="pages/admin/loginAdmin.php">FAQs </a>
+								</div>
+								<div class="col-md-12">
+									<a href="pages/admin/loginAdmin.php">FAQs </a>
+								</div>
+								
+							</div>
 							<div class="col-md-2" id="footerpadding"></div>
 
 

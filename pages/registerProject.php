@@ -50,15 +50,20 @@ if(isset($_POST['registerNews'])){
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
 
-
-				<input type="text" id="reg_project_input" class="form-control" name="projectName" placeholder="Prosjektnavn"/>
+				<label name="projectlabel">Prosjektnavn</label>
+				<input type="text" id="reg_project_input" class="form-control" name="projectName" placeholder=""/>
+				<label>Bakgrunnsbilde</label>
 				<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
 
 				<img src="../img/default.png" id="preview" alt="Click to upload img" name="preview" />
-				<input type="text" id="reg_project_input" class="form-control" name="country" placeholder="Land"/>
-				<input type="text" id="reg_project_input" class="form-control" name="city" placeholder="By"/>
-				<input type="text" id="reg_project_input" class="form-control" name="title" placeholder="Prosjekt tittel"/>
-				<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="about" placeholder="Prosjektbeskrivelse" ></textarea>
+				<label name="countrylabel">Land</label>
+				<input type="text" id="reg_project_input" class="form-control" name="country" placeholder=""/>
+				<label name="citylabel">By</label>
+				<input type="text" id="reg_project_input" class="form-control" name="city" placeholder=""/>
+				<label name="titlelabel">Tittel</label>
+				<input type="text" id="reg_project_input" class="form-control" name="title" placeholder=""/>
+				<label name="aboutlabel">Beskrivelse av prosjektet</label>
+				<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="about" placeholder="" ></textarea>
 				<button  class="btn btn-success" name="registerProject">
 					Registrer prosjekt
 				</button>
@@ -71,21 +76,18 @@ if(isset($_POST['registerNews'])){
 	<div class="col-md-3"></div>
 	<div class="col-md-12" id="somespace"></div>
 </div>
-
-<script src="../js/stickyheader.js"></script>
-<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
 
 <script type="text/javascript">
 
-	$("button[name=registerProject]").click(function(){
-		insertProject();
-	});
+$("button[name=registerProject]").click(function(){
+	insertProject();
+});
 
-	$("#preview").click(function(){
-		$("#file_background").trigger("click");
-	});
+$("#preview").click(function(){
+	$("#file_background").trigger("click");
+});
 
 //triggered when user selects image to upload
 $("#file_background").change(function(){
@@ -116,29 +118,40 @@ function insertProject(){
 	
 	var ok = 1;
 
+	$('input[name=projectName]').removeClass('empty_input');
+	$('input[name=country]').removeClass('empty_input');
+	$('input[name=city]').removeClass('empty_input');
+	$('input[name=title]').removeClass('empty_input');
+	$('textarea[name=about]').removeClass('empty_input');
+
+	
+
 	if(name ===""){
-		alert("skriv navn på projsketet");
+		$('input[name=projectName]').addClass('empty_input');
+		
 		ok = 0;
 	}
 	if(country == ""){
-		alert("skriv land");
+		$('input[name=country]').addClass('empty_input');
 		ok = 0;
 	}
-	if(country == ""){
-		alert("skriv by");
+	if(city == ""){
+		$('input[name=city]').addClass('empty_input');
+
 		ok = 0;
 	}
 	if(title == ""){
+		$('input[name=title]').addClass('empty_input');
 		ok = 0;
-		alert("Skriv tittel");
 	}
 	if(about == ""){
+		$('textarea[name=about]').addClass('empty_input');
 		ok = 0;
-		alert("Skriv beskrivelse");
+		
 	}
 
 	if(ok == 0){
-		return;
+		return false;
 	}
 
 	var json = {

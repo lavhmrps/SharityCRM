@@ -18,8 +18,8 @@ $("input[name=complete_ProjectReg]").click(function(){
 	var country = $('input[name=country]').val();
 	var city = $('input[name=city]').val();
 	if(name == ""){
-		alert("hva heter prosjektet?");
-		return false;
+
+		
 	}
 	var projectJSON = {
 		"name" : name,
@@ -70,7 +70,7 @@ function insertBackground(file_data_background){
 			alert("insertProject.js ajax request success Bakgrunnsbilde: " + response);
 		},
 		error : function(response){
-			alert(" insertProject.js : insertBackground ajax request ERROR : " + response);
+			alert(" insertProject.js : insertBackground ajax request ERROR: " + response);
 			console.log(response.message);
 		}
 	});

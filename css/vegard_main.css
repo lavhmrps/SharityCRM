@@ -934,7 +934,7 @@ input[id="projectSavebtn"]{
 }
 
 input#logoutbtn{
-	color:#777;
+	color:777;
 	font-weight: bold;
 	font-size: 16px;
 	margin-left: 700%;
@@ -1290,7 +1290,6 @@ input[id=aboutOrg]:focus{
 		height:115px; 
 		min-height:115px;  
 		max-height:115px;
-		resize: none;
 	}
 
 	#aboutOrg_pt2::-webkit-input-placeholder{ 
@@ -1503,31 +1502,35 @@ input[id=aboutOrg]:focus{
 
 
 
-/******Vegards KNOT*******/
+	/******Vegards KNOT*******/
+
+	.empty_input {   
+		border-color: rgba(229, 103, 23, 0.8);
+		box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
+		outline: 0 none;
+	}
+
+	#reg_news_input, #reg_project_input,label{
+		margin: 5px;
+		width:98%;
+		outline:none;
+		outline-color:red;
+	}
 
 
+	#preview{
+		max-width:98%; 
+		max-height:30%;
+		min-width:98%; 
+		min-height:30%;
+		margin:5px; 
 
-#reg_news_input, #reg_project_input{
-	margin: 5px;
-	width:98%;
-}
+	}
 
+	select{
+		margin: 5px;
+		width:98%;
+		font-size: 20px;
+	}
 
-#preview{
-	max-width:98%; 
-	max-height:30%;
-	min-width:98%; 
-	min-height:30%;
-	margin:5px; 
-	
-}
-
-select{
-	margin: 5px;
-	width:98%;
-	font-size: 20px;
-}
-
-.tokenize-sample { 
-	width: 98%; margin:5px;
-}
+	.tokenize-sample { width: 98%; margin:5px;o}

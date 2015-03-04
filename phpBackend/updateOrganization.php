@@ -79,8 +79,6 @@ if (isset($_SESSION['organizationNr'])) {
 		}
 		if(isset($organization['category'])){
 			$category = $organization['category'];
-
-
 			$sql = "UPDATE Organization SET category = '$category' WHERE organizationNr = '$organizationNr'";
 			$mysql_status = insertInto($connection, $sql);
 			if($mysql_status != "OK"){

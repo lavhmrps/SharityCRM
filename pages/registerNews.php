@@ -23,7 +23,6 @@ if(isset($_POST['registerNews'])){
 
 
 	<link href="../css/vegard_main.css" rel="stylesheet"/>
-	
 
 
 
@@ -56,8 +55,9 @@ if(isset($_POST['registerNews'])){
 					$sql = "SELECT projectID, name FROM Project WHERE organizationNr = $organizationNr";
 					$result = mysqli_query($connection, $sql);
 					if ($result) {
+						echo "<label>Velg prosjekt</label>";
 						echo "<select name='projectID'>";
-						echo "<option value='NULL'>Velg prosjekt</option>";
+						echo "<option value='NULL'></option>";
 						while ($row = mysqli_fetch_assoc($result)) {
 							echo "<option value=" . $row['projectID'] . ">" . $row['name'] . "</option>";
 						}
@@ -68,15 +68,16 @@ if(isset($_POST['registerNews'])){
 					?>
 				</p>
 
-
+				<label>Nyehtsbilde</label>
 				<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
 
 				<img src="../img/default.png" id="preview" alt="Click to upload img" name="preview" />
 
 
 
-
-				<input type="text" id="reg_news_input" class="form-control" name="newsHeader" placeholder="Nyhetsoverskrift"/>
+				<label>Nyehtsoverskrift</label>
+				<input type="text" id="reg_news_input" class="form-control" name="newsHeader" placeholder=""/>
+				<label>Nyhetstekst</label>
 				<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="newsText" placeholder="Nyhetstekst" ></textarea>
 				<button  class="btn btn-success" name="insertNews">
 					Publiser nyhet
@@ -90,20 +91,18 @@ if(isset($_POST['registerNews'])){
 	<div class="col-md-3"></div>
 	<div class="col-md-12" id="somespace"></div>
 </div>
-<script src="../js/stickyheader.js"></script>
-<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
 
 <script type="text/javascript">
 
-	$("button[name=insertNews]").click(function(){
-		insertNews();
-	});
+$("button[name=insertNews]").click(function(){
+	insertNews();
+});
 
-	$("#preview").click(function(){
-		$("#file_background").trigger("click");
-	});
+$("#preview").click(function(){
+	$("#file_background").trigger("click");
+});
 
 //triggered when user selects image to upload
 $("#file_background").change(function(){
@@ -130,17 +129,22 @@ function insertNews(){
 
 	var ok = 1;
 
+	$('select[name=projectID]').removeClass('empty_input');
+	$('input[name=newsHeader]').removeClass('empty_input');
+	$('textarea[name=newsText]').removeClass('empty_input');
+
 	if(projectID ==="NULL"){
-		alert("Velg prosjekt");
+		$('select[name=projectID]').addClass("empty_input");
 		ok = 0;
 	}
 	if(title == ""){
+		$('input[name=newsHeader]').addClass('empty_input');
 		ok = 0;
-		alert("Skriv nyhetsoversikt");
 	}
 	if(txt == ""){
+		$('textarea[name=newsText]').addClass('empty_input');
 		ok = 0;
-		alert("Skriv tekst");
+		
 	}
 
 	if(ok == 0){

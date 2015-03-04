@@ -8,12 +8,42 @@ $('#completeReg').click(function(){
 	var password = $('input[name=reg_password]').val();
 	var password2 = $('input[name=reg_password2]').val();
 
+	var ok = 1;
 
+	$('input[name=reg_password]').removeClass('empty_input');
+	$('input[name=reg_password2]').removeClass('empty_input');
+	$('input[name=reg_name]').removeClass('empty_input');
+	$('input[name=reg_organizationNr]').removeClass('empty_input');
+
+
+	if(name == ""){
+		$('input[name=reg_name]').addClass('empty_input');
+		ok= 0;
+	}
+	if(organizationNr == ""){
+		$('input[name=reg_organizationNr]').addClass('empty_input');
+		ok = 0;
+	}
+
+	if(password == ""){
+		$('input[name=reg_password]').addClass('empty_input');
+		ok = 0;
+	}
+	if(password2 == ""){
+		$('input[name=reg_password2]').addClass('empty_input');
+		ok = 0;
+	}
 
 	if(password != password2){
-		alert("Feil: Alert fra insertOrganization! Passord og Passord2 er ikke like (Ikke si det, visdet)");
+		$('input[name=reg_password]').addClass('empty_input');
+		$('input[name=reg_password2]').addClass('empty_input');
+		ok = 0;
+	}
+
+	if(ok == 0){
 		return false;
 	}
+
 
 	var organizationJSON = {
 		'name' : name,

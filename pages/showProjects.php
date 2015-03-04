@@ -66,10 +66,6 @@ $organizationNr = $_SESSION['organizationNr'];
 		?>
 	</div>
 </div>
-
-
-
-
 <!-- jQuery -->
 <script src="../js/jquery.js"></script>
 <script src="../js/stickyheader.js"></script>
