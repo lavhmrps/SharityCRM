@@ -1,11 +1,17 @@
 
+
+
+
 <?php
 session_start();
 include '../phpBackend/checkSession.php';
 include '../phpBackend/connect.php';
+if(isset($_POST['registerNews'])){
+	$organizationNr = $_SESSION['organizationNr'];
+}
 ?>
-<!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<meta charset="utf-8">
@@ -18,16 +24,21 @@ include '../phpBackend/connect.php';
 	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
 	<!-- Custom CSS -->
 	<link href="../css/scrolling-nav.css" rel="stylesheet"/>
-	<link rel="stylesheet" type="text/css" href="../css/index.css" />
-	<link rel="stylesheet" type="text/css" href="../css/list_project.css">
-	<link href="../css/main.css" rel="stylesheet"/>
-	<link href="../css/fonts.css" rel="stylesheet"/>
+
+
+	<link href="../css/vegard_main.css" rel="stylesheet"/>
+
+
+
 </head>
-<?php
-include "../pages/header_nav.php";
-?>
-<div class="container" id="phonecontainer">
+<body>
+
 	<?php
+	include "../pages/header_nav.php";
+	?>
+
+	<?php
+
 	$newsID = $_SESSION['newsIDtoShow'];
 	$sql = "SELECT * FROM News WHERE newsID = $newsID";
 	$result = mysqli_query($connection, $sql);
@@ -35,79 +46,76 @@ include "../pages/header_nav.php";
 		if(mysqli_num_rows($result) == 1){
 			$row = mysqli_fetch_assoc($result);
 			$projectID = $row['projectID'];
-			$sql1 = "SELECT * FROM Project WHERE projectID = $projectID";
+
+			$sql1 = "SELECT name FROM Project WHERE projectID = '$projectID'";
 			$result1 = mysqli_query($connection, $sql1);
-$projectName = "..."; // her har det skjedd noe feil
-$projectID = "...";
-if($result1){
-	if(mysqli_num_rows($result1) == 1){
-		$row1 = mysqli_fetch_assoc($result1);
-		$projectName = $row1['name'];
-		$projectID = $row1['projectID'];
+
+			if($result1){
+				if(mysqli_num_rows($result1) == 1){
+					$row1 = mysqli_fetch_assoc($result1);
+					$projectName = $row1['name'];
+				}
+			}
+			$backgroundimgURL = $row['backgroundimgURL'];
+
+			if($backgroundimgURL == ""){
+				$backgroundimgURL = "../img/default.png";
+			}
+
+			$title = $row['title'];
+
+			$txt = $row['txt'];
+
+		}else{
+
+		}
+	}else{
+
 	}
-}
-echo
-'
-<div class="container" id="phonecontainer">
-<div class="col-md-3"></div>
-<div class="col-md-5" id="phone">
-<div id="phonemargin">
-<form method="post" enctype="multipart/form-data">
-<div id="page_organisation">
-<div id="header_div" class="boxshadow">
-<div page-role="header" class="header_top"></div>
-<img src="../img/menu.png"
-class="show-page-loading-msg menu_icon back_icon">
-<p>
-<select anem ="projectID">
-<option value="' . $projectID . '"> ' . $projectName . ' </option>
-</select>
-</p>
+
+
+	?>
+
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+		<div class="col-md-12 text-center" id="reg_pt2_head">
+
+
+		</div>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8 text-center">
+				<?php echo "<h1 style='color:black'>" . $projectName . "</h1>"?>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+
+				<?php
+				echo '<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />';
+				echo '<img src="../phpBackend/'. $backgroundimgURL . '" id="preview" alt="Click to upload img" name="preview" />';
+				echo '<input type="text" id="reg_news_input" class="form-control" name="newsHeader" placeholder="Nyhetsoverskrift" value="' . $title . '"readonly/>';
+				echo '<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="newsText" placeholder="Nyhetstekst" readonly>'. $txt .'</textarea>'
+
+				?>
+
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+	<div class="col-md-3"></div>
+	<div class="col-md-12" id="somespace"></div>
 </div>
-<!-- For toppbilde -->
-<div class="portrait">
-<input type="file" id="file1" name="file1" style="display:none" />
-<img id="uploadimg" style="width: 100%; height:100%; cursor: pointer" src="../phpBackend/' . $row['backgroundimgURL'] . '"/>
-<p style="cursor:pointer; color:#000;">
-</p>
-</div>
-<div class="main_content">
-<input type="text" id="bottomTitle" placeholder="Skriv nyhetsoverskrift" name="title" value="' . $row['title'] . '" readonly/>
-<div class="form-group">
-<textarea class="form-control" id="aboutProj" rows="10" id="aboutproject" placeholder="Skriv nyhetstekst" name="txt" readonly>' . $row['txt'].'</textarea>
-</div>
-</div>
-<div class="col-md-12" id="aligncenternews">
-<input type="button" value="Tillat endre" id="registerphonebutton" name="registerNews" />
-</div>
-</div>
-<!-- End of #phonemargin-->
-</form>
-</div>
-</div>
-<!-- End of #phone-->
-</div>
-<div class="col-md-4"></div>
-';
-}else{
-	die("Alvorlig feil! SQL sprørringen etter " . $projectID . " returnerte mindre enn 1 eller mer enn 1 Prosjekt");
-}
-}else{
-	die("Feil i SQL spørringen");
-}
-?>
-<!-- jQuery -->
-<script src="../js/jquery.js"></script>
-<script src="../js/stickyheader.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="../js/bootstrap.min.js"></script>
-<!-- Upload img js -->
-<script type="text/JavaScript">
-$("#uploadimg").click(function() {
-	$("#file1").trigger('click');
-});
-</script>
-<!--Sript for insert project to database through AJAX request-->
 </body>
-<!-- -->
 </html>
+
+<script type="text/javascript">
+
+
+
+
+
+
+</script>	

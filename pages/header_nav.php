@@ -94,7 +94,6 @@ if(isset($_POST['logout'])){
                 <a href="../pages/registerNews.php">Registrer ny</a>
 
             </li>
-            <li><a href="../pages/registerNews1.php">Registrer ny1</a></li>
         </ul> 
     </div>
     <div id="statsMenu" class="menus" >
@@ -116,10 +115,13 @@ if(isset($_POST['logout'])){
     <div id="projectMenu" class="menus">
         <ul class="nav navbar-nav">
             <li>
-               <a href="../pages/showProjects.php">Vis alle</a>
-           </li>
-           <li>
+             <a href="../pages/showProjects.php">Vis alle</a>
+         </li>
+         <li>
             <a href="../pages/registerProject.php">Registrer nytt</a>
+        </li>
+        <li>
+
         </li>
 
     </ul>  
@@ -127,12 +129,12 @@ if(isset($_POST['logout'])){
 <div id="organizationMenu" class="menus">
     <ul class="nav navbar-nav">
         <li>
-           <a href="../pages/home.php">Hjem</a>
-       </li>
-       <li>
-           <a href="../pages/change_orginfo.php">Endre informasjon</a>
-       </li>
-   </ul>
+         <a href="../pages/home.php">Hjem</a>
+     </li>
+     <li>
+         <a href="../pages/change_orginfo.php">Endre informasjon</a>
+     </li>
+ </ul>
 
 </div>
 </div>

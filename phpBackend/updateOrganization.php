@@ -4,10 +4,7 @@
 session_start();
 include "../phpBackend/connect.php";
 if (isset($_SESSION['organizationNr'])) {
-	
 	if(isset($_POST['organization'])){
-
-
 		$statusAddress = TRUE;
 		$statusPhone = TRUE;
 		$statusEmail = TRUE;
@@ -82,11 +79,15 @@ if (isset($_SESSION['organizationNr'])) {
 		}
 		if(isset($organization['category'])){
 			$category = $organization['category'];
+
+
 			$sql = "UPDATE Organization SET category = '$category' WHERE organizationNr = '$organizationNr'";
 			$mysql_status = insertInto($connection, $sql);
 			if($mysql_status != "OK"){
 				$statusCategory = FALSE;
 			}
+			
+			
 		}
 		if(isset($organization['about'])){
 			$about = $organization['about'];
@@ -110,15 +111,7 @@ if (isset($_SESSION['organizationNr'])) {
 		if($statusAddress && $statusPhone && $statusEmail && $statusZipcode && $statusWebsite&& $statusAccountnumber&& $statusCategory&& $statusAbout){
 			echo "OK";
 		}
-
-
-
-
-
-		
 	}
-	
-
 }else{
 	echo "sign_in";
 }

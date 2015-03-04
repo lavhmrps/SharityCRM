@@ -1,14 +1,13 @@
-
 <?php
-
 session_start();
 include '../phpBackend/checkSession.php';
 include '../phpBackend/connect.php';
+if(isset($_POST['registerNews'])){
+	$organizationNr = $_SESSION['organizationNr'];
+}
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<meta charset="utf-8">
@@ -16,191 +15,202 @@ include '../phpBackend/connect.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
-
 	<title>Sharity</title>
-
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
-
 	<!-- Custom CSS -->
 	<link href="../css/scrolling-nav.css" rel="stylesheet"/>
-	<link rel="stylesheet" type="text/css" href="../css/index.css" />
-	<link rel="stylesheet" type="text/css" href="../css/list_project.css">
-	<link href="../css/main.css" rel="stylesheet"/>
-	<link href="../css/fonts.css" rel="stylesheet"/>
+
+
+	<link href="../css/vegard_main.css" rel="stylesheet"/>
+
+
 
 </head>
-<?php
-include "../pages/header_nav.php";
-?>
+<body>
 
-<div class="container" id="phonecontainer">
+	<?php
+	include "../pages/header_nav.php";
+	?>
 
-	<div class="col-md-5" id="phone">
-		<div id="phonemargin1">
-			<div id="projectphoneTopheader">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+		<div class="col-md-12 text-center" id="reg_pt2_head">
 
-			</div>
-			<div id="projectphoneHeader">
-				<img src="../img/arrow_left.png" id="backkey" alt="back-key">
-				<input type="text" name = "name" id="topTitle" placeholder="Skriv navn" />
-			</div>
-			<div id="projectphoneContent">
 
-
-
-				<div id="backgroundAndLogo">
-
-
-					
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					<input type="file" id="file_background" style="display:none;" accept="image/*" name="backgroundimgURL" />
-					<button id="clear" style="display:none;"></button>
-					<div id="uploadimg">
-
-						<img src="../img/default.png" style="height: 100px; width:200px" id="preview" alt="Click to upload img" name="preview" />
-
-					</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					<div id="logocircle">
-						<?php
-
-						$organizationNr = $_SESSION['organizationNr'];
-						$sql = "SELECT logoURL FROM Organization WHERE organizationNr = $organizationNr";
-								$logoURL = "..."; // husk å sette dette til default bilde
-								if($result = mysqli_query($connection, $sql)){
-									if(mysqli_num_rows($result) == 1){
-										$row = mysqli_fetch_assoc($result);
-										$logoURL = $row['logoURL'];
-									}else{	
-										die("Alvorlig feil, sprørring etter org med orgnr ". $organizationNr . " returnerte 0 eller flere enn 1 rad");
-									}
-								}else{
-									die('Feil i sql spørringen etter logoURL fra Organizaton');
-								}
-
-								echo "<img id='logoimg' src='../phpBackend/" .  $logoURL . "'/>";
-								?>
-							</div>
-
-
-							<!-- End of backgroundAndLogo-->
-						</div>
-
-
-
-						<div id="donationcontainer">
-							<div id="donationbtn">
-								<p>DONÉR</p>
-							</div>
-						</div>
-						<div id="countryCitycontainer">
-							<p>
-								<span>
-									<input type="text" name = "country" id="inCountry" placeholder="Skriv inn land" />
-								</span> , <span>
-								<input type="text" name="city" id="inCity" placeholder="Skriv inn by" />
-							</span>
-						</p>
-					</div>
-
-					<div id="projectTitleContainer">
-						<input type="text" name="title" id="bottomTitle" placeholder="Skriv prosjektets tittel"/>
-					</div>
-					<div id="projectAboutContainer">
-						<textarea class="form-control" name="about" id="aboutProj" rows="5" id="aboutproject" placeholder="Skriv om prosjektet"></textarea>
-					</div>
-
-					<div id="projectSavebtnContainer">
-						
-
-						<input type="button" name="complete_ProjectReg" id="projectSavebtn" value="LAGRE"/>
-
-						
-					</div>
-
-					<!-- End of projectphoneContent-->
-				</div>
-			</div>
 		</div>
-		<p id="errorPhp">Error goes here</p>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8 text-center">
+				<h1 style="color:black">Legg til nytt prosjekt</h1>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
 
+
+				<input type="text" id="reg_project_input" class="form-control" name="projectName" placeholder="Prosjektnavn"/>
+				<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
+
+				<img src="../img/default.png" id="preview" alt="Click to upload img" name="preview" />
+				<input type="text" id="reg_project_input" class="form-control" name="country" placeholder="Land"/>
+				<input type="text" id="reg_project_input" class="form-control" name="city" placeholder="By"/>
+				<input type="text" id="reg_project_input" class="form-control" name="title" placeholder="Prosjekt tittel"/>
+				<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="about" placeholder="Prosjektbeskrivelse" ></textarea>
+				<button  class="btn btn-success" name="registerProject">
+					Registrer prosjekt
+				</button>
+
+
+			</div>
+			<div class="col-md-2"></div>
+		</div>
 	</div>
+	<div class="col-md-3"></div>
+	<div class="col-md-12" id="somespace"></div>
+</div>
+</body>
+</html>
 
+<script type="text/javascript">
 
+$("button[name=registerProject]").click(function(){
+	insertProject();
+});
 
-	<!-- jQuery -->
-	<script src="../js/jquery.js"></script>
-	<script src="../js/stickyheader.js"></script>
+$("#preview").click(function(){
+	$("#file_background").trigger("click");
+});
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="../js/bootstrap.min.js"></script>
+//triggered when user selects image to upload
+$("#file_background").change(function(){
+	previewImage(this);
+});
 
+function previewImage(input) {
+	if (input.files && input.files[0]) {
+		var fileReader = new FileReader();
+
+		fileReader.onload = function (e) {
+			$('img[name=preview]').attr('src', e.target.result);
+			$("img[name=preview]").show();
+		}
+
+		fileReader.readAsDataURL(input.files[0]);
+	}
+}
+
+function insertProject(){
+	var name = $("input[name=projectName]").val();
+	var country = $("input[name=country]").val();
+	var city = $("input[name=city]").val();
+	var title = $("input[name=title]").val();
+	var about = $("textarea[name=about]").val();
 	
 
-	<!--Sript for insert project to database through AJAX request-->
-	<script src="../js/insertProject.js"></script>
+	
+	var ok = 1;
 
-	<!-- preview img js -->
-	<script src= "../js/insertImageTemp.js"></script>
+	if(name ===""){
+		alert("skriv navn på projsketet");
+		ok = 0;
+	}
+	if(country == ""){
+		alert("skriv land");
+		ok = 0;
+	}
+	if(country == ""){
+		alert("skriv by");
+		ok = 0;
+	}
+	if(title == ""){
+		ok = 0;
+		alert("Skriv tittel");
+	}
+	if(about == ""){
+		ok = 0;
+		alert("Skriv beskrivelse");
+	}
+
+	if(ok == 0){
+		return;
+	}
+
+	var json = {
+		"name" : name,
+		"title" : title,
+		"about" : about,
+		"country" : country, 
+		"city" : city
+	};
+
+	json = JSON.stringify(json);
 
 
 
-</body>
 
-</html>
+	$.ajax({
+		type : "POST",
+		dataType: "text",
+		url : "../phpBackend/insertProject.php",
+		data: {"project" : json},
+		success : function(response){
+			
+			if(response == "OK"){
+				try{
+					var file_data_background = $('input[name=backgroundimgURL]').prop('files')[0];
+				}catch(error){
+					alert(error.message);
+				}
+				if(file_data_background != undefined){
+					insertBackground(file_data_background);
+				}
+
+
+
+				clearInput();
+			}
+			
+		}
+	});
+
+}
+
+//ajax request to .php script (insertBackgroundimgProject.php) to insert image into database
+function insertBackground(file_data_background){	
+	var form_data_background = new FormData();
+	form_data_background.append('file_background', file_data_background);
+	$.ajax({
+		url: '../phpBackend/insertBackgroundimgProject.php', // point to server-side PHP script
+		datatype: 'text', // what to expect back from the PHP script, if anything
+		cache: false,
+		contentType: false,
+		processData: false,
+		data: form_data_background,
+		type: 'POST',
+		success: function(response){
+			var image = $("#file_background");
+			image.replaceWith( image = image.clone( true ) );
+			$("img[name=preview]").attr("src", "../img/default.png");
+
+		},
+		error : function(response){
+			alert(" insertNews.js : insertBackground ajax request ERROR : " + response);
+			console.log(response.message);
+		}
+	});
+}
+
+function clearInput(){
+	$("input[name=projectName]").val("");
+	$("input[name=country]").val("");
+	$("input[name=city]").val("");
+	$("input[name=title]").val("");
+	$("textarea[name=about]").val("");
+	
+}
+
+
+</script>	

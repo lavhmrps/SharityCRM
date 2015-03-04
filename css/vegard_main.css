@@ -1506,14 +1506,17 @@ input[id=aboutOrg]:focus{
 
 
 
-#reg_news_input{
+#reg_news_input, #reg_project_input{
 	margin: 5px;
 	width:98%;
 }
 
+
 #preview{
-	width:98%; 
-	height:30%;
+	max-width:98%; 
+	max-height:30%;
+	min-width:98%; 
+	min-height:30%;
 	margin:5px; 
 	
 }
