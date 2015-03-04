@@ -210,8 +210,8 @@ include "phpBackend/connect.php";
 
 
 							<div class="col-md-2" id="footerpadding"></div>
-							<div class="col-md-2" id="footerpadding"></div>
-							<div class="col-md-2" id="footerpadding">
+							<div class="col-md-1" id="footerpadding"></div>
+							<div class="col-md-3" id="footerpadding">
 								
 								<div class="col-md-6">
 									<a href="pages/FAQ.php">FAQs</a>
