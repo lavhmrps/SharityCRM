@@ -103,6 +103,9 @@ if(isset($_POST['logout'])){
                 <a href="#">Månedvis</a>
             </li>
             <li>
+                <a href="../pages/slick.html">slick</a>
+            </li>
+            <li>
                 <a href="../pages/statistics1.php">År</a>
             </li>
             <li>
