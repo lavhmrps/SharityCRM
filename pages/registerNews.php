@@ -23,6 +23,7 @@ if(isset($_POST['registerNews'])){
 
 
 	<link href="../css/vegard_main.css" rel="stylesheet"/>
+	
 
 
 
@@ -90,7 +91,7 @@ if(isset($_POST['registerNews'])){
 	<div class="col-md-12" id="somespace"></div>
 </div>
 <script src="../js/stickyheader.js"></script>
-
+<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
 

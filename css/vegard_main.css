@@ -934,7 +934,7 @@ input[id="projectSavebtn"]{
 }
 
 input#logoutbtn{
-	color:777;
+	color:#777;
 	font-weight: bold;
 	font-size: 16px;
 	margin-left: 700%;
@@ -1290,6 +1290,7 @@ input[id=aboutOrg]:focus{
 		height:115px; 
 		min-height:115px;  
 		max-height:115px;
+		resize: none;
 	}
 
 	#aboutOrg_pt2::-webkit-input-placeholder{ 

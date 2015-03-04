@@ -73,6 +73,7 @@ if(isset($_POST['registerNews'])){
 </div>
 
 <script src="../js/stickyheader.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
 
