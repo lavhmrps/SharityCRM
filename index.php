@@ -232,11 +232,16 @@ include "phpBackend/connect.php";
 							<div class="col-md-4" id="footerpadding">
 								<div class="col-md-12">
 									<a href="http://www.facebook.com/vlokreim" target="_blank"><img
-										src="http://static.viewbook.com/images/social_icons/facebook_32.png"/></a> <a href="http://www.twitter.com/mv700" target="_blank"><img src="http://static.viewbook.com/images/social_icons/twitter_32.png"/></a>
+										src="http://static.viewbook.com/images/social_icons/facebook_32.png"/></a> <a href="http://www.twitter.com/mv700" target="_blank"><img src="http://static.viewbook.com/images/social_icons/twitter_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
+										src="http://static.viewbook.com/images/social_icons/linkedin_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
+										src="http://static.viewbook.com/images/social_icons/google_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
+										src="http://static.viewbook.com/images/social_icons/vimeo_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
+										src="http://static.viewbook.com/images/social_icons/tumblr_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
+										src="http://static.viewbook.com/images/social_icons/wordpress_32.png"/></a> 
 								</div>
 							</div>
 
-
+							
 							<div class="col-md-2" id="footerpadding"></div>
 
 
