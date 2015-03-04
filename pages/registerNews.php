@@ -48,7 +48,7 @@ if(isset($_POST['registerNews'])){
 								$sql = "SELECT projectID, name FROM Project WHERE organizationNr = $organizationNr";
 								$result = mysqli_query($connection, $sql);
 								if ($result) {
-									echo "<select name='projectID'>";
+									echo "<select id='selectProject' name='projectID'>";
 									echo "<option value='NULL'>Velg prosjekt</option>";
 									while ($row = mysqli_fetch_assoc($result)) {
 										echo "<option value=" . $row['projectID'] . ">" . $row['name'] . "</option>";
