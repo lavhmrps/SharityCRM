@@ -222,13 +222,13 @@ include "phpBackend/connect.php";
 									<a href="pages/admin/loginAdmin.php">Admin </a> 
 								</div>
 								<div class="col-md-6">
-									<a href="pages/admin/loginAdmin.php">About </a>
+									<a href="pages/aboutSharity.php">About </a>
 								</div>
 								<div class="col-md-6">
-									<a href="#">FAQs </a>
+									<a href="pages/FAQ.php">FAQs </a>
 								</div>
 								<div class="col-md-6">
-									<a href="http://www.simpleness.no">Simplenæss </a>
+									<a href="http://www.simpleness.no" target="_blank">Simplenæss </a>
 								</div>
 							</div>
 							
