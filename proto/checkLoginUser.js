@@ -1,4 +1,5 @@
 $('input[name=loggIn]').click(function(event){
+	alert("Du trykket logg inn, vent mens input sjekkes");
 	var email = $('input[name=email]').val();
 	var password = $('input[name=password]').val();
 
