@@ -76,6 +76,11 @@ if(isset($_POST['registerNews'])){
 	<div class="col-md-3"></div>
 	<div class="col-md-12" id="somespace"></div>
 </div>
+
+<script src="../js/stickyheader.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
 

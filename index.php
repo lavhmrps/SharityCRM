@@ -183,7 +183,7 @@ include "phpBackend/connect.php";
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
-											<label>Gjennta passord</label>
+											<label>Gjenta passord</label>
 											<input type="password" class="form-control" name="reg_password2" id="rptPasswds" placeholder=""/>
 										</div>
 										
