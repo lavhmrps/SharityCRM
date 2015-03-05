@@ -33,18 +33,7 @@ include '../phpBackend/checkSession.php';
 
 
 	$(document).ready(function(){
-		
-		var sumJan = 0;
-		var sumFeb = 0;
-		var sumMar = 0;
-		var sumApr = 0;
-		var sumMay = 0;
-		var sumJun = 0;
-		var sumJul = 0;
-		var sumSep = 0;
-		var sumOkt = 0;
-		var sumNov = 0;
-		var sumDec = 0;
+
 
 		$.ajax({
 			url : "../phpBackend/getStatistics.php",
@@ -219,7 +208,7 @@ var graph;
 			c.textAlign = "right"
 			c.textBaseline = "middle";
 
-			for(var i = 0; i < getMaxY(); i += 30) {
+			for(var i = 0; i < getMaxY()	; i += 30) {
 				c.fillText(i, xPadding - 12, getYPixel(i));
 			}
 
