@@ -55,7 +55,7 @@ if(isset($_POST['registerNews'])){
 				<label>Bakgrunnsbilde</label>
 				<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
 
-				<img src="../img/default.png" id="preview" alt="Click to upload img" name="preview" />
+				<img src="../img/default.png" id="preview"  alt="Click to upload img" name="preview" />
 				<label name="countrylabel">Land</label>
 				<input type="text" id="reg_project_input" class="form-control" name="country" placeholder=""/>
 				<label name="citylabel">By</label>

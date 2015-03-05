@@ -10,6 +10,7 @@ include '../phpBackend/checkSession.php';
 <head>
 	<title></title>
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="../js/Chart.min.js"></script>
 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,6 +42,7 @@ include '../phpBackend/checkSession.php';
 		var sumMay = 0;
 		var sumJun = 0;
 		var sumJul = 0;
+		var sumAug = 0;
 		var sumSep = 0;
 		var sumOkt = 0;
 		var sumNov = 0;
@@ -123,6 +125,8 @@ include '../phpBackend/checkSession.php';
 
 				}
 
+
+
 				localStorage.setItem("january", sumJan);
 				localStorage.setItem("february", sumFeb);
 				localStorage.setItem("march", sumMar);
@@ -145,116 +149,69 @@ include '../phpBackend/checkSession.php';
 			}
 		});
 
+
+function setLocalStorage(index , value){
+	alert(index + " , " + value);
+}
+
+
 });
 
 
-var graph;
-	var xPadding = 60
-	0;
-	var yPadding = 30;
+</script>
 
-	var data = { values:[
-		{ X: "Jan", Y: parseInt(localStorage['january']) },
-		{ X: "Feb", Y: parseInt(localStorage['february']) },
-		{ X: "Mar", Y: parseInt(localStorage['march']) },
-		{ X: "Apr", Y: parseInt(localStorage['april']) },
-		{ X: "Mai", Y: localStorage['may'] },
-		{ X: "Jun", Y: localStorage['june']  },
-		{ X: "Jul", Y: localStorage['july']  },
-		{ X: "Aug", Y: localStorage['august']  },
-		{ X: "Sep", Y: localStorage['september']  },
-		{ X: "Okt", Y: localStorage['october']  },
-		{ X: "Nov", Y: localStorage['november']  },
-		{ X: "Des", Y: localStorage['december']  },
-		]};
+<script>
+var lineChartData = {
+	labels : ["January","February","March","April","May","June","July", "August", "September", "October", "November", "December"],
+	datasets : [
+	{
+		label: "12 mnd",
+		fillColor : "rgba(360,720,100,0.2)", //farge under grafen
+		strokeColor : "red", //farge på linja
+		pointColor : "blue", //farge på prikkene
+		pointStrokeColor : "blue", // fage på border til prikkene
+		pointHighlightFill : "blue", //farge på prikk on hover
+		pointHighlightStroke : "blue", // farge på border til prikk on hover
+		data : [
+		localStorage['january'],
+		localStorage['february'],
+		localStorage['march'],
+		localStorage['april'],
+		localStorage['may'],
+		localStorage['june'],
+		localStorage['july'],
+		localStorage['august'],
+		localStorage['september'],
+		localStorage['october'],
+		localStorage['november'],
+		localStorage['december']]
+	}
+	]
 
+}
 
-
-
-
-		function getMaxY() {
-			var max = 0;
-
-			for(var i = 0; i < data.values.length; i ++) {
-				if(data.values[i].Y > max) {
-					max = data.values[i].Y;
-				}
-			}
-
-			max += 10 - max % 10;
-			return max;
-		}
-
-
-		function getXPixel(val) {
-			return ((graph.width() - xPadding) / data.values.length) * val + (xPadding * 1.5);
-		}
-
-		function getYPixel(val) {
-			return graph.height() - (((graph.height() - yPadding) / getMaxY()) * val) - yPadding;
-		}
-
-		$(document).ready(function() {
-			graph = $('#graph');
-			var c = graph[0].getContext('2d');            
-
-			c.lineWidth = 2;
-			c.strokeStyle = '#007ec5';
-			c.font = 'italic 15pt sans-serif';
-			c.textAlign = "center";
-
-
-			c.beginPath();
-			c.moveTo(xPadding, 0);
-			c.lineTo(xPadding, graph.height() - yPadding);
-			c.lineTo(graph.width(), graph.height() - yPadding);
-			c.stroke();
-
-
-			for(var i = 0; i < data.values.length; i ++) {
-				c.fillText(data.values[i].X, getXPixel(i), graph.height() - yPadding + 20);
-			}
-
-
-			c.textAlign = "right"
-			c.textBaseline = "middle";
-
-			for(var i = 0; i < getMaxY()	; i += 30) {
-				c.fillText(i, xPadding - 12, getYPixel(i));
-			}
-
-			c.strokeStyle = '#ff6961';
-
-
-			c.beginPath();
-			c.moveTo(getXPixel(0), getYPixel(data.values[0].Y));
-			for(var i = 1; i < data.values.length; i ++) {
-				c.lineTo(getXPixel(i), getYPixel(data.values[i].Y));
-			}
-			c.stroke();
-
-
-			c.fillStyle = '#007ec5';
-
-			for(var i = 0; i < data.values.length; i ++) {  
-				c.beginPath();
-				c.arc(getXPixel(i), getYPixel(data.values[i].Y), 4, 0, Math.PI * 2, true);
-
-				c.fill();
-			}
-		});
-
-
-
+window.onload = function(){
+	var ctx = document.getElementById("canvas").getContext("2d");
+	window.myLine = new Chart(ctx).Line(lineChartData, {
+		responsive: true
+	});
+}
 
 
 </script>
+
+
 </head>
 <body>
 
 	<?php include '../pages/header_nav.php'; ?>
-	<canvas id="graph" width="1200" height="800"></canvas>
+	<canvas id="canvas" width="1200" height="500"></canvas>
 	<br/>
+
+
+
+
+	<!--
 	<table border="5" margin="2" style="width:100%; border: 1px soild black;" id="tabell">
 		<tr>
 			<td style="font-weight:bold;"><u>ProsjektID</u></td>
@@ -266,7 +223,9 @@ var graph;
 	</table>
 
 
-	<p id="sum"></p>
+	-->
+	<p id="sum"></p>		
+	<!--
 	<p id="sumJan" onclick="alert(localStorage['januar'])">Sum jan</p>
 	<p id="sumFeb"></p>
 	<p id="sumMar"></p>
@@ -278,7 +237,7 @@ var graph;
 	<p id="sumSep"></p>
 	<p id="sumOkt"></p>
 	<p id="sumNov"></p>
-	<p id="sumDec"></p>
+	<p id="sumDec"></p>-->
 	
 
 </body>

@@ -1523,6 +1523,10 @@ input[id=aboutOrg]:focus{
 		max-height:30%;
 		min-width:98%; 
 		min-height:30%;
+
+		height:30%;
+		width: 98%;
+
 		margin:5px; 
 
 	}
