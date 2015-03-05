@@ -1,5 +1,6 @@
-$('input[name=loggIn]').click(function(event){
-	alert("Du trykket logg inn, vent mens input sjekkes");
+$(document).ready(function(){
+	$('input[name=loggIn]').click(function(event){
+	
 	var email = $('input[name=email]').val();
 	var password = $('input[name=password]').val();
 
@@ -17,6 +18,7 @@ $('input[name=loggIn]').click(function(event){
 		data : {"combination" : combinationJSON},
 		success: function(response){
 			if(response == "OK"){
+
 				window.location.replace("home.php");
 			}
 		},
@@ -26,4 +28,5 @@ $('input[name=loggIn]').click(function(event){
 	});
 
 	event.preventDefault();
+});
 });

@@ -65,13 +65,29 @@ include '../phpBackend/checkSession.php';
 
 					var sum_donation = parseInt(response[i]['sum']);
 
-					var d = new Date(response[i]['date']);
+					
+
+					
+					var y = response[i]['date'].substring(0, 4);
+					var m =response[i]['date'].substring(5, 7);
+					var d = response[i]['date'].substring(8, 10);
+
+				
+
+
+					var d = new Date(y, m, d);
 					
 					var dag = d.getDate();
-					var mnd = parseInt(d.getMonth());
-					mnd += 1;
+					var mnd = d.getMonth();
+
+					alert(mnd);
+					
+					//alert("M uten parse: " + m + "\nM med parse: " + parseInt(m));
+
+					
+
 					if(d.getFullYear() == new Date().getFullYear()){
-						switch(mnd) {
+						switch(parseInt(m)) {
 							case 1:
 							sumJan += sum_donation;
 							break;
@@ -109,7 +125,7 @@ include '../phpBackend/checkSession.php';
 							sumDec += sum_donation;
 							break;
 							default:
-							alert("nan");
+							alert("Feil");
 						}
 					}
 					if(parseInt(dag) <= 9){
@@ -118,6 +134,9 @@ include '../phpBackend/checkSession.php';
 					if(parseInt(mnd) <= 9){
 						mnd = "0" + mnd;
 					}
+
+					
+
 					var date_string =  dag + "." + mnd + "." + d.getFullYear();
 					output += "Dato: " + date_string + "\n";
 					sum += parseInt(response[i]['sum']);
@@ -143,16 +162,14 @@ include '../phpBackend/checkSession.php';
 				$("#sum").text("SUM: Kr " + sum + ",-");
 				$('#tabell').append(content);
 
+
+
 			},
 			error : function(){
 				alert("Something went worng");
 			}
 		});
 
-
-function setLocalStorage(index , value){
-	alert(index + " , " + value);
-}
 
 
 });
@@ -161,6 +178,7 @@ function setLocalStorage(index , value){
 </script>
 
 <script>
+alert(localStorage['december']);
 var lineChartData = {
 	labels : ["January","February","March","April","May","June","July", "August", "September", "October", "November", "December"],
 	datasets : [
@@ -223,8 +241,8 @@ window.onload = function(){
 	</table>
 
 
-	-->
-	<p id="sum"></p>		
+-->
+<p id="sum"></p>		
 	<!--
 	<p id="sumJan" onclick="alert(localStorage['januar'])">Sum jan</p>
 	<p id="sumFeb"></p>
