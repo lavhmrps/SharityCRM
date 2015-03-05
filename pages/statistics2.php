@@ -149,7 +149,8 @@ include '../phpBackend/checkSession.php';
 
 
 var graph;
-	var xPadding = 30;
+	var xPadding = 60
+	0;
 	var yPadding = 30;
 
 	var data = { values:[
@@ -167,7 +168,7 @@ var graph;
 		{ X: "Des", Y: localStorage['december']  },
 		]};
 
-		alert("Mnd: "+ localStorage['march']);
+
 
 
 
@@ -218,8 +219,8 @@ var graph;
 			c.textAlign = "right"
 			c.textBaseline = "middle";
 
-			for(var i = 0; i < getMaxY(); i += getMaxY()/5) {
-				c.fillText(i, xPadding + 100, getYPixel(i));
+			for(var i = 0; i < getMaxY(); i += 30) {
+				c.fillText(i, xPadding - 12, getYPixel(i));
 			}
 
 			c.strokeStyle = '#ff6961';
@@ -244,7 +245,7 @@ var graph;
 		});
 
 
-alert(localStorage['january']);
+
 
 
 </script>
@@ -252,7 +253,7 @@ alert(localStorage['january']);
 <body>
 
 	<?php include '../pages/header_nav.php'; ?>
-	sad <canvas id="graph" width="1200" height="600"></canvas>
+	<canvas id="graph" width="1200" height="800"></canvas>
 	<br/>
 	<table border="5" margin="2" style="width:100%; border: 1px soild black;" id="tabell">
 		<tr>
