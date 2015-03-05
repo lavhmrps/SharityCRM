@@ -215,64 +215,32 @@ include "phpBackend/connect.php";
 
 
 							<div class="col-md-2" id="footerpadding"></div>
-							<div class="col-md-2" id="footerpadding">
+							<div class="col-md-1" id="footerpadding"></div>
+							<div class="col-md-3" id="footerpadding">
 								
-								<div class="col-md-12">
-									<a href="pages/admin/loginAdmin.php">Admin </a>
+								<div class="col-md-6">
+									<a href="pages/admin/loginAdmin.php">Admin </a> 
 								</div>
-								<div class="col-md-12">
-									<a href="#">aifaosifa </a>
+								<div class="col-md-6">
+									<a href="pages/admin/loginAdmin.php">About </a>
 								</div>
-								<div class="col-md-12">
-									<a href="#">Admin </a>
+								<div class="col-md-6">
+									<a href="#">FAQs </a>
 								</div>
-								<div class="col-md-12">
-									<a href="#">Admin </a>
+								<div class="col-md-6">
+									<a href="http://www.simpleness.no">Simplenæss </a>
 								</div>
 							</div>
 							
-							<div class="col-md-2" id="footerpadding">
-								<div class="col-md-12">
-									<a href="pages/admin/loginAdmin.php">Something </a>
-								</div>
-								<div class="col-md-12">
-									<a href="pages/admin/loginAdmin.php">Something </a>
-								</div>
-								<div class="col-md-12">
-									<a href="pages/admin/loginAdmin.php">Something </a>
-								</div>
-								<div class="col-md-12">
-									<a href="pages/admin/loginAdmin.php">Something </a>
-								</div>
-								
-							</div>
-							<div class="col-md-2" id="footerpadding">
-								<div class="col-md-12">
-									<a href="pages/admin/loginAdmin.php">About </a>
-								</div>
-								<div class="col-md-12">
-									<a href="pages/admin/loginAdmin.php">About </a>
-								</div>
-								<div class="col-md-12">
-									<a href="pages/admin/loginAdmin.php">About </a>
-								</div>
-								<div class="col-md-12">
-									<a href="pages/admin/loginAdmin.php">About </a>
-								</div>
-							</div>
-							<div class="col-md-2" id="footerpadding">
-								<div class="col-md-12">
-									<a href="pages/admin/loginAdmin.php">FAQs </a>
-								</div>
-								<div class="col-md-12">
-									<a href="pages/admin/loginAdmin.php">FAQs </a>
-								</div>
-								<div class="col-md-12">
-									<a href="pages/admin/loginAdmin.php">FAQs </a>
-								</div>
-								<div class="col-md-12">
-									<a href="pages/admin/loginAdmin.php">FAQs </a>
-								</div>
+							
+							<div class="col-md-4" id="footerpadding">
+								<a href="http://www.facebook.com/vlokreim"><img src="http://static.viewbook.com/images/social_icons/facebook_32.png"/></a
+								<a href="http://www.twitter.com/mv700" target="_blank"><img src="http://static.viewbook.com/images/social_icons/twitter_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
+										src="http://static.viewbook.com/images/social_icons/linkedin_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
+										src="http://static.viewbook.com/images/social_icons/google_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
+										src="http://static.viewbook.com/images/social_icons/vimeo_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
+										src="http://static.viewbook.com/images/social_icons/tumblr_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
+										src="http://static.viewbook.com/images/social_icons/wordpress_32.png"/></a>
 								
 							</div>
 							<div class="col-md-2" id="footerpadding"></div>

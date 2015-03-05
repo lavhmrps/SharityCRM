@@ -1,0 +1,22 @@
+body{
+	background-color: #333;
+}
+
+#adminlogin{
+	background-color: #222;
+	border: 1px solid #000;
+	border-radius: 5px;
+	margin-top: 20%;
+	padding:60px;
+	padding-top: 5px;
+}
+
+#username, #passwd{
+	width:100%;
+
+	margin-bottom: 10px;
+}
+
+#login_admin{
+	width:100%;
+}
