@@ -52,95 +52,60 @@ include '../phpBackend/checkSession.php';
 			url : "../phpBackend/getStatistics.php",
 			dataType : "json",
 			success : function(response){
-
 				var sum = 0;
-				var output = "";
 				var content = "";
 
 				for(var i = 0; i < response.length; i++){
-					output += "\n\nProjectID: " + response[i]['projectID'] + "\n";
-					output +="Prosjektnavn: " + response[i]['name'] + "\n";
-					output += "Sum: " + response[i]['sum'] + "\n";
-					output += "Donasjonstype: " + response[i]['type'] + "\n";
-
-					var sum_donation = parseInt(response[i]['sum']);
-
-					
-
-					
-					var y = response[i]['date'].substring(0, 4);
-					var m =response[i]['date'].substring(5, 7);
-					var d = response[i]['date'].substring(8, 10);
-
-				
+					var y = parseInt(response[i]['date'].substring(0, 4));
+					var m = parseInt(response[i]['date'].substring(5, 7));
+					var d = parseInt(response[i]['date'].substring(8, 10));
 
 
-					var d = new Date(y, m, d);
-					
-					var dag = d.getDate();
-					var mnd = d.getMonth();
-
-					alert(mnd);
-					
-					//alert("M uten parse: " + m + "\nM med parse: " + parseInt(m));
-
-					
-
-					if(d.getFullYear() == new Date().getFullYear()){
-						switch(parseInt(m)) {
-							case 1:
-							sumJan += sum_donation;
-							break;
-							case 2:
-							sumFeb += sum_donation;
-							break;
-							case 3:
-							sumMar += sum_donation;
-							break;
-							case 4:
-							sumApr += sum_donation;
-							break;
-							case 5:
-							sumMay += sum_donation;
-							break;
-							case 6:
-							sumJun += sum_donation;
-							break;
-							case 7:
-							sumJul += sum_donation;
-							break;
-							case 8:
-							sumAug += sum_donation;
-							break;
-							case 9:
-							sumSep += sum_donation;
-							break;
-							case 10:
-							sumOkt += sum_donation;
-							break;
-							case 11:
-							sumNov += sum_donation;
-							break;
-							case 12:
-							sumDec += sum_donation;
-							break;
-							default:
-							alert("Feil");
-						}
-					}
-					if(parseInt(dag) <= 9){
-						dag = "0" + dag;
-					}
-					if(parseInt(mnd) <= 9){
-						mnd = "0" + mnd;
+					switch(m){
+						case 1:
+						sumJan += parseInt(response[i]['sum']);
+						break;
+						case 2:
+						sumFeb += parseInt(response[i]['sum']);
+						break;
+						case 3:
+						sumMar += parseInt(response[i]['sum']);
+						break;
+						case 4:
+						sumApr += parseInt(response[i]['sum']);
+						break;
+						case 5:
+						sumMay += parseInt(response[i]['sum']);
+						break;
+						case 6:
+						sumJun += parseInt(response[i]['sum']);
+						break;
+						case 7:
+						sumJul += parseInt(response[i]['sum']);
+						break;
+						case 8:
+						sumAug += parseInt(response[i]['sum']);
+						break;
+						case 9:
+						sumSep += parseInt(response[i]['sum']);
+						break;
+						case 10:
+						sumOkt += parseInt(response[i]['sum']);
+						break;
+						case 11:
+						sumNov += parseInt(response[i]['sum']);
+						break;
+						case 12:
+						sumDec += parseInt(response[i]['sum']);
+						break;
 					}
 
-					
 
-					var date_string =  dag + "." + mnd + "." + d.getFullYear();
-					output += "Dato: " + date_string + "\n";
+
+
+					
 					sum += parseInt(response[i]['sum']);
-					content += "<tr><td>" + response[i]['projectID'] + " </td><td>" + response[i]['name'] + "</td><td>" + response[i]['sum'] + "</td><td>" + response[i]['type'] + "</td><td>" + date_string + "</td></tr>";
+					content += "<tr><td>" + response[i]['projectID'] + " </td><td>" + response[i]['name'] + "</td><td>" + response[i]['sum'] + "</td><td>" + response[i]['type'] + "</td><td>" + d + "." + m + "." + y + "</td></tr>";
 
 				}
 
@@ -159,7 +124,7 @@ include '../phpBackend/checkSession.php';
 				localStorage.setItem("november", sumNov);
 				localStorage.setItem("december", sumDec);
 
-				$("#sum").text("SUM: Kr " + sum + ",-");
+				
 				$('#tabell').append(content);
 
 
@@ -178,7 +143,7 @@ include '../phpBackend/checkSession.php';
 </script>
 
 <script>
-alert(localStorage['december']);
+
 var lineChartData = {
 	labels : ["January","February","March","April","May","June","July", "August", "September", "October", "November", "December"],
 	datasets : [
@@ -229,7 +194,7 @@ window.onload = function(){
 
 
 
-	<!--
+	
 	<table border="5" margin="2" style="width:100%; border: 1px soild black;" id="tabell">
 		<tr>
 			<td style="font-weight:bold;"><u>ProsjektID</u></td>
@@ -241,8 +206,8 @@ window.onload = function(){
 	</table>
 
 
--->
-<p id="sum"></p>		
+
+	<p id="sum"></p>		
 	<!--
 	<p id="sumJan" onclick="alert(localStorage['januar'])">Sum jan</p>
 	<p id="sumFeb"></p>

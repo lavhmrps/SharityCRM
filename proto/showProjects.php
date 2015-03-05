@@ -98,12 +98,20 @@ include 'connect.php';
 	//global variabel som settes når man trykker på "doner" i nyhetsoversikt eller prosjektoversikt
 	//da initialiseres den når du trykker, henter så ut verdi fra global variabel når man skal sette inn i database
 	function setProjectID(id){
+
+
 		localStorage['registerDonationProjectID'] = id;
 		$('input[name=projectID]').val("Prosjekt: " + id);
 		window.location.replace('doDonation.php');
+		
+
 	}
 
 	
+
+
+
+
 
 	</script>
 
