@@ -110,6 +110,9 @@ if(isset($_POST['logout'])){
             <li>
                 <a href="../pages/statistics.php">Totalt</a>
             </li>
+            <li>
+                <a href="../pages/statistics2.php">WIP</a>
+            </li>
         </ul>      
     </div>
     <div id="projectMenu" class="menus">
