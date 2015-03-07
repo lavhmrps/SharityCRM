@@ -1,21 +1,18 @@
 <?php
 	include '../phpBackend/connect.php';
-
-
-
 	if(isset($_POST['user'])){
 		$json = $_POST['user'];
 		$user = json_decode($json, true);
 
+		$name  $user['name'];
+		$phone = $user['phone'];
 		$email = $user['email'];
 		$password = $user['password'];
 
 		$sql = "INSERT INTO User (email, password) VALUES ('$email', '$password')";
-		$result = mysqli_query($connection, $sql);
+		$mysql_status = insertInto($connection, $sql);
 
-		if($result){
-			echo "OK";
-		}
+		echo $mysql_status;
 	}
 
 ?>
