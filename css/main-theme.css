@@ -1,4 +1,6 @@
-
+body{
+	background-color: #fff;
+}
 
 #header{
 	background-color: #0153D2;
@@ -67,10 +69,21 @@
 }
 /** Home.php **/
 #homebox{
-	background:#333;
-	border:1px solid #222;
-	color:#fff;
+	background:#efefef;
+	border:1px solid #ddd;
+	color:#000;
 }
+
+#homebox a{
+	color: green;
+	font-weight: bold;
+}
+
+#homebox p a{
+	color:blue;
+	font-weight: normal;
+}
+
 /** end of home.php **/
 
 /** show all projects**/
@@ -127,9 +140,7 @@ input#logoutbtn{
 }
 
 /** FONTS **/
-h1{
-	color: #FFFFFF;
-}
+
 #orgContainer h1{
 	color:#0467FF;
 }
@@ -211,7 +222,7 @@ input[id="uname"]:-webkit-autofill, input[id="passwd"]:-webkit-autofill {
 
 #aboutOrg{
 	background-color: transparent;
-	color: #fff;
+	color: #000;
 	border:none;
 }
 /** end of textarea**/

@@ -7,7 +7,7 @@ body{
 }
 
 #topheader{
-	background-color: #000; /*#333*/
+	background-color: #010101; /*#333*/
 
 }
 
@@ -81,6 +81,17 @@ body{
 	background:#222;
 	border:1px solid #000;
 	color:#fff;
+}
+
+
+#homebox a{
+	color: lightgreen;
+	font-weight: bold;
+}
+
+#homebox p a{
+	color: lightblue;
+	font-weight: normal;
 }
 /** end of home.php **/
 
