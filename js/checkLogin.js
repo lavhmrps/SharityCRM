@@ -18,7 +18,7 @@ $(document).ready(function(){
 			data: {'combination' : combinationJSON},
 			success: function(response){
 				if(response == "OK"){
-					window.location.replace("pages/registration_pt2.php");
+					window.location.replace('pages/registration_pt2.php');
 				}else if(response == "WRONG"){
 					alert("WRONG ORGANIZATION NUMBER / PASSWORD COMBINATION");
 					$('input[name=password]').val("");
@@ -56,7 +56,7 @@ $(document).ready(function(){
 			data: {"adminCombination" : adminJSON},
 			success: function(response){
 				if(response == "OK"){
-					window.location.replace("../pages/admin/adminHome.php");
+					window.location.replace('../pages/admin/adminHome.php');
 
 				}
 			},

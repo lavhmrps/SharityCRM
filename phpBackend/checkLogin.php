@@ -20,17 +20,10 @@ if (isset($_POST['combination'])) {
         $row = mysqli_fetch_assoc($result);
         $dbpassword = $row['password'];
 
-        if ($dbpassword == $password) {
+        if(crypt($password, $dbpassword) == $dbpassword) {
             session_start();
-
-                //$_SESSION['name'] = $row['name'];
-            
             $_SESSION['organizationNr'] = $organizationNr;
-                //$_SESSION['backgroundimgURL'] = $row['backgroundimgURL'];
-                //$_SESSION['password'] = $password; //skal dette være her? Er det safe at password lagres i session?
-            echo "OK";
-
-            
+            echo "OK";    
         } else {
            echo "WRONG";
        }
