@@ -123,6 +123,13 @@ body{
 
 
 /******************** CONTAINERS ********************/
+#skipContainer{
+	text-align: right;
+}
+
+#somespaceReg_pt2{
+	height:90%;
+}
 
 #linkContainer{
 	padding:20px;
@@ -841,10 +848,6 @@ input[id="projectSavebtn"]{
 }
 
 
-#somespace{
-	height:80px;
-}
-
 
 
 #navbarContainer{
@@ -878,6 +881,8 @@ input[id="projectSavebtn"]{
 
 #reg_pt2_inputZipcode{
 	margin: 5px;
+	margin-top:0;
+	margin-bottom: 2px;
 	right:0;
 	width:105%;
 }
@@ -934,7 +939,7 @@ input[id="projectSavebtn"]{
 }
 
 input#logoutbtn{
-	color:777;
+	color:#777;
 	font-weight: bold;
 	font-size: 16px;
 	margin-left: 700%;
@@ -1275,13 +1280,22 @@ input[id=aboutOrg]:focus{
 	}
 
 	/*About org_pt2*/
+
+	#registerorglabel{
+		margin-bottom: 0;
+	}
+
 	#reg_pt2_input{
 		margin: 5px;
+		margin-top: 0;
+		margin-bottom: 2px;
 		width:98%;
 	}
 
 	#aboutOrg_pt2{
 		margin:5px;
+		margin-top: 0;
+		margin-bottom: 2px; 
 		width:98%;
 		font-size: 18px;
 		min-width:98%; 
@@ -1325,6 +1339,7 @@ input[id=aboutOrg]:focus{
 		width:98%;
 		height:34px;
 		margin: 5px;
+
 	}
 	.bluebtn:hover{
 		background-color: #0457FF;
@@ -1381,6 +1396,8 @@ input[id=aboutOrg]:focus{
 		width:98%;
 		height:34px;
 		margin: 5px;
+		margin-top: 0;
+		margin-bottom: 2px;
 	}
 	/*end dropdown*/
 
@@ -1480,25 +1497,7 @@ input[id=aboutOrg]:focus{
 	/*** End of logoutbtn ***/ 
 
 
-	select, option{
-		background-color: #006dfe;
-		border:none;
-		outline:none;
-	}
 
-	.regOrgDropdown select,.regOrgDropdown option  {
-		background: transparent;
-		border-radius: 5px;
-		width: 268px;
-		padding: 5px;
-		font-size: 14px;
-		line-height: 1;
-		border: 1px solid #ccc;
-		width:98%;
-		border-radius: 0;
-		height: 34px;
-		margin: 5px;
-	}
 
 	#buttondiv{
 		padding-left:5px;
@@ -1522,30 +1521,37 @@ input[id=aboutOrg]:focus{
 
 	/******Vegards KNOT*******/
 
-.empty_input {   
-	border-color: rgba(229, 103, 23, 0.8);
-	box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
-	outline: 0 none;
-}
-.empty_password {   
-	border-color: rgba(229, 103, 23, 0.8);
-	box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
-	outline: 0 none;
-	color:rgba(229, 103, 23, 0.8);
-}
+	.empty_input {   
+		border-color: rgba(229, 103, 23, 0.8);
+		box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
+		outline: 0 none;
+	}
+
+	#reg_news_input, #reg_project_input,label{
+		margin: 5px;
+		width:98%;
+		outline:none;
+		outline-color:red;
+	}
 
 
+	#preview{
+		max-width:98%; 
+		max-height:30%;
+		min-width:98%; 
+		min-height:30%;
 
-#reg_news_input{
-	margin: 5px;
-	width:98%;
-}
+		height:30%;
+		width: 98%;
 
-#preview{
-	width:98%; 
-	height:30%;
-	margin:5px; 
-	
-}
+		margin:5px; 
 
-.tokenize-sample { width: 98%; margin:5px;o}
+	}
+
+	select{
+		margin: 5px;
+		width:98%;
+		font-size: 20px;
+	}
+
+	.tokenize-sample { width: 98%; margin:5px;o}

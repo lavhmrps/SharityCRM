@@ -20,7 +20,7 @@ include '../phpBackend/connect.php';
 	<link href="../css/scrolling-nav.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" href="../css/index.css" />
 	<link rel="stylesheet" type="text/css" href="../css/list_project.css">
-	<link href="../css/vegard_main.css" rel="stylesheet"/>
+	<link href="../css/main.css" rel="stylesheet"/>
 	<link href="../css/fonts.css" rel="stylesheet"/>
 </head>
 <?php
