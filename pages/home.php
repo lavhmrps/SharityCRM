@@ -146,6 +146,7 @@ include '../phpBackend/connect.php';
 	<h3>Antall donasjoner:</h3>
 	<h3>Antall unike givere:</h3>
 	<h3>Totalt:</h3>
+	<h1>Velg tema:</h1>
 
 	<a href="#" onclick="setActiveStyleSheet('default'); return false;">Default</a>
 <a href="#" onclick="setActiveStyleSheet('alternate'); return false;">- Alternate</a>
