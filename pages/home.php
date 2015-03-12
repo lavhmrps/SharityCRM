@@ -29,6 +29,7 @@ include '../phpBackend/connect.php';
 	<link href="../css/scrolling-nav.css" rel="stylesheet">
 	<link href="../css/main.css" rel="stylesheet">
 	<link href="../css/font.css" rel="stylesheet">
+	<link href="../css/main-theme.css" rel="stylesheet">
 
 </head>
 

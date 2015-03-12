@@ -22,7 +22,8 @@ if(isset($_POST['registerNews'])){
 	<link href="../css/scrolling-nav.css" rel="stylesheet"/>
 
 
-	<link href="../css/vegard_main.css" rel="stylesheet"/>
+	<link href="../css/main.css" rel="stylesheet"/>
+	<link href="../css/main-theme.css" rel="stylesheet">
 
 
 
@@ -68,14 +69,14 @@ if(isset($_POST['registerNews'])){
 					?>
 				</p>
 
-				<label>Nyehtsbilde</label>
+				<label>Nyhetsbilde</label>
 				<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
 
 				<img src="../img/default.png" id="preview" alt="Click to upload img" name="preview" />
 
 
 
-				<label>Nyehtsoverskrift</label>
+				<label>Nyhetsoverskrift</label>
 				<input type="text" id="reg_news_input" class="form-control" name="newsHeader" placeholder=""/>
 				<label>Nyhetstekst</label>
 				<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="newsText" placeholder="Nyhetstekst" ></textarea>

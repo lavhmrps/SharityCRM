@@ -26,7 +26,8 @@ if(isset($_POST['registerNews'])){
 	<link href="../css/scrolling-nav.css" rel="stylesheet"/>
 
 
-	<link href="../css/vegard_main.css" rel="stylesheet"/>
+	<link href="../css/main.css" rel="stylesheet"/>
+	<link href="../css/main-theme.css" rel="stylesheet">
 
 
 

@@ -162,28 +162,28 @@ include "phpBackend/connect.php";
 									
 									<div class="form-group">
 										<div class="col-md-12">
-											<label>Organisasjonsnummer</label>
+											<label class="text-left">Organisasjonsnummer</label>
 											<input type="tel" class="form-control" name="reg_organizationNr" id="orgIDs" placeholder=""/>
 										</div>
 										
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
-											<label>Organisasjonsnavn</label>
+											<label class="text-left">Organisasjonsnavn</label>
 											<input type="text" class="form-control" name="reg_name" id="orgNames" placeholder=""/>
 										</div>
 										
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
-											<label>Passord</label>
+											<label class="text-left">Passord</label>
 											<input type="password" class="form-control" name="reg_password" id="newPasswds" placeholder=""/>
 										</div>
 										
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
-											<label>Gjenta passord</label>
+											<label class="text-left">Gjenta passord</label>
 											<input type="password" class="form-control" name="reg_password2" id="rptPasswds" placeholder=""/>
 										</div>
 										
