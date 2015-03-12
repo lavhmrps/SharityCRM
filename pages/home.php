@@ -29,7 +29,11 @@ include '../phpBackend/connect.php';
 	<link href="../css/scrolling-nav.css" rel="stylesheet">
 	<link href="../css/main.css" rel="stylesheet">
 	<link href="../css/font.css" rel="stylesheet">
-	<link href="../css/main-theme.css" rel="stylesheet">
+	<link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
+	<link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
+
+	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
+	
 
 </head>
 
@@ -142,6 +146,9 @@ include '../phpBackend/connect.php';
 	<h3>Antall donasjoner:</h3>
 	<h3>Antall unike givere:</h3>
 	<h3>Totalt:</h3>
+
+	<a href="#" onclick="setActiveStyleSheet('default'); return false;">Default</a>
+<a href="#" onclick="setActiveStyleSheet('alternate'); return false;">- Alternate</a>
 </div>
 
 <!-- jQuery -->

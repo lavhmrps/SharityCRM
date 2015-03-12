@@ -28,7 +28,7 @@ $organizationNr = $_SESSION['organizationNr'];
 	<!-- Custom CSS -->
 	<link href="../css/main.css" rel="stylesheet"/>
 	<link href="../css/fonts.css" rel="stylesheet"/>
-	<link href="../css/main-theme.css" rel="stylesheet">
+	<link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

@@ -1,0 +1,342 @@
+body{
+	background-color: #333;
+}
+
+#header{
+	background-color: #0153D2;
+}
+
+#topheader{
+	background-color: #000; /*#333*/
+}
+
+#topheader h2{
+	color: #fff;
+}
+
+#newsMenu, #statsMenu, #projectMenu, #organizationMenu{
+	background-color: #333;
+}
+
+#newsMenu ul li a, #statsMenu ul li a, #projectMenu ul li a, #organizationMenu ul li a{
+	color: #fff;
+}
+
+#newsMenu ul li a:hover, #organizationMenu ul li a:hover, #statsMenu ul li a:hover, #projectMenu ul li a:hover{
+	background-color: transparent;
+	color: #ccc;
+}
+
+/** STICKY HEADER**/
+.scroller{  	
+	background-color: #0153D2;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	color: #FFFFFF;
+	background-color: #002d6f;
+}
+
+@media (max-width: 767px) {
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: #FFFFFF;
+		background-color: #002d6f;
+	}
+}
+
+/** END OF STICKY HEADER**/
+
+#linkContainer{
+	background-color: #FFF;
+}
+
+#linkContainer p{
+	color: #000;
+}
+
+#indexfooter{
+	background-color: #0153D2;
+	border-top:1px solid black;
+}
+
+#indexfooter a{
+	color:white;
+}
+
+#copyrightcontainer{
+	color:white;
+}
+/** Home.php **/
+#homebox{
+	background:#222;
+	border:1px solid #000;
+	color:#fff;
+}
+/** end of home.php **/
+
+/** show all projects**/
+#projectcontainer{
+	background-color: #333 ;
+	border:1px solid #000;
+	color: #FFF;
+}
+
+#projectcontainer h1{
+	color: #000;
+}
+
+#projectcontainer a{
+	color: #fff;
+}
+
+#bottom{
+	background-color: #333;
+	/*border-top:1px solid #777;*/
+}
+
+#changeOrginfoA{
+	color:#fff;
+}
+
+input#logoutbtn{
+	color:#777;
+}
+
+@media screen and (max-width: 767px) {
+	a#scndmenu.page-scroll, input#logoutbtn{
+		background-color: #FFF;
+	}
+	#navbarmenucontainer{
+		background-color: #fff;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	a#scndmenu.page-scroll, input#logoutbtn{
+		background-color: #FFF;
+	}
+	button.navbar-toggle.btncolor{
+		background-color: #fff;
+	}
+	button.navbar-toggle.btncolor:hover{
+		background-color: #fff;
+
+	}
+	button.navbar-toggle.btncolor:focus{
+		background-color: #fff;
+	}
+}
+
+/** FONTS **/
+h1{
+	color: #FFFFFF;
+}
+#orgContainer h1{
+	color:#0467FF;
+}
+
+#reg_pt2_head h1{
+	color: #000;
+}
+
+#orgInfo a{
+	color: #fff;
+}
+
+/** END OF FONTS **/
+
+/** INPUTS **/
+
+#uname, #passwd{
+	background-color: transparent;
+	border-bottom: 2px solid #FFFFFF;
+	color: #FFFFFF;
+}
+
+#orgName, #orgID, #newPasswd, #rptPasswd, #adr,  #zip, #tlfnmbr, #accountnmbr{
+	background-color: transparent;
+	border-bottom: 2px solid #0467FF;
+	color: #000;
+}
+
+#orgName.form-control::-webkit-input-placeholder, #orgID.form-control::-webkit-input-placeholder, #newPasswd.form-control::-webkit-input-placeholder, #rptPasswd.form-control::-webkit-input-placeholder { 
+	color: #777; 
+}
+
+#orgName.form-control.form-control::-moz-placeholder, #orgID.form-control.form-control::-moz-placeholder, #newPasswd.form-control.form-control::-moz-placeholder, #rptPasswd.form-control.form-control::-moz-placeholder {
+	color: #777;
+	opacity:0.5;
+}
+#orgName.form-control:-ms-input-placeholder, #orgID.form-control:-ms-input-placeholder, #newPasswd.form-control:-ms-input-placeholder, #rptPasswd.form-control:-ms-input-placeholder {
+	color: #777;
+	opacity:0.5;
+}
+#orgName.form-control::-webkit-input-placeholder, #orgID.form-control::-webkit-input-placeholder, #newPasswd.form-control::-webkit-input-placeholder, #rptPasswd.form-control::-webkit-input-placeholder {
+	color: #777;
+	opacity:0.5;
+}
+
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+	color: #0467FF !important;
+}
+
+input[id="uname"]:-webkit-autofill, input[id="passwd"]:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px #0467FF inset !important;
+	color: #0467FF !important;
+}
+
+#uname.form-control::-webkit-input-placeholder, #passwd.form-control::-webkit-input-placeholder { 
+	color: #FFFFFF; 
+	opacity: 0.5;
+}
+#uname.form-control::-moz-placeholder, #passwd.form-control::-moz-placeholder {
+	color: #FFFFFF;
+	opacity: 0.5;
+}
+#uname.form-control:-ms-input-placeholder, #passwd.form-control:-ms-input-placeholder {
+	color: #FFFFFF;
+	opacity: 0.5;
+}
+#uname.form-control::-webkit-input-placeholder, #passwd.form-control::-webkit-input-placeholder {
+	color: #FFFFFF;
+	opacity: 0.5;
+}
+
+/** textarea **/
+#aboutOrg2{
+	background-color: #fff;
+	color: #000;
+	border:none;
+}
+
+#aboutOrg{
+	background-color: transparent;
+	color: #fff;
+	border:none;
+}
+/** end of textarea**/
+
+
+/** END OF INPUTS **/
+
+/** BUTTONS **/
+
+.greenbtn{
+	background-color: #10A810;
+	color: #F4F7CA;
+}
+
+.bluebtn{
+	background-color: #0467FF;
+	color: #FFFFFF;
+}
+.bluebtn:hover{
+	background-color: #0457FF;
+	color: #FFFFFF;
+}
+
+.bluebtn:focus{
+	background-color: #0467FF;
+	color: #FFFFFF;
+}
+
+.whitebtn{
+	background-color: #FFFFFF;
+	border:1px solid #CCC;
+	color: #777;
+}
+
+.whitebtn a{
+	color: #777;
+}
+
+/* btns registration_pt2 dropdown */
+.orgbtn{
+	background-color: transparent;
+	color: #777;
+	border: 1px solid #CCC;
+}
+
+.orgbtn:focus{
+	background-color: transparent;
+	color: #777;
+	border: 1px solid #CCC;
+}
+
+.orgbtn1{
+	background-color: #FFFFFF;
+	border:1px solid #CCC;
+	color: #777;
+}
+/*end dropdown*/
+
+
+.orgbtn3{
+	background-color: #0467FF;
+	color: #FFFFFF;
+}
+.orgbtn3:hover{
+	background-color: #0457FF;
+	color: #FFFFFF;
+}
+
+.orgbtn3:focus{
+	background-color: #0467FF;
+	color: #FFFFFF;
+}
+
+#linkbutton{
+	background-color: #0467FF;
+	color: #FFF;
+}
+
+
+#linkbutton:hover{
+	background-color: #002d6f;
+	color:#FFF;
+}
+
+a.navbar-brand.page-scroll, #header ul.nav.navbar-nav a.page-scroll{
+	color: #FFFFFF;
+}
+
+a.navbar-brand.page-scroll:focus, #header ul.nav.navbar-nav a.page-scroll:focus{
+	color: #FFFFFF;
+}
+
+a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
+	color: #BBB;
+}
+
+#registerbutton a.page-scroll:hover{
+	text-decoration: none;
+	color: #000;
+}
+
+/*** logoutbtn ***/ 
+
+#logoutbtn{
+	background-color: transparent;
+	color: #777;
+}
+
+#logoutbtn:hover{
+	color: #000;
+}
+
+
+/** END OF BUTTONS**/
+
+/** Vegards knot **/
+
+.empty_input {   
+	border-color: rgba(229, 103, 23, 0.8);
+	box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
+	outline: 0 none;
+}
+
+#reg_news_input, #reg_project_input,label{
+	outline:none;
+	outline-color:red;
+}

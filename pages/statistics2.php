@@ -29,7 +29,7 @@ include '../phpBackend/checkSession.php';
 	<link rel="stylesheet" type="text/css" href="../css/list_project.css">
 	<link href="../css/main.css" rel="stylesheet"/>
 	<link href="../css/fonts.css" rel="stylesheet"/>
-	<link href="../css/main-theme.css" rel="stylesheet">
+	<link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
 
 	<script type="text/javascript">
 

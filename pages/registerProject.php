@@ -23,7 +23,7 @@ if(isset($_POST['registerNews'])){
 
 
 	<link href="../css/main.css" rel="stylesheet"/>
-	<link href="../css/main-theme.css" rel="stylesheet">
+	<link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
 
 
 
