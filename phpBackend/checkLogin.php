@@ -20,7 +20,7 @@ if (isset($_POST['combination'])) {
         $row = mysqli_fetch_assoc($result);
         $dbpassword = $row['password'];
 
-        if(crypt($password, $dbpassword) == $dbpassword) {
+        if($password == $dbpassword) {
             session_start();
             $_SESSION['organizationNr'] = $organizationNr;
             echo "OK";    

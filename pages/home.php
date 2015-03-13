@@ -55,12 +55,12 @@ include '../phpBackend/connect.php';
 
 				echo '<div class="col-md-0"></div>';
 				echo '<div class=" text-center">';
-				echo "<img src='../phpBackend/" . $row['logoURL'] . "' alt='Organisasjonslogo'  id='orgLogo'/>";
+				echo "<img src='" . $row['logoURL'] . "' alt='Organisasjonslogo'  id='orgLogo'/>";
 				echo '</div>';
 				echo '<div class="col-md-0"></div>';
 
 
-				echo "<img src='../phpBackend/" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='orgBackground'/>";
+				echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='orgBackground'/>";
 
 
 

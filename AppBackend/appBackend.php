@@ -1,6 +1,8 @@
 <?php
 header('Access-Control-Allow-Origin: *'); 
 
+session_start();
+
 include '../phpBackend/connect.php';
 
 if(isset($_POST['userLoginApp'])){
@@ -19,12 +21,14 @@ if(isset($_POST['userLoginApp'])){
 
         if ($dbpassword == $password) {
             echo "OK";
+            mysqli_close($connection);
             return "OK";
         } 
     }else {
-     echo "WRONG";
-     return "WRONG";
- }
+        mysqli_close($connection);
+        echo "WRONG";
+        return "WRONG";
+    }
 }
 if(isset($_POST['getSQL'])){
 	$sql = $_POST['getSQL'];
@@ -35,7 +39,8 @@ if(isset($_POST['getSQL'])){
 			$json[] = $row;
 		}
 	}
-	echo json_encode($json);
+    mysqli_close($connection);
+    echo json_encode($json);
 }
 
 if(isset($_POST['setSQL'])){
@@ -43,16 +48,20 @@ if(isset($_POST['setSQL'])){
 	$result = mysqli_query($connection, $sql);
 	if($result){
 		echo "OK";
-	}else{
-		echo "SQL ERROR";
-	}
+        mysqli_close($connection);
+    }else{
+      echo "SQL ERROR";
+      mysqli_close($connection);
+  }
 }
 
-if(isset($_POST['organizationSQL'])){
+if(isset($_POST['organizationSQL']))
+{
  $sql = $_POST['organizationSQL'];
  $result = mysqli_query($connection, $sql);
 
- if(mysqli_num_rows($result) > 0){
+    if(mysqli_num_rows($result) > 0)
+    {
     $json = array();
     $index = 0;
     while($row = mysqli_fetch_assoc($result)){
@@ -63,10 +72,10 @@ if(isset($_POST['organizationSQL'])){
         $index++;
 
     }
+    mysqli_close($connection);
     echo json_encode($json);    
+    }
 }
-}
-
 
 function getProjectCount($orgnr, $con){
     $sql = "SELECT * FROM Project WHERE organizationNr = '$orgnr'";

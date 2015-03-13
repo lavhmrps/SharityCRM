@@ -18,8 +18,8 @@ if (isset($_SESSION['organizationNr'])) {
 		$target_file = $target_dir . basename($_FILES["file_background"]["name"]);
 		move_uploaded_file($_FILES["file_background"]["tmp_name"], $target_file);
 		chmod($target_file, 0777);
-		$backgroundimgURL = "http://localhost/sharityCRM/" . $target_file;
-		$sql = "UPDATE Project SET backgroundimgURL = '$target_file' WHERE projectID = $projectID";
+		$backgroundimgURL = "http://localhost/SharityCRM/phpBackend/" . $target_file;
+		$sql = "UPDATE Project SET backgroundimgURL = '$backgroundimgURL' WHERE projectID = $projectID";
 		if (mysqli_query($connection, $sql)) {
 			echo "Successful MySQL query INSERT Background";
 		} else {

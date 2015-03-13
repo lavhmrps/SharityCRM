@@ -58,11 +58,7 @@ $organizationNr = $_SESSION['organizationNr'];
 				echo '<a href="">Slett</a>';
 				echo '</div>';
 				echo '</div>';
-
-				
-
 			}
-
 		}
 		?>
 	</div>

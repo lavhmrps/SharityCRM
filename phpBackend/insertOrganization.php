@@ -21,7 +21,7 @@ if (isset($_POST['organization'])) {
 	$hash = better_crypt($password);
 	
 	
-	$sql = "INSERT INTO Organization (organizationNr, name, password)VALUES($organizationNr,'$name','$hash')";
+	$sql = "INSERT INTO Organization (organizationNr, name, password)VALUES($organizationNr,'$name','$password')";
 	$mysql_status = insertInto($connection, $sql);
 	echo $mysql_status;
 }

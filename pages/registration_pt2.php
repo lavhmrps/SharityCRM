@@ -125,118 +125,132 @@ $organizationNr = $_SESSION['organizationNr'];
 								if($category == NULL || $category == "NULL"){
 									echo '<label id="registerorglabel">Kategori</label><div class="regOrgDropdown">
 									<select class="orgbtn1" name="category">
-										<option value="NULL">Velg kategori</option>
-										<option value="Humanitært" >Humanitært</option>
-										<option value="Dyrevern" >Dyrevern</option>
-										<option value="Forskning" >Forskning</option>
-										<option value="Fundraising" >Fundraising</option>
+									<option value="NULL">Velg kategori</option>
+									<option value="Humanitært" >Humanitært</option>
+									<option value="Dyrevern" >Dyrevern</option>
+									<option value="Forskning" >Forskning</option>
+									<option value="Fundraising" >Fundraising</option>
 									</select>
-								</div>';
-							}
-							if($about == NULL || $about == ""){
-								echo '<label id="registerorglabel">Om organisasjonen</label><textarea class="form-control" id="aboutOrg_pt2" rows="5" name="about" id="aboutOrg" ></textarea>';
-							}
+									</div>';
+								}
+								if($about == NULL || $about == ""){
+									echo '<label id="registerorglabel">Om organisasjonen</label><textarea class="form-control" id="aboutOrg_pt2" rows="5" name="about" id="aboutOrg" ></textarea>';
+								}
 
-							if($backgroundimgURL == NULL || $backgroundimgURL == ""){
-								echo '
-								<button  class="btn bluebtn" name="backgroundimgURLbutton" >
+								if($backgroundimgURL == NULL || $backgroundimgURL == ""){
+									echo '
+
+
+									<label>Bakgrunnsbilde</label>
+									<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
+
+									<img src="../img/default.png" id="preview"  alt="Click to upload img" name="preview" />
+									';
+									/*<button  class="btn bluebtn" name="backgroundimgURLbutton" >
 									Last opp bakgrunnsbilde
-								</button>
+									</button>
 
-								<form enctype="multipart/form-data">
+									<form enctype="multipart/form-data">
 									<input type="file" name="backgroundimgURL" style="display:none">
-								</form> 
+									</form> */
 
-								';
+								}
 
-							}
-							
-							if($logoURL == NULL || $logoURL == ""){
-								echo '
-								<button  class="btn bluebtn" name="logoURLbutton">
+								if($logoURL == NULL || $logoURL == ""){
+									/*echo '
+									<button  class="btn bluebtn" name="logoURLbutton">
 									Last opp logo
+									</button>
+
+									<form enctype="multipart/form-data">
+									<input type="file" name="logoURL" style="display:none">
+									</form> 
+
+									';*/
+
+									echo '
+
+									<label>Logo</label>
+									<input type="file" id="file_logo" style="display:none" accept="image/*" name="logoURL" />
+
+									<img src="../img/default.png" id="previewLogo"  alt="Click to upload img" name="previewLogo" />
+
+									';
+								}
+
+
+
+								if($category != NULL && $phone != NULL && $address != NULL && $zipcode != NULL
+									&& $logoURL != NULL && $backgroundimgURL != NULL && $website != NULL 
+									&& $accountnumber != NULL && $email != NULL && $about != NULL &&
+
+									$category != "" && $phone != "" && $address != "" && $zipcode != "" 
+									&& $logoURL != "" && $backgroundimgURL != "" && $website != "" 
+									&& $accountnumber != "" && $email != "" && $about != ""
+
+									){
+									header("Location: ../pages/home.php");
+
+							}else{
+								echo '
+								<button  class="btn btn-success" name="complete_registration">
+								Fullfør (2/2)
 								</button>
 
-								<form enctype="multipart/form-data">
-									<input type="file" name="logoURL" style="display:none">
-								</form> 
+
+
 
 								';
 							}
 
 
 
-							if($category != NULL && $phone != NULL && $address != NULL && $zipcode != NULL
-								&& $logoURL != NULL && $backgroundimgURL != NULL && $website != NULL 
-								&& $accountnumber != NULL && $email != NULL && $about != NULL &&
 
-								$category != "" && $phone != "" && $address != "" && $zipcode != "" 
-								&& $logoURL != "" && $backgroundimgURL != "" && $website != "" 
-								&& $accountnumber != "" && $email != "" && $about != ""
-
-								){
-								header("Location: ../pages/home.php");
-
-						}else{
-							echo '
-							<button  class="btn btn-success" name="complete_registration">
-								Fullfør (2/2)
-							</button>
-
-
-
-
-							';
 						}
-
-
-
-
 					}
-				}
 
 
-				?>
+					?>
 
 
+				</div>
+				<div class="col-md-2"></div>
 			</div>
-			<div class="col-md-2"></div>
+
+
+
+
+		</div>
+		<div class="col-md-3" id="skipContainer">
+
+			<a style="cursor:pointer" onclick="skip()">Hopp over</a>
 		</div>
 
 
 
 
-	</div>
-	<div class="col-md-3" id="skipContainer">
-		
-		<a style="cursor:pointer" onclick="skip()">Hopp over</a>
-	</div>
 
 
+		<!-- jQuery -->
+		<script src="../js/jquery.js"></script>
 
-
-
-
-	<!-- jQuery -->
-	<script src="../js/jquery.js"></script>
-
-	<script type="text/javascript">
+		<script type="text/javascript">
 		function skip(){
 			window.location.replace('../pages/home.php');
 		}
-	</script>
+		</script>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="../js/bootstrap.min.js"></script>
+		<!-- Bootstrap Core JavaScript -->
+		<script src="../js/bootstrap.min.js"></script>
 
-	<!--Sript for insert organization to database through AJAX request-->
-	<script src="../js/updateOrganization.js"></script>
+		<!--Sript for insert organization to database through AJAX request-->
+		<script src="../js/updateOrganization.js"></script>
 
-	<!--Sript for insert images to database through AJAX request-->
-	<script src="../js/insertImg.js"></script>
+		<!--Sript for insert images to database through AJAX request-->
+		<script src="../js/insertImg.js"></script>
 
 
-</body>
+	</body>
 
-</html>
+	</html>
 

@@ -41,10 +41,7 @@ if($result){
 
 		if($backgroundimgURL == ""){
 			$backgroundimgURL = "../img/default.png";
-		}else{
-			$backgroundimgURL = "../phpBackend/". $row['backgroundimgURL'];
 		}
-		
 
 
 
@@ -66,7 +63,6 @@ if($result){
 <div class="col-md-3"></div>
 <div class="col-md-6">
 	<div class="col-md-12 text-center" id="reg_pt2_head">
-
 
 	</div>
 	<div class="row">

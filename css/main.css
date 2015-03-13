@@ -1313,7 +1313,7 @@ input[id=aboutOrg]:focus{
 	}
 
 
-	#preview{
+	#preview, #previewLogo{
 		max-width:98%; 
 		max-height:30%;
 		min-width:98%; 
