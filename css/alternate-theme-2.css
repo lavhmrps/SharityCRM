@@ -1,46 +1,57 @@
-body{
-	background-color: #fff;
+html, body{
+	background-color: #FFABEF;
+
 }
 
-
-#topheader{
-	background-color: #006dfe; /*#333*/
-}
-
-#topheader h2{
-	color:white;
-}
-
-#newsMenu, #statsMenu, #projectMenu, #organizationMenu{
-	background-color: #333;
-}
-
-#newsMenu ul li a, #statsMenu ul li a, #projectMenu ul li a, #organizationMenu ul li a{
-	color: #fff;
-}
-
-#newsMenu ul li a:hover, #organizationMenu ul li a:hover, #statsMenu ul li a:hover, #projectMenu ul li a:hover{
-	background-color: transparent;
-	color: #ccc;
-}
-
-/** Index.php don't change**/
 #header{
 	background-color: #0153D2;
 }
 
-#LoginContainer h1{
-	color: #fff;
+#topheader{
+	/*background-color: #010101; #333*/
+
+	background: -webkit-gradient(linear, 0 80%, 0 90%, from(white), to(#FF7AE6));
+
+	background: -webkit-linear-gradient(top, white, #FFBBEE, #FF7AE6);
+	background: -moz-linear-gradient(top, white, #FFBBEE, #FF7AE6);
+	background: -o-linear-gradient(top, white, #FFBBEE, #FF7AE6);
+	background: -ms-linear-gradient(top, white, #FFBBEE, #FF7AE6);
+
+	background: linear-gradient(to bottom, white, #FFBBEE, #FF7AE6);
+	border:none;
+
+}
+
+#topheader h2{
+	color: #000;
+}
+
+#newsMenu, #statsMenu, #projectMenu, #organizationMenu{
+	background-color: #FFEAFB;
+}
+
+#newsMenu ul li a, #statsMenu ul li a, #projectMenu ul li a, #organizationMenu ul li a{
+	color: #333;
+}
+
+#newsMenu ul li a:hover, #organizationMenu ul li a:hover, #statsMenu ul li a:hover, #projectMenu ul li a:hover{
+	background-color: transparent;
+	color: #000;
 }
 
 /** STICKY HEADER**/
-.scroller{  
-	border:none;	
-	background-color: #fff;
+.scroller{	
+	background-color: #FF7AE6;
+	border:none;
+}
+
+#navbarContainer{
+	border-bottom:1px solid white;
+	width:100%;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-	color: #FFFFFF;
+	color: #000;
 	background-color: #002d6f;
 }
 
@@ -48,6 +59,9 @@ body{
 	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
 		color: #FFFFFF;
 		background-color: #002d6f;
+	}
+	#navbarContainer{
+		border:none;
 	}
 }
 
@@ -75,26 +89,30 @@ body{
 }
 /** Home.php **/
 #homebox{
-	background:#efefef;
-	border:1px solid #ddd;
+	background:#FF9AE6;
+	border:1px solid #FF7AE6;
 	color:#000;
 }
 
+
 #homebox a{
-	color: green;
+	color: blue;
 	font-weight: bold;
 }
 
-#homebox p a{
-	color:blue;
-	font-weight: normal;
+#homebox h1{
+	color: #fff;
 }
 
+#homebox p a{
+	color: blue;
+	font-weight: normal;
+}
 /** end of home.php **/
 
-/** show all projects**/
+/** show all projects & news**/
 #projectcontainer{
-	background-color: #333 ;
+	background-color: #222 ;
 	border:1px solid #000;
 	color: #FFF;
 }
@@ -108,9 +126,44 @@ body{
 }
 
 #bottom{
-	background-color: #333;
+	background-color: #222;
 	/*border-top:1px solid #777;*/
 }
+
+/** END **/
+
+/** showselectedproject**/
+
+#selectedprojectcontainer h1{
+	color: #FFF;
+}
+
+/** END **/
+
+/** register project **/
+
+#regprojectcontainer h1{
+	color: #fff;
+}
+
+/** END **/
+
+/** show selected news **/
+
+#selectednewscontainer h1{
+	color: #fff;
+}
+
+/** END **/
+
+/** register news  **/
+
+#registernewscontainer h1{
+	color: #fff;
+}
+
+/** END **/ 
+
 
 #changeOrginfoA{
 	color:#fff;
@@ -120,18 +173,30 @@ input#logoutbtn{
 	color:#777;
 }
 
+/** NAVBAR **/
+a#scndmenu.page-scroll, input#logoutbtn{
+	color:#444;
+}
+
+a#scndmenu.page-scroll:hover, input#logoutbtn:hover{
+	color:#000;
+}
+
 @media screen and (max-width: 767px) {
 	a#scndmenu.page-scroll, input#logoutbtn{
-		background-color: #FFF;
+		background-color: #333;
 	}
 	#navbarmenucontainer{
-		background-color: #fff;
+		background-color: #333;
+		border-bottom: 1px solid white;
+		border-radius: 5px;
 	}
 }
 
 @media screen and (max-width: 600px) {
 	a#scndmenu.page-scroll, input#logoutbtn{
-		background-color: #FFF;
+		background-color: #333;
+		border:none;
 	}
 	button.navbar-toggle.btncolor{
 		background-color: #fff;
@@ -145,21 +210,33 @@ input#logoutbtn{
 	}
 }
 
-/** FONTS **/
+/** END **/
 
+/** FONTS **/
+h1{
+	color: #FFFFFF;
+}
 #orgContainer h1{
 	color:#0467FF;
 }
 
+/** change_orginfo **/
+
 #reg_pt2_head h1{
-	color: #000;
+	color: #fff;
 }
+
+
+/** end change_orginfo**/
 
 #orgInfo a{
 	color: #fff;
 }
 
-/** END OF FONTS **/
+label{
+	color: #efefef;
+}
+
 
 /** INPUTS **/
 
@@ -239,7 +316,7 @@ input[id="uname"]:-webkit-autofill, input[id="passwd"]:-webkit-autofill {
 
 #aboutOrg{
 	background-color: transparent;
-	color: #000;
+	color: #fff;
 	border:none;
 }
 /** end of textarea**/
@@ -346,6 +423,7 @@ a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
 #logoutbtn{
 	background-color: transparent;
 	color: #777;
+	border:none;
 }
 
 #logoutbtn:hover{
@@ -355,35 +433,6 @@ a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
 
 /** END OF BUTTONS**/
 
-/** showselectedproject**/
-
-#selectedprojectcontainer h1{
-	color: #000;
-}
-
-/** end **/
-
-/** register project **/
-
-#regprojectcontainer h1{
-	color: #000;
-}
-
-/** END **/
 
 
-/** show selected news **/
 
-#selectednewscontainer h1{
-	color: #000;
-}
-
-/** END **/
-
-/** register news  **/
-
-#registernewscontainer h1{
-	color: #000;
-}
-
-/** END **/ 

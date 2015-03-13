@@ -32,6 +32,7 @@ include "phpBackend/connect.php";
 	<link href="css/scrolling-nav.css" rel="stylesheet"/>
 	<link href="css/main.css" rel="stylesheet"/>
 	<link href="css/fonts.css" rel="stylesheet"/>
+	<link href="css/main-theme.css" rel="stylesheet"/>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -103,7 +104,7 @@ include "phpBackend/connect.php";
 					<div class="col-lg-12">
 						<div class="row">
 							<div class="col-md-3"></div>
-							<div class="col-md-5">
+							<div class="col-md-5" id="LoginContainer">
 								<h1>Logg inn</h1>
 
 								<form method="post" autocomplete="off">

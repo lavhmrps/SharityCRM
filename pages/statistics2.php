@@ -30,6 +30,11 @@ include '../phpBackend/checkSession.php';
 	<link href="../css/main.css" rel="stylesheet"/>
 	<link href="../css/fonts.css" rel="stylesheet"/>
 	<link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
+	<link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
+	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
+	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
+
+    <script src="../js/styleswitcher.js" type="text/javascript" ></script>
 
 	<script type="text/javascript">
 

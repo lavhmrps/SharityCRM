@@ -45,7 +45,9 @@ if(isset($_POST['logout'])){
 
             <ul class="nav navbar-nav" id="menunav">
                 <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-
+                <li>
+                    <a class="page-scroll" name ="showOrganizationMenu" id="scndmenu" style="cursor:pointer;">Min organisasjon</a>
+                </li>
                 <li>
                     <a class="page-scroll" name ="showProjectMenu" id="scndmenu" style="cursor:pointer;">Prosjekter</a>
                 </li>
@@ -55,9 +57,7 @@ if(isset($_POST['logout'])){
                 <li>
                     <a class="page-scroll" name ="showStatsMenu" id="scndmenu" style="cursor:pointer;">Statistikk</a>
                 </li>
-                <li>
-                    <a class="page-scroll" name ="showOrganizationMenu" id="scndmenu" style="cursor:pointer;">Min organisasjon</a>
-                </li>
+                
             </ul>
             
             <ul class="nav navbar-nav navbar-right">

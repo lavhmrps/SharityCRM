@@ -23,6 +23,11 @@ include '../phpBackend/connect.php';
 	<link href="../css/main.css" rel="stylesheet"/>
 	<link href="../css/fonts.css" rel="stylesheet"/>
 	<link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
+	<link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
+	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
+	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
+
+    <script src="../js/styleswitcher.js" type="text/javascript" ></script>
 </head>
 <?php
 include "../pages/header_nav.php";
@@ -42,10 +47,7 @@ if($result){
 		if($backgroundimgURL == ""){
 			$backgroundimgURL = "../img/default.png";
 		}
-
-
-
-		
+	
 		$name = $row['name'];
 		$title = $row['title'];
 		$about = $row['about'];
@@ -67,10 +69,10 @@ if($result){
 	</div>
 	<div class="row">
 		<div class="col-md-2"></div>
-		<div class="col-md-8 text-center">
+		<div class="col-md-8 text-center" id="selectedprojectcontainer">
 			<?php
 
-			echo "<h1 style='color:black'>" . $name . "</h1>";
+			echo "<h1>" . $name . "</h1>";
 
 			?>
 		</div>

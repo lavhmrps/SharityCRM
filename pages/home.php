@@ -31,6 +31,8 @@ include '../phpBackend/connect.php';
 	<link href="../css/font.css" rel="stylesheet">
 	<link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
 	<link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
+	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
+	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
 
 	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
 	
@@ -142,14 +144,14 @@ include '../phpBackend/connect.php';
 
 </div>
 <div class="col-md-3" id="homebox">
-	<h1><u>Denne mnd</u></h1>
-	<h3>Antall donasjoner:</h3>
-	<h3>Antall unike givere:</h3>
-	<h3>Totalt:</h3>
+	
 	<h1>Velg tema:</h1>
 
 	<a href="#" onclick="setActiveStyleSheet('default'); return false;">Default</a> - 
-<a href="#" onclick="setActiveStyleSheet('alternate'); return false;">Alternate</a>
+	<a href="#" onclick="setActiveStyleSheet('alternate'); return false;">Dark</a> - 
+	<a href="#" onclick="setActiveStyleSheet('alternate2'); return false;">Pink</a> - 
+	<a href="#" onclick="setActiveStyleSheet('alternate3'); return false;">Mææ!</a>
+
 </div>
 
 <!-- jQuery -->

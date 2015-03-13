@@ -1,5 +1,6 @@
-body{
-	background-color: #333;
+html, body{
+	background-color: #323232;
+
 }
 
 #header{
@@ -7,7 +8,17 @@ body{
 }
 
 #topheader{
-	background-color: #010101; /*#333*/
+	/*background-color: #010101; #333*/
+
+	background: -webkit-gradient(linear, 0 80%, 0 90%, from(white), to(#333));
+
+	background: -webkit-linear-gradient(top, white, #555, #333);
+	background: -moz-linear-gradient(top, white, #555, #333);
+	background: -o-linear-gradient(top, white, #555, #333);
+	background: -ms-linear-gradient(top, white, #555, #333);
+
+	background: linear-gradient(to bottom, white, #555, #333);
+	border:none;
 
 }
 
@@ -50,7 +61,7 @@ body{
 		background-color: #002d6f;
 	}
 	#navbarContainer{
-	border:none;
+		border:none;
 	}
 }
 
@@ -78,7 +89,7 @@ body{
 }
 /** Home.php **/
 #homebox{
-	background:#222;
+	background:#212121;
 	border:1px solid #000;
 	color:#fff;
 }
@@ -95,9 +106,9 @@ body{
 }
 /** end of home.php **/
 
-/** show all projects**/
+/** show all projects & news**/
 #projectcontainer{
-	background-color: #333 ;
+	background-color: #222 ;
 	border:1px solid #000;
 	color: #FFF;
 }
@@ -111,9 +122,44 @@ body{
 }
 
 #bottom{
-	background-color: #333;
+	background-color: #222;
 	/*border-top:1px solid #777;*/
 }
+
+/** END **/
+
+/** showselectedproject**/
+
+#selectedprojectcontainer h1{
+	color: #FFF;
+}
+
+/** END **/
+
+/** register project **/
+
+#regprojectcontainer h1{
+	color: #fff;
+}
+
+/** END **/
+
+/** show selected news **/
+
+#selectednewscontainer h1{
+	color: #fff;
+}
+
+/** END **/
+
+/** register news  **/
+
+#registernewscontainer h1{
+	color: #fff;
+}
+
+/** END **/ 
+
 
 #changeOrginfoA{
 	color:#fff;
@@ -167,15 +213,23 @@ h1{
 	color:#0467FF;
 }
 
+/** change_orginfo **/
+
 #reg_pt2_head h1{
-	color: #000;
+	color: #fff;
 }
+
+
+/** end change_orginfo**/
 
 #orgInfo a{
 	color: #fff;
 }
 
-/** END OF FONTS **/
+label{
+	color: #efefef;
+}
+
 
 /** INPUTS **/
 
@@ -233,6 +287,17 @@ input[id="uname"]:-webkit-autofill, input[id="passwd"]:-webkit-autofill {
 #uname.form-control::-webkit-input-placeholder, #passwd.form-control::-webkit-input-placeholder {
 	color: #FFFFFF;
 	opacity: 0.5;
+}
+
+.empty_input {   
+	border-color: rgba(229, 103, 23, 0.8);
+	box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
+	outline: 0 none;
+}
+
+#reg_news_input, #reg_project_input,label{
+	outline:none;
+	outline-color:red;
 }
 
 /** textarea **/
@@ -361,15 +426,6 @@ a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
 
 /** END OF BUTTONS**/
 
-/** Vegards knot **/
 
-.empty_input {   
-	border-color: rgba(229, 103, 23, 0.8);
-	box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
-	outline: 0 none;
-}
 
-#reg_news_input, #reg_project_input,label{
-	outline:none;
-	outline-color:red;
-}
+

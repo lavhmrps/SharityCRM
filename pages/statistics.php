@@ -8,9 +8,9 @@ include '../phpBackend/connect.php';
 <html>
 <head>
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-  <link rel="stylesheet" type="text/css" href="../css/draggableStats.css">
-  <script type="text/javascript" src="../js/draggableStats.js"></script>
+	<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/draggableStats.css">
+	<script type="text/javascript" src="../js/draggableStats.js"></script>
 
 
 
@@ -32,7 +32,12 @@ include '../phpBackend/connect.php';
 	<link rel="stylesheet" type="text/css" href="../css/list_project.css">
 	<link href="../css/main.css" rel="stylesheet"/>
 	<link href="../css/fonts.css" rel="stylesheet"/>
-  <link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
+	<link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
+	<link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
+	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
+	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
+
+	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
 
 </head>
 <body>
@@ -44,9 +49,9 @@ include '../phpBackend/connect.php';
 
 
 
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
-   <?php
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<?php
    /*
    $organizationNr = $_SESSION['organizationNr'];
 
@@ -79,18 +84,18 @@ include '../phpBackend/connect.php';
 <div class="col-md-2"></div>
 
 <div id="menubar">
-  Meny: 
-  <button id="showlast12months">Siste 12 mnd</button> 
+	Meny: 
+	<button id="showlast12months">Siste 12 mnd</button> 
 </div>
 <div id="draggable" class="ui-widget-content">
-  <div id="framebar">
-    <strong><u>Siste 12 mnd</u></strong> <!--Sett id og gi mouse over: pointer-->
-    <button id="maximize">MAX</button>
-    <button id="minimize">MIN</button>
-    <button id="close">CLOSE</button>
-  </div>
-  <canvas id="graph" width="1000" height="500">   
-  </canvas> 
+	<div id="framebar">
+		<strong><u>Siste 12 mnd</u></strong> <!--Sett id og gi mouse over: pointer-->
+		<button id="maximize">MAX</button>
+		<button id="minimize">MIN</button>
+		<button id="close">CLOSE</button>
+	</div>
+	<canvas id="graph" width="1000" height="500">   
+	</canvas> 
 </div>
 
 <script src="../js/stickyheader.js"></script>

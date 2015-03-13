@@ -28,6 +28,11 @@ if(isset($_POST['registerNews'])){
 
 	<link href="../css/main.css" rel="stylesheet"/>
 	<link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
+	<link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
+	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
+	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
+
+    <script src="../js/styleswitcher.js" type="text/javascript" ></script>
 
 
 
@@ -85,8 +90,8 @@ if(isset($_POST['registerNews'])){
 		</div>
 		<div class="row">
 			<div class="col-md-2"></div>
-			<div class="col-md-8 text-center">
-				<?php echo "<h1 style='color:black'>" . $projectName . "</h1>"?>
+			<div class="col-md-8 text-center" id="selectednewscontainer">
+				<?php echo "<h1>" . $projectName . "</h1>"?>
 			</div>
 			<div class="col-md-2"></div>
 		</div>

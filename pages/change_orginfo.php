@@ -29,7 +29,11 @@ $organizationNr = $_SESSION['organizationNr'];
     <link href="../css/main.css" rel="stylesheet"/>
     <link href="../css/fonts.css" rel="stylesheet"/>
     <link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
+    <link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
+    <link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
+	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
 
+    <script src="../js/styleswitcher.js" type="text/javascript" ></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -276,7 +280,7 @@ $organizationNr = $_SESSION['organizationNr'];
 
 </script>
 
-
+<script src="../js/stickyheader.js"></script>
 </body>
 
 </html>
