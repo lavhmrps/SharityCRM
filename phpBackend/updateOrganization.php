@@ -15,10 +15,6 @@ if (isset($_SESSION['organizationNr'])) {
 		$statusAbout = TRUE;
 
 
-
-		
-
-
 		$json = $_POST['organization'];
 		$organization = json_decode($json, true);
 

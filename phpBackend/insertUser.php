@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *');  
 include '../phpBackend/connect.php';
 if(isset($_POST['user'])){
 	$json = $_POST['user'];

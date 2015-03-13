@@ -1,11 +1,12 @@
 <?php
-	include '../phpBackend/connect.php';
+header('Access-Control-Allow-Origin: *');  
+include '../phpBackend/connect.php';
 
-	if(isset($_POST['update'])){
-		$sql = $_POST['update'];
+if(isset($_POST['update'])){
+	$sql = $_POST['update'];
 
-		$mysql_status = updateDatabase($connection, $sql);
+	$mysql_status = updateDatabase($connection, $sql);
 
-		echo $mysql_status;
-	}
+	echo $mysql_status;
+}
 ?>
