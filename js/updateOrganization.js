@@ -8,7 +8,7 @@ $("button[name=logoURLbutton]").click(function () {
 
 $('button[name=complete_registration]').click(function(event){
 	insertInformation();
-	//window.location.replace('../pages/home.php');
+	window.location.replace('../pages/home.php');
 
 });
 
@@ -91,7 +91,6 @@ function insertInformation(){
 			try{
 				var file_data_background = $('input[name=backgroundimgURL]').prop('files')[0];
 			}catch(error){
-				alert(error.message);
 			}
 			if(file_data_background != undefined){
 				insertBackground(file_data_background);
@@ -100,7 +99,6 @@ function insertInformation(){
 			try{
 				var file_data_logo = $('input[name=logoURL]').prop('files')[0];
 			}catch(error){
-				alert(error.message);
 			}
 			if(file_data_logo != undefined){
 				insertLogo(file_data_logo);
@@ -156,39 +154,6 @@ function insertLogo(file_data_logo){
 	});
 }
 
-function insertLogo(){
-	try{
-		var file_data_logo = $('input[name=logoURL]').prop('files')[0];  
-	}catch(error){
-		alert(error.message);
-	}
-
-	
-
-	if(file_data_logo != undefined){
-
-		var form_data_logo = new FormData();                  
-		form_data_logo.append('file_logo', file_data_logo);
-
-
-		$.ajax({
-            url: '../phpBackend/insertLogo.php', // point to server-side PHP script 
-            datatype: 'text',  // what to expect back from the PHP script, if anything
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data_logo,                         
-            type: 'POST',
-            success: function(response){
-            	alert("Logo: " + response);        
-            },
-            error : function(response){
-            	console.log(response.message);
-            }
-        });
-
-	}
-}
 
 
 

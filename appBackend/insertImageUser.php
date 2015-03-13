@@ -24,7 +24,7 @@ if(isset($_SESSION['userEmailToInsertImage'])){
 		$picURL = "http://localhost/SharityCRM/appBackend/" . $target_file;
 		$sql = "UPDATE User SET picURL = '$picURL' WHERE email = '$email'";
 		if (mysqli_query($connection, $sql)) {
-			echo "Successful MySQL query INSERT image";
+			echo "OK";
 		} else {
 			die('Error: ' . mysqli_error($connection));
 			db_close($connection);

@@ -18,7 +18,7 @@ if(isset($_POST['projectNameToRegister'])){
 if(isset($_POST['userEmailToInsertImage'])){
 	
 	$_SESSION['userEmailToInsertImage'] = $_POST['userEmailToInsertImage'];
-	echo "userEmailToInsertImage er satt i localStorageJStoPHP: " . $_SESSION['userEmailToInsertImage'] ;
+	echo "OK";
 }
 ob_end_flush();
 ?>
