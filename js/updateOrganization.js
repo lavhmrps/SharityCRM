@@ -1,30 +1,42 @@
-$("button[name=backgroundimgURLbutton]").click(function () {
-	$("input[name=backgroundimgURL]").trigger('click');
-});
+$(document).ready(function(){
 
-$("button[name=logoURLbutton]").click(function () {
-	$("input[name=logoURL]").trigger('click');
-});
+	$("button[name=backgroundimgURLbutton]").click(function () {
+		$("input[name=backgroundimgURL]").trigger('click');
+	});
 
-$('button[name=complete_registration]').click(function(event){
-	insertInformation();
-	window.location.replace('../pages/home.php');
+	$("button[name=logoURLbutton]").click(function () {
+		$("input[name=logoURL]").trigger('click');
+	});
 
-});
+	$('button[name=complete_registration]').click(function(event){
+		insertInformation();
+		window.location.replace('../pages/home.php');
 
-$('button[name=update_info]').click(function(event){
+	});
+
+	
+
+	$('button[name=update_info]').click(function(event){
+
+	/*
 	insertInformation();
 	window.location.replace('../pages/Admin/change_organization.php');
+	*/
+
+	alert("UpdateOrganization.js: $('button[name=update_info]').click(function(event) Test :)");
 
 });
 
 
-$("#preview").click(function(){
-	$("#file_background").trigger("click");
-});
-$("#previewLogo").click(function(){
-	$("#file_logo").trigger("click");
-});
+
+
+
+	$("#preview").click(function(){
+		$("#file_background").trigger("click");
+	});
+	$("#previewLogo").click(function(){
+		$("#file_logo").trigger("click");
+	});
 
 //triggered when user selects image to upload
 $("#file_background").change(function(){
@@ -159,6 +171,7 @@ function insertLogo(file_data_logo){
 		}
 	});
 }
+});
 
 
 
