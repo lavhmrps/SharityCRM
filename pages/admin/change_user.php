@@ -1,5 +1,6 @@
 <?php
 	//include '../phpBackend/connect.php';
+	//include '../phpBackend/hash.php';
 	$connection = mysqli_connect("localhost", "root", "", "database") or die("Kunne ikke koble til database");
 
 	function insertInto($connection, $sql) {
@@ -10,6 +11,16 @@
 		//sjekk om det er duplicate entry !
 		}
 	}
+
+	function better_crypt($input, $rounds = 7)
+  	{
+    	$salt = "";
+    	$salt_chars = array_merge(range('A','Z'), range('a','z'), range(0,9));
+    	for($i=0; $i < 22; $i++) {
+      	$salt .= $salt_chars[array_rand($salt_chars)];
+    	}
+    	return crypt($input, sprintf('$2a$%02d$', $rounds) . $salt);
+  	}
 
 ?>
 
@@ -73,8 +84,7 @@
 								$phone = $row['phone'];
 								$address = $row['address'];
 								$zip = $row['zip'];
-								$picURL = $row['picURL'];		
-								$password = $row['password'];
+								$picURL = $row['picURL'];
 								$_SESSION['name'] = $row['name'];
 								$_SESSION['phone'] = $row['phone'];
 								$_SESSION['address'] = $row['address'];
@@ -103,10 +113,10 @@
 								echo '<input type="text" class="form-control" name="picURL" id="changeUser" placeholder="" value="' . $picURL . '"/>';
 
 								echo "<label>Passord</label>";
-								echo '<input type="password" class="form-control" name="password" id="changeUser" placeholder="" value="' . $password . '"/>';
+								echo '<input type="password" class="form-control" name="password" id="changeUser" placeholder="" value=""/>';
 
 								echo "<label>Gjenta passord</label>";
-								echo '<input type="password" class="form-control" name="repeat_password" id="changeUser" placeholder="" value="' . $password . '"/>';
+								echo '<input type="password" class="form-control" name="repeat_password" id="changeUser" placeholder="" value=""/>';
 
 								echo '
 				                	<button  class="btn btn-success" name="update_info">
@@ -146,6 +156,7 @@
 								}
 								else{
 									$email = $newemail;
+									echo "E-post er oppdatert til'" . $email . "'<br>";
 								}
 							}
 						}
@@ -155,6 +166,9 @@
 							if($mysql_status != "OK"){
 								$statusName = FALSE;
 							}
+							else{
+								echo "Navn er oppdatert til '" . $newname . "'<br>";
+							}
 						}
 						if(isset($_POST['phone']) && $newphone != $_SESSION['phone']){
 							$sql = "UPDATE User SET phone = '$newphone' WHERE email = '$email'";
@@ -162,12 +176,18 @@
 							if($mysql_status != "OK"){
 								$statusPhone = FALSE;
 							}
+							else{
+								echo "Telefonnummer er oppdatert til '" . $newphone . "'<br>";
+							}
 						}
 						if(isset($_POST['address']) && $newaddress != $_SESSION['address']){
 							$sql = "UPDATE User SET address = '$newaddress' WHERE email = '$email'";
 							$mysql_status = insertInto($connection, $sql);
 							if($mysql_status != "OK"){
 								$statusAddress = FALSE;
+							}
+							else{
+								echo "Addressen er endret til '" . $newaddress . "'<br>";
 							}
 						}
 						if(isset($_POST['zip']) && $newzip != $_SESSION['zip']){
@@ -177,6 +197,9 @@
 								$mysql_status = insertInto($connection, $sql);
 								if($mysql_status != "OK"){
 									$statusZip = FALSE;
+								}
+								else{
+									echo "Postkoden er endret til '" . $newzip . "'<br>";
 								}
 							}
 							else{
@@ -189,14 +212,22 @@
 							if($mysql_status != "OK"){
 								$statusPicURL = FALSE;
 							}
+							else{
+								echo "Bilde er oppdatert!<br>";
+							}
 						}
-						if(isset($_POST['password']) && $newpassword != $_SESSION['password']){
+						if(isset($_POST['password']) && better_crypt($newpassword) != $_SESSION['password']){
 							if($newpassword == $newrepeat_password){
 								//Hashing av passord
-								$sql = "UPDATE User SET password = '$newpassword' WHERE email = '$email'";
+								$hash = better_crypt($newpassword);
+
+								$sql = "UPDATE User SET password = '$hash' WHERE email = '$email'";
 								$mysql_status = insertInto($connection, $sql);
 								if($mysql_status != "OK"){
 									$statusPassword = FALSE;
+								}
+								else{
+									echo "Passord er endret!<br>";
 								}
 							}
 							else{
