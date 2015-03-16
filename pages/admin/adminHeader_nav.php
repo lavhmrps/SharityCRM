@@ -2,7 +2,7 @@
 <?php
 	session_start();
 	if(!isset($_SESSION['username'])){
-		header('Location: loginAdmin.php');
+		//header('Location: loginAdmin.php');
 
 		//<script type="text/javascript"> window.location adminHome;  </script>
 	}
@@ -12,8 +12,8 @@
 		
 		header('Location: loginAdmin.php');
 	}
-	include 'connect.php';
+	//include 'connect.php';
 
 
 ?>
-<nav><a href="adminHome.php">Hjem</a> - <a href="adminShowOrganizations.php">Vis alle organisasjoner</a> - <a href="adminShowUsers.php">Vis alle brukere<a/></nav>
+<nav><a href="adminHome.php">Hjem</a> - <a href="change_organization.php">Endre organisasjon</a> - <a href="change_user.php">Endre bruker<a/></nav>

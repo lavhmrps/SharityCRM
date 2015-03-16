@@ -1,5 +1,16 @@
 <?php
-	include '../phpBackend/connect.php';
+	//include '../phpBackend/connect.php';
+	$connection = mysqli_connect("localhost", "root", "", "database") or die("Kunne ikke koble til database");
+
+	function insertInto($connection, $sql) {
+		if (mysqli_query($connection, $sql) === TRUE) {
+			return "OK";
+		}else{
+			return mysqli_error($connection);
+		//sjekk om det er duplicate entry !
+		}
+	}
+
 ?>
 
 <!DOCTYPE html>
@@ -47,12 +58,15 @@
 				<?php		
 					if(isset($_POST['submit'])){
 						$email = $_POST['username'];
-					
-						$sql = "SELECT * FROM User WHERE email = $email";
+
+
+						$sql = "SELECT * FROM User WHERE email = '$email'";
 						$result = mysqli_query($connection, $sql);
 
 						if($result){
+
 							if(mysqli_num_rows($result) == 1){
+
 								$row = mysqli_fetch_assoc($result);
 								
 								$name = $row['name'];
@@ -61,15 +75,22 @@
 								$zip = $row['zip'];
 								$picURL = $row['picURL'];		
 								$password = $row['password'];
+								$_SESSION['name'] = $row['name'];
+								$_SESSION['phone'] = $row['phone'];
+								$_SESSION['address'] = $row['address'];
+								$_SESSION['zip'] = $row['zip'];
+								$_SESSION['picURL'] = $row['picURL'];
+								$_SESSION['password'] = $row['password'];
 
-
+								echo '<form action="" method="post">';
 								echo "<label>E-post</label>";
 								echo '<input type="email" class="form-control" name="email" id="changeUser" placeholder="" value="' . $email . '"/>';
-
+								echo '<input type="hidden" name="emailOld" value="' . $email .'">';
+								
 								echo "<label>Navn</label>";
 								echo '<input type="text" class="form-control" name="name" id="changeUser" placeholder="" value="' . $name . '"/>';
 
-								echo "<label>Telefonnummer/label>";
+								echo "<label>Telefonnummer</label>";
 								echo '<input type="tel" class="form-control" name="phone" id="changeUser" placeholder="" value="' . $phone . '"/>';
 
 								echo "<label>Adresse</label>";
@@ -92,7 +113,110 @@
 				                		Oppdater bruker
 				                		</button>
 				                	';
+				                echo '</form>';
 							}
+						}
+					}
+					if(isset($_POST['update_info'])){
+						$statusEmail = TRUE;
+						$statusName = TRUE;
+						$statusPhone = TRUE;
+						$statusAddress = TRUE;
+						$statusZip = TRUE;
+						$statusPicURL = TRUE;
+						$statusPassword = TRUE;
+
+						$email = $_POST['emailOld'];
+						$newemail = $_POST['email'];
+						$newname = $_POST['name'];
+						$newphone = $_POST['phone'];
+						$newaddress = $_POST['address'];
+						$newzip = $_POST['zip'];
+						$newpicURL = $_POST['picURL'];		
+						$newpassword = $_POST['password'];
+						$newrepeat_password = $_POST['repeat_password'];
+
+
+						if ($email != $newemail) {
+							if(isset($_POST['email'])){
+								$sql = "UPDATE User SET email = '$newemail' WHERE email = '$email'";
+								$mysql_status = insertInto($connection, $sql);
+								if($mysql_status != "OK"){
+									$statusEmail = FALSE;
+								}
+								else{
+									$email = $newemail;
+								}
+							}
+						}
+						if(isset($_POST['name']) && $newname != $_SESSION['name']){
+							$sql = "UPDATE User SET name = '$newname' WHERE email = '$email'";
+							$mysql_status = insertInto($connection, $sql);
+							if($mysql_status != "OK"){
+								$statusName = FALSE;
+							}
+						}
+						if(isset($_POST['phone']) && $newphone != $_SESSION['phone']){
+							$sql = "UPDATE User SET phone = '$newphone' WHERE email = '$email'";
+							$mysql_status = insertInto($connection, $sql);
+							if($mysql_status != "OK"){
+								$statusPhone = FALSE;
+							}
+						}
+						if(isset($_POST['address']) && $newaddress != $_SESSION['address']){
+							$sql = "UPDATE User SET address = '$newaddress' WHERE email = '$email'";
+							$mysql_status = insertInto($connection, $sql);
+							if($mysql_status != "OK"){
+								$statusAddress = FALSE;
+							}
+						}
+						if(isset($_POST['zip']) && $newzip != $_SESSION['zip']){
+
+							if (strlen($newzip)==4) {
+								$sql = "UPDATE User SET zip = '$newzip' WHERE email = '$email'";
+								$mysql_status = insertInto($connection, $sql);
+								if($mysql_status != "OK"){
+									$statusZip = FALSE;
+								}
+							}
+							else{
+								echo "Postkoden må være 4 siffer!<br>";
+							}
+						}
+						if(isset($_POST['picURL']) && $newpicURL != $_SESSION['picURL']){
+							$sql = "UPDATE User SET picURL = '$newpicURL' WHERE email = '$email'";
+							$mysql_status = insertInto($connection, $sql);
+							if($mysql_status != "OK"){
+								$statusPicURL = FALSE;
+							}
+						}
+						if(isset($_POST['password']) && $newpassword != $_SESSION['password']){
+							if($newpassword == $newrepeat_password){
+								//Hashing av passord
+								$sql = "UPDATE User SET password = '$newpassword' WHERE email = '$email'";
+								$mysql_status = insertInto($connection, $sql);
+								if($mysql_status != "OK"){
+									$statusPassword = FALSE;
+								}
+							}
+							else{
+								echo "Passordene er ikke like!<br>";
+							}
+						}
+
+
+						unset($_SESSION['password']);
+
+						$statusEmail = TRUE;
+						$statusName = TRUE;
+						$statusPhone = TRUE;
+						$statusAddress = TRUE;
+						$statusZip = TRUE;
+						$statusPicURL = TRUE;
+						$statusPassword = TRUE;
+
+						if($statusEmail && $statusName && $statusPhone && $statusAddress && $statusZip && $statusPicURL && $statusPassword){
+							echo "Suksessfull oppdatering.";
 						}
 					}
 				?>	
@@ -109,6 +233,8 @@
 	<script src="js/jquery.js"></script>
 	<!--Check login information-->
 	<script src="checkLogin.js"></script>
+	<!-- Change user information 
+	<script src="../js/change_user.js"></script>-->
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
 
@@ -116,4 +242,3 @@
 
 
 </html>
-

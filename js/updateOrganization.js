@@ -12,6 +12,12 @@ $('button[name=complete_registration]').click(function(event){
 
 });
 
+$('button[name=update_info]').click(function(event){
+	insertInformation();
+	window.location.replace('../pages/Admin/change_organization.php');
+
+});
+
 
 $("#preview").click(function(){
 	$("#file_background").trigger("click");
