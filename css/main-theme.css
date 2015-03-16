@@ -76,7 +76,7 @@ body{
 /** Home.php **/
 #homebox{
 	background:#efefef;
-	border:1px solid #ddd;
+
 	color:#000;
 }
 
@@ -93,7 +93,7 @@ body{
 /** end of home.php **/
 
 /** show all projects**/
-#projectcontainer{
+#projectcontainer, #newscontainer{
 	background-color: #333 ;
 	border:1px solid #000;
 	color: #FFF;

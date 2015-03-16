@@ -859,12 +859,25 @@ input[id="projectSavebtn"]{
 	margin:5px;
 	margin-top:20px;
 	margin-left: 25px;
+	width:350px;
+	height:350px;
+}
+
+#projectcontent{
+	overflow:hidden;
+	height: 340px;
+	margin-bottom: 10px;
+}
+
+#newscontainer{
+	border-radius: 0px;
+	margin:5px;
+	margin-top:20px;
+	margin-left: 25px;
 	width:260px;
 	height:250px;
 }
-
-
-#projectcontent{
+#newscontent{
 	overflow:hidden;
 	height: 245px;
 	margin-bottom: 10px;
@@ -1025,14 +1038,16 @@ img{
 	margin-top:15px;
 	margin-bottom: 5px;
 	width:100%;
-	height:271px;
+	height:200px;
 }
+
+
 /*end home*/
 
-.settingsbtn{
-	height:100%;
+#showprojectimg{
+	height:50px;
+	width:100%;
 }
-
 
 
 

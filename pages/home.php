@@ -57,12 +57,13 @@ include '../phpBackend/connect.php';
 
 
 		while ($row = mysqli_fetch_assoc($result)) {
-			echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='projectBackground'/>";
+			
 			echo "<h2>" . $row['name']."</h2>";
+			echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='projectBackground'/>";
 			echo "<br/><h3>" . $row['title']."</h3>";
 			echo "<br/><h4>" . $row['country'];
 			echo ", " . $row['city']."</h4>";
-			echo "<br/>Om prosjektet: " . $row['about'];
+			echo "<br/> " . $row['about'];
 			echo "<br/><br/><br/><br/>";
 
 		}
@@ -166,9 +167,10 @@ include '../phpBackend/connect.php';
 
 
 	while ($row = mysqli_fetch_assoc($result)) {
-		echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='projectBackground'/>";
+		
 		echo "<h2>" . $row['title']."</h2>";
-		echo "<br/>Om prosjektet: " . $row['txt'];
+		echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='projectBackground'/>";
+		echo "<br/>" . $row['txt'];
 		echo "<br/><br/><br/><br/>";
 
 	}

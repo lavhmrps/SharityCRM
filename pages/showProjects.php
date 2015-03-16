@@ -38,7 +38,7 @@ $organizationNr = $_SESSION['organizationNr'];
 	<?php
 	include '../pages/header_nav.php';
 	?>
-	<div class="container">
+	<div class="container"><!-- 3 på rad i container eller 4 på rad uten container ?-->
 	<div class="row">
 		
 
@@ -51,9 +51,10 @@ $organizationNr = $_SESSION['organizationNr'];
 
 		if (mysqli_num_rows($result) >= 1) {
 			while ($row = mysqli_fetch_assoc($result)) {
-				echo '<div class="col-md-3" id="projectcontainer">';
+				echo '<div class="col-md-4" id="projectcontainer">';
 				echo '<div class="col-md-12" id="projectcontent">';
 				echo "<h2>" . $row['name'] . "</h2>"; 
+				echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='showprojectimg'/>";
 				echo "<h3>" . $row['title'] . "</h3>";
 				echo "<p>" . $row['about'] . "</p><br/>";
 				echo '</div>';
