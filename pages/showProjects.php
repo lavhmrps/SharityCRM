@@ -60,7 +60,11 @@ $organizationNr = $_SESSION['organizationNr'];
 				echo '</div>';
 				echo "<div class='col-md-12' id='bottom'>";
 				echo '<a href="../pages/showSelectedProject.php" onclick="showProject(' . $row['projectID'] . ')">Vis</a> - ';
+<<<<<<< Updated upstream
 				echo '<a href="change_projectinfo.php" onclick="showProject(' . $row['projectID'] . ')">Endre</a> - ';
+=======
+				echo '<a href="change_projectinfo.php" onclick="showProject(' . $row['projectID'] . ')" >Endre</a> - ';
+>>>>>>> Stashed changes
 				echo '<a href="">Slett</a>';
 				echo '</div>';
 				echo '</div>';
