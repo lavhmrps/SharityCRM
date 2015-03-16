@@ -62,7 +62,9 @@ if(isset($_POST['logout'])){
             
             <ul class="nav navbar-nav navbar-right">
                 <li>
+                    
                     <form method="post">
+
                         <input type="submit" name="logout" id="logoutbtn" value="Logg ut"/>
                     </form>
                 </li>

@@ -110,33 +110,30 @@ include '../phpBackend/connect.php';
 
 	<div class="col-md-5" id="homebox">
 		<?php
-		$sql = "SELECT Donation.*, Project.name FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE Project.organizationNr = $organizationNr";
+		$organizationNr = $_SESSION['organizationNr'];
+		$sql = "SELECT * FROM Project WHERE organizationNr = $organizationNr ORDER BY date_added DESC LIMIT 1";
 		$result = mysqli_query($connection, $sql);
 
-		if ($result) {
 
-			echo "Antall donasjoner: " . mysqli_num_rows($result) . "</br>";
-			echo "Antall unike givere?: </br></br></br></br>";
-			echo "";
-			$sum = 0;
 
 
 			while ($row = mysqli_fetch_assoc($result)) {
+				echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='projectBackground'/>";
+				echo "<h2>" . $row['name']."</h2>";
+				echo "<br/><h3>" . $row['title']."</h3>";
+				echo "<br/><h4>" . $row['country'];
+				echo ", " . $row['city']."</h4>";
+				echo "<br/>Om prosjektet: " . $row['about'];
+				echo "<br/><br/><br/><br/>";
 
-				echo "Donert til prosjektID: " . $row['projectID'];
-				echo "<br/>Sum donert: " . $row['sum'] . " kr";
-				echo "<br/>Prosjektnavn: " . $row['name'];
-				echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
-
-				$sum += $row['sum'];
-			}
-			echo "<h2>Sum kroner innsammlet: " . $sum;
-		} else {
-			echo "<h2>Failure</h2>";
-		}
+ }
 
 
 		?>
+		<div class="col-md-6 text-right"></div>
+		<div class="col-md-6 text-right">
+			<a href="../pages/showProjects.php" id="changeOrginfoA">Vis alle prosjekter</a>
+		</div>
 	</div>
 
 
@@ -144,6 +141,35 @@ include '../phpBackend/connect.php';
 
 </div>
 <div class="col-md-3" id="homebox">
+	
+	<?php
+		$organizationNr = $_SESSION['organizationNr'];
+
+		$sql = "SELECT News.*, Project.name FROM News INNER JOIN Project ON News.projectID = Project.projectID WHERE Project.organizationNr = $organizationNr ORDER BY date_added DESC LIMIT 1";
+		$result = mysqli_query($connection, $sql);
+
+
+
+
+			while ($row = mysqli_fetch_assoc($result)) {
+				echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='projectBackground'/>";
+				echo "<h2>" . $row['title']."</h2>";
+				echo "<br/>Om prosjektet: " . $row['txt'];
+				echo "<br/><br/><br/><br/>";
+
+ }
+
+
+		?>
+		<div class="col-md-6 text-right"></div>
+		<div class="col-md-6 text-right">
+			<a href="../pages/showNews.php" id="changeOrginfoA">Vis alle nyheter</a>
+		</div>
+
+	
+
+</div>
+<div class="col-md-12 text-center" id="homebox">
 	
 	<h1>Velg tema:</h1>
 

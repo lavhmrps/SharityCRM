@@ -1,0 +1,25 @@
+$sql = "SELECT Donation.*, Project.name FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE Project.organizationNr = $organizationNr";
+		$result = mysqli_query($connection, $sql);
+
+		if ($result) {
+
+			echo "Antall donasjoner: " . mysqli_num_rows($result) . "</br>";
+			echo "Antall unike givere?: </br></br></br></br>";
+			echo "";
+			$sum = 0;
+
+
+			while ($row = mysqli_fetch_assoc($result)) {
+
+				echo "Donert til prosjektID: " . $row['projectID'];
+				echo "<br/>Sum donert: " . $row['sum'] . " kr";
+				echo "<br/>Prosjektnavn: " . $row['name'];
+				echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
+
+				$sum += $row['sum'];
+			}
+			echo "<h2>Sum kroner innsammlet: " . $sum;
+		} else {
+			echo "<h2>Failure</h2>";
+		}
+

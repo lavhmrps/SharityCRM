@@ -5,8 +5,8 @@ session_start();
 include "../phpBackend/connect.php";
 
 
-if (isset($_SESSION['organizationNr'])) {
-	if(isset($_POST['organization'])){
+if (isset($_SESSION['projectID'])) {
+	if(isset($_POST['project'])){
 		
 		$statusName = TRUE;
 		$statusTitle = TRUE;
@@ -15,50 +15,50 @@ if (isset($_SESSION['organizationNr'])) {
 		$statusAbout = TRUE;
 
 
-		$json = $_POST['organization'];
-		$organization = json_decode($json, true);
+		$json = $_POST['project'];
+		$project = json_decode($json, true);
 
 
 
 
-		$projectID = $_SESSION['projectIDtoShow'];
+		$projectNr = $_SESSION['projectIDtoShow'];
 		
-		if(isset($organization['name'])){
-			$name = $organization['name'];
-			$sql = "UPDATE Project SET name = '$name' WHERE projectID = '$projectID'";
+		if(isset($project['name'])){
+			$name = $project['name'];
+			$sql = "UPDATE Project SET name = '$name' WHERE projectID = '$projectNr'";
 			$mysql_status = insertInto($connection, $sql);
 			if($mysql_status != "OK"){
 				$statusName = FALSE;
 			}
 		}
 
-		if(isset($organization['title'])){
-			$title = $organization['title'];
-			$sql = "UPDATE Project SET title = '$title' WHERE projectID = '$projectID'";
+		if(isset($project['title'])){
+			$title = $project['title'];
+			$sql = "UPDATE Project SET title = '$title' WHERE projectID = '$projectNr'";
 			$mysql_status = insertInto($connection, $sql);
 			if($mysql_status != "OK"){
 				$statusTitle = FALSE;
 			}
 		}
-		if(isset($organization['country'])){
-			$country = $organization['country'];
-			$sql = "UPDATE Project SET country = '$country' WHERE projectID = '$projectID'";
+		if(isset($project['country'])){
+			$country = $project['country'];
+			$sql = "UPDATE Project SET country = '$country' WHERE projectID = '$projectNr'";
 			$mysql_status = insertInto($connection, $sql);
 			if($mysql_status != "OK"){
 				$statusCountry = FALSE;
 			}
 		}
-		if(isset($organization['city'])){
-			$city = $organization['city'];
-			$sql = "UPDATE Project SET city = '$city' WHERE projectID = '$projectID'";
+		if(isset($project['city'])){
+			$city = $project['city'];
+			$sql = "UPDATE Project SET city = '$city' WHERE projectID = '$projectNr'";
 			$mysql_status = insertInto($connection, $sql);
 			if($mysql_status != "OK"){
 				$statusCity = FALSE;
 			}
 		}
-		if(isset($organization['about'])){
-			$about = $organization['about'];
-			$sql = "UPDATE Project SET about = '$about' WHERE projectID = '$projectID'";
+		if(isset($project['about'])){
+			$about = $project['about'];
+			$sql = "UPDATE Project SET about = '$about' WHERE projectID = '$projectNr'";
 			$mysql_status = insertInto($connection, $sql);
 			if($mysql_status != "OK"){
 				$statusAbout = FALSE;

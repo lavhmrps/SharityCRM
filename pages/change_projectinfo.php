@@ -199,7 +199,7 @@ include '../phpBackend/connect.php';
                 }
 
                 if(ok == 0){
-                    alert("Fyll inn alle felters, informasjon kan gå tapt, trykk ok for å samtykke");
+                    alert("Fyll inn alle felter, informasjon kan gå tapt, trykk ok for å samtykke");
                 }
 
 
@@ -218,7 +218,7 @@ include '../phpBackend/connect.php';
                     type: "POST",
                     dataType : "text",
                     url : "../phpBackend/updateProject.php",
-                    data : {"organization" : json},
+                    data : {"project" : json},
                     success : function(response){
                         if(response == "OK"){
                             alert("Successful ajax request from change_projectinfo.js calling to updateProject.php " + response);
