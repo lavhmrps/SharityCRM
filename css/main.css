@@ -825,6 +825,7 @@ input[id="projectSavebtn"]{
 	margin:20px;
 	margin-top:20px;
 	border-radius: 4px;
+	height:80%;
 }
 
 #homebox h2, #homebox h3{
@@ -987,19 +988,27 @@ input#logoutbtn{
 img{
 }
 
-
+#imagecontainer{
+	position: relative;
+}
 
 /*Homelogo + background*/
 #orgLogo{
-	width:100%;
-	height:70px;
-	margin-top: 15px;
+	width:100px;
+	height:100px;
+	margin-top: 30px;
+	margin-right: 30px;
 	margin-bottom: 1px;
+	position: absolute;
+	top: 0; right: 0;
+	border-radius: 10000px;
 }
 #orgBackground{
 	width:100%;
 	height:200px;
+	margin-top: 15px;
 	margin-bottom:5px;
+	position: relative;
 }
 
 #projectBackground{
