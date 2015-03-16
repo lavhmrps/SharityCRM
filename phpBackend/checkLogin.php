@@ -3,6 +3,7 @@
 ob_start();
 
 include '../phpBackend/connect.php';
+include '../phpBackend/hash.php';
 
 if (isset($_POST['combination'])) {
     $json = $_POST['combination'];
@@ -20,7 +21,9 @@ if (isset($_POST['combination'])) {
         $row = mysqli_fetch_assoc($result);
         $dbpassword = $row['password'];
 
-        if($password == $dbpassword) {
+        $hash = crypt($password, $dbpassword);
+
+        if($hash == $dbpassword) {
             session_start();
             $_SESSION['organizationNr'] = $organizationNr;
             echo "OK";    
