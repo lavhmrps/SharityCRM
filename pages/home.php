@@ -70,8 +70,8 @@ include '../phpBackend/connect.php';
 
 		?>
 		<div class="col-md-6 text-right"></div>
-		<div class="col-md-6 text-right">
-			<a href="../pages/showProjects.php" id="changeOrginfoA">Vis alle prosjekter</a>
+		<div class="col-md-6 text-right" id="bottomhome">
+			<a href="../pages/showProjects.php" id="">Vis alle prosjekter</a>
 		</div>
 
 
@@ -145,7 +145,7 @@ include '../phpBackend/connect.php';
 		} ?>
 		
 		<div class="col-md-6"></div>
-		<div class="col-md-6 text-right">
+		<div class="col-md-6 text-right" id="bottomhome">
 			<a href="../pages/change_orginfo.php" id="changeOrginfoA">Endre informasjon</a>
 		</div>
 	</div>
@@ -176,7 +176,7 @@ include '../phpBackend/connect.php';
 
 	?>
 	<div class="col-md-6 text-right"></div>
-	<div class="col-md-6 text-right">
+	<div class="col-md-6 text-right" id="bottomhome">
 		<a href="../pages/showNews.php" id="changeOrginfoA">Vis alle nyheter</a>
 	</div>
 

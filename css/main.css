@@ -322,6 +322,8 @@ input[id=inCountry]::-webkit-input-placeholder, input[id="inCity"]::-webkit-inpu
 	margin-left: 10px;
 }
 
+
+
 input[id="bottomTitle"]{
 	background-color: transparent;
 	border:none;
@@ -877,6 +879,13 @@ input[id="projectSavebtn"]{
 	margin-left:-15px;
 }
 
+#bottomhome{
+	bottom:0;
+	right:0;
+	position: absolute;
+	margin-left: -15px;
+}
+
 #aboutOrgPadding{
 	padding-left:30px;
 }
@@ -889,6 +898,7 @@ input[id="projectSavebtn"]{
 #changeOrginfoA{
 	padding:10px;
 	margin-bottom: 20px;
+	bottom:0;
 }
 
 input#logoutbtn{
