@@ -249,6 +249,15 @@ input[id="uname"]:-webkit-autofill, input[id="passwd"]:-webkit-autofill {
 
 /** BUTTONS **/
 
+#alternate1btn{
+	background-color: #108F10;
+	color: #F4F7CA;
+}
+
+#alternate1btn:hover{
+	background-color: #10A810;
+}
+
 .greenbtn{
 	background-color: #10A810;
 	color: #F4F7CA;
@@ -354,6 +363,13 @@ a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
 
 
 /** END OF BUTTONS**/
+
+
+/** reg container**/
+#regcontainer{
+	background-color: #efefef;
+}
+/** End of regcontainer**/
 
 /** showselectedproject**/
 

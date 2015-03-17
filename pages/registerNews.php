@@ -45,6 +45,7 @@ if(isset($_POST['registerNews'])){
 
 
 		</div>
+		<div id="regcontainer">
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8 text-center" id="registernewscontainer">
@@ -85,13 +86,14 @@ if(isset($_POST['registerNews'])){
 				<input type="text" id="reg_news_input" class="form-control" name="newsHeader" placeholder=""/>
 				<label>Nyhetstekst</label>
 				<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="newsText" placeholder="Nyhetstekst" ></textarea>
-				<button  class="btn btn-success" name="insertNews">
+				<button  class="btn" name="insertNews" id="alternate1btn">
 					Publiser nyhet
 				</button>
 
 
 			</div>
 			<div class="col-md-2"></div>
+		</div>
 		</div>
 	</div>
 	<div class="col-md-3"></div>

@@ -100,6 +100,14 @@ html, body{
 }
 /** end of home.php **/
 
+/** reg container**/
+#regcontainer{
+	background:#000;
+	border:1px solid #eee;
+	color:#fff;
+}
+/** End of regcontainer**/
+
 /** show all projects & news**/
 #projectcontainer{
 	background-color: #222 ;
@@ -224,7 +232,7 @@ h1{
 }
 
 label{
-	color: #010101;
+	color: #efefef;
 }
 
 
@@ -315,7 +323,16 @@ input[id="uname"]:-webkit-autofill, input[id="passwd"]:-webkit-autofill {
 /** END OF INPUTS **/
 
 /** BUTTONS **/
+#alternate1btn{
+	background-color: #FFF100;
+	border: 1px solid #000;
+	color:#000;
+	font-weight: bold;
+}
 
+#alternate1btn:hover{
+	background-color: #FFD000;
+}
 .greenbtn{
 	background-color: #10A810;
 	color: #F4F7CA;

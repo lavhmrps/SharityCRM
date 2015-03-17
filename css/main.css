@@ -99,6 +99,12 @@ body{
 
 
 /******************** CONTAINERS ********************/
+
+#regcontainer{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 #skipContainer{
 	text-align: right;
 }
@@ -1248,6 +1254,12 @@ input[id=aboutOrg]:focus{
 		font-size: 14px;
 		width:49.5%;
 		height:34px;
+	}
+
+	#alternate1btn{
+		width:98%;
+		margin:5px;
+		margin-bottom: 50px;
 	}
 
 	/* btns registration_pt2 */

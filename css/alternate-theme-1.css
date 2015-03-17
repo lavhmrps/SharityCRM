@@ -128,6 +128,10 @@ html, body{
 
 /** END **/
 
+#regcontainer{
+	background-color: #212121;
+}
+
 /** showselectedproject**/
 
 #selectedprojectcontainer h1{
@@ -423,6 +427,15 @@ a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
 	color: #000;
 }
 
+#alternate1btn{
+	background-color: transparent;
+	border: 1px solid #fff;
+	color:#fff;
+}
+
+#alternate1btn:hover{
+	background-color: #111;
+}
 
 /** END OF BUTTONS**/
 
