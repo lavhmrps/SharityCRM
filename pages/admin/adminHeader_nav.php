@@ -16,4 +16,4 @@
 
 
 ?>
-<nav><a href="adminHome.php">Hjem</a> - <a href="change_organization.php">Endre organisasjon</a> - <a href="change_user.php">Endre bruker<a/></nav>
+<nav><a href="adminHome.php">Hjem</a> - <a href="change_organization.php">Endre organisasjon</a> - <a href="change_user.php">Endre bruker<a/> - <a href="statistics.php">Statitikk</a></nav>
