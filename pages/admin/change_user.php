@@ -85,6 +85,7 @@
 								$address = $row['address'];
 								$zip = $row['zip'];
 								$picURL = $row['picURL'];
+								$password = $row['password'];
 								$_SESSION['name'] = $row['name'];
 								$_SESSION['phone'] = $row['phone'];
 								$_SESSION['address'] = $row['address'];
@@ -113,10 +114,10 @@
 								echo '<input type="text" class="form-control" name="picURL" id="changeUser" placeholder="" value="' . $picURL . '"/>';
 
 								echo "<label>Passord</label>";
-								echo '<input type="password" class="form-control" name="password" id="changeUser" placeholder="" value=""/>';
+								echo '<input type="password" class="form-control" name="password" id="changeUser" placeholder="" value="' . $password . '"/>';
 
 								echo "<label>Gjenta passord</label>";
-								echo '<input type="password" class="form-control" name="repeat_password" id="changeUser" placeholder="" value=""/>';
+								echo '<input type="password" class="form-control" name="repeat_password" id="changeUser" placeholder="" value="' . $password . '"/>';
 
 								echo '
 				                	<button  class="btn btn-success" name="update_info">
@@ -216,7 +217,7 @@
 								echo "Bilde er oppdatert!<br>";
 							}
 						}
-						if(isset($_POST['password']) && better_crypt($newpassword) != $_SESSION['password']){
+						if(isset($_POST['password']) && crypt($newpassword, $_SESSION['password']) != $_SESSION['password'] && $newpassword != $_SESSION['password']){
 							if($newpassword == $newrepeat_password){
 								//Hashing av passord
 								$hash = better_crypt($newpassword);

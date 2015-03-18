@@ -28,8 +28,13 @@
 		<div class="col-md-3"></div>
 
 		<div class="col-md-6 text-center" id="">
-			<div class="row">
 			<form action="" method="post">
+			<div class="row">
+					<input type="text" name="date" placeholder="yyyy-mm-dd"  id="datepicker">
+			</div>
+ 
+
+			<div class="row">
 				<button type="submit" class="btn" name="day" id="searchbtn">
 					Dag
 				</button>
@@ -45,8 +50,8 @@
 				<button type="submit" class="btn" name="allTime" id="searchbtn">
 					Hele tiden
 				</button>
-			</form>
 			</div>
+			</form>
 
 			
 
@@ -70,10 +75,14 @@
 			}
 
 
+
+
 			function day(){
 				$connection = mysqli_connect("localhost", "root", "", "database") or die("Kunne ikke koble til database");
 
-				$sql = "SELECT COUNT(*) FROM Organization WHERE DATE(date_added) = CURDATE()";
+				$date = $_POST['date'];
+
+				$sql = "SELECT COUNT(*) FROM Organization WHERE DATE(date_added) = '" . $date . "'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -86,7 +95,7 @@
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM Donation WHERE DATE(date) = CURDATE()";
+				$sql = "SELECT COUNT(*) FROM Donation WHERE DATE(date) = '" . $date . "'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -99,7 +108,7 @@
 					}
 				}
 
-				$sql = "SELECT SUM(sum) FROM Donation WHERE DATE(date) = CURDATE()";
+				$sql = "SELECT SUM(sum) FROM Donation WHERE DATE(date) = '" . $date . "'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -117,7 +126,7 @@
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM News WHERE DATE(date_added) = CURDATE()";
+				$sql = "SELECT COUNT(*) FROM News WHERE DATE(date_added) = '" . $date . "'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -130,7 +139,7 @@
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM Project WHERE DATE(date_added) = CURDATE()";
+				$sql = "SELECT COUNT(*) FROM Project WHERE DATE(date_added) = '" . $date . "'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -143,7 +152,7 @@
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM User WHERE DATE(date_added) = CURDATE()";
+				$sql = "SELECT COUNT(*) FROM User WHERE DATE(date_added) = '" . $date . "'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -161,8 +170,9 @@
 			function week(){
 				$connection = mysqli_connect("localhost", "root", "", "database") or die("Kunne ikke koble til database");
 
-				//$sql = "SELECT COUNT(*) FROM Organization WHERE DATE(date_added) = CURDATE()";
-				$sql = "SELECT COUNT(*) FROM Organization WHERE WEEKOFYEAR(date(date_added))=WEEKOFYEAR(NOW())";
+				$date = $_POST['date'];
+
+				$sql = "SELECT COUNT(*) FROM Organization WHERE WEEKOFYEAR(date(date_added))=WEEKOFYEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -175,7 +185,7 @@
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM Donation WHERE WEEKOFYEAR(date(date))=WEEKOFYEAR(NOW())";
+				$sql = "SELECT COUNT(*) FROM Donation WHERE WEEKOFYEAR(date(date))=WEEKOFYEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -188,7 +198,7 @@
 					}
 				}
 
-				$sql = "SELECT SUM(sum) FROM Donation WHERE WEEKOFYEAR(date(date))=WEEKOFYEAR(NOW())";
+				$sql = "SELECT SUM(sum) FROM Donation WHERE WEEKOFYEAR(date(date))=WEEKOFYEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -206,7 +216,7 @@
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM News WHERE WEEKOFYEAR(date(date_added))=WEEKOFYEAR(NOW())";
+				$sql = "SELECT COUNT(*) FROM News WHERE WEEKOFYEAR(date(date_added))=WEEKOFYEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -219,7 +229,7 @@
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM Project WHERE WEEKOFYEAR(date(date_added))=WEEKOFYEAR(NOW())";
+				$sql = "SELECT COUNT(*) FROM Project WHERE WEEKOFYEAR(date(date_added))=WEEKOFYEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -232,7 +242,7 @@
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM User WHERE WEEKOFYEAR(date(date_added))=WEEKOFYEAR(NOW())";
+				$sql = "SELECT COUNT(*) FROM User WHERE WEEKOFYEAR(date(date_added))=WEEKOFYEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -249,7 +259,9 @@
 			function month(){
 				$connection = mysqli_connect("localhost", "root", "", "database") or die("Kunne ikke koble til database");
 
-				$sql = "SELECT COUNT(*) FROM Organization WHERE MONTH(date(date_added)) = MONTH(NOW()) AND YEAR(date(date_added)) = YEAR(NOW())";
+				$date = $_POST['date'];
+
+				$sql = "SELECT COUNT(*) FROM Organization WHERE MONTH(date(date_added)) = MONTH('" . $date . "') AND YEAR(date(date_added)) = YEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -262,7 +274,7 @@
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM Donation WHERE MONTH(date(date)) = MONTH(NOW()) AND YEAR(date(date)) = YEAR(NOW())";
+				$sql = "SELECT COUNT(*) FROM Donation WHERE MONTH(date(date)) = MONTH('" . $date . "') AND YEAR(date(date)) = YEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -275,7 +287,7 @@
 					}
 				}
 
-				$sql = "SELECT SUM(sum) FROM Donation WHERE MONTH(date(date)) = MONTH(NOW()) AND YEAR(date(date)) = YEAR(NOW())";
+				$sql = "SELECT SUM(sum) FROM Donation WHERE MONTH(date(date)) = MONTH('" . $date . "') AND YEAR(date(date)) = YEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -293,7 +305,7 @@
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM News WHERE MONTH(date(date_added)) = MONTH(NOW()) AND YEAR(date(date_added)) = YEAR(NOW())";
+				$sql = "SELECT COUNT(*) FROM News WHERE MONTH(date(date_added)) = MONTH('" . $date . "') AND YEAR(date(date_added)) = YEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -306,7 +318,7 @@
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM Project WHERE MONTH(date(date_added)) = MONTH(NOW()) AND YEAR(date(date_added)) = YEAR(NOW())";
+				$sql = "SELECT COUNT(*) FROM Project WHERE MONTH(date(date_added)) = MONTH('" . $date . "') AND YEAR(date(date_added)) = YEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -319,7 +331,7 @@
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM User WHERE MONTH(date(date_added)) = MONTH(NOW()) AND YEAR(date(date_added)) = YEAR(NOW())";
+				$sql = "SELECT COUNT(*) FROM User WHERE MONTH(date(date_added)) = MONTH('" . $date . "') AND YEAR(date(date_added)) = YEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -336,7 +348,9 @@
 			function year(){
 				$connection = mysqli_connect("localhost", "root", "", "database") or die("Kunne ikke koble til database");
 
-				$sql = "SELECT COUNT(*) FROM Organization WHERE YEAR(date(date_added))=YEAR(NOW())";
+				$date = $_POST['date'];
+
+				$sql = "SELECT COUNT(*) FROM Organization WHERE YEAR(date(date_added))=YEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -349,7 +363,7 @@
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM Donation WHERE YEAR(date(date))=YEAR(NOW())";
+				$sql = "SELECT COUNT(*) FROM Donation WHERE YEAR(date(date))=YEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -362,7 +376,7 @@
 					}
 				}
 
-				$sql = "SELECT SUM(sum) FROM Donation WHERE YEAR(date(date))=YEAR(NOW())";
+				$sql = "SELECT SUM(sum) FROM Donation WHERE YEAR(date(date))=YEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -380,7 +394,7 @@
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM News WHERE YEAR(date(date_added))=YEAR(NOW())";
+				$sql = "SELECT COUNT(*) FROM News WHERE YEAR(date(date_added))=YEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -393,7 +407,7 @@
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM Project WHERE YEAR(date(date_added))=YEAR(NOW())";
+				$sql = "SELECT COUNT(*) FROM Project WHERE YEAR(date(date_added))=YEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -406,7 +420,7 @@
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM User WHERE YEAR(date(date_added))=YEAR(NOW())";
+				$sql = "SELECT COUNT(*) FROM User WHERE YEAR(date(date_added))=YEAR('" . $date . "')";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -457,6 +471,8 @@
 
 						$res = $row['SUM(sum)'];
 
+						$donert = $res;
+
 						if ($res == "") {
 							echo 'Kroner donert: 0,-<br>';
 						}
@@ -504,6 +520,11 @@
 						echo 'Brukere: ' . $res . '<br>';
 					}
 				}
+
+				$totalt = $donert/$res;
+
+				echo 'Hver bruker har donert "'.$totalt.'",- i snitt.';
+
 			}
 			?>
 
@@ -523,6 +544,16 @@
 	<script src="../js/change_user.js"></script>-->
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+            // When the document is ready
+            $(document).ready(function () {
+                
+                $('#datepicker').datepicker({
+                    format: "yyyy-mm-dd"
+                });  
+            
+            });
+        </script>
 
 </body>
 
