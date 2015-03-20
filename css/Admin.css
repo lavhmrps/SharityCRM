@@ -1,5 +1,10 @@
 body{
-	background-color: #333;
+	background-color: rgba(173,139,175,0.2);
+	color:white;
+}
+
+input{
+	color:black;
 }
 
 #adminlogin{
