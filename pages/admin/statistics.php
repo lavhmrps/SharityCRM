@@ -267,101 +267,105 @@ function showStatisticsAllTime(){
 	localStorage.setItem("december", sumDec);
 
 
-
-	$.ajax({
-		type:"POST",
-		data: {"getSQL" :  "SELECT * FROM Donation"},
-		url : "http://localhost/SharityCRM/appBackend/appBackend.php",
-		dataType : "json",
-		success : function(response){
-			var sum = 0;
-			var content = "";
-
-			for(var i = 0; i < response.length; i++){
-				var y = parseInt(response[i]['date'].substring(0, 4));
-				var m = parseInt(response[i]['date'].substring(5, 7));
-				var d = parseInt(response[i]['date'].substring(8, 10));
+	
 
 
 
 
+$.ajax({
+	type:"POST",
+	data: {"getSQL" :  "SELECT * FROM Donation"},
+	url : "http://localhost/SharityCRM/appBackend/appBackend.php",
+	dataType : "json",
+	success : function(response){
+		var sum = 0;
+		var content = "";
 
-
-
-				switch(m){
-					case 1:
-					sumJan += parseInt(response[i]['sum']);
-					break;
-					case 2:
-					sumFeb += parseInt(response[i]['sum']);
-					break;
-					case 3:
-					sumMar += parseInt(response[i]['sum']);
-					break;
-					case 4:
-					sumApr += parseInt(response[i]['sum']);
-					break;
-					case 5:
-					sumMay += parseInt(response[i]['sum']);
-					break;
-					case 6:
-					sumJun += parseInt(response[i]['sum']);
-					break;
-					case 7:
-					sumJul += parseInt(response[i]['sum']);
-					break;
-					case 8:
-					sumAug += parseInt(response[i]['sum']);
-					break;
-					case 9:
-					sumSep += parseInt(response[i]['sum']);
-					break;
-					case 10:
-					sumOkt += parseInt(response[i]['sum']);
-					break;
-					case 11:
-					sumNov += parseInt(response[i]['sum']);
-					break;
-					case 12:
-					sumDec += parseInt(response[i]['sum']);
-					break;
-				}
+		for(var i = 0; i < response.length; i++){
+			var y = parseInt(response[i]['date'].substring(0, 4));
+			var m = parseInt(response[i]['date'].substring(5, 7));
+			var d = parseInt(response[i]['date'].substring(8, 10));
 
 
 
 
 
 
-				sum += parseInt(response[i]['sum']);
-				content += "<tr><td>" + response[i]['projectID'] + " </td><td>" + response[i]['name'] + "</td><td>" + response[i]['sum'] + "</td><td>" + response[i]['type'] + "</td><td>" + d + "." + m + "." + y + "</td></tr>";
 
+			switch(m){
+				case 1:
+				sumJan += parseInt(response[i]['sum']);
+				break;
+				case 2:
+				sumFeb += parseInt(response[i]['sum']);
+				break;
+				case 3:
+				sumMar += parseInt(response[i]['sum']);
+				break;
+				case 4:
+				sumApr += parseInt(response[i]['sum']);
+				break;
+				case 5:
+				sumMay += parseInt(response[i]['sum']);
+				break;
+				case 6:
+				sumJun += parseInt(response[i]['sum']);
+				break;
+				case 7:
+				sumJul += parseInt(response[i]['sum']);
+				break;
+				case 8:
+				sumAug += parseInt(response[i]['sum']);
+				break;
+				case 9:
+				sumSep += parseInt(response[i]['sum']);
+				break;
+				case 10:
+				sumOkt += parseInt(response[i]['sum']);
+				break;
+				case 11:
+				sumNov += parseInt(response[i]['sum']);
+				break;
+				case 12:
+				sumDec += parseInt(response[i]['sum']);
+				break;
 			}
 
 
 
-			localStorage.setItem("january", sumJan);
-			localStorage.setItem("february", sumFeb);
-			localStorage.setItem("march", sumMar);
-			localStorage.setItem("april", sumApr);
-			localStorage.setItem("may", sumMay);
-			localStorage.setItem("june", sumJun);
-			localStorage.setItem("july", sumJul);
-			localStorage.setItem("august", sumAug);
-			localStorage.setItem("september", sumSep);
-			localStorage.setItem("october", sumOkt);
-			localStorage.setItem("november", sumNov);
-			localStorage.setItem("december", sumDec);
 
 
-			location.reload();
-			localStorage.setItem("CurrentYearStatisticsIncome", year);
 
+			sum += parseInt(response[i]['sum']);
+			content += "<tr><td>" + response[i]['projectID'] + " </td><td>" + response[i]['name'] + "</td><td>" + response[i]['sum'] + "</td><td>" + response[i]['type'] + "</td><td>" + d + "." + m + "." + y + "</td></tr>";
 
-		},
-		error : function(){
-			alert("Something went worng");
 		}
-	});
+
+
+
+		localStorage.setItem("january", sumJan);
+		localStorage.setItem("february", sumFeb);
+		localStorage.setItem("march", sumMar);
+		localStorage.setItem("april", sumApr);
+		localStorage.setItem("may", sumMay);
+		localStorage.setItem("june", sumJun);
+		localStorage.setItem("july", sumJul);
+		localStorage.setItem("august", sumAug);
+		localStorage.setItem("september", sumSep);
+		localStorage.setItem("october", sumOkt);
+		localStorage.setItem("november", sumNov);
+		localStorage.setItem("december", sumDec);
+
+
+		location.reload();
+		localStorage.setItem("CurrentYearStatisticsIncome", year);
+
+
+	},
+	error : function(){
+		alert("Something went worng");
+	}
+});
 }
 
 
