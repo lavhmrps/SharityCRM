@@ -1380,6 +1380,7 @@ input[id=aboutOrg]:focus{
 		width:96.75%;
 		background-color: #0153D2;
 		color: #fff;
+		border-radius: 10px;
 	}
 
 	.header h1{
