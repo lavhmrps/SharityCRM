@@ -18,12 +18,8 @@ $(document).ready(function(){
 
 	$('button[name=update_info]').click(function(event){
 
-	/*
 	insertInformation();
-	window.location.replace('../pages/Admin/change_organization.php');
-	*/
-
-	alert("UpdateOrganization.js: $('button[name=update_info]').click(function(event) Test :)");
+	window.location.replace('../Admin/change_organization.php');
 
 });
 
