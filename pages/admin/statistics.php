@@ -102,11 +102,6 @@ function showStatisticsYear(year){
 				var m = parseInt(response[i]['date'].substring(5, 7));
 				var d = parseInt(response[i]['date'].substring(8, 10));
 
-
-
-
-
-
 				if(year == y){
 					switch(m){
 						case 1:
@@ -212,6 +207,7 @@ function showStatisticsMonth(date){
 	localStorage.setItem("december", sumDec);
 
 
+<<<<<<< Updated upstream
 
 	$.ajax({
 		type:"POST",
@@ -271,6 +267,65 @@ function showStatisticsMonth(date){
 				}
 				sum += parseInt(response[i]['sum']);
 				content += "<tr><td>" + response[i]['projectID'] + " </td><td>" + response[i]['name'] + "</td><td>" + response[i]['sum'] + "</td><td>" + response[i]['type'] + "</td><td>" + d + "." + m + "." + y + "</td></tr>";
+=======
+$.ajax({
+	type:"POST",
+	data: {"getSQL" :  "SELECT * FROM Donation"},
+	url : "http://localhost/SharityCRM/appBackend/appBackend.php",
+	dataType : "json",
+	success : function(response){
+		var sum = 0;
+		var content = "";
+
+		for(var i = 0; i < response.length; i++){
+			var y = parseInt(response[i]['date'].substring(0, 4));
+			var m = parseInt(response[i]['date'].substring(5, 7));
+			var d = parseInt(response[i]['date'].substring(8, 10));
+
+
+
+
+
+
+
+			switch(m){
+				case 1:
+				sumJan += parseInt(response[i]['sum']);
+				break;
+				case 2:
+				sumFeb += parseInt(response[i]['sum']);
+				break;
+				case 3:
+				sumMar += parseInt(response[i]['sum']);
+				break;
+				case 4:
+				sumApr += parseInt(response[i]['sum']);
+				break;
+				case 5:
+				sumMay += parseInt(response[i]['sum']);
+				break;
+				case 6:
+				sumJun += parseInt(response[i]['sum']);
+				break;
+				case 7:
+				sumJul += parseInt(response[i]['sum']);
+				break;
+				case 8:
+				sumAug += parseInt(response[i]['sum']);
+				break;
+				case 9:
+				sumSep += parseInt(response[i]['sum']);
+				break;
+				case 10:
+				sumOkt += parseInt(response[i]['sum']);
+				break;
+				case 11:
+				sumNov += parseInt(response[i]['sum']);
+				break;
+				case 12:
+				sumDec += parseInt(response[i]['sum']);
+				break;
+>>>>>>> Stashed changes
 			}
 
 			localStorage.setItem("january", sumJan);
@@ -398,12 +453,12 @@ var lineChartData = {
 	datasets : [
 	{
 		label: "12 mnd",
-		fillColor : "rgba(240,63,253,0.08)", //farge under grafen
-		strokeColor : "#F03FFD", //farge på linja
-		pointColor : "#F03FFD", //farge på prikkene
-		pointStrokeColor : "#F03FFD", // fage på border til prikkene
-		pointHighlightFill : "#F03FFD", //farge på prikk on hover
-		pointHighlightStroke : "#F03FFD", // farge på border til prikk on hover
+		fillColor : "#1A324C", //farge under grafen
+		strokeColor : "#1A324C", //farge på linja
+		pointColor : "#1A324C", //farge på prikkene
+		pointStrokeColor : "#1A324C", // fage på border til prikkene
+		pointHighlightFill : "#1A324C", //farge på prikk on hover
+		pointHighlightStroke : "#1A324C", // farge på border til prikk on hover
 		data : [
 		localStorage['january'],
 		localStorage['february'],
@@ -420,6 +475,7 @@ var lineChartData = {
 
 
 		]
+<<<<<<< Updated upstream
 	},
 	{
 		label: "123 mnd",
@@ -473,6 +529,8 @@ var lineChartDataWeek = {
 		localStorage['saturday'],
 		localStorage['sunday']
 		]
+=======
+>>>>>>> Stashed changes
 	}
 	]
 
