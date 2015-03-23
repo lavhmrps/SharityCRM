@@ -13,10 +13,33 @@
 	<link href="../../css/Admin.css" rel="stylesheet">
 
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
 	<script src="../../js/Chart.min.js"></script>
+
+	<script>
+	$(document).ready(function(){
+		$('button[name=day]').click(function(){
+			alert("DayCliick");
+		});
+		$('button[name=week]').click(function(){
+			alert("WeekClick");
+		});
+		$('button[name=month]').click(function(){
+			alert("MonthClick");
+		});
+		$('button[name=year]').click(function(){
+			alert("YearClick");
+		});
+		$('button[name=allTime]').click(function(){
+			alert("AllTimeClick");
+		});
+	});
+	</script>
 
 	<script type="text/javascript">
 	$(document).ready(function(){
+		alert("Hello");
+		$("button[name=day]").click(function(e){
 
 			if(localStorage.getItem('showGraph') == 0){
 				$('#canvas').hide();
@@ -30,6 +53,7 @@
 
 
 			$('button[name=year]').click(function(event){
+
 				alert("button");
 				localStorage.setItem('showGraph', 1);
 				$('#canvas').show();
@@ -207,7 +231,6 @@ function showStatisticsMonth(date){
 	localStorage.setItem("december", sumDec);
 
 
-<<<<<<< Updated upstream
 
 	$.ajax({
 		type:"POST",
@@ -267,7 +290,7 @@ function showStatisticsMonth(date){
 				}
 				sum += parseInt(response[i]['sum']);
 				content += "<tr><td>" + response[i]['projectID'] + " </td><td>" + response[i]['name'] + "</td><td>" + response[i]['sum'] + "</td><td>" + response[i]['type'] + "</td><td>" + d + "." + m + "." + y + "</td></tr>";
-=======
+
 $.ajax({
 	type:"POST",
 	data: {"getSQL" :  "SELECT * FROM Donation"},
@@ -325,7 +348,7 @@ $.ajax({
 				case 12:
 				sumDec += parseInt(response[i]['sum']);
 				break;
->>>>>>> Stashed changes
+
 			}
 
 			localStorage.setItem("january", sumJan);
@@ -475,7 +498,7 @@ var lineChartData = {
 
 
 		]
-<<<<<<< Updated upstream
+
 	},
 	{
 		label: "123 mnd",
@@ -529,8 +552,7 @@ var lineChartDataWeek = {
 		localStorage['saturday'],
 		localStorage['sunday']
 		]
-=======
->>>>>>> Stashed changes
+
 	}
 	]
 
