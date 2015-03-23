@@ -403,3 +403,45 @@ a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
 }
 
 /** END **/ 
+
+
+/** New stuff **/
+
+.header{
+	background-color: #0153D2;
+	color: #fff;
+}
+
+.header h1{
+	color: #FFF;
+}
+
+#homeboxupperright{
+	background-color: #efefef;
+}
+
+#homeboxlowerright{
+	background-color: #efefef;
+}
+.homecontent{
+	background-color: transparent;
+}
+
+#menu{
+	color: #DDD;
+}
+
+#menu:hover{
+	background-color: transparent;
+	color: #FFF;
+}
+
+input[id=menu]{
+	background-color: transparent;
+	color: #DDD;
+}
+
+input[id=menu]{
+	color: #FFF;
+}
+

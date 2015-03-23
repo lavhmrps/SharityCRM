@@ -441,3 +441,51 @@ a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
 /** END OF BUTTONS**/
 
 
+/** New stuff **/
+
+.header{
+	background-color: #FFF100;
+	border:1px solid #FFDF00;
+	color: #000;
+}
+
+.header h1{
+	color: #000;
+	font-weight: normal;
+}
+
+#homeboxupperright{
+	background:#111;
+	border:1px solid #222;
+	color:#fff;
+}
+
+#homeboxlowerright{
+	background:#111;
+	border:1px solid #222;
+	color:#fff;
+}
+.homecontent{
+	background-color: transparent;
+}
+
+#menu{
+	color: #555;
+}
+
+#menu:hover{
+	background-color: transparent;
+	color: #000;
+}
+
+input[id=menu]{
+	background-color: transparent;
+	color: #555;
+}
+
+input[id=menu]{
+	color: #000;
+}
+
+
+

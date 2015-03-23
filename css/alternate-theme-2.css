@@ -454,5 +454,49 @@ a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
 /** END OF BUTTONS**/
 
 
+/** New stuff **/
+
+.header{
+	background-color: #FF9AE6;
+	border:1px solid #FF7AE6;
+	color: #000;
+}
+.header h1{
+	color: #FFF;
+}
+
+#homeboxupperright{
+	background:#FF9AE6;
+	border:1px solid #FF7AE6;
+	color:#000;
+}
+
+#homeboxlowerright{
+	background:#FF9AE6;
+	border:1px solid #FF7AE6;
+	color:#000;
+}
+.homecontent{
+	background-color: transparent;
+}
+
+#menu{
+	color: #555;
+}
+
+#menu:hover{
+	background-color: transparent;
+	color: #000;
+}
+
+input[id=menu]{
+	background-color: transparent;
+	color: #555;
+}
+
+input[id=menu]{
+	color: #000;
+}
+
 
 
