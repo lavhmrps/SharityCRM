@@ -51,7 +51,7 @@ include '../phpBackend/connect.php';
 
 	<div class="container">
 		<div class="col-lg-11 col-md-11 col-xs-12 homecontent">
-			<div class="col-md-4" id="homebox">
+			<div class="col-md-6" id="homebox">
 
 				<div class="portrait">
 
@@ -127,7 +127,7 @@ include '../phpBackend/connect.php';
 			</div>
 
 
-			<div class="col-md-8" id="homeboxupperright">
+			<div class="col-md-6" id="homeboxupperright">
 				<h2>Nylig aktivitet</h2>
 
 				<p>La til nytt prosjekt med tittel "Tittel"</p>
@@ -143,7 +143,7 @@ include '../phpBackend/connect.php';
 
 
 
-			<div class="col-md-8" id="homeboxlowerright">
+			<div class="col-md-6" id="homeboxlowerright">
 
 				<h2>Inneværende mnd:</h2>
 				<p>statstikkstatistikkstatistikk</p>
@@ -155,7 +155,7 @@ include '../phpBackend/connect.php';
 
 
 			</div>
-			
+
 		</div>
 	</div>
 	<!-- jQuery -->
