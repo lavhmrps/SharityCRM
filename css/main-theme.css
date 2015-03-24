@@ -445,15 +445,18 @@ input[id=menu]{
 	color: #FFF;
 }
 
+
+
+
+
+
+
 #addprojectcontainer{
 	background-color: #efefef;
 }
 
 #main-themebtn{
-	width:98%;
-	margin:5px;
-	border:1px solid #777;
-	border-radius: 5px;
+	border:1px solid #aaa;
 	background-color: transparent;
 }
 #main-themebtn:hover{

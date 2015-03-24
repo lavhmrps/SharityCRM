@@ -1461,3 +1461,9 @@ input[id=aboutOrg]:focus{
 	#somespace{
 	height:50px;
 }
+
+#main-themebtn{
+	width:98%;
+	margin:5px;
+	border-radius: 5px;
+}

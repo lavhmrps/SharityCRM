@@ -31,7 +31,7 @@ $(document).ready(function(){
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="../pages/home.php">Sharity for faen</a>
+    <a class="navbar-brand" href="../pages/home.php">Sharity</a>
 </div>
 
 <!-- Collect the nav links, forms, and other content for toggling -->

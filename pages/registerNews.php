@@ -28,7 +28,7 @@ if(isset($_POST['registerNews'])){
 	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
 	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
 
-    <script src="../js/styleswitcher.js" type="text/javascript" ></script>
+	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
 
 
 
@@ -39,66 +39,67 @@ if(isset($_POST['registerNews'])){
 	include "../pages/header_nav.php";
 	?>
 
-	<div class="col-md-3"></div>
-	<div class="col-md-6">
-		<div class="col-md-12 text-center" id="reg_pt2_head">
 
+	<div class="container" id="addprojectcontainer">
+		<div class="col-lg-11 col-md-11 col-xs-12 text-center">
+			<h1>Legg til en nyhet</h1>
 
-		</div>
-		<div id="regcontainer">
-		<div class="row">
-			<div class="col-md-2"></div>
-			<div class="col-md-8 text-center" id="registernewscontainer">
-				<h1>Legg til en nyhet</h1>
-			</div>
-			<div class="col-md-2"></div>
-		</div>
-		<div class="row">
-			<div class="col-md-2"></div>
-			<div class="col-md-8">
-				<p>
-					<?php
-					$organizationNr=$_SESSION["organizationNr"];
-					$sql = "SELECT projectID, name FROM Project WHERE organizationNr = $organizationNr";
-					$result = mysqli_query($connection, $sql);
-					if ($result) {
-						echo "<label>Velg prosjekt</label>";
-						echo "<select name='projectID'>";
-						echo "<option value='NULL'></option>";
-						while ($row = mysqli_fetch_assoc($result)) {
-							echo "<option value=" . $row['projectID'] . ">" . $row['name'] . "</option>";
+			<div class="col-lg-6 col-md-6 col-xs-6 text-left">
+				<div class="col-lg-12 col-md-12 col-xs-12">
+					<p>
+						<?php
+						$organizationNr=$_SESSION["organizationNr"];
+						$sql = "SELECT projectID, name FROM Project WHERE organizationNr = $organizationNr";
+						$result = mysqli_query($connection, $sql);
+						if ($result) {
+							echo "<label>Velg prosjekt</label>";
+							echo "<select name='projectID'>";
+							echo "<option value='NULL'></option>";
+							while ($row = mysqli_fetch_assoc($result)) {
+								echo "<option value=" . $row['projectID'] . ">" . $row['name'] . "</option>";
+							}
+							echo "</select>";
+						} else {
+							echo "<h2>Failure</h2>";
 						}
-						echo "</select>";
-					} else {
-						echo "<h2>Failure</h2>";
-					}
-					?>
-				</p>
+						?>
+					</p>
+					<label>Nyhetsbilde</label>
+					<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
 
-				<label>Nyhetsbilde</label>
-				<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
+					<img src="../img/default.png" id="preview" alt="Click to upload img" name="preview" />
 
-				<img src="../img/default.png" id="preview" alt="Click to upload img" name="preview" />
-
+					<button  class="btn" name="back" id="main-themebtn">
+						Tilbake
+					</button> <!-- Go back to last site -->
 
 
-				<label>Nyhetsoverskrift</label>
-				<input type="text" id="reg_news_input" class="form-control" name="newsHeader" placeholder=""/>
-				<label>Nyhetstekst</label>
-				<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="newsText" placeholder="Nyhetstekst" ></textarea>
-				<button  class="btn" name="insertNews" id="alternate1btn">
-					Publiser nyhet
-				</button>
-
-
+				</div>
 			</div>
-			<div class="col-md-2"></div>
+			<div class="col-lg-6 col-md-6 col-xs-6 text-left">
+				<div class="col-lg-12 col-md-12 col-xs-12">
+
+					<label>Nyhetsoverskrift</label>
+					<input type="text" id="reg_news_input" class="form-control" name="newsHeader" placeholder=""/>
+					<label>Nyhetstekst</label>
+					<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="newsText" placeholder="Nyhetstekst" ></textarea>
+					<button  class="btn" name="insertNews" id="main-themebtn">
+						Publiser nyhet
+					</button>
+
+				</div>
+			</div>
+
 		</div>
-		</div>
+		<div class="col-md-12" id="somespace"></div>
 	</div>
-	<div class="col-md-3"></div>
-	<div class="col-md-12" id="somespace"></div>
-</div>
+
+
+
+
+
+	
+
 <script src="../js/stickyheader.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
@@ -108,13 +109,13 @@ if(isset($_POST['registerNews'])){
 
 <script type="text/javascript">
 
-$("button[name=insertNews]").click(function(){
-	insertNews();
-});
+	$("button[name=insertNews]").click(function(){
+		insertNews();
+	});
 
-$("#preview").click(function(){
-	$("#file_background").trigger("click");
-});
+	$("#preview").click(function(){
+		$("#file_background").trigger("click");
+	});
 
 //triggered when user selects image to upload
 $("#file_background").change(function(){

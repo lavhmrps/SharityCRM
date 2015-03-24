@@ -56,7 +56,7 @@ if(isset($_POST['registerNews'])){
 					<input type="text" id="reg_project_input" class="form-control" name="title" placeholder=""/>
 					<button  class="btn" name="back" id="main-themebtn">
 						Tilbake
-						</button> <!-- Go back to last site -->
+					</button> <!-- Go back to last site -->
 				</div>
 			</div>
 
@@ -65,6 +65,7 @@ if(isset($_POST['registerNews'])){
 				<div class="col-lg-12 col-md-12 col-xs-12">
 					<label>Bakgrunnsbilde</label>
 					<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
+					<img src="../img/default.png" id="preview" alt="Click to upload img" name="preview" />
 					<label name="aboutlabel">Beskrivelse av prosjektet</label>
 					<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="about" placeholder="" ></textarea>
 
