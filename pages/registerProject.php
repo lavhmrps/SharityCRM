@@ -41,18 +41,18 @@ if(isset($_POST['registerNews'])){
 
 
 	<div class="container" id="addprojectcontainer">
-		<div class="col-lg-11 col-md-11 col-xs-12 text-center">
+		<div class="col-lg-12 col-md-12 col-xs-12 text-center">
 			<h1>Legg til nytt prosjekt</h1>
 
 			<div class="col-lg-6 col-md-6 col-xs-6 text-left">
 				<div class="col-lg-12 col-md-12 col-xs-12">
-					<label name="projectlabel">Prosjektnavn</label>
+					<label name="projectlabel" id="projectlabelmargin">Prosjektnavn</label>
 					<input type="text" id="reg_project_input" class="form-control" name="projectName" placeholder=""/>
-					<label name="countrylabel">Land</label>
+					<label name="countrylabel" id="projectlabelmargin">Land</label>
 					<input type="text" id="reg_project_input" class="form-control" name="country" placeholder=""/>
-					<label name="citylabel">By</label>
+					<label name="citylabel" id="projectlabelmargin">By</label>
 					<input type="text" id="reg_project_input" class="form-control" name="city" placeholder=""/>
-					<label name="titlelabel">Tittel</label>
+					<label name="titlelabel" id="projectlabelmargin">Tittel</label>
 					<input type="text" id="reg_project_input" class="form-control" name="title" placeholder=""/>
 					<button  class="btn" name="back" id="main-themebtn">
 						Tilbake
@@ -69,7 +69,7 @@ if(isset($_POST['registerNews'])){
 					<label name="aboutlabel">Beskrivelse av prosjektet</label>
 					<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="about" placeholder="" ></textarea>
 
-					<button  class="btn" name="registerProject" id="main-themebtn">
+					<button  class="btn" name="registerProject" id="main-themebtn2">
 						Registrer prosjekt
 					</button>
 				</div>

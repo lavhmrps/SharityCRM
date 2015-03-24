@@ -41,7 +41,7 @@ if(isset($_POST['registerNews'])){
 
 
 	<div class="container" id="addprojectcontainer">
-		<div class="col-lg-11 col-md-11 col-xs-12 text-center">
+		<div class="col-lg-12 col-md-12 col-xs-12 text-center">
 			<h1>Legg til en nyhet</h1>
 
 			<div class="col-lg-6 col-md-6 col-xs-6 text-left">
@@ -67,7 +67,7 @@ if(isset($_POST['registerNews'])){
 					<label>Nyhetsbilde</label>
 					<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
 
-					<img src="../img/default.png" id="preview" alt="Click to upload img" name="preview" />
+					<img src="../img/default.png" id="newspreview" alt="Click to upload img" name="preview" />
 
 					<button  class="btn" name="back" id="main-themebtn">
 						Tilbake
@@ -81,8 +81,9 @@ if(isset($_POST['registerNews'])){
 
 					<label>Nyhetsoverskrift</label>
 					<input type="text" id="reg_news_input" class="form-control" name="newsHeader" placeholder=""/>
-					<label>Nyhetstekst</label>
-					<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="newsText" placeholder="Nyhetstekst" ></textarea>
+					
+					<label id="newslabelmargin">Nyhetstekst</label>
+					<textarea class="form-control" id="aboutnews" rows="9" name="newsText" placeholder="Nyhetstekst" ></textarea>
 					<button  class="btn" name="insertNews" id="main-themebtn">
 						Publiser nyhet
 					</button>

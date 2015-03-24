@@ -462,3 +462,10 @@ input[id=menu]{
 #main-themebtn:hover{
 	background-color: #ddd;
 }
+#main-themebtn2{
+	border:1px solid #aaa;
+	background-color: transparent;
+}
+#main-themebtn2:hover{
+	background-color: #ddd;
+}

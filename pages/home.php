@@ -101,7 +101,7 @@ include '../phpBackend/connect.php';
 
 						echo '<div class="col-md-12" id="orgInfo">';
 						echo '<p>Epost: ' . $row["email"]. '</p>
-						<p>Adresse: ' . $row["address"] . ', ' . $row["zipcode"]. ' Poststed?!?</p>
+						<p>Adresse: ' . $row["address"] . ', ' . $row["zipcode"]. ' Hente poststed automatisk!!!</p>
 						<p>Nettside: <a href="' . $row["website"]. '">' . $row["website"]. '</a></p><br/>
 						';
 						echo '</div>';
