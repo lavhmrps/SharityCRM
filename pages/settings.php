@@ -66,6 +66,8 @@ if(isset($_POST['registerNews'])){
 				<h1>To do:</h1>
 				<div class="col-md-6 text-left">
 					<p>fikse font</p>
+
+					<p>ORGSIDEN:</p>
 					<p>Starte på statistikk</p>
 					<p>Vise antall nye faste givere og mistede givere</p>
 					<p>EKS: Faste givere: +42 denne mnd.</p>
@@ -74,9 +76,11 @@ if(isset($_POST['registerNews'])){
 					<p>trimme loginstring før den sjekkes mot db</p>
 					<p>Vaske og trimme stringer før de sendes til db</p>
 					<br/>
+					<p>APP:</p>
 					<p>Legge inn jquery lokalt i app</p>
 				</div>
 				<div class="col-md-6 text-left">
+					<p>ADMINSIDEN:</p>
 					<p>Fikse adminlogin</p>
 					<p>Statistikk</p>
 					<p>Endre/slette bruker</p>
