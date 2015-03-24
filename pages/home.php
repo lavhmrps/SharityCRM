@@ -45,116 +45,118 @@ include '../phpBackend/connect.php';
 
 
 	<?php
-		include "header_nav.php";
+	include "header_nav.php";
 	?>
 
 
-	<div class="col-lg-11 col-md-11 col-xs-12 homecontent">
-		<div class="col-md-4" id="homebox">
+	<div class="container">
+		<div class="col-lg-11 col-md-11 col-xs-12 homecontent">
+			<div class="col-md-4" id="homebox">
 
-			<div class="portrait">
+				<div class="portrait">
 
 
-				<div class="logodiv_left"></div>
+					<div class="logodiv_left"></div>
+
+				</div>
+
+
+				<?php
+				$organizationNr = $_SESSION['organizationNr'];
+				$sql = "SELECT * FROM Organization WHERE organizationNr = $organizationNr";
+				$result = mysqli_query($connection, $sql);
+
+				if ($result) {
+					if (mysqli_num_rows($result) == 1) {
+						$row = mysqli_fetch_assoc($result);
+
+						echo '<div class="col-md-0"></div>';
+						echo "<h2>" . $row['name'] . "</h2>";
+
+						echo '<div class=" text-center" id="imagecontainer">';
+						echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='orgBackground'/>";
+						echo '<div class="orglogoimg">';
+						echo "<img src='" . $row['logoURL'] . "' alt='Organisasjonslogo'  id='orgLogo'/>";
+						echo ' </div> ';
+						echo '</div>';
+						echo '<div class="col-md-0"></div>';
+
+						echo '<div class="row">';
+						echo '<div class="col-md-6" id="aboutOrgPadding">';
+						echo '<p>Orgnr: ' . $row["organizationNr"] . '</p>
+						<p>Telefon: ' . $row["phone"]. '</p>';
+
+
+						echo '</div>';
+
+						echo '<div class="col-md-6" id="aboutOrgPadding2">';
+
+						echo '<p>Kategori: ' . $row["category"]. '</p>
+
+						<p>Kontonummer: ' . $row["accountnumber"] . '</p>';
+
+						echo "</div>";
+						echo "</div>";
+						echo "<br/>";
+
+						echo '<div class="col-md-12" id="orgInfo">';
+						echo '<p>Epost: ' . $row["email"]. '</p>
+						<p>Adresse: ' . $row["address"] . ', ' . $row["zipcode"]. ' Poststed?!?</p>
+						<p>Nettside: <a href="' . $row["website"]. '">' . $row["website"]. '</a></p><br/>
+						';
+						echo '</div>';
+
+						echo '<textarea class="form-control" name="about" id="aboutOrg" rows="4" style="cursor:default;" id="aboutproject" readonly>' . $row["about"] . '</textarea>';
+
+
+
+
+
+
+					}
+				} ?>
+
+				<div class="col-md-6"></div>
+				<div class="col-md-6 text-right" id="bottomhome">
+					<a href="../pages/change_orginfo.php" id="changeOrginfoA">Endre informasjon</a>
+				</div>
+
+
+
 
 			</div>
 
 
-			<?php
-			$organizationNr = $_SESSION['organizationNr'];
-			$sql = "SELECT * FROM Organization WHERE organizationNr = $organizationNr";
-			$result = mysqli_query($connection, $sql);
+			<div class="col-md-8" id="homeboxupperright">
+				<h2>Nylig aktivitet</h2>
 
-			if ($result) {
-				if (mysqli_num_rows($result) == 1) {
-					$row = mysqli_fetch_assoc($result);
-
-					echo '<div class="col-md-0"></div>';
-					echo "<h2>" . $row['name'] . "</h2>";
-
-					echo '<div class=" text-center" id="imagecontainer">';
-					echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='orgBackground'/>";
-					echo '<div class="orglogoimg">';
-					echo "<img src='" . $row['logoURL'] . "' alt='Organisasjonslogo'  id='orgLogo'/>";
-					echo ' </div> ';
-					echo '</div>';
-					echo '<div class="col-md-0"></div>';
-
-					echo '<div class="row">';
-					echo '<div class="col-md-6" id="aboutOrgPadding">';
-					echo '<p>Orgnr: ' . $row["organizationNr"] . '</p>
-					<p>Telefon: ' . $row["phone"]. '</p>';
+				<p>La til nytt prosjekt med tittel "Tittel"</p>
+				<p>La til nytt prosjekt med tittel "Tittel"</p>
+				<p>La til nytt prosjekt med tittel "Tittel"</p>
+				<p>La til nytt prosjekt med tittel "Tittel"</p>
+				<p>La til nytt prosjekt med tittel "Tittel"</p>
 
 
-					echo '</div>';
-
-					echo '<div class="col-md-6" id="aboutOrgPadding2">';
-
-					echo '<p>Kategori: ' . $row["category"]. '</p>
-
-					<p>Kontonummer: ' . $row["accountnumber"] . '</p>';
-
-					echo "</div>";
-					echo "</div>";
-					echo "<br/>";
-
-					echo '<div class="col-md-12" id="orgInfo">';
-					echo '<p>Epost: ' . $row["email"]. '</p>
-					<p>Adresse: ' . $row["address"] . ', ' . $row["zipcode"]. ' Poststed?!?</p>
-					<p>Nettside: <a href="' . $row["website"]. '">' . $row["website"]. '</a></p><br/>
-					';
-					echo '</div>';
-
-					echo '<textarea class="form-control" name="about" id="aboutOrg" rows="4" style="cursor:default;" id="aboutproject" readonly>' . $row["about"] . '</textarea>';
-
-
-
-
-
-
-				}
-			} ?>
-
-			<div class="col-md-6"></div>
-			<div class="col-md-6 text-right" id="bottomhome">
-				<a href="../pages/change_orginfo.php" id="changeOrginfoA">Endre informasjon</a>
 			</div>
 
 
 
 
+
+			<div class="col-md-8" id="homeboxlowerright">
+
+				<h2>Inneværende mnd:</h2>
+				<p>statstikkstatistikkstatistikk</p>
+				<p>statstikkstatistikkstatistikk</p>
+				<p>statstikkstatistikkstatistikk</p>
+				<p>statstikkstatistikkstatistikk</p>
+				<p>statstikkstatistikkstatistikk</p>
+
+
+
+			</div>
+			
 		</div>
-
-
-		<div class="col-md-8" id="homeboxupperright">
-			<h2>Nylig aktivitet</h2>
-
-			<p>La til nytt prosjekt med tittel "Tittel"</p>
-			<p>La til nytt prosjekt med tittel "Tittel"</p>
-			<p>La til nytt prosjekt med tittel "Tittel"</p>
-			<p>La til nytt prosjekt med tittel "Tittel"</p>
-			<p>La til nytt prosjekt med tittel "Tittel"</p>
-
-
-		</div>
-
-
-
-
-
-		<div class="col-md-8" id="homeboxlowerright">
-
-			<h2>Inneværende mnd:</h2>
-			<p>statstikkstatistikkstatistikk</p>
-			<p>statstikkstatistikkstatistikk</p>
-			<p>statstikkstatistikkstatistikk</p>
-			<p>statstikkstatistikkstatistikk</p>
-			<p>statstikkstatistikkstatistikk</p>
-
-
-
-		</div>
-		
 	</div>
 	<!-- jQuery -->
 	<script src="../js/jquery.js"></script>
