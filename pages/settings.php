@@ -71,10 +71,13 @@ if(isset($_POST['registerNews'])){
 					<p>Starte på statistikk</p>
 					<p>Vise antall nye faste givere og mistede givere</p>
 					<p>EKS: Faste givere: +42 denne mnd.</p>
+					<p>Internal frames på statistikk? og gjøre de visible</p>
+					<p>Brødsmulesti</p>
 					<p>Alle script skal si "OK" om de blir kjørt</p>
 					<p>Hente poststed automatisk på home.php</p>
 					<p>trimme loginstring før den sjekkes mot db</p>
 					<p>Vaske og trimme stringer før de sendes til db</p>
+					<p>Sjekke siden opp mot andre browsere</p>
 					<br/>
 					<p>APP:</p>
 					<p>Legge inn jquery lokalt i app</p>
@@ -86,6 +89,9 @@ if(isset($_POST['registerNews'])){
 					<p>Endre/slette bruker</p>
 					<p>Endre/slette organisasjon</p>
 					<p>Endre/slette til de andre dbene også..</p>
+					<br/>
+					<p>NICE TO HAVE GENERELT:</p>
+					<p>knapp for å ukryptere passord (login)</p>
 				</div>
 			</div>
 
