@@ -106,8 +106,6 @@ $organizationNr = $_SESSION['organizationNr'];
 			}
 
 
-
-
 			function day(){
 
 				$organizationNr = $_SESSION['organizationNr'];
@@ -116,8 +114,7 @@ $organizationNr = $_SESSION['organizationNr'];
 
 				$date = $_POST['date'];
 				
-				//FEIL SPØRRING
-				$sql = "SELECT COUNT(*) FROM Subsription WHERE DATE(date_added) = '" . $date . "' AND projectID = '".$organizationNr."'";
+				$sql = "SELECT COUNT(*) FROM Subscription INNER JOIN Project ON Subscription.projectID = Project.projectID WHERE DATE(Subscription.date_added) = '" . $date . "' AND  Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -130,8 +127,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					}
 				}
 
-				//FEIL SPØRRING
-				$sql = "SELECT COUNT(*) FROM Donation WHERE DATE(date) = '" . $date . "' AND projectID = '".$organizationNr."'";
+				$sql = "SELECT COUNT(*) FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE DATE(Donation.date) = '" . $date . "' AND  Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -144,8 +140,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					}
 				}
 
-				//FEIL SPØRRING
-				$sql = "SELECT SUM(sum) FROM Donation WHERE DATE(date) = '" . $date . "' AND projectID = '".$organizationNr."'";
+				$sql = "SELECT SUM(sum) FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE DATE(Donation.date) = '" . $date . "' AND  Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -153,6 +148,8 @@ $organizationNr = $_SESSION['organizationNr'];
 						$row = mysqli_fetch_assoc($result);
 
 						$res = $row['SUM(sum)'];
+
+						$res = number_format($res,0,"",",");
 
 						if ($res == "") {
 							echo 'Kroner donert: 0,-<br>';
@@ -163,8 +160,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					}
 				}
 
-				//FEIL SPØRRING
-				$sql = "SELECT COUNT(*) FROM News WHERE DATE(date_added) = '" . $date . "' AND projectID = '".$organizationNr."'";
+				$sql = "SELECT COUNT(*) FROM News INNER JOIN Project ON News.projectID = Project.projectID WHERE DATE(News.date_added) = '" . $date . "' AND  Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -196,9 +192,11 @@ $organizationNr = $_SESSION['organizationNr'];
 			function week(){
 				$connection = mysqli_connect("localhost", "root", "", "database") or die("Kunne ikke koble til database");
 
+				$organizationNr = $_SESSION['organizationNr'];
+
 				$date = $_POST['date'];
 
-				$sql = "SELECT COUNT(*) FROM Organization WHERE WEEKOFYEAR(date(date_added))=WEEKOFYEAR('" . $date . "')";
+				$sql = "SELECT COUNT(*) FROM Subscription INNER JOIN Project ON Subscription.projectID = Project.projectID WHERE WEEKOFYEAR(date(Subscription.date_added)) = WEEKOFYEAR('" . $date . "') AND  Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -207,11 +205,10 @@ $organizationNr = $_SESSION['organizationNr'];
 
 						$res = $row['COUNT(*)'];
 
-						echo 'Organisasjoner: ' . $res . '<br>';
+						echo 'Følgere: ' . $res . '<br>';
 					}
 				}
-
-				$sql = "SELECT COUNT(*) FROM Donation WHERE WEEKOFYEAR(date(date))=WEEKOFYEAR('" . $date . "')";
+				$sql = "SELECT COUNT(*) FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE WEEKOFYEAR(date(Donation.date)) = WEEKOFYEAR('" . $date . "') AND  Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -224,7 +221,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					}
 				}
 
-				$sql = "SELECT SUM(sum) FROM Donation WHERE WEEKOFYEAR(date(date))=WEEKOFYEAR('" . $date . "')";
+				$sql = "SELECT SUM(sum) FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE WEEKOFYEAR(date(Donation.date)) = WEEKOFYEAR('" . $date . "') AND  Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -232,6 +229,8 @@ $organizationNr = $_SESSION['organizationNr'];
 						$row = mysqli_fetch_assoc($result);
 
 						$res = $row['SUM(sum)'];
+
+						$res = number_format($res,0,"",",");
 
 						if ($res == "") {
 							echo 'Kroner donert: 0,-<br>';
@@ -242,7 +241,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM News WHERE WEEKOFYEAR(date(date_added))=WEEKOFYEAR('" . $date . "')";
+				$sql = "SELECT COUNT(*) FROM News INNER JOIN Project ON News.projectID = Project.projectID WHERE WEEKOFYEAR(date(News.date_added)) = WEEKOFYEAR('" . $date . "') AND  Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -255,7 +254,8 @@ $organizationNr = $_SESSION['organizationNr'];
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM Project WHERE WEEKOFYEAR(date(date_added))=WEEKOFYEAR('" . $date . "')";
+
+				$sql = "SELECT COUNT(*) FROM Project WHERE WEEKOFYEAR(date(date_added)) = WEEKOFYEAR('" . $date . "') AND  organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -265,19 +265,6 @@ $organizationNr = $_SESSION['organizationNr'];
 						$res = $row['COUNT(*)'];
 
 						echo 'Prosjekter: ' . $res . '<br>';
-					}
-				}
-
-				$sql = "SELECT COUNT(*) FROM User WHERE WEEKOFYEAR(date(date_added))=WEEKOFYEAR('" . $date . "')";
-				$result = mysqli_query($connection, $sql);
-
-				if($result){
-					if(mysqli_num_rows($result) == 1){
-						$row = mysqli_fetch_assoc($result);
-
-						$res = $row['COUNT(*)'];
-
-						echo 'Brukere: ' . $res . '<br>';
 					}
 				}
 			}
@@ -285,9 +272,11 @@ $organizationNr = $_SESSION['organizationNr'];
 			function month(){
 				$connection = mysqli_connect("localhost", "root", "", "database") or die("Kunne ikke koble til database");
 
+				$organizationNr = $_SESSION['organizationNr'];
+
 				$date = $_POST['date'];
 
-				$sql = "SELECT COUNT(*) FROM Organization WHERE MONTH(date(date_added)) = MONTH('" . $date . "') AND YEAR(date(date_added)) = YEAR('" . $date . "')";
+				$sql = "SELECT COUNT(*) FROM Subscription INNER JOIN Project ON Subscription.projectID = Project.projectID WHERE MONTH(date(Subscription.date_added)) = MONTH('" . $date . "') AND YEAR(date(Subscription.date_added)) = YEAR('" . $date . "') AND  Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -296,11 +285,11 @@ $organizationNr = $_SESSION['organizationNr'];
 
 						$res = $row['COUNT(*)'];
 
-						echo 'Organisasjoner: ' . $res . '<br>';
+						echo 'Følgere: ' . $res . '<br>';
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM Donation WHERE MONTH(date(date)) = MONTH('" . $date . "') AND YEAR(date(date)) = YEAR('" . $date . "')";
+				$sql = "SELECT COUNT(*) FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE MONTH(date(Donation.date)) = MONTH('" . $date . "') AND YEAR(date(Donation.date)) = YEAR('" . $date . "') AND  Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -313,7 +302,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					}
 				}
 
-				$sql = "SELECT SUM(sum) FROM Donation WHERE MONTH(date(date)) = MONTH('" . $date . "') AND YEAR(date(date)) = YEAR('" . $date . "')";
+				$sql = "SELECT SUM(sum) FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE MONTH(date(Donation.date)) = MONTH('" . $date . "') AND YEAR(date(Donation.date)) = YEAR('" . $date . "') AND  Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -321,6 +310,8 @@ $organizationNr = $_SESSION['organizationNr'];
 						$row = mysqli_fetch_assoc($result);
 
 						$res = $row['SUM(sum)'];
+
+						$res = number_format($res,0,"",",");
 
 						if ($res == "") {
 							echo 'Kroner donert: 0,-<br>';
@@ -330,8 +321,7 @@ $organizationNr = $_SESSION['organizationNr'];
 						}
 					}
 				}
-
-				$sql = "SELECT COUNT(*) FROM News WHERE MONTH(date(date_added)) = MONTH('" . $date . "') AND YEAR(date(date_added)) = YEAR('" . $date . "')";
+				$sql = "SELECT COUNT(*) FROM News INNER JOIN Project ON News.projectID = Project.projectID WHERE MONTH(date(News.date_added)) = MONTH('" . $date . "') AND YEAR(date(News.date_added)) = YEAR('" . $date . "') AND  Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -344,7 +334,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM Project WHERE MONTH(date(date_added)) = MONTH('" . $date . "') AND YEAR(date(date_added)) = YEAR('" . $date . "')";
+				$sql = "SELECT COUNT(*) FROM Project WHERE MONTH(date(date_added)) = MONTH('" . $date . "') AND YEAR(date(date_added)) = YEAR('" . $date . "') AND  organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -354,19 +344,6 @@ $organizationNr = $_SESSION['organizationNr'];
 						$res = $row['COUNT(*)'];
 
 						echo 'Prosjekter: ' . $res . '<br>';
-					}
-				}
-
-				$sql = "SELECT COUNT(*) FROM User WHERE MONTH(date(date_added)) = MONTH('" . $date . "') AND YEAR(date(date_added)) = YEAR('" . $date . "')";
-				$result = mysqli_query($connection, $sql);
-
-				if($result){
-					if(mysqli_num_rows($result) == 1){
-						$row = mysqli_fetch_assoc($result);
-
-						$res = $row['COUNT(*)'];
-
-						echo 'Brukere: ' . $res . '<br>';
 					}
 				}
 			}
@@ -374,9 +351,11 @@ $organizationNr = $_SESSION['organizationNr'];
 			function year(){
 				$connection = mysqli_connect("localhost", "root", "", "database") or die("Kunne ikke koble til database");
 
+				$organizationNr = $_SESSION['organizationNr'];
+
 				$date = $_POST['date'];
 
-				$sql = "SELECT COUNT(*) FROM Organization WHERE YEAR(date(date_added))=YEAR('" . $date . "')";
+				$sql = "SELECT COUNT(*) FROM Subscription INNER JOIN Project ON Subscription.projectID = Project.projectID WHERE YEAR(date(Subscription.date_added)) = YEAR('" . $date . "') AND  Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -385,11 +364,11 @@ $organizationNr = $_SESSION['organizationNr'];
 
 						$res = $row['COUNT(*)'];
 
-						echo 'Organisasjoner: ' . $res . '<br>';
+						echo 'Følgere: ' . $res . '<br>';
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM Donation WHERE YEAR(date(date))=YEAR('" . $date . "')";
+				$sql = "SELECT COUNT(*) FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE YEAR(date(Donation.date)) = YEAR('" . $date . "') AND  Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -401,8 +380,7 @@ $organizationNr = $_SESSION['organizationNr'];
 						echo 'Donasjoner: ' . $res . '<br>';
 					}
 				}
-
-				$sql = "SELECT SUM(sum) FROM Donation WHERE YEAR(date(date))=YEAR('" . $date . "')";
+				$sql = "SELECT SUM(sum) FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE YEAR(date(Donation.date)) = YEAR('" . $date . "') AND  Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -410,6 +388,8 @@ $organizationNr = $_SESSION['organizationNr'];
 						$row = mysqli_fetch_assoc($result);
 
 						$res = $row['SUM(sum)'];
+
+						$res = number_format($res,0,"",",");
 
 						if ($res == "") {
 							echo 'Kroner donert: 0,-<br>';
@@ -420,7 +400,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM News WHERE YEAR(date(date_added))=YEAR('" . $date . "')";
+				$sql = "SELECT COUNT(*) FROM News INNER JOIN Project ON News.projectID = Project.projectID WHERE YEAR(date(News.date_added)) = YEAR('" . $date . "') AND  Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -433,7 +413,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM Project WHERE YEAR(date(date_added))=YEAR('" . $date . "')";
+				$sql = "SELECT COUNT(*) FROM Project WHERE YEAR(date(date_added))=YEAR('" . $date . "') AND  organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -445,24 +425,14 @@ $organizationNr = $_SESSION['organizationNr'];
 						echo 'Prosjekter: ' . $res . '<br>';
 					}
 				}
-
-				$sql = "SELECT COUNT(*) FROM User WHERE YEAR(date(date_added))=YEAR('" . $date . "')";
-				$result = mysqli_query($connection, $sql);
-
-				if($result){
-					if(mysqli_num_rows($result) == 1){
-						$row = mysqli_fetch_assoc($result);
-
-						$res = $row['COUNT(*)'];
-
-						echo 'Brukere: ' . $res . '<br>';
-					}
-				}
 			}
 
 			function allTime(){
 				$connection = mysqli_connect("localhost", "root", "", "database") or die("Kunne ikke koble til database");
-				$sql = "SELECT COUNT(*) FROM Organization";
+
+				$organizationNr = $_SESSION['organizationNr'];
+
+				$sql = "SELECT COUNT(*) FROM Subscription INNER JOIN Project ON Subscription.projectID = Project.projectID WHERE Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -471,11 +441,10 @@ $organizationNr = $_SESSION['organizationNr'];
 
 						$res = $row['COUNT(*)'];
 
-						echo 'Organisasjoner: ' . $res . '<br>';
+						echo 'Følgere: ' . $res . '<br>';
 					}
 				}
-
-				$sql = "SELECT COUNT(*) FROM Donation";
+				$sql = "SELECT COUNT(*) FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -488,7 +457,8 @@ $organizationNr = $_SESSION['organizationNr'];
 					}
 				}
 
-				$sql = "SELECT SUM(sum) FROM Donation";
+
+				$sql = "SELECT SUM(sum) FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -509,8 +479,7 @@ $organizationNr = $_SESSION['organizationNr'];
 						}
 					}
 				}
-
-				$sql = "SELECT COUNT(*) FROM News";
+				$sql = "SELECT COUNT(*) FROM News INNER JOIN Project ON News.projectID = Project.projectID WHERE Project.organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -523,7 +492,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					}
 				}
 
-				$sql = "SELECT COUNT(*) FROM Project";
+				$sql = "SELECT COUNT(*) FROM Project WHERE organizationNr = '".$organizationNr."'";
 				$result = mysqli_query($connection, $sql);
 
 				if($result){
@@ -535,25 +504,6 @@ $organizationNr = $_SESSION['organizationNr'];
 						echo 'Prosjekter: ' . $res . '<br>';
 					}
 				}
-
-				$sql = "SELECT COUNT(*) FROM User";
-				$result = mysqli_query($connection, $sql);
-
-				if($result){
-					if(mysqli_num_rows($result) == 1){
-						$row = mysqli_fetch_assoc($result);
-
-						$res = $row['COUNT(*)'];
-
-						echo 'Brukere: ' . $res . '<br>';
-					}
-				}
-
-				$totalt = $donert/$res;
-				$totalt = number_format($totalt,2);
-
-				echo 'Hver bruker har donert '.$totalt.',- i snitt.';
-
 			}
 			?>
 
