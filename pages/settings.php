@@ -76,7 +76,7 @@ if(isset($_POST['registerNews'])){
 					<br/>
 					<p>Legge inn jquery lokalt i app</p>
 				</div>
-				<div class="col-md-6 text-right">
+				<div class="col-md-6 text-left">
 					<p>Fikse adminlogin</p>
 					<p>Statistikk</p>
 					<p>Endre/slette bruker</p>
