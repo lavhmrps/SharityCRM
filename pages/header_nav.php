@@ -1,50 +1,82 @@
-<?php
+<script type="text/javascript">
+$(document).ready(function(){
+    $('a[name=loggUt]').click(function(){
+        var url = "../phpBackend/localStorageJStoPHP.php";
+        $.ajax({
+            type : "POST",
+            data : {"logoutFromJS" : "NULL"},
+            url : url,
+            success : function(response){
+                if(response == "OK"){
+                    location.reload();
+                }
+            },
+            error : function(){
+                alert("Logg ut error from header_nav");
+            }
+        });
+    });
+});
+</script>
 
-if(isset($_POST['logout'])){
-    session_destroy();
-    session_unset();
-    header("Location: ../index.php");
-}
-?>
 
 
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="../pages/home.php">Sharity for faen</a>
+</div>
 
-<div class="col-lg-11 col-md-11 col-xs-12 header">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-xs-4 text-left" >
-                <ul class="nav navbar-nav" id="menunav">
-                    <li>
-                        <a class="page-scroll" name ="showOrganizationMenu" id="menu" style="cursor:pointer;">Min organisasjon</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" name ="showProjectMenu" id="menu" style="cursor:pointer;">Prosjekter</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" name ="showNewsMenu" id="menu" style="cursor:pointer;">Nyheter</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" name ="showStatsMenu" id="menu" style="cursor:pointer;">Statistikk</a>
-                    </li>
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
 
-                </ul>
-            </div>
-            <div class="col-lg-4 col-md-4 col-xs-4 text-center">
-                <h1>Sharity</h1>
-            </div>
-            <div class="col-lg-4 col-md-4 col-xs-4 text-right">
-                <ul class="nav navbar-nav navbar-right" id="menunav">
-                    <li>
-                    <form method="post">
-                        <input type="submit" name="logout" id="menu" value="Logg ut"/>
-                         </form>
-                    </li>
-                    
+        <li>
+            <a href="../pages/home.php">Hjem</a>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Prosjekt<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li>
+                    <a href="../pages/registerProject.php">Registrer prosjekt</a>
+                </li>
 
-                </ul>
-                   
-            </div>
-        </div>
-    </div>
+                <li>
+                    <a href="../pages/showProjects.php">Vis alle prosjekter</a>
+                </li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nyhet<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li>
+                    <a href="../pages/registerNews.php">Registrer nyhet</a>
+                </li>
+                <li>
+                    <a href="../pages/showNews.php">Vis alle nyheter</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../pages/statistics2.php">Statistikk</a>
+        </li>
+        <li>
+            <a href="../pages/settings.php">Innstillinger</a>
+        </li>
+        <li>
+            <a href="#" name="loggUt">Logg ut</a>
+        </li>
+    </ul>
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
 
 <script type="text/javascript" src="../js/menuBar.js"></script>
 

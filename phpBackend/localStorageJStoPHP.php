@@ -20,5 +20,10 @@ if(isset($_POST['userEmailToInsertImage'])){
 	$_SESSION['userEmailToInsertImage'] = $_POST['userEmailToInsertImage'];
 	echo "OK";
 }
+if(isset($_POST['logoutFromJS'])){
+	session_destroy();
+	session_unset();
+	echo "OK";
+}
 ob_end_flush();
 ?>
