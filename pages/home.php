@@ -50,7 +50,7 @@ include '../phpBackend/connect.php';
 
 
 	<div class="container">
-		<div class="col-lg-11 col-md-11 col-xs-12 homecontent">
+		<div class="col-lg-12 col-md-12 col-xs-12 homecontent">
 			<div class="col-md-6" id="homebox">
 
 				<div class="portrait">

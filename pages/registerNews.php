@@ -40,8 +40,8 @@ if(isset($_POST['registerNews'])){
 	?>
 
 
-	<div class="container" id="addprojectcontainer">
-		<div class="col-lg-12 col-md-12 col-xs-12 text-center">
+	<div class="container" >
+		<div class="col-lg-12 col-md-12 col-xs-12 text-center" id="addprojectcontainer">
 			<h1>Legg til en nyhet</h1>
 
 			<div class="col-lg-6 col-md-6 col-xs-6 text-left">
@@ -92,7 +92,7 @@ if(isset($_POST['registerNews'])){
 			</div>
 
 		</div>
-		<div class="col-md-12" id="somespace"></div>
+		<div class="col-md-12" id="somespace"> </div>
 	</div>
 
 
