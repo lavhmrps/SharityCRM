@@ -154,16 +154,7 @@ include '../phpBackend/connect.php';
 
 
 		</div>
-		<div class="col-md-12 text-center" id="">
-
-			<h1>Velg tema:</h1>
-
-			<a href="#" onclick="setActiveStyleSheet('default'); return false;">Default</a> - 
-			<a href="#" onclick="setActiveStyleSheet('alternate'); return false;">Dark</a> - 
-			<a href="#" onclick="setActiveStyleSheet('alternate2'); return false;">Pink</a> - 
-			<a href="#" onclick="setActiveStyleSheet('alternate3'); return false;">Mææ!</a>
-
-		</div>
+		
 	</div>
 	<!-- jQuery -->
 	<script src="../js/jquery.js"></script>

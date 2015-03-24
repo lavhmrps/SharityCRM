@@ -49,6 +49,16 @@ if(isset($_POST['registerNews'])){
 				<div class="col-md-8 text-center" id="registernewscontainer">
 					<h1>Innstillinger kommer her</h1>
 				</div>
+				<div class="col-md-12 text-center" id="">
+
+					<h1>Velg tema:</h1>
+
+					<a href="#" onclick="setActiveStyleSheet('default'); return false;">Default</a> - 
+					<a href="#" onclick="setActiveStyleSheet('alternate'); return false;">Dark</a> - 
+					<a href="#" onclick="setActiveStyleSheet('alternate2'); return false;">Pink</a> - 
+					<a href="#" onclick="setActiveStyleSheet('alternate3'); return false;">Mææ!</a>
+
+				</div>
 			</div>
 
 		</div>
