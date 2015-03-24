@@ -47,7 +47,7 @@ if(isset($_POST['registerNews'])){
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="col-md-8 text-center" id="registernewscontainer">
-					<h1>Innstillinger kommer her</h1>
+					
 				</div>
 				<div class="col-md-12 text-center" id="">
 
@@ -58,6 +58,30 @@ if(isset($_POST['registerNews'])){
 					<a href="#" onclick="setActiveStyleSheet('alternate2'); return false;">Pink</a> - 
 					<a href="#" onclick="setActiveStyleSheet('alternate3'); return false;">Mææ!</a>
 
+				</div>
+			</div>
+
+
+			<div class="col-lg-12 col-md-12 col-xs-12 text-center">
+				<h1>To do:</h1>
+				<div class="col-md-6 text-left">
+					<p>fikse font</p>
+					<p>Starte på statistikk</p>
+					<p>Vise antall nye faste givere og mistede givere</p>
+					<p>EKS: Faste givere: +42 denne mnd.</p>
+					<p>Alle script skal si "OK" om de blir kjørt</p>
+					<p>Hente poststed automatisk på home.php</p>
+					<p>trimme loginstring før den sjekkes mot db</p>
+					<p>Vaske og trimme stringer før de sendes til db</p>
+					<br/>
+					<p>Legge inn jquery lokalt i app</p>
+				</div>
+				<div class="col-md-6 text-right">
+					<p>Fikse adminlogin</p>
+					<p>Statistikk</p>
+					<p>Endre/slette bruker</p>
+					<p>Endre/slette organisasjon</p>
+					<p>Endre/slette til de andre dbene også..</p>
 				</div>
 			</div>
 
