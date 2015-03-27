@@ -70,6 +70,14 @@ include '../phpBackend/connect.php';
 					if (mysqli_num_rows($result) == 1) {
 						$row = mysqli_fetch_assoc($result);
 
+						$zip = $row["zipcode"];
+
+						$postSQL = "SELECT city FROM post WHERE zipcode = '$zip'";
+						$postResult = mysqli_query($connection, $postSQL);
+						$postRow = mysqli_fetch_assoc($postResult);
+
+						$city = $postRow['city'];
+
 						echo '<div class="col-md-0"></div>';
 						echo "<h2>" . $row['name'] . "</h2>";
 
@@ -101,7 +109,7 @@ include '../phpBackend/connect.php';
 
 						echo '<div class="col-md-12" id="orgInfo">';
 						echo '<p>Epost: ' . $row["email"]. '</p>
-						<p>Adresse: ' . $row["address"] . ', ' . $row["zipcode"]. ' Hente poststed automatisk!!!</p>
+						<p>Adresse: ' . $row["address"] . ', ' . $row["zipcode"]. ', ' . $city .  '</p>
 						<p>Nettside: <a href="' . $row["website"]. '">' . $row["website"]. '</a></p><br/>
 						';
 						echo '</div>';

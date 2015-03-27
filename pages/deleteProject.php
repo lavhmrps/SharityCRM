@@ -6,9 +6,7 @@ include '../phpBackend/hash.php';
 <!DOCTYPE html>
 <html>
 <head>
-
 	<title>Admin</title>
-
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
 	<link href="../css/Admin.css" rel="stylesheet">
 	<!-- jQuery -->
@@ -17,15 +15,11 @@ include '../phpBackend/hash.php';
 	<script src="../js/checkLogin.js"></script>
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
-
 </script>
 </head>
-
 </body>
 <div class="container">
-
 	<h1>Prject preview goes here</h1>
-
 	<div class="col-md-3"></div>
 	<div class="col-md-6 text-center" id="adminlogin">
 
@@ -40,11 +34,9 @@ include '../phpBackend/hash.php';
 	<div class="col-md-3"></div>
 
 	<?php
-
 	if(isset($_POST['confirmDelete'])){
 		$organizationNr = $_POST['organizationNr'];
 		$session_organizationNr = $_SESSION['organizationNr'];
-
 		if($session_organizationNr == $organizationNr){
 			$password = $_POST['password'];
 			$sql = "SELECT * FROM organization WHERE organizationNr ='$session_organizationNr'";
@@ -54,7 +46,6 @@ include '../phpBackend/hash.php';
 					$row = mysqli_fetch_assoc($result);
 					$dbpassword = $row['password'];
 					$hash = crypt($password, $dbpassword);
-
 					if($hash == $dbpassword) {
 						$projectIDtoDelete = $_SESSION['projectIDtoDelete'];
 						echo "This to delete: ".  $projectIDtoDelete;
