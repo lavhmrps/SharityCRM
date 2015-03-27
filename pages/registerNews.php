@@ -53,8 +53,8 @@ if(isset($_POST['registerNews'])){
 						$result = mysqli_query($connection, $sql);
 						if ($result) {
 							echo "<label>Velg prosjekt</label>";
-							echo "<select name='projectID'>";
-							echo "<option value='NULL'></option>";
+							echo "<select id='selectproject' name='projectID'>";
+							echo "<option value='NULL'>Velg prosjekt</option>";
 							while ($row = mysqli_fetch_assoc($result)) {
 								echo "<option value=" . $row['projectID'] . ">" . $row['name'] . "</option>";
 							}

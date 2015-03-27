@@ -1530,3 +1530,9 @@ input[id=aboutOrg]:focus{
 	#newslabelmargin{
 		margin-top: 20px;
 	}
+
+	#selectproject{
+		height:37px;
+		
+		margin: 5px;
+	}
