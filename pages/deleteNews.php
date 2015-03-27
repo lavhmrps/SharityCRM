@@ -56,13 +56,13 @@ include '../phpBackend/hash.php';
 					$hash = crypt($password, $dbpassword);
 
 					if($hash == $dbpassword) {
-						$projectIDtoDelete = $_SESSION['projectIDtoDelete'];
-						echo "This to delete: ".  $projectIDtoDelete;
+						$newsIDToDelete = $_SESSION['newsIDtoDelete'];
+						echo "This to delete: ".  $newsIDToDelete;
 
-						$sql = "DELETE FROM project WHERE projectID =projectIDtoDelete'";
+						$sql = "DELETE FROM news WHERE newsID =newsIDToDelete'";
 						$result = mysqli_query($connection, $sql);
 						if($result){
-							header("Location: ../pages/showProjects.php");
+							header("Location: ../pages/showNews.php");
 						}
 					}
 				}

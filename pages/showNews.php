@@ -66,7 +66,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					echo "<div class='col-md-12' id='bottom'>";
 					echo '<a href="../pages/showSelectedNews.php" onclick=showSelectedNews(' . $row['newsID'] . ')>Vis</a> - ';
 					echo '<a href="change_newsinfo.php" onclick=showSelectedNews(' . $row['newsID'] . ')>Endre</a> - ';
-					echo '<a href="">Slett</a>';
+					echo '<a href="deleteNews.php" onclick=deleteNews(' . $row['newsID'] . ')>Slett</a>';
 					echo '</div>';
 					echo '</div>';
 

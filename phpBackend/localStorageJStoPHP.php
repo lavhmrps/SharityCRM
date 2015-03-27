@@ -11,8 +11,13 @@ if (isset($_POST['projectIDtoDelete'])) {
 	echo "projectIDtoDelete er satt i localStorageJStoPHP";
 }
 if (isset($_POST['newsIDtoShow'])) {
+
 	$_SESSION['newsIDtoShow'] = $_POST['newsIDtoShow'];
 	echo "NewsIDtoShow er satt i localStorageJStoPHP";
+}
+if (isset($_POST['newsIDtoDelete'])) {
+	$_SESSION['newsIDtoDelete'] = $_POST['newsIDtoDelete'];
+	echo "newsIDtoDelete er satt i localStorageJStoPHP";
 }
 if(isset($_POST['projectNameToRegister'])){
 	

@@ -4,6 +4,11 @@ function setNewsID(newsID){
 	localStorage['newsIDtoShow'] = newsID;
 }
 
+function setNewsIDtoDelete(newsID){
+	alert("setNewsIDtoDelete(newsID) showNews.js newsID ->" + newsID);
+	localStorage['newsIDtoDelete'] = newsID;
+}
+
 
 function getNewsID(){
 	var newsID = localStorage['newsIDtoShow'];
@@ -29,6 +34,22 @@ function showSelectedNews(newsID){
 		},
 		error : function(response){
 			alert("showNews.js : showSelectedNews() : ajax request error: "  +  response.message);
+		}
+	});
+}
+function deleteNews(newsID){
+	alert("showNews.js deleteNews(newsID) -> newsID mottatt: " + newsID);
+	setNewsIDtoDelete(newsID);
+	$.ajax({
+		type : "POST",
+		url : "../phpBackend/localStorageJStoPHP.php",
+		dataType : "text",
+		data : {"newsIDtoDelete" : newsID},
+		success : function(response){
+			alert("showNews.js : deleteNews() : ajax request success: " + response);
+		},
+		error : function(response){
+			alert("showNews.js : deleteNews() : ajax request error: "  +  response.message);
 		}
 	});
 }
