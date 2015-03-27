@@ -57,7 +57,7 @@ $organizationNr = $_SESSION['organizationNr'];
 			if (mysqli_num_rows($result) >= 1) {
 
 				while ($row = mysqli_fetch_assoc($result)) {
-					echo '<div class="col-md-3" id="newscontainer">';
+					echo '<div class="col-lg-3 col-md-3 col-xs-2" id="newscontainer">';
 					echo '<div class="col-md-12" id="newscontent">';
 					echo "<h3>" . $row['title'] . "</h3>";
 					echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='showprojectimg'/>";
