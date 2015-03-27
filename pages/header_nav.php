@@ -65,7 +65,7 @@ $(document).ready(function(){
             </ul>
         </li>
         <li>
-            <a href="../pages/statistics2.php">Statistikk</a>
+            <a href="../pages/newStatistics.php">Statistikk</a>
         </li>
         <li>
             <a href="../pages/settings.php">Innstillinger</a>
