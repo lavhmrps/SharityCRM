@@ -57,12 +57,16 @@ include '../phpBackend/hash.php';
 
 					if($hash == $dbpassword) {
 						$newsIDToDelete = $_SESSION['newsIDtoDelete'];
-						echo "This to delete: ".  $newsIDToDelete;
+						
+						$sql = "DELETE FROM news WHERE newsID = '$newsIDToDelete'";
+						
 
-						$sql = "DELETE FROM news WHERE newsID ='$newsIDToDelete'";
 						$result = mysqli_query($connection, $sql);
+						echo "<script>alert('Herrk');</script>";
 						if($result){
 							header("Location: ../pages/showNews.php");
+						}else{
+							echo "FAIL";
 						}
 					}
 				}
