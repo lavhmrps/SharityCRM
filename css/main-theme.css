@@ -406,6 +406,9 @@ a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
 /** END **/
 
 /** register news  **/
+#registernewscontainer{
+	background-color: #efefef;
+}
 
 #registernewscontainer h1{
 	color: #000;
@@ -483,6 +486,7 @@ input[id=menu]{
 #main-themebtn3{
 	border:1px solid #aaa;
 	background-color: transparent;
+	color: #000;
 }
 #main-themebtn3:hover{
 	background-color: #ddd;

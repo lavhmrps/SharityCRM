@@ -1542,9 +1542,10 @@ input[id=aboutOrg]:focus{
 
 	#selectproject{
 		height:37px;
-		
+		border-radius: 5px;
 		margin: 5px;
 	}
+
 
 	#shownewspreview{
 		height:250px;
@@ -1595,3 +1596,7 @@ input[id=aboutOrg]:focus{
 
 		margin:5px; 
 	}
+
+	
+
+	

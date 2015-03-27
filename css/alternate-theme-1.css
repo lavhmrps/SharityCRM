@@ -120,6 +120,20 @@ html, body{
 #projectcontainer a{
 	color: #fff;
 }
+#newscontainer{
+	background-color: #222 ;
+	border:1px solid #000;
+	color: #FFF;
+}
+
+#newscontainer h1{
+	color: #000;
+}
+
+#newscontainer a{
+	color: #fff;
+}
+
 
 #bottom{
 	background-color: #222;
@@ -157,8 +171,10 @@ html, body{
 /** END **/
 
 /** register news  **/
-
-#registernewscontainer h1{
+#registernewscontainer{
+	background-color: #222;
+}
+#registernewscontainer h1, #registernewscontainer p{
 	color: #fff;
 }
 
@@ -484,3 +500,55 @@ input[id=menu]{
 	color: #FFF;
 }
 
+#addprojectcontainer{
+	background-color: #222 ;
+	border:1px solid #000;
+	color: #FFF;
+}
+
+
+#main-themebtn{
+	border:1px solid #aaa;
+	background-color: transparent;
+	color: #fff;
+}
+#main-themebtn:hover{
+	background-color: #111;
+}
+#main-themebtn2{
+	border:1px solid #aaa;
+	background-color: transparent;
+	color: #fff;
+}
+#main-themebtn2:hover{
+	background-color: #111;
+}
+
+#changenewscontainer{
+	background-color: #efefef;
+}
+
+#main-themebtn3{
+	border:1px solid #aaa;
+	background-color: transparent;
+	color: #fff;
+}
+#main-themebtn3:hover{
+	background-color: #111;
+}
+
+#selectproject option{
+	background-color: #222;
+}
+
+#selectednewscontainer{
+	background-color: #222 ;
+	border:1px solid #000;
+	color: #FFF;
+}
+
+#changenewscontainer{
+	background-color: #222 ;
+	border:1px solid #000;
+	color: #FFF;
+}

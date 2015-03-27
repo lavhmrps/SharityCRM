@@ -120,7 +120,7 @@ include '../phpBackend/connect.php';
                     ';
 
                     echo '
-                    <button  class="btn btn-success" name="update_info">
+                    <button  class="btn btn-success" id="main-themebtn3" name="update_info">
                         Oppdater informasjon
                     </button>
                     ';
