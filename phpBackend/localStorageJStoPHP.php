@@ -6,6 +6,10 @@ if (isset($_POST['projectIDtoShow'])) {
 	$_SESSION['projectIDtoShow'] = $_POST['projectIDtoShow'];
 	echo "ProjectIDtoShow er satt i localStorageJStoPHP";
 }
+if (isset($_POST['projectIDtoDelete'])) {
+	$_SESSION['projectIDtoDelete'] = $_POST['projectIDtoDelete'];
+	echo "projectIDtoDelete er satt i localStorageJStoPHP";
+}
 if (isset($_POST['newsIDtoShow'])) {
 	$_SESSION['newsIDtoShow'] = $_POST['newsIDtoShow'];
 	echo "NewsIDtoShow er satt i localStorageJStoPHP";

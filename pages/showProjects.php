@@ -1,10 +1,11 @@
 <?php
+
 session_start();
 include '../phpBackend/checkSession.php';
 include '../phpBackend/connect.php';
 $organizationNr = $_SESSION['organizationNr'];
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +31,12 @@ $organizationNr = $_SESSION['organizationNr'];
 	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
 	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
 
+<<<<<<< Updated upstream
 	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
+=======
+    <script src="../js/styleswitcher.js" type="text/javascript" ></script>
+    <script src="../js/showProject.js"></script>
+>>>>>>> Stashed changes
 
 </head>
 
@@ -59,12 +65,20 @@ $organizationNr = $_SESSION['organizationNr'];
 				echo "<p>" . $row['about'] . "</p><br/>";*/
 				echo '</div>';
 				echo "<div class='col-md-12' id='bottom'>";
+<<<<<<< Updated upstream
 				echo '<a href="../pages/showSelectedProject.php" onclick="showProject(' . $row['projectID'] . ')">Vis</a>';
 				echo ' - ';
 				echo '<a href="change_projectinfo.php" onclick="showProject(' . $row['projectID'] . ')">Endre</a>';
 				echo ' - ';
 				
 				echo '<a href="showProjects.php" name="deleteProject">Slett</a>';
+=======
+				echo '<a href="../pages/showSelectedProject.php" onclick="showProject(' . $row['projectID'] . ')">Vis</a> - ';
+
+				echo '<a href="../pages/change_projectinfo.php" onclick="showProject(' . $row['projectID'] . ')">Endre</a> - ';
+
+				echo '<a href="../pages/deleteProject.php" onclick="deleteProject(' . $row['projectID'] . ')">Slett</a>';
+>>>>>>> Stashed changes
 				echo '</div>';
 				echo '</div>';
 			}
@@ -75,14 +89,13 @@ $organizationNr = $_SESSION['organizationNr'];
 
 
 <!-- jQuery -->
-<script src="../js/jquery.js"></script>
 <script src="../js/stickyheader.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="../js/bootstrap.min.js"></script>
 
 
-<script src="../js/showProject.js"></script>
+
 
 
 

@@ -5,7 +5,7 @@ session_start();
 include "../phpBackend/connect.php";
 
 
-if (isset($_SESSION['projectID'])) {
+if (isset($_SESSION['organizationNr'])) {
 	if(isset($_POST['project'])){
 		
 		$statusName = TRUE;
@@ -74,6 +74,8 @@ if (isset($_SESSION['projectID'])) {
 		if($statusName && $statusTitle && $statusCountry && $statusCity && $statusAbout){
 			echo "OK";
 		}
+	}else{
+		echo "ProjectID not set";
 	}
 }else{
 	echo "sign_in";

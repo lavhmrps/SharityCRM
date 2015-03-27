@@ -241,6 +241,7 @@ $organizationNr = $_SESSION['organizationNr'];
                 alert("Fyll inn alle felters, informasjon kan gå tapt, trykk ok for å samtykke");
             }
 
+            
 
 
             var json = {
@@ -256,6 +257,7 @@ $organizationNr = $_SESSION['organizationNr'];
 
             json = JSON.stringify(json);
 
+            alert();
             $.ajax({
                 type: "POST",
                 dataType : "text",

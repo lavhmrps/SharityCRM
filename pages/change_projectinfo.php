@@ -212,6 +212,8 @@ include '../phpBackend/connect.php';
                             alert("Successful ajax request from change_projectinfo.js calling to updateProject.php " + response);
                             window.location.replace("../pages/showProjects.php");
 
+                        }else{
+                            alert("Response: " + response);
                         }
 
 

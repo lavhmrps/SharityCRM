@@ -35,6 +35,7 @@ include "../pages/header_nav.php";
 
 <?php
 $projectID = $_SESSION['projectIDtoShow'];
+
 $sql = "SELECT * FROM Project WHERE projectID = $projectID";
 $result = mysqli_query($connection, $sql);
 if($result){
@@ -58,7 +59,7 @@ if($result){
 		die("Alvorlig feil! SQL sprørringen etter " . $projectID . " returnerte mindre enn 1 eller mer enn 1 Prosjekt");
 	}
 }else{
-	die("Feil i SQL spørringen");
+	die("Feil i SQL spørringen: " . $_SESSION['projectIDtoShow']);
 }
 ?>
 <div class="container" >
