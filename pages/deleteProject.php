@@ -59,9 +59,11 @@ include '../phpBackend/hash.php';
 						$projectIDtoDelete = $_SESSION['projectIDtoDelete'];
 						echo "This to delete: ".  $projectIDtoDelete;
 
-						$sql = "DELETE FROM project WHERE projectID =projectIDtoDelete'";
+						$sql = "DELETE FROM project WHERE projectID ='$projectIDtoDelete'";
 						$result = mysqli_query($connection, $sql);
 						if($result){
+							$sql = "DELETE FROM news WHERE projectID = '$projectIDtoDelete'";
+							$result = mysqli_query($connection, $sql);
 							header("Location: ../pages/showProjects.php");
 						}
 					}
