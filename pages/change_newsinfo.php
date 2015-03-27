@@ -51,8 +51,8 @@ include '../phpBackend/connect.php';
         include 'header_nav.php';
         ?>
         
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" id="changenewscontainer">
             <div class="col-md-12 text-center" id="reg_pt2_head">
                 <?php
 
@@ -69,18 +69,10 @@ include '../phpBackend/connect.php';
                 ?>
 
             </div>
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8 text-center">
+           
+     
 
-                </div>
-                <div class="col-md-2"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-
-
+          
 
                     <?php
 
@@ -107,7 +99,7 @@ include '../phpBackend/connect.php';
 
                             
                             echo '
-                            <button class="btn bluebtn" name="backgroundimgURLbutton">
+                            <button class="btn bluebtn" id="changenewsbackgroundpic" name="backgroundimgURLbutton">
                                 Last opp bakgrunnsbilde
                             </button>
                             <form enctype="multipart/form-data">
@@ -116,18 +108,16 @@ include '../phpBackend/connect.php';
                             ';
                             
                             echo '
-                            <button  class="btn btn-success" name="update_info" onclick="SET newsIDtoShow(newsID);">
+                            <button  class="btn" id="main-themebtn3" name="update_info" onclick="SET newsIDtoShow(newsID);">
                                 Oppdater informasjon
                             </button>
                             ';
                         }
                     }
                     ?>
-                </div>
-                <div class="col-md-2"></div>
-            </div>
+          
         </div>
-        <div class="col-md-3"></div>
+        <div class="col-md-4"></div>
         <div class="col-md-12" id="somespace"></div>
 
         <!-- Bootstrap Core JavaScript -->

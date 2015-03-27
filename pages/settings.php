@@ -56,7 +56,7 @@ if(isset($_POST['registerNews'])){
 					<a href="#" onclick="setActiveStyleSheet('default'); return false;">Default</a> - 
 					<a href="#" onclick="setActiveStyleSheet('alternate'); return false;">Dark</a> - 
 					<a href="#" onclick="setActiveStyleSheet('alternate2'); return false;">Pink</a> - 
-					<a href="#" onclick="setActiveStyleSheet('alternate3'); return false;">Mææ!</a>
+					<a href="#" onclick="setActiveStyleSheet('alternate3'); return false;">Black&Yellow</a>
 
 				</div>
 			</div>
@@ -78,9 +78,14 @@ if(isset($_POST['registerNews'])){
 					<p>trimme loginstring før den sjekkes mot db</p>
 					<p>Vaske og trimme stringer før de sendes til db</p>
 					<p>Sjekke siden opp mot andre browsere</p>
+					<p>Fikse last opp bilde og logo knapp på endre org siden</p>
+					<p>Fikse bilde opplasting på reg nyhet og endre nyhet</p>
+					<p>Når man er inne på Vis eller endre nyhet går det ikke å trykke på prosjekt eller nyhet i menyen øverst.. FIKS</p>
+					<p>Vis alle nyheter til prosjekt-knapp når man er inne på vis prosjekt?</p>
 					<br/>
 					<p>APP:</p>
 					<p>Legge inn jquery lokalt i app</p>
+
 				</div>
 				<div class="col-md-6 text-left">
 					<p>ADMINSIDEN:</p>

@@ -32,7 +32,7 @@ if(isset($_POST['registerNews'])){
 	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
 	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
 
-    <script src="../js/styleswitcher.js" type="text/javascript" ></script>
+	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
 
 
 
@@ -81,39 +81,41 @@ if(isset($_POST['registerNews'])){
 
 
 	?>
+	<div class="container" >
+		<div class="col-md-3"></div>
+		<div class="col-md-6" id="selectednewscontainer">
 
-	<div class="col-md-3"></div>
-	<div class="col-md-6">
-		<div class="col-md-12 text-center" id="reg_pt2_head">
 
 
-		</div>
-		<div class="row">
-			<div class="col-md-2"></div>
-			<div class="col-md-8 text-center" id="selectednewscontainer">
+			<div class="col-md-12 text-center" >
 				<?php echo "<h1>" . $projectName . "</h1>"?>
 			</div>
-			<div class="col-md-2"></div>
-		</div>
-		<div class="row">
-			<div class="col-md-2"></div>
-			<div class="col-md-8">
+
+
+
+
+
+
+			<div class="col-md-12">
 
 				<?php
 				echo '<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />';
-				echo '<img src="../phpBackend/'. $backgroundimgURL . '" id="preview" alt="Click to upload img" name="preview" />';
+				echo '<img src="../phpBackend/'. $backgroundimgURL . '" id="shownewspreview" alt="Click to upload img" name="preview" />';
 				echo '<input type="text" id="reg_news_input" class="form-control" name="newsHeader" placeholder="Nyhetsoverskrift" value="' . $title . '"readonly/>';
-				echo '<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="newsText" placeholder="Nyhetstekst" readonly>'. $txt .'</textarea>'
-
+				echo '<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="newsText" placeholder="Nyhetstekst" readonly>'. $txt .'</textarea>';
+				echo '<div id="showselectednewsChange"onclick=showSelectedNews(' . $row['newsID'] . ')>';
+				echo '<a href="change_newsinfo.php" id="Changebutton" onclick=showSelectedNews(' . $row['newsID'] . ')>Endre</a>';
+				echo '</div>';
 				?>
 
+				
+
 			</div>
-			<div class="col-md-2"></div>
+			<div class="col-md-3"></div>
+
+
 		</div>
 	</div>
-	<div class="col-md-3"></div>
-	<div class="col-md-12" id="somespace"></div>
-</div>
 </body>
 </html>
 

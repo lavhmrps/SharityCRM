@@ -81,7 +81,7 @@ body{
 }
 
 #homebox a{
-	color: green;
+	color: blue;
 	font-weight: bold;
 }
 
@@ -94,9 +94,9 @@ body{
 
 /** show all projects**/
 #projectcontainer, #newscontainer{
-	background-color: #333 ;
-	border:1px solid #000;
-	color: #FFF;
+	background-color: #efefef ;
+	border:1px solid #dedede;
+	color: #000;
 }
 
 #projectcontainer h1{
@@ -108,8 +108,12 @@ body{
 }
 
 #bottom{
-	background-color: #333;
+	background-color: #efefef;
 	/*border-top:1px solid #777;*/
+}
+
+#bottom a{
+	color:blue;
 }
 
 #changeOrginfoA{
@@ -390,6 +394,11 @@ a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
 
 /** show selected news **/
 
+#selectednewscontainer{
+	background-color: #efefef;
+	padding:10px;
+}
+
 #selectednewscontainer h1{
 	color: #000;
 }
@@ -467,3 +476,14 @@ input[id=menu]{
 	background-color: #ddd;
 }
 
+#changenewscontainer{
+		background-color: #efefef;
+	}
+
+#main-themebtn3{
+	border:1px solid #aaa;
+	background-color: transparent;
+}
+#main-themebtn3:hover{
+	background-color: #ddd;
+}

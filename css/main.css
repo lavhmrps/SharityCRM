@@ -854,13 +854,16 @@ input[id="projectSavebtn"]{
 	margin:5px;
 	margin-top:20px;
 	margin-left: 25px;
-	width:350px;
-	height:350px;
+	width:260px;
+	height:250px;
+}
+#projectcontainer h2{
+	text-align: center;
 }
 
 #projectcontent{
 	overflow:hidden;
-	height: 340px;
+	height: 245px;
 	margin-bottom: 10px;
 }
 
@@ -872,6 +875,12 @@ input[id="projectSavebtn"]{
 	width:260px;
 	height:250px;
 }
+
+#newscontainer h3{
+	text-align: center;
+}
+
+
 #newscontent{
 	overflow:hidden;
 	height: 245px;
@@ -1040,7 +1049,7 @@ img{
 /*end home*/
 
 #showprojectimg{
-	height:50px;
+	height:65%;
 	width:100%;
 }
 
@@ -1535,4 +1544,43 @@ input[id=aboutOrg]:focus{
 		height:37px;
 		
 		margin: 5px;
+	}
+
+	#shownewspreview{
+		height:250px;
+		width:98%;
+		margin:5px;
+	}
+
+	#selectednewscontainer{
+		padding:40px;
+	}
+
+	#showselectednewsChange{
+		margin:5px;
+		padding:10px;
+		text-align: right;
+	}
+
+	#changenewscontainer{
+		padding:50px;
+	}
+
+
+
+	#Changebutton{
+		font-size: 22px;
+		padding:5px;
+		margin:10px;
+	}
+
+	#changenewsbackgroundpic{
+		margin:5px;
+	}
+
+	#main-themebtn3{
+		width:98%;
+		margin:5px;
+		margin-bottom: 40px;
+		border-radius: 5px;
 	}

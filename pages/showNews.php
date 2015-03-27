@@ -61,7 +61,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					echo '<div class="col-md-12" id="newscontent">';
 					echo "<h3>" . $row['title'] . "</h3>";
 					echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='showprojectimg'/>";
-					echo "<p>" . $row['txt'] . "</p>";
+					/*echo "<p>" . $row['txt'] . "</p>";*/
 					echo '</div>';
 					echo "<div class='col-md-12' id='bottom'>";
 					echo '<a href="../pages/showSelectedNews.php" onclick=showSelectedNews(' . $row['newsID'] . ')>Vis</a> - ';
