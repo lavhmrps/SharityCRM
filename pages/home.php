@@ -14,7 +14,7 @@ include '../phpBackend/connect.php';
 
 <head>
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<meta charset="utf-8">
+	<meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
@@ -68,6 +68,8 @@ include '../phpBackend/connect.php';
 
 				if ($result) {
 					if (mysqli_num_rows($result) == 1) {
+
+
 						$row = mysqli_fetch_assoc($result);
 
 						$zip = $row["zipcode"];
@@ -76,7 +78,8 @@ include '../phpBackend/connect.php';
 						$postResult = mysqli_query($connection, $postSQL);
 						$postRow = mysqli_fetch_assoc($postResult);
 
-						$city = $postRow['city'];
+						$city = utf8_encode($postRow['city']);
+
 
 						echo '<div class="col-md-0"></div>';
 						echo "<h2>" . $row['name'] . "</h2>";
