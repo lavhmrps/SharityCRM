@@ -30,7 +30,7 @@ $organizationNr = $_SESSION['organizationNr'];
 	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
 	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
 
-    <script src="../js/styleswitcher.js" type="text/javascript" ></script>
+	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
 
 </head>
 
@@ -39,31 +39,32 @@ $organizationNr = $_SESSION['organizationNr'];
 	include '../pages/header_nav.php';
 	?>
 	<div class="container"><!-- 3 på rad i container eller 4 på rad uten container ?-->
-	<div class="row">
-		
-
-		<?php
-
-		$sql = "SELECT * FROM Project WHERE organizationNr = $organizationNr";
-		$result = mysqli_query($connection, $sql);
+		<div class="row">
 
 
+			<?php
 
-		if (mysqli_num_rows($result) >= 1) {
-			while ($row = mysqli_fetch_assoc($result)) {
-				echo '<div class="col-md-3" id="projectcontainer">';
-				echo '<div class="col-md-12" id="projectcontent">';
-				echo "<h2>" . $row['name'] . "</h2>"; 
-				echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='showprojectimg'/>";
+			$sql = "SELECT * FROM Project WHERE organizationNr = $organizationNr";
+			$result = mysqli_query($connection, $sql);
+
+
+
+			if (mysqli_num_rows($result) >= 1) {
+				while ($row = mysqli_fetch_assoc($result)) {
+					echo '<div class="col-md-3" id="projectcontainer">';
+					echo '<div class="col-md-12" id="projectcontent">';
+					echo "<h2>" . $row['name'] . "</h2>"; 
+					echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='showprojectimg'/>";
 				/*echo "<h3>" . $row['title'] . "</h3>";
 				echo "<p>" . $row['about'] . "</p><br/>";*/
 				echo '</div>';
 				echo "<div class='col-md-12' id='bottom'>";
-				echo '<a href="../pages/showSelectedProject.php" onclick="showProject(' . $row['projectID'] . ')">Vis</a> - ';
-
-				echo '<a href="change_projectinfo.php" onclick="showProject(' . $row['projectID'] . ')">Endre</a> - ';
-
-				echo '<a href="">Slett</a>';
+				echo '<a href="../pages/showSelectedProject.php" onclick="showProject(' . $row['projectID'] . ')">Vis</a>';
+				echo ' - ';
+				echo '<a href="change_projectinfo.php" onclick="showProject(' . $row['projectID'] . ')">Endre</a>';
+				echo ' - ';
+				
+				echo '<a href="showProjects.php" name="deleteProject">Slett</a>';
 				echo '</div>';
 				echo '</div>';
 			}
@@ -71,6 +72,8 @@ $organizationNr = $_SESSION['organizationNr'];
 		?>
 	</div>
 </div>
+
+
 <!-- jQuery -->
 <script src="../js/jquery.js"></script>
 <script src="../js/stickyheader.js"></script>

@@ -18,4 +18,6 @@ function updateDatabase($connection, $sql){
 		//sjekk om det er duplicate entry !
 	}
 }
+
+// / // Vi trenger en slett funksjon også? // / // 
 ?>

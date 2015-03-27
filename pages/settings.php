@@ -80,8 +80,10 @@ if(isset($_POST['registerNews'])){
 					<p>Sjekke siden opp mot andre browsere</p>
 					<p>Fikse last opp bilde og logo knapp på endre org siden</p>
 					<p>Fikse bilde opplasting på reg nyhet og endre nyhet</p>
+					<p>Generelt fikse bildeopplastning slik at vi har tillatelse til å bruke bildene som blir lagt inn i db</p>
 					<p>Når man er inne på Vis eller endre nyhet går det ikke å trykke på prosjekt eller nyhet i menyen øverst.. FIKS</p>
 					<p>Vis alle nyheter til prosjekt-knapp når man er inne på vis prosjekt?</p>
+					<p>Change newsinfo funker det ikke å oppdatere.. </p>
 					<br/>
 					<p>APP:</p>
 					<p>Legge inn jquery lokalt i app</p>

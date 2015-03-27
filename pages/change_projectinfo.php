@@ -31,7 +31,7 @@ include '../phpBackend/connect.php';
     <link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
     <link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
     <link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
-	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
+    <link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
 
     <script src="../js/styleswitcher.js" type="text/javascript" ></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -51,8 +51,8 @@ include '../phpBackend/connect.php';
         include 'header_nav.php';
         ?>
         
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" id="changenewscontainer">
             <div class="col-md-12 text-center" id="reg_pt2_head">
                 <?php
 
@@ -69,79 +69,67 @@ include '../phpBackend/connect.php';
                 ?>
 
             </div>
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8 text-center">
-
-                </div>
-                <div class="col-md-2"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
 
 
 
-                    <?php
+            <?php
 
-                    $sql = "SELECT * FROM Project WHERE projectID = $projectID";
-                    $result = mysqli_query($connection, $sql);
+            $sql = "SELECT * FROM Project WHERE projectID = $projectID";
+            $result = mysqli_query($connection, $sql);
 
-                    if($result){
-                        if(mysqli_num_rows($result) == 1){
-                            $row = mysqli_fetch_assoc($result);
-
-
-
-                            $name = $row['name'];
-                            $title = $row['title'];
-                            $about = $row['about'];
-                            $country = $row['country'];
-                            $city = $row['city'];
-                            $backgroundimgURL = $row['backgroundimgURL'];
+            if($result){
+                if(mysqli_num_rows($result) == 1){
+                    $row = mysqli_fetch_assoc($result);
 
 
 
-                            echo "<label>Tittel</label>";
-                            echo '<input type="text" class="form-control" name="name" id="reg_pt2_input" placeholder="" value="' . $name . '"/>';
+                    $name = $row['name'];
+                    $title = $row['title'];
+                    $about = $row['about'];
+                    $country = $row['country'];
+                    $city = $row['city'];
+                    $backgroundimgURL = $row['backgroundimgURL'];
 
-                            echo "<label>Brødtekst</label>";
-                            echo '<input type="tel" class="form-control" name="title" id="reg_pt2_input" placeholder="" value="' . $title . '"/>';
 
-                            
-                            
-                            echo "<label>Land</label>";
-                            echo '<input type="email" class="form-control" name="country" id="reg_pt2_input" placeholder="" value="'. $country . '"/>';
-                            
-                            echo "<label>By</label>";
-                            echo '<input type="text" class="form-control" name="city" id="reg_pt2_input" placeholder="" value="' . $city . '"/>'; 
 
-                            echo "<label>Om prosjektet</label>";
-                            echo '<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="about" id="aboutOrg" placeholder="Om prosjektet">' . $about . '</textarea>';
+                    echo "<label>Tittel</label>";
+                    echo '<input type="text" class="form-control" name="name" id="reg_pt2_input" placeholder="" value="' . $name . '"/>';
 
-                            
-                            echo '
-                            <button class="btn bluebtn" name="backgroundimgURLbutton">
-                                Last opp bakgrunnsbilde
-                            </button>
-                            <form enctype="multipart/form-data">
-                                <input type="file" name="backgroundimgURL" style="display:none">
-                            </form> 
-                            ';
-                            
-                            echo '
-                            <button  class="btn btn-success" name="update_info">
-                                Oppdater informasjon
-                            </button>
-                            ';
-                        }
-                    }
-                    ?>
-                </div>
-                <div class="col-md-2"></div>
-            </div>
+                    echo "<label>Brødtekst</label>";
+                    echo '<input type="tel" class="form-control" name="title" id="reg_pt2_input" placeholder="" value="' . $title . '"/>';
+
+
+
+                    echo "<label>Land</label>";
+                    echo '<input type="email" class="form-control" name="country" id="reg_pt2_input" placeholder="" value="'. $country . '"/>';
+
+                    echo "<label>By</label>";
+                    echo '<input type="text" class="form-control" name="city" id="reg_pt2_input" placeholder="" value="' . $city . '"/>'; 
+
+                    echo "<label>Om prosjektet</label>";
+                    echo '<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="about" id="aboutOrg" placeholder="Om prosjektet">' . $about . '</textarea>';
+
+
+                    echo '
+                    <button class="btn bluebtn" name="backgroundimgURLbutton">
+                        Last opp bakgrunnsbilde
+                    </button>
+                    <form enctype="multipart/form-data">
+                        <input type="file" name="backgroundimgURL" style="display:none">
+                    </form> 
+                    ';
+
+                    echo '
+                    <button  class="btn btn-success" name="update_info">
+                        Oppdater informasjon
+                    </button>
+                    ';
+                }
+            }
+            ?>
+
         </div>
-        <div class="col-md-3"></div>
+        <div class="col-md-4"></div>
         <div class="col-md-12" id="somespace"></div>
 
         <!-- Bootstrap Core JavaScript -->

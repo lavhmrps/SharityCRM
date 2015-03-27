@@ -1584,3 +1584,14 @@ input[id=aboutOrg]:focus{
 		margin-bottom: 40px;
 		border-radius: 5px;
 	}
+
+	#Projectpreview{
+		max-width:98%; 
+		max-height:210px;
+		min-width:98%; 
+		min-height:210px;
+
+		width: 98%;
+
+		margin:5px; 
+	}

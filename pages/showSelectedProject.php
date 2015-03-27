@@ -27,7 +27,7 @@ include '../phpBackend/connect.php';
 	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
 	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
 
-    <script src="../js/styleswitcher.js" type="text/javascript" ></script>
+	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
 </head>
 <?php
 include "../pages/header_nav.php";
@@ -47,7 +47,7 @@ if($result){
 		if($backgroundimgURL == ""){
 			$backgroundimgURL = "../img/default.png";
 		}
-	
+
 		$name = $row['name'];
 		$title = $row['title'];
 		$about = $row['about'];
@@ -61,36 +61,25 @@ if($result){
 	die("Feil i SQL spørringen");
 }
 ?>
+<div class="container" >
+	<div class="col-md-3"></div>
+	<div class="col-md-6" id="selectednewscontainer">
 
-<div class="col-md-3"></div>
-<div class="col-md-6">
-	<div class="col-md-12 text-center" id="reg_pt2_head">
-
-	</div>
-	<div class="row">
-		<div class="col-md-2"></div>
-		<div class="col-md-8 text-center" id="selectedprojectcontainer">
+		<div class="col-md-12 text-center" >
 			<?php
 
 			echo "<h1>" . $name . "</h1>";
 
 			?>
 		</div>
-		<div class="col-md-2"></div>
-	</div>
-	<div class="row">
-		<div class="col-md-2"></div>
-		<div class="col-md-8">
+
+
+		<div class="col-md-12">
 
 			<?php
 			echo '<input type="text" id="reg_project_input" class="form-control" name="projectName" placeholder="Prosjektnavn" value="' . $name . '" readonly/>
-
-
-
-
 			<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL"/>
-
-			<img src="'. $backgroundimgURL.'" id="preview" alt="Click to upload img" name="preview"/>
+			<img src="'. $backgroundimgURL.'" id="Projectpreview" alt="Click to upload img" name="preview"/>
 			<input type="text" id="reg_project_input" class="form-control" name="country" placeholder="Land" value="' . $country. '" readonly/>
 			<input type="text" id="reg_project_input" class="form-control" name="city" placeholder="By" value="' . $city . '" readonly/>
 			<input type="text" id="reg_project_input" class="form-control" name="title" placeholder="Prosjekt tittel" value="' . $title . '" readonly/>
@@ -100,15 +89,17 @@ if($result){
 			';
 
 			?>
-
+			<?php 
+				echo '<div id="showselectednewsChange"onclick=showSelectedNews(' . $row['projectID'] . ')>';
+				echo '<a href="change_projectinfo.php" id="Changebutton" onclick="showProject(' . $row['projectID'] . ')">Endre</a>';
+				echo '</div>';
+			?>
 
 		</div>
-		<div class="col-md-2"></div>
+		<div class="col-md-3"></div>
 	</div>
 </div>
-<div class="col-md-3"></div>
-<div class="col-md-12" id="somespace"></div>
-</div>
+
 
 
 <!-- jQuery -->
@@ -118,9 +109,9 @@ if($result){
 <script src="../js/bootstrap.min.js"></script>
 <!-- Upload img js -->
 <script type="text/JavaScript">
-$("#uploadimg").click(function() {
-	$("#file1").trigger('click');
-});
+	$("#uploadimg").click(function() {
+		$("#file1").trigger('click');
+	});
 </script>
 </body>
 <!-- -->
