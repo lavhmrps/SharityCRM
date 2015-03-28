@@ -5,7 +5,11 @@ $(document).ready(function(){
   var ctx = document.getElementById("this_month").getContext("2d");
   window.myLine = new Chart(ctx).Line(lineChartData, {
     responsive: true,
-    scaleGridLineColor : "#777"
+    scaleGridLineColor : "#999",
+    scaleShowHorizontalLines: true,
+
+    //Boolean - Whether to show vertical lines (except Y axis)
+    scaleShowVerticalLines: false,
   });
 
   var sumJan = 0;
@@ -101,8 +105,8 @@ $(document).ready(function(){
 var lineChartData = {
 	labels : ["01","02","03","04","05","06","07", "08", "09", "10", "11", "12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
   datasets : [
-	{
-		label: "12 mnd",
+  {
+    label: "12 mnd",
 		fillColor : "#1A324C", //farge under grafen
     strokeColor : "#1A324C", //farge på linja
     pointColor : "transparent", //farge på prikkene
