@@ -142,13 +142,7 @@ include '../phpBackend/connect.php';
 
 			<div class="col-md-6" id="homeboxupperright">
 				<h2>Nylig aktivitet</h2>
-
-				<p>La til nytt prosjekt med tittel "Tittel"</p>
-				<p>La til nytt prosjekt med tittel "Tittel"</p>
-				<p>La til nytt prosjekt med tittel "Tittel"</p>
-				<p>La til nytt prosjekt med tittel "Tittel"</p>
-				<p>La til nytt prosjekt med tittel "Tittel"</p>
-
+				
 
 			</div>
 

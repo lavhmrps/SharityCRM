@@ -82,6 +82,4 @@ function getProjectCount($orgnr, $con){
     $result = mysqli_query($con, $sql);
     return mysqli_num_rows($result);
 }
-
-
 ?>
