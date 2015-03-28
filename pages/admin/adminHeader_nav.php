@@ -42,27 +42,27 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Bruker<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
                 <li>
-                    <a href="../pages/registerNews.php">Endre info</a>
+                    <a href="changeUser.php">Endre info</a>
                 </li>
                  <li>
-                    <a href="../pages/showNews.php">Endre venner</a>
+                    <a href="changeFriends.php">Endre venner</a>
                 </li>
                  <li>
-                    <a href="../pages/showNews.php">Endre abonnementer</a>
+                    <a href="changeSubs.php">Endre abonnementer</a>
                 </li>
                 <li>
-                    <a href="../pages/showNews.php">Fjern donasjon</a>
+                    <a href="removeDonation.php">Fjern donasjon</a>
                 </li>
                  <li>
-                    <a href="../pages/showNews.php">Fjern kortinformasjon</a>
+                    <a href="removeCard.php">Fjern kortinformasjon</a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="../pages/newStatistics.php">Statistikk</a>
+            <a href="statistics.php">Statistikk</a>
         </li>
         <li>
-            <a href="../pages/settings.php">Innstillinger</a>
+            <a href="settings.php">Innstillinger</a>
         </li>
         <li>
             <a href="#" name="loggUt">Logg ut</a>
