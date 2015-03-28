@@ -7,6 +7,7 @@ $(document).ready(function(){
     responsive: true,
     scaleGridLineColor : "#999",
     scaleShowHorizontalLines: true,
+  
 
     //Boolean - Whether to show vertical lines (except Y axis)
     scaleShowVerticalLines: false,
