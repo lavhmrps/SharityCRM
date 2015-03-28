@@ -37,12 +37,22 @@ include '../phpBackend/connect.php';
     <link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
 
     <script src="../js/styleswitcher.js" type="text/javascript" ></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+    
     
     
     <script>
     $(document).ready(function(){
         $('button[name=day]').click(function(){
             day();
+        });
+        
+        $('#datepicker').datepicker({
+                format: "yyyy-mm-dd",
+                weekStart: 1,
+                language: "no",
+                todayHighlight: true
         });
 
         function day(){
@@ -51,7 +61,7 @@ include '../phpBackend/connect.php';
 
             xmlhttp.onreadystatechange = function(){
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById("followers").innerHTML = xmlhttp.responseText;
+                    document.getElementById("out").innerHTML = xmlhttp.responseText;
                 }
             }
 
@@ -76,10 +86,9 @@ include '../phpBackend/connect.php';
 
             <div class="col-md-6 text-center" id="">
                 <div class="row">
-                    <input type="text" name="date" placeholder="yyyy-mm-dd eller yyyy"  id="datepicker">
-
-                    <div class="input-group date">
-                        <input class="datepicker"><i class="glyphicon glyphicon-th"></i></span>
+                    <div class="input-append date" id="datepicker" data-date-format="yyyy-mm-dd">
+                        <input class="span2" size="16" name="date" type="text" readonly="readonly" />
+                        <span class="add-on"><i class="icon-calendar"></i></span>
                     </div>
 
 
@@ -91,7 +100,7 @@ include '../phpBackend/connect.php';
                     </button>        
                 </div>
                 <div class="row">
-                    <span id=""></span>      
+                    <span id="out"></span>      
                 </div>
 
             </div>
@@ -102,13 +111,7 @@ include '../phpBackend/connect.php';
     <script src="../js/bootstrap.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js" type="text/javascript" ></script>
     <script type="text/javascript">
             // When the document is ready
-            $(document).ready(function () {
-                
-                $('#datepicker').datepicker({
-                    format: "yyyy-mm-dd"
-                });  
-            
-            });
+        
     </script> 
 
 </body>
