@@ -86,9 +86,9 @@ include '../phpBackend/connect.php';
 
     <div class="container">
         <div>
-            <div class="col-md-3"></div>
+            
 
-            <div class="col-md-6 text-center" id="">
+            <div class="col-md-3 text-center" id="statistics">
                 
                     <div class="input-append date">
                         <input class="span2" name="date" size="16" type="text" id="datepicker" readonly="readonly" />
@@ -108,6 +108,9 @@ include '../phpBackend/connect.php';
                 </div>
 
             </div>
+            <div class="col-md-3" id="statistics"></div>
+            <div class="col-md-3" id="statistics"></div>
+            <div class="col-md-3" id="statistics"></div>
         </div>
     </div>
 
