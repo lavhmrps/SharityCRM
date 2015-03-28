@@ -80,7 +80,7 @@ include '../phpBackend/connect.php';
 
 						$city = utf8_encode($postRow['city']);
 
-
+ 
 						echo '<div class="col-md-0"></div>';
 						echo "<h2>" . $row['name'] . "</h2>";
 

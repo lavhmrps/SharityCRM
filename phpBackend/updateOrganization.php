@@ -1,6 +1,4 @@
 <?php
-
-
 session_start();
 include "../phpBackend/connect.php";
 if (isset($_SESSION['organizationNr'])) {
@@ -123,9 +121,6 @@ if (!isset($_SESSION['organizationNr'])) {
 		$json = $_POST['organization'];
 		$organization = json_decode($json, true);
 
-
-
-
 		$organizationNr = $_SESSION['organizationNr'];
 		
 		if(isset($organization['address'])){
@@ -212,5 +207,4 @@ if (!isset($_SESSION['organizationNr'])) {
 		}
 	}
 }
-
 ?>
