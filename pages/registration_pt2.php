@@ -30,6 +30,22 @@ $organizationNr = $_SESSION['organizationNr'];
 	<link href="../css/fonts.css" rel="stylesheet"/>
 	<link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
 
+	<script type="text/javascript">
+	function skip(){
+		window.location.replace('../pages/home.php');
+	}
+	</script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!--Sript for insert organization to database through AJAX request-->
+	<script src="../js/updateOrganization.js"></script>
+	
+
+	<!--Sript for insert images to database through AJAX request-->
+	<script src="../js/insertImg.js"></script>
+
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -228,26 +244,7 @@ $organizationNr = $_SESSION['organizationNr'];
 
 
 
-
-
-
-		<!-- jQuery -->
-		<script src="../js/jquery.js"></script>
-
-		<script type="text/javascript">
-		function skip(){
-			window.location.replace('../pages/home.php');
-		}
-		</script>
-
-		<!-- Bootstrap Core JavaScript -->
-		<script src="../js/bootstrap.min.js"></script>
-
-		<!--Sript for insert organization to database through AJAX request-->
-		<script src="../js/updateOrganization.js"></script>
-
-		<!--Sript for insert images to database through AJAX request-->
-		<script src="../js/insertImg.js"></script>
+		
 
 
 	</body>

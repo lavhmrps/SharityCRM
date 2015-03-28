@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
 	$("button[name=backgroundimgURLbutton]").click(function () {
 		$("input[name=backgroundimgURL]").trigger('click');
 	});
@@ -10,12 +11,9 @@ $(document).ready(function(){
 
 	$('button[name=complete_registration]').click(function(event){
 		insertInformation();
-		window.location.replace('../pages/home.php');
+		//window.location.replace('../pages/home.php');
 
 	});
-
-
-
 
 	$("#preview").click(function(){
 		$("#file_background").trigger("click");
@@ -87,7 +85,6 @@ function insertInformation(){
 	organizationJSON = JSON.stringify(organizationJSON);
 	$.ajax({
 		type : "POST",
-
 		dataType : "text",
 		url : "../phpBackend/updateOrganization.php",
 		data: {"organization" : organizationJSON},
@@ -111,7 +108,7 @@ function insertInformation(){
 
 		},
 		error : function(response){
-			alert("erro");
+			alert("Organization: feil i success updateOrganization.js feil til updateOrganization.php");
 		}
 	});
 }
@@ -128,7 +125,7 @@ function insertBackground(file_data_background){
 		data: form_data_background,
 		type: 'POST',
 		success: function(response){
-			alert(response);
+			alert("RESPONSE FRA UPADATE PRGANIZATIN.JS : AJAX TO insertBackground.PHP" +response);
 		},
 		error : function(response){
 			alert(" updateOrganization.js : insertBackground ajax request ERROR : " + response);
@@ -149,7 +146,7 @@ function insertLogo(file_data_logo){
 		data: form_data_logo,
 		type: 'POST',
 		success: function(response){
-			alert(response);
+			alert("insertLogo() updateOrganization" + response);
 		},
 		error : function(response){
 			alert(" updateOrganization.js : insertLogo ajax request ERROR : " + response);

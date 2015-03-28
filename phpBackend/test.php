@@ -1,3 +1,7 @@
 <?php
-	echo "Hello";
+header('Access-Control-Allow-Origin: *'); 
+
+
+echo "Herrlo";
+
 ?>
