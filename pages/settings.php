@@ -67,7 +67,6 @@ if(isset($_POST['registerNews'])){
 				<p>Internal frames på statistikk? og gjøre de visible</p>
 				<p>Brødsmulesti</p>
 				<p>Alle script skal si "OK" om de blir kjørt</p>
-				<p>Hente poststed automatisk på home.php</p>
 				<p>trimme loginstring før den sjekkes mot db</p>
 				<p>Vaske og trimme stringer før de sendes til db</p>
 				<p>Sjekke siden opp mot andre browsere</p>
@@ -77,6 +76,7 @@ if(isset($_POST['registerNews'])){
 				<p>Når man er inne på Vis eller endre nyhet går det ikke å trykke på prosjekt eller nyhet i menyen øverst.. FIKS</p>
 				<p>Vis alle nyheter til prosjekt-knapp når man er inne på vis prosjekt?</p>
 				<p>Change newsinfo funker det ikke å oppdatere.. </p>
+				<p>Lage FAQ-side</p>
 				<br/>
 				<p>APP:</p>
 				<p>Legge inn jquery lokalt i app</p>

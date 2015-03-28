@@ -226,7 +226,7 @@ include "phpBackend/connect.php";
 									<a href="pages/aboutSharity.php">About </a>
 								</div>
 								<div class="col-md-6">
-									<a href="pages/FAQ.php">FAQs </a>
+									<a href="pages/FAQ/FAQ.php">FAQs </a>
 								</div>
 								<div class="col-md-6">
 									<a href="http://www.simpleness.no" target="_blank">Simplenæss </a>
@@ -238,28 +238,28 @@ include "phpBackend/connect.php";
 							
 							
 							<div class="col-md-4" id="footerpadding">
-								<a href="http://www.facebook.com/vlokreim"><img src="http://static.viewbook.com/images/social_icons/facebook_32.png"/></a
-									<a href="http://www.twitter.com/mv700" target="_blank"><img src="http://static.viewbook.com/images/social_icons/twitter_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
-									src="http://static.viewbook.com/images/social_icons/linkedin_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
-									src="http://static.viewbook.com/images/social_icons/google_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
-									src="http://static.viewbook.com/images/social_icons/vimeo_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
-									src="http://static.viewbook.com/images/social_icons/tumblr_32.png"/></a> <a href="http://www.facebook.com/vlokreim" target="_blank"><img
-									src="http://static.viewbook.com/images/social_icons/wordpress_32.png"/></a>
+								<a href="http://www.facebook.com/vlokreim"><img src="http://static.viewbook.com/images/social_icons/facebook_32.png"/></a>
+								<a href="http://www.twitter.com/mv700" target="_blank"><img src="http://static.viewbook.com/images/social_icons/twitter_32.png"/></a> 
+								<a href="http://www.facebook.com/vlokreim" target="_blank"><img src="http://static.viewbook.com/images/social_icons/linkedin_32.png"/></a> 
+								<a href="http://www.google.com" target="_blank"><img src="http://static.viewbook.com/images/social_icons/google_32.png"/></a> 
+								<a href="http://www.vimeo.com" target="_blank"><img src="http://static.viewbook.com/images/social_icons/vimeo_32.png"/></a> 
+								<a href="http://www.tumblr.com" target="_blank"><img src="http://static.viewbook.com/images/social_icons/tumblr_32.png"/></a> 
+								<a href="http://www.wordpress.com" target="_blank"><img src="http://static.viewbook.com/images/social_icons/wordpress_32.png"/></a>
 
-
-
-								</div>
-								<div class="col-md-2" id="footerpadding"></div>
 
 
 							</div>
-						</div>
-						<div id="copyrightcontainer">
+							<div class="col-md-2" id="footerpadding"></div>
+
 
 						</div>
 					</div>
+					<div id="copyrightcontainer">
+
+					</div>
 				</div>
-			</section>
+			</div>
+		</section>
 
 
 
@@ -270,23 +270,23 @@ include "phpBackend/connect.php";
 
 
 
-			<!-- jQuery -->
-			<script src="js/jquery.js"></script>
+		<!-- jQuery -->
+		<script src="js/jquery.js"></script>
 
-			<!-- Bootstrap Core JavaScript -->
-			<script src="js/bootstrap.min.js"></script>
+		<!-- Bootstrap Core JavaScript -->
+		<script src="js/bootstrap.min.js"></script>
 
-			<!-- Scrolling Nav JavaScript -->
-			<script src="js/jquery.easing.min.js"></script>
-			<script src="js/scrolling-nav.js"></script>
+		<!-- Scrolling Nav JavaScript -->
+		<script src="js/jquery.easing.min.js"></script>
+		<script src="js/scrolling-nav.js"></script>
 
-			<!--Sript for insert organization to database through AJAX request-->
-			<script src="js/insertOrganization.js"></script>
+		<!--Sript for insert organization to database through AJAX request-->
+		<script src="js/insertOrganization.js"></script>
 
-			<!--Check login-->
-			<script src="js/checkLogin.js"></script>
+		<!--Check login-->
+		<script src="js/checkLogin.js"></script>
 
-		</body>
+	</body>
 
-		</html>
+	</html>
 

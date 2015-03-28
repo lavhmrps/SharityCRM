@@ -14,16 +14,6 @@ $(document).ready(function(){
 
 	});
 
-	
-
-	$('button[name=update_info]').click(function(event){
-
-	insertInformation();
-	window.location.replace('../Admin/change_organization.php');
-
-});
-
-
 
 
 

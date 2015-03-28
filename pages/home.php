@@ -112,8 +112,8 @@ include '../phpBackend/connect.php';
 
 						echo '<div class="col-md-12" id="orgInfo">';
 						echo '<p>Epost: ' . $row["email"]. '</p>
-						<p>Adresse: ' . $row["address"] . ', ' . $row["zipcode"]. ', ' . $city .  '</p>
-						<p>Nettside: <a href="' . $row["website"]. '">' . $row["website"]. '</a></p><br/>
+						<p>Adresse: ' . $row["address"] . ', ' . $row["zipcode"]. ' ' . $city .  '</p>
+						<p>Nettside: <a target="_blank" href=" http://www.' . $row["website"]. '">' . $row["website"]. ' </a></p><br/>
 						';
 						echo '</div>';
 
