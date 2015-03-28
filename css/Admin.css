@@ -25,3 +25,41 @@ input{
 #login_admin{
 	width:100%;
 }
+
+#homebox{
+	height:300px;
+	border: 1px solid #121212;
+	background-color: #222;
+	padding:110px 0px;
+	text-align: center;
+}
+#homebox h1{
+	color: #efefef;
+	font-size: 40px;
+}
+
+#homebox:hover{
+	background-color: #111;
+	color:#fff;
+}
+
+#goback{
+	border:1px solid #000;
+	height: 100px;
+	background-color: #222;	
+	padding:5px 0px;
+}
+
+#goback:hover{
+	background-color: #111;	
+}
+
+#goback h1{
+	color: #efefef;
+	font-size: 40px;	
+}
+
+
+
+
+

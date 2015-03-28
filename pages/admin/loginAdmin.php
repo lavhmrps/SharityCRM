@@ -27,7 +27,7 @@
 			<input type="text" name="admin_username" class="form-control" id="username" placeholder="Username"/>
 			<input type="password" name="admin_password" class="form-control" id="passwd" placeholder="Password"/>
 			<input type="submit" name="login_admin" class="form-control" id="login_admin" value="Logg inn"/>
-			<a href="change_user.php">Change user</a>
+			<a href="adminHome.php">Admin hjem</a>
 
 		</form>
 
