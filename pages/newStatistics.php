@@ -29,12 +29,16 @@ include '../phpBackend/connect.php';
     <link rel="stylesheet" type="text/css" href="../css/list_project.css">
     <link href="../css/main.css" rel="stylesheet"/>
     <link href="../css/fonts.css" rel="stylesheet"/>
+    <link href="http://www.eyecon.ro/bootstrap-datepicker/css/datepicker.css" type="text/css" rel="stylesheet"/>
+    
     <link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
     <link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
     <link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
     <link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
 
     <script src="../js/styleswitcher.js" type="text/javascript" ></script>
+    
+    
     <script>
     $(document).ready(function(){
         $('button[name=day]').click(function(){
@@ -73,6 +77,12 @@ include '../phpBackend/connect.php';
             <div class="col-md-6 text-center" id="">
                 <div class="row">
                     <input type="text" name="date" placeholder="yyyy-mm-dd eller yyyy"  id="datepicker">
+
+                    <div class="input-group date">
+                        <input class="datepicker"><i class="glyphicon glyphicon-th"></i></span>
+                    </div>
+
+
                 </div>
 
                 <div class="row">
@@ -81,12 +91,25 @@ include '../phpBackend/connect.php';
                     </button>        
                 </div>
                 <div class="row">
-                    <span id="followers"></span>      
+                    <span id=""></span>      
                 </div>
 
             </div>
         </div>
-    </div>    
+    </div>
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js" type="text/javascript" ></script>
+    <script type="text/javascript">
+            // When the document is ready
+            $(document).ready(function () {
+                
+                $('#datepicker').datepicker({
+                    format: "yyyy-mm-dd"
+                });  
+            
+            });
+    </script> 
 
 </body>
 </html>
