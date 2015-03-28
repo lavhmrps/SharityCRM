@@ -2,8 +2,6 @@
 header('Access-Control-Allow-Origin: *'); 
 include '../phpBackend/connect.php';
 
-
-
 if(isset($_POST['getSQL'])){
 	$sql = $_POST['getSQL'];
 	$result = mysqli_query($connection, $sql);

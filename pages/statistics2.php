@@ -40,115 +40,115 @@ include '../phpBackend/checkSession.php';
 
 
     $(document).ready(function(){
-    	
-    	var sumJan = 0;
-    	var sumFeb = 0;
-    	var sumMar = 0;
-    	var sumApr = 0;
-    	var sumMay = 0;
-    	var sumJun = 0;
-    	var sumJul = 0;
-    	var sumAug = 0;
-    	var sumSep = 0;
-    	var sumOkt = 0;
-    	var sumNov = 0;
-    	var sumDec = 0;
 
-    	$.ajax({
-    		url : "../phpBackend/getStatistics.php",
-    		dataType : "json",
-    		success : function(response){
-    			var sum = 0;
-    			var content = "";
+        var ctx = document.getElementById("canvas").getContext("2d");
+        window.myLine = new Chart(ctx).Line(lineChartData, {
+            responsive: true
+        });
+        
+        var sumJan = 0;
+        var sumFeb = 0;
+        var sumMar = 0;
+        var sumApr = 0;
+        var sumMay = 0;
+        var sumJun = 0;
+        var sumJul = 0;
+        var sumAug = 0;
+        var sumSep = 0;
+        var sumOkt = 0;
+        var sumNov = 0;
+        var sumDec = 0;
 
-    			for(var i = 0; i < response.length; i++){
-    				var y = parseInt(response[i]['date'].substring(0, 4));
-    				var m = parseInt(response[i]['date'].substring(5, 7));
-    				var d = parseInt(response[i]['date'].substring(8, 10));
+        $.ajax({
+          url : "../phpBackend/getStatistics.php",
+          dataType : "json",
+          success : function(response){
+             var sum = 0;
+             var content = "";
 
-
-    				switch(m){
-    					case 1:
-    					sumJan += parseInt(response[i]['sum']);
-    					break;
-    					case 2:
-    					sumFeb += parseInt(response[i]['sum']);
-    					break;
-    					case 3:
-    					sumMar += parseInt(response[i]['sum']);
-    					break;
-    					case 4:
-    					sumApr += parseInt(response[i]['sum']);
-    					break;
-    					case 5:
-    					sumMay += parseInt(response[i]['sum']);
-    					break;
-    					case 6:
-    					sumJun += parseInt(response[i]['sum']);
-    					break;
-    					case 7:
-    					sumJul += parseInt(response[i]['sum']);
-    					break;
-    					case 8:
-    					sumAug += parseInt(response[i]['sum']);
-    					break;
-    					case 9:
-    					sumSep += parseInt(response[i]['sum']);
-    					break;
-    					case 10:
-    					sumOkt += parseInt(response[i]['sum']);
-    					break;
-    					case 11:
-    					sumNov += parseInt(response[i]['sum']);
-    					break;
-    					case 12:
-    					sumDec += parseInt(response[i]['sum']);
-    					break;
-    				}
+             for(var i = 0; i < response.length; i++){
+                var y = parseInt(response[i]['date'].substring(0, 4));
+                var m = parseInt(response[i]['date'].substring(5, 7));
+                var d = parseInt(response[i]['date'].substring(8, 10));
 
 
-
-
-    				
-    				sum += parseInt(response[i]['sum']);
-    				content += "<tr><td>" + response[i]['projectID'] + " </td><td>" + response[i]['name'] + "</td><td>" + response[i]['sum'] + "</td><td>" + response[i]['type'] + "</td><td>" + d + "." + m + "." + y + "</td></tr>";
-
-    			}
+                switch(m){
+                   case 1:
+                   sumJan += parseInt(response[i]['sum']);
+                   break;
+                   case 2:
+                   sumFeb += parseInt(response[i]['sum']);
+                   break;
+                   case 3:
+                   sumMar += parseInt(response[i]['sum']);
+                   break;
+                   case 4:
+                   sumApr += parseInt(response[i]['sum']);
+                   break;
+                   case 5:
+                   sumMay += parseInt(response[i]['sum']);
+                   break;
+                   case 6:
+                   sumJun += parseInt(response[i]['sum']);
+                   break;
+                   case 7:
+                   sumJul += parseInt(response[i]['sum']);
+                   break;
+                   case 8:
+                   sumAug += parseInt(response[i]['sum']);
+                   break;
+                   case 9:
+                   sumSep += parseInt(response[i]['sum']);
+                   break;
+                   case 10:
+                   sumOkt += parseInt(response[i]['sum']);
+                   break;
+                   case 11:
+                   sumNov += parseInt(response[i]['sum']);
+                   break;
+                   case 12:
+                   sumDec += parseInt(response[i]['sum']);
+                   break;
+               }
 
 
 
-    			localStorage.setItem("january", sumJan);
-    			localStorage.setItem("february", sumFeb);
-    			localStorage.setItem("march", sumMar);
-    			localStorage.setItem("april", sumApr);
-    			localStorage.setItem("may", sumMay);
-    			localStorage.setItem("june", sumJun);
-    			localStorage.setItem("july", sumJul);
-    			localStorage.setItem("august", sumAug);
-    			localStorage.setItem("september", sumSep);
-    			localStorage.setItem("october", sumOkt);
-    			localStorage.setItem("november", sumNov);
-    			localStorage.setItem("december", sumDec);
 
-    			
-    			$('#tabell').append(content);
+               
+               sum += parseInt(response[i]['sum']);
+               content += "<tr><td>" + response[i]['projectID'] + " </td><td>" + response[i]['name'] + "</td><td>" + response[i]['sum'] + "</td><td>" + response[i]['type'] + "</td><td>" + d + "." + m + "." + y + "</td></tr>";
+
+           }
 
 
 
-    		},
-    		error : function(){
-    			alert("Something went worng");
-    		}
-    	});
+           localStorage.setItem("january", sumJan);
+           localStorage.setItem("february", sumFeb);
+           localStorage.setItem("march", sumMar);
+           localStorage.setItem("april", sumApr);
+           localStorage.setItem("may", sumMay);
+           localStorage.setItem("june", sumJun);
+           localStorage.setItem("july", sumJul);
+           localStorage.setItem("august", sumAug);
+           localStorage.setItem("september", sumSep);
+           localStorage.setItem("october", sumOkt);
+           localStorage.setItem("november", sumNov);
+           localStorage.setItem("december", sumDec);
+
+           
+           $('#tabell').append(content);
+
+
+
+       },
+       error : function(){
+         alert("Something went worng");
+     }
+ });
 
 
 
 });
-
-
-</script>
-
-<script>
 
 var lineChartData = {
 	labels : ["January","February","March","April","May","June","July", "August", "September", "October", "November", "December"],
@@ -180,10 +180,7 @@ var lineChartData = {
 }
 
 window.onload = function(){
-	var ctx = document.getElementById("canvas").getContext("2d");
-	window.myLine = new Chart(ctx).Line(lineChartData, {
-		responsive: true
-	});
+	
 }
 
 

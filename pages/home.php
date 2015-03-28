@@ -35,6 +35,8 @@ include '../phpBackend/connect.php';
 	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
 
 	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
+	<script src="../js/Chart.min.js"></script>
+	<script src="../js/this_month_statistics.js"></script>
 	
 
 </head>
@@ -80,7 +82,7 @@ include '../phpBackend/connect.php';
 
 						$city = utf8_encode($postRow['city']);
 
- 
+
 						echo '<div class="col-md-0"></div>';
 						echo "<h2>" . $row['name'] . "</h2>";
 
@@ -156,12 +158,7 @@ include '../phpBackend/connect.php';
 
 			<div class="col-md-6" id="homeboxlowerright">
 
-				<h2>Inneværende mnd:</h2>
-				<p>statstikkstatistikkstatistikk</p>
-				<p>statstikkstatistikkstatistikk</p>
-				<p>statstikkstatistikkstatistikk</p>
-				<p>statstikkstatistikkstatistikk</p>
-				<p>statstikkstatistikkstatistikk</p>
+				<canvas id="this_month"></canvas>
 
 
 
