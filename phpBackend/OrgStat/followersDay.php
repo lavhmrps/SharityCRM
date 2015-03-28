@@ -48,9 +48,9 @@ if($result3){
 
 		$res = $row['SUM(sum)'];
 
-		$res = number_format($res,0,"",",");
-
 		$sum = $res;
+
+		$res = number_format($res,0,"."," ");
 
 		if ($res == "") {
 			echo 'Kroner donert: 0,-<br>';
@@ -63,7 +63,7 @@ if($result3){
 
 if($donate != 0){
 	$totalt = $sum/$donate;
-	$totalt = number_format($totalt,0,"",",");
+	$totalt = number_format($totalt,2,"."," ");
 }
 else{
 	$totalt = 0;
