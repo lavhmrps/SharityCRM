@@ -9,9 +9,16 @@ $(document).ready(function(){
     scaleShowHorizontalLines: true,
   
 
+
     //Boolean - Whether to show vertical lines (except Y axis)
     scaleShowVerticalLines: false,
   });
+$(document).ready(function(){
+  var canvas = document.getElementById("this_month");
+
+  canvas.style.height = '240px';
+
+});
 
   var sumJan = 0;
   var sumFeb = 0;

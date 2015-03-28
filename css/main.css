@@ -1063,86 +1063,73 @@ img{
 	padding-right:40px;
 }
 
-/******************** GLYPHICONS ********************/
 
-/*span.glyphicon-ok-sign, span.glyphicon-remove-sign {
-	color: #000;
-	font-size: 2.7em;
-	}*/
+
+/******************** INPUTS ********************/
 
 
 
+#uname, #passwd{
+	border-radius: 0px;
+	border:none;
+	box-shadow: none;
+}
+
+#uname:focus, #passwd:focus{
+	border-bottom: 2px solid #999999;
+}
+
+input[type="text"], input[type="password"],#inputTextarea, input[type="tel"], input[type="email"]{
+	font-size: 20px;
+}
+
+#orgName, #orgID, #newPasswd, #rptPasswd, #adr,  #zip, #tlfnmbr, #accountnmbr{
+	border-radius: 0px;
+	border:none;
+	box-shadow: none;
+}
+#orgNames, #orgIDs{
+
+}
+
+#inputTextarea{
+	font-size: 20px;
+}
 
 
+/************ Textarea ************/
 
+/*About organization*/
+#aboutOrg2{
+	box-shadow: none;
+	font-size: 14px;
+	resize: none;
 
+	width: 100%; 
+	min-width:100%; 
+	max-width:100%; 
 
+	height:100px; 
+	min-height:100px;  
+	max-height:100px;
 
-	/******************** INPUTS ********************/
+}
 
+#aboutOrg{
+	box-shadow: none;
+	font-size: 14px;
+	resize: none;
 
+	width: 100%; 
+	min-width:100%; 
+	max-width:100%; 
 
-	#uname, #passwd{
-		border-radius: 0px;
-		border:none;
-		box-shadow: none;
-	}
+	height:100px; 
+	min-height:100px;  
+	max-height:100px;
 
-	#uname:focus, #passwd:focus{
-		border-bottom: 2px solid #999999;
-	}
-
-	input[type="text"], input[type="password"],#inputTextarea, input[type="tel"], input[type="email"]{
-		font-size: 20px;
-	}
-
-	#orgName, #orgID, #newPasswd, #rptPasswd, #adr,  #zip, #tlfnmbr, #accountnmbr{
-		border-radius: 0px;
-		border:none;
-		box-shadow: none;
-	}
-	#orgNames, #orgIDs{
-
-	}
-
-	#inputTextarea{
-		font-size: 20px;
-	}
-
-
-	/************ Textarea ************/
-
-	/*About organization*/
-	#aboutOrg2{
-		box-shadow: none;
-		font-size: 14px;
-		resize: none;
-
-		width: 100%; 
-		min-width:100%; 
-		max-width:100%; 
-
-		height:100px; 
-		min-height:100px;  
-		max-height:100px;
-
-	}
-
-	#aboutOrg{
-		box-shadow: none;
-		font-size: 14px;
-		resize: none;
-
-		width: 100%; 
-		min-width:100%; 
-		max-width:100%; 
-
-		height:100px; 
-		min-height:100px;  
-		max-height:100px;
-
-		margin-bottom: 15px;
-	}
+	margin-bottom: 15px;
+}
 /*
 input[id=aboutOrg]:focus{
 	border:1px solid red;
@@ -1376,7 +1363,9 @@ input[id=aboutOrg]:focus{
 		font-size: 20px;
 	}
 
-	.tokenize-sample { width: 98%; margin:5px;o}
+	.tokenize-sample { 
+		width: 98%; margin:5px;o
+	}
 
 
 
@@ -1600,9 +1589,13 @@ input[id=aboutOrg]:focus{
 
 	#this_month{
 		padding-right:20px;
-
+		bottom:0;
 	}
 
-	
 
+
+	
+canvas{
+	height:50px;
+}
 	

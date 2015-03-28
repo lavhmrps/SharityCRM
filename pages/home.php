@@ -156,7 +156,7 @@ include '../phpBackend/connect.php';
 
 
 
-			<div class="col-md-6" id="homeboxlowerright">
+			<div class="col-md-6" id="homeboxlowerright" style="text-align:center;">
 				<h3>Donasjoner inneværende mnd</h3>
 				<canvas id="this_month"></canvas>
 
