@@ -80,15 +80,15 @@ if(isset($_POST['registerNews'])){
 				<br/>
 				<p>APP:</p>
 				<p>Legge inn jquery lokalt i app</p>
+				<p>Push</p>
+				<p>Betalingsløsning</p>
 
 			</div>
 			<div class="col-md-6 text-left">
 				<p>ADMINSIDEN:</p>
 				<p>Fikse adminlogin</p>
 				<p>Statistikk</p>
-				<p>Endre/slette bruker</p>
-				<p>Endre/slette organisasjon</p>
-				<p>Endre/slette til de andre dbene også..</p>
+				<p>Backend til alle sidene.</p>
 				<br/>
 				<p>NICE TO HAVE GENERELT:</p>
 				<p>knapp for å ukryptere passord (login)</p>
