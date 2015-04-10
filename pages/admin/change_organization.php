@@ -1,6 +1,4 @@
-<?php
-include '../../phpBackend/CheckAdminSession.php';
-?>
+
 
 <?php
     //include '../phpBackend/connect.php';

@@ -1,7 +1,6 @@
-
-
-
-
+<?php
+    include '../../phpBackend/CheckAdminSession.php';
+?>
 <nav class="navbar navbar-inverse navbar-static-top header">
 <br/>
   <div class="container-fluid">

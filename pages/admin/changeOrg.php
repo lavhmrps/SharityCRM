@@ -1,5 +1,4 @@
 <?php
-	include '../../phpBackend/CheckAdminSession.php';
 	include "../../phpBackend/connect.php";
 ?>
 <!DOCTYPE html>

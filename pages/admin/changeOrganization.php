@@ -1,8 +1,7 @@
 <?php
 
 if(!isset($_SESSION['organizationNr'])){
-
-	include '../../phpBackend/CheckAdminSession.php';
+		
 }
 
 
