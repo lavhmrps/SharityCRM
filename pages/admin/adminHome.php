@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	include '../../phpBackend/CheckAdminSession.php';
 ?>
 
 <!DOCTYPE html>

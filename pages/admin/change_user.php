@@ -1,4 +1,8 @@
 <?php
+	include '../../phpBackend/CheckAdminSession.php';
+?>
+
+<?php
 	//include '../phpBackend/connect.php';
 	//include '../phpBackend/hash.php';
 	$connection = mysqli_connect("localhost", "root", "", "database") or die("Kunne ikke koble til database");

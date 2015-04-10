@@ -65,7 +65,7 @@
             <a href="settings.php">Innstillinger</a>
         </li>
         <li>
-            <a href="#" name="loggUt">Logg ut</a>
+            <a href="../../phpBackend/logoutAdmin.php" name="loggUt">Logg ut</a>
         </li>
     </ul>
 </div><!-- /.navbar-collapse -->
