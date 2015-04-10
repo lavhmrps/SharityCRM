@@ -1,5 +1,5 @@
 <?php
-  include '../../phpBackend/CheckAdminSession.php';
+include '../../phpBackend/CheckAdminSession.php';
 ?>
 
 <?php
@@ -58,23 +58,25 @@ function better_crypt($input, $rounds = 7)
 
 
   <div class="container">
-   <div>
+
     <div class="col-md-3"></div>
 
     <div class="col-md-6 text-center" id="">
-     <div class="row">
-       <form action="" method="post">
-        <div class="col-md-10"> 
-         <input type="text" name="orgnr" class="form-control" id="orgnt" placeholder="Søk.."/>
-       </div>
-       <div class="col-md-2">
-         <button type="submit" class="btn" name="submit" id="searchbtn">
-          Søk
-        </button>
+      <div class="row">
+        <form action="" method="post">
+          <div class="col-md-10"> 
+            <input type="text" name="orgnr" class="form-control" id="orgnt" placeholder="Søk.."/>
+          </div>
+          <div class="col-md-2">
+            <button type="submit" class="btn" name="submit" id="searchbtn">
+              Søk
+            </button>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
+    
   </div>
-
 
 
 
@@ -137,18 +139,18 @@ if(isset($_POST['submit'])){
     echo "<label>Velg kategori</label>";
     echo '<div class="regOrgDropdown">
     <select class="orgbtn1" name="category">
-    <option value="NULL"></option>
-    <option value="Humanitært" >Humanitært</option>
-    <option value="Dyrevern" >Dyrevern</option>
-    <option value="Forskning" >Forskning</option>
-    <option value="Fundraising" >Fundraising</option>
+      <option value="NULL"></option>
+      <option value="Humanitært" >Humanitært</option>
+      <option value="Dyrevern" >Dyrevern</option>
+      <option value="Forskning" >Forskning</option>
+      <option value="Fundraising" >Fundraising</option>
     </select>
-    </div>';
+  </div>';
 
-    echo '
-    <button  class="btn btn-success" name="update_info">
+  echo '
+  <button  class="btn btn-success" name="update_info">
     Oppdater informasjon
-    </button>';
+  </button>';
                                 /*
                             	echo "<label>Beskrivelse av organisasjonen</label>";
                             	echo '<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="about" id="aboutOrg" placeholder="Om organisasjonen">' . $about . '</textarea>';
@@ -170,7 +172,7 @@ if(isset($_POST['submit'])){
                             	';
                                 */
 
-                              
+
 
 
                             }

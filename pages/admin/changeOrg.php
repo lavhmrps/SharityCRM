@@ -1,5 +1,6 @@
 <?php
 	include '../../phpBackend/CheckAdminSession.php';
+	include "../../phpBackend/connect.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,6 +27,83 @@
 	<?php
 	include "adminHeader_nav.php";
 	?>
+
+
+	<div class="col-md-12 text-center">
+		<h1>Endre organisasjoner</h1>
+	</div>
+
+
+
+	<style type="text/css">
+	table, th, tr, td{
+		border: 1px solid black;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	</style>
+
+	<script type="text/javascript">
+
+
+
+
+	function setOrgNr(organizationNr){
+		
+		$.ajax({
+			type: "POST",
+			data : {"organizationNr" : organizationNr},
+			url: "../../phpBackend/AdminSetSession.php",
+			success : function(response){
+				if(response == "OK"){
+					window.location.replace("changeOrganization.php");
+				}
+			},
+			error : function(error){
+				console.log(JSON.stringify(error));
+				alert(error.message);
+			}
+		});
+	}
+
+	</script>
+		
+		<?php
+		
+			echo '<table>
+				<tr>
+					<th>OrgNr</th>
+					<th>Navn</th>
+					<th>Klikk for å endre</th>
+				</tr>
+				';
+
+
+
+				$db = mysqli_connect("localhost", "root", "", "database");
+				$sql = "SELECT * FROM organization";
+				$resultat = mysqli_query($db, $sql);
+
+				if($resultat){
+					if(mysqli_num_rows($resultat) > 0){
+						while($rad = mysqli_fetch_assoc($resultat)){
+							echo '</tr>';
+							echo '<td>'. $rad['organizationNr']. '</td>';
+							echo '<td>'. $rad['name']. '</td>';
+							echo '<td><a onclick="setOrgNr('. $rad['organizationNr'] .')" style="cursor:pointer;">Endre</a></td>';
+							echo '</tr>';
+						}
+					}
+				}
+
+			echo '</table>';
+		
+		?>
+
+	</div>
+	<div class="col-md-2 text-center"></div>
+
+
 
 
 	<!-- jQuery -->
