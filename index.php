@@ -234,6 +234,9 @@ include "phpBackend/connect.php";
 								<div class="col-md-6">
 									<a href="generateData.php" target="_blank">Genere data </a>
 								</div>
+								<div class="col-md-6">
+									<a href="pages/admin/regAdmin.php" target="_blank">Reg. Admin</a>
+								</div>
 							</div>
 							
 							
@@ -260,15 +263,6 @@ include "phpBackend/connect.php";
 				</div>
 			</div>
 		</section>
-
-
-
-
-
-
-
-
-
 
 		<!-- jQuery -->
 		<script src="js/jquery.js"></script>
