@@ -68,13 +68,15 @@
 
 	</script>
 		
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
 		<?php
 		
 			echo '<table>
 				<tr>
 					<th>OrgNr</th>
 					<th>Navn</th>
-					<th>Klikk for å endre</th>
+					<th>Funksjoner</th>
 				</tr>
 				';
 
@@ -90,7 +92,7 @@
 							echo '</tr>';
 							echo '<td>'. $rad['organizationNr']. '</td>';
 							echo '<td>'. $rad['name']. '</td>';
-							echo '<td><a onclick="setOrgNr('. $rad['organizationNr'] .')" style="cursor:pointer;">Endre</a></td>';
+							echo '<td><a onclick="setOrgNr('. $rad['organizationNr'] .')" style="cursor:pointer;">Endre</a> - <a onclick="setOrgNr('. $rad['organizationNr'] .')" style="cursor:pointer;">Slett</a></td>';
 							echo '</tr>';
 						}
 					}
@@ -99,7 +101,8 @@
 			echo '</table>';
 		
 		?>
-
+		</div>
+		<div class="col-md-4"></div>
 	</div>
 	<div class="col-md-2 text-center"></div>
 
