@@ -31,8 +31,6 @@ $organizationNr = $_SESSION['organizationNr'];
 	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
 	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
 
-
-	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
     <script src="../js/styleswitcher.js" type="text/javascript" ></script>
     <script src="../js/showProject.js"></script>
 
@@ -85,13 +83,6 @@ $organizationNr = $_SESSION['organizationNr'];
 
 <!-- Bootstrap Core JavaScript -->
 <script src="../js/bootstrap.min.js"></script>
-
-
-
-
-
-
-<!-- -->
 
 
 </body>
