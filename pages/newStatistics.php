@@ -50,7 +50,8 @@ include '../phpBackend/connect.php';
 
         $("p").click(function(){
             alert("Her kommer sammenligning av dag/måned/år!");
-            showChartDay();
+            //showChartDay();
+            showLineChart();
         });
         $('#datepicker').datepicker({
                 format: "yyyy-mm-dd",
@@ -123,7 +124,7 @@ include '../phpBackend/connect.php';
             xmlhttp.send();
         }
 
-        function showChartDay(){
+        /*function showChartDay(){
 
             alert("HerErJeg!");
 
@@ -167,21 +168,127 @@ include '../phpBackend/connect.php';
                     ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
                 }
             });
+        }*/
 
+        function showLineChart(){
+            var ctx = document.getElementById("canvas").getContext("2d");
+            window.myLine = new Chart(ctx).Line(lineChartData, {
+                responsive: true
+            });
             
-            
-            /*new Chart(ctx).Doughnut(data, {
-                animateScale: true,
-                onAnimationComplete: function() {
-                    ctx.fillText(data[0].value + "%", 100 - 20, 100, 200);
-                }
-            });*/
+            var sumJan = 0;
+            var sumFeb = 0;
+            var sumMar = 0;
+            var sumApr = 0;
+            var sumMay = 0;
+            var sumJun = 0;
+            var sumJul = 0;
+            var sumAug = 0;
+            var sumSep = 0;
+            var sumOkt = 0;
+            var sumNov = 0;
+            var sumDec = 0;
 
-            /*new Chart(ctx).Doughnut(data, {
-                onAnimationComplete: function() {
-                    ctx.fillText(data[0].value + "%", 100 - 20, 100, 200);
+            $.ajax({
+                url : "../phpBackend/getStatistics.php",
+                dataType : "json",
+                success : function(response){
+                    var sum = 0;
+                    var content = "";
+
+                    for(var i = 0; i < response.length; i++){
+                        var y = parseInt(response[i]['date'].substring(0, 4));
+                        var m = parseInt(response[i]['date'].substring(5, 7));
+                        var d = parseInt(response[i]['date'].substring(8, 10));
+
+                        switch(m){
+                            case 1:
+                            sumJan += parseInt(response[i]['sum']);
+                            break;
+                            case 2:
+                            sumFeb += parseInt(response[i]['sum']);
+                            break;
+                            case 3:
+                            sumMar += parseInt(response[i]['sum']);
+                            break;
+                            case 4:
+                            sumApr += parseInt(response[i]['sum']);
+                            break;
+                            case 5:
+                            sumMay += parseInt(response[i]['sum']);
+                            break;
+                            case 6:
+                            sumJun += parseInt(response[i]['sum']);
+                            break;
+                            case 7:
+                            sumJul += parseInt(response[i]['sum']);
+                            break;
+                            case 8:
+                            sumAug += parseInt(response[i]['sum']);
+                            break;
+                            case 9:
+                            sumSep += parseInt(response[i]['sum']);
+                            break;
+                            case 10:
+                            sumOkt += parseInt(response[i]['sum']);
+                            break;
+                            case 11:
+                            sumNov += parseInt(response[i]['sum']);
+                            break;
+                            case 12:
+                            sumDec += parseInt(response[i]['sum']);
+                            break;
+                        }
+                    }
+
+
+
+                    localStorage.setItem("january", sumJan);
+                    localStorage.setItem("february", sumFeb);
+                    localStorage.setItem("march", sumMar);
+                    localStorage.setItem("april", sumApr);
+                    localStorage.setItem("may", sumMay);
+                    localStorage.setItem("june", sumJun);
+                    localStorage.setItem("july", sumJul);
+                    localStorage.setItem("august", sumAug);
+                    localStorage.setItem("september", sumSep);
+                    localStorage.setItem("october", sumOkt);
+                    localStorage.setItem("november", sumNov);
+                    localStorage.setItem("december", sumDec);
+
+                },
+                error : function(){
+                    alert("Something went worng");
                 }
-            });*/
+            });
+            
+            var lineChartData = {
+                labels : ["January","February","March","April","May","June","July", "August", "September", "October", "November", "December"],
+                datasets : [
+                {
+                    label: "12 mnd",
+                    fillColor : "rgba(360,720,100,0.2)", //farge under grafen
+                    strokeColor : "red", //farge på linja
+                    pointColor : "blue", //farge på prikkene
+                    pointStrokeColor : "blue", // fage på border til prikkene
+                    pointHighlightFill : "blue", //farge på prikk on hover
+                    pointHighlightStroke : "blue", // farge på border til prikk on hover
+                    data : [
+                    localStorage['january'],
+                    localStorage['february'],
+                    localStorage['march'],
+                    localStorage['april'],
+                    localStorage['may'],
+                    localStorage['june'],
+                    localStorage['july'],
+                    localStorage['august'],
+                    localStorage['september'],
+                    localStorage['october'],
+                    localStorage['november'],
+                    localStorage['december']]
+                }
+                ]
+            }
         }
     });
     </script>
@@ -231,13 +338,11 @@ include '../phpBackend/connect.php';
                     <span id="out4"></span>      
                 </div>
             </div>
-            <div class="col-md-3 text-center">
-                <canvas id="myChart"></canvas>
-            </div>
+            <!--<div class="col-md-3 text-center">
+                <canvas id="myChart"></canvas>-->
+                <canvas id="canvas" width="1140" height="500"></canvas>
+            <!--</div>-->
         </div>
-
-        
-
     </div>
 
 </body>
