@@ -9,7 +9,7 @@ $date = $_REQUEST["date"];
 
 $out = "";
 				
-$sql = "SELECT COUNT(*) FROM Subscription INNER JOIN Project ON Subscription.projectID = Project.projectID WHERE YEAR(date(Subscription.date_added)) = YEAR('" . $date . "') AND  Project.organizationNr = '".$organizationNr."'";
+$sql = "SELECT COUNT(*) FROM Subscription INNER JOIN Project ON Subscription.projectID = Project.projectID WHERE YEAR(date(Subscription.date_added)) = '" . $date . "' AND  Project.organizationNr = '".$organizationNr."'";
 $result = mysqli_query($connection, $sql);
 
 if($result){
@@ -24,7 +24,7 @@ if($result){
 }
 
 
-$sql2 = "SELECT COUNT(*) FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE YEAR(date(Donation.date)) = YEAR('" . $date . "') AND  Project.organizationNr = '".$organizationNr."'";
+$sql2 = "SELECT COUNT(*) FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE YEAR(date(Donation.date)) = '" . $date . "' AND  Project.organizationNr = '".$organizationNr."'";
 $result2 = mysqli_query($connection, $sql2);
 
 if($result2){
@@ -39,7 +39,7 @@ if($result2){
 	}	
 }
 
-$sql3 = "SELECT SUM(sum) FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE YEAR(date(Donation.date)) = YEAR('" . $date . "') AND  Project.organizationNr = '".$organizationNr."'";
+$sql3 = "SELECT SUM(sum) FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE YEAR(date(Donation.date)) = '" . $date . "' AND  Project.organizationNr = '".$organizationNr."'";
 $result3 = mysqli_query($connection, $sql3);
 
 if($result3){
@@ -71,7 +71,7 @@ else{
 
 echo 'Gjennomsnittsdonasjon: '.$totalt.',-<br>';
 
-$sql4 = "SELECT COUNT(*) FROM News INNER JOIN Project ON News.projectID = Project.projectID WHERE YEAR(date(News.date_added)) = YEAR('" . $date . "') AND  Project.organizationNr = '".$organizationNr."'";
+$sql4 = "SELECT COUNT(*) FROM News INNER JOIN Project ON News.projectID = Project.projectID WHERE YEAR(date(News.date_added)) = '" . $date . "' AND  Project.organizationNr = '".$organizationNr."'";
 $result4 = mysqli_query($connection, $sql4);
 
 if($result4){
@@ -85,7 +85,7 @@ if($result4){
 }
 
 
-$sql5 = "SELECT COUNT(*) FROM Project WHERE YEAR(date(Project.date_added)) = YEAR('" . $date . "') AND  organizationNr = '".$organizationNr."'";
+$sql5 = "SELECT COUNT(*) FROM Project WHERE YEAR(date(Project.date_added)) = '" . $date . "' AND  organizationNr = '".$organizationNr."'";
 $result5 = mysqli_query($connection, $sql5);
 
 if($result5){

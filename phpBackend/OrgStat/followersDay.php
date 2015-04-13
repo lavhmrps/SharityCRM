@@ -8,6 +8,8 @@ $organizationNr = $_SESSION['organizationNr'];
 $date = $_REQUEST["date"];
 
 $out = "";
+
+echo "<h3>".$date."</h3>";
 				
 $sql = "SELECT COUNT(*) FROM Subscription INNER JOIN Project ON Subscription.projectID = Project.projectID WHERE DATE(Subscription.date_added) = '" . $date . "' AND  Project.organizationNr = '".$organizationNr."'";
 $result = mysqli_query($connection, $sql);
@@ -18,7 +20,11 @@ if($result){
 
 		$res = $row['COUNT(*)'];
 
+
+
+
 		echo 'Nye følgere: ' . $res . '<br>';
+
 		
 	}
 }
