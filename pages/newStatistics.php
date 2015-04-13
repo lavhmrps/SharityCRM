@@ -171,11 +171,11 @@ include '../phpBackend/connect.php';
         }*/
 
         function showLineChart(){
-            var ctx = document.getElementById("canvas").getContext("2d");
-            window.myLine = new Chart(ctx).Line(lineChartData, {
+            var ctx = $('canvas').get(0).getContext('2d');
+            var myLine = new Chart(ctx).Line(lineChartData, {
                 responsive: true
             });
-            
+
             var sumJan = 0;
             var sumFeb = 0;
             var sumMar = 0;
@@ -262,35 +262,39 @@ include '../phpBackend/connect.php';
                 }
             });
             
-            var lineChartData = {
-                labels : ["January","February","March","April","May","June","July", "August", "September", "October", "November", "December"],
-                datasets : [
-                {
-                    label: "12 mnd",
-                    fillColor : "rgba(360,720,100,0.2)", //farge under grafen
-                    strokeColor : "red", //farge på linja
-                    pointColor : "blue", //farge på prikkene
-                    pointStrokeColor : "blue", // fage på border til prikkene
-                    pointHighlightFill : "blue", //farge på prikk on hover
-                    pointHighlightStroke : "blue", // farge på border til prikk on hover
-                    data : [
-                    localStorage['january'],
-                    localStorage['february'],
-                    localStorage['march'],
-                    localStorage['april'],
-                    localStorage['may'],
-                    localStorage['june'],
-                    localStorage['july'],
-                    localStorage['august'],
-                    localStorage['september'],
-                    localStorage['october'],
-                    localStorage['november'],
-                    localStorage['december']]
-                }
-                ]
-            }
         }
     });
+
+    var lineChartData = {
+        labels : ["January","February","March","April","May","June","July", "August", "September", "October", "November", "December"],
+        datasets : [
+        {
+            label: "12 mnd",
+            fillColor : "rgba(360,720,100,0.2)", //farge under grafen
+            strokeColor : "red", //farge på linja
+            pointColor : "blue", //farge på prikkene
+            pointStrokeColor : "blue", // fage på border til prikkene
+            pointHighlightFill : "blue", //farge på prikk on hover
+            pointHighlightStroke : "blue", // farge på border til prikk on hover
+            data : [
+            
+            localStorage['january'],
+            localStorage['february'],
+            localStorage['march'],
+            localStorage['april'],
+            localStorage['may'],
+            localStorage['june'],
+            localStorage['july'],
+            localStorage['august'],
+            localStorage['september'],
+            localStorage['october'],
+            localStorage['november'],
+            localStorage['december']
+            ]
+        }
+        ]
+    }
+
     </script>
 
 
@@ -340,7 +344,7 @@ include '../phpBackend/connect.php';
             </div>
             <!--<div class="col-md-3 text-center">
                 <canvas id="myChart"></canvas>-->
-                <canvas id="canvas" width="1140" height="500"></canvas>
+                <canvas id="canvas" width="1140" height="250"></canvas>
             <!--</div>-->
         </div>
     </div>
