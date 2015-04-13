@@ -48,16 +48,23 @@ include '../phpBackend/connect.php';
     $(document).ready(function(){
         $("p").hide();
 
+        var ctx = $('canvas').get(0).getContext('2d');
+        var myLine = new Chart(ctx).Line(lineChartData, {
+            responsive: true
+        });
+        $('canvas').hide();
+
         $("p").click(function(){
             alert("Her kommer sammenligning av dag/måned/år!");
             //showChartDay();
-            showLineChart();
+            $('canvas').show();
+            showLineChartIncomeYear();
         });
         $('#datepicker').datepicker({
-                format: "yyyy-mm-dd",
-                weekStart: 1,
-                language: "no",
-                todayHighlight: true
+            format: "yyyy-mm-dd",
+            weekStart: 1,
+            language: "no",
+            todayHighlight: true
         });
         $('#datepicker').on('changeDate', function(ev){
             $(this).datepicker('hide');
@@ -66,6 +73,7 @@ include '../phpBackend/connect.php';
             month();
             allTime();
             $("p").show();
+            $('canvas').hide();
         });
 
         function day(){
@@ -170,11 +178,23 @@ include '../phpBackend/connect.php';
             });
         }*/
 
-        function showLineChart(){
-            var ctx = $('canvas').get(0).getContext('2d');
+        function showLineChartFollowersYear(){  
+        }
+
+        function showLineChartDonationsYear(){
+
+        }
+
+        function showLineChartIncomeYear(){
+
+           /* var ctx = $('canvas').get(0).getContext('2d');
             var myLine = new Chart(ctx).Line(lineChartData, {
                 responsive: true
-            });
+            });*/
+
+            //showLineChartYear();
+
+            var day = $('input[name=date]').val();
 
             var sumJan = 0;
             var sumFeb = 0;
@@ -190,7 +210,7 @@ include '../phpBackend/connect.php';
             var sumDec = 0;
 
             $.ajax({
-                url : "../phpBackend/getStatistics.php",
+                url : "../phpBackend/getStatistics.php?date=" + day,
                 dataType : "json",
                 success : function(response){
                     var sum = 0;
@@ -241,28 +261,41 @@ include '../phpBackend/connect.php';
                         }
                     }
 
-
-
-                    localStorage.setItem("january", sumJan);
-                    localStorage.setItem("february", sumFeb);
-                    localStorage.setItem("march", sumMar);
-                    localStorage.setItem("april", sumApr);
-                    localStorage.setItem("may", sumMay);
-                    localStorage.setItem("june", sumJun);
-                    localStorage.setItem("july", sumJul);
-                    localStorage.setItem("august", sumAug);
-                    localStorage.setItem("september", sumSep);
-                    localStorage.setItem("october", sumOkt);
-                    localStorage.setItem("november", sumNov);
-                    localStorage.setItem("december", sumDec);
+                    myLine.datasets[0].points[0].value = sumJan;
+                    myLine.datasets[0].points[1].value = sumFeb;
+                    myLine.datasets[0].points[2].value = sumMar;
+                    myLine.datasets[0].points[3].value = sumApr;
+                    myLine.datasets[0].points[4].value = sumMay;
+                    myLine.datasets[0].points[5].value = sumJun;
+                    myLine.datasets[0].points[6].value = sumJul;
+                    myLine.datasets[0].points[7].value = sumAug;
+                    myLine.datasets[0].points[8].value = sumSep;
+                    myLine.datasets[0].points[9].value = sumOkt;
+                    myLine.datasets[0].points[10].value = sumNov;
+                    myLine.datasets[0].points[11].value = sumDec;
+                    // Would update the first dataset
+                    myLine.update();
 
                 },
                 error : function(){
                     alert("Something went worng");
                 }
-            });
-            
+            });   
         }
+
+        function showLineChartAverageIncomePrDonationYear(){
+
+        }
+
+        function showLineChartNewsYear(){
+
+        }
+
+        function showLineChartProjectsYear(){
+
+        }
+
+
     });
 
     var lineChartData = {
@@ -276,21 +309,7 @@ include '../phpBackend/connect.php';
             pointStrokeColor : "blue", // fage på border til prikkene
             pointHighlightFill : "blue", //farge på prikk on hover
             pointHighlightStroke : "blue", // farge på border til prikk on hover
-            data : [
-            
-            localStorage['january'],
-            localStorage['february'],
-            localStorage['march'],
-            localStorage['april'],
-            localStorage['may'],
-            localStorage['june'],
-            localStorage['july'],
-            localStorage['august'],
-            localStorage['september'],
-            localStorage['october'],
-            localStorage['november'],
-            localStorage['december']
-            ]
+            data : [0,0,0,0,0,0,0,0,0,0,0,0]
         }
         ]
     }

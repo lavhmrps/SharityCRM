@@ -67,7 +67,7 @@ else{
 	$totalt = 0;
 }
 
-echo 'Hver donasjon har vært på '.$totalt.',- i gjennomsnitt.<br>';
+echo 'Gjennomsnittsdonasjon: '.$totalt.',-<br>';
 
 $sql4 = "SELECT COUNT(*) FROM News INNER JOIN Project ON News.projectID = Project.projectID WHERE Project.organizationNr = '".$organizationNr."'";
 $result4 = mysqli_query($connection, $sql4);
