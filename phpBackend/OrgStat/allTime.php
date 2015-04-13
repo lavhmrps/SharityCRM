@@ -16,7 +16,7 @@ if($result){
 
 		$res = $row['COUNT(*)'];
 
-		echo '<b>Nye</b> følgere: ' . $res . '<br>';
+		echo 'Følgere: ' . $res . '<br>';
 		
 	}
 }
@@ -78,7 +78,7 @@ if($result4){
 
 		$res = $row['COUNT(*)'];
 
-		echo 'Nye nyheter: ' . $res . '<br>';
+		echo 'Nyheter: ' . $res . '<br>';
 	}
 }
 
@@ -92,7 +92,7 @@ if($result5){
 
 		$res = $row['COUNT(*)'];
 
-		echo 'Nye prosjekter: ' . $res . '<br>';
+		echo 'Prosjekter: ' . $res . '<br>';
 	}
 }
 ?>

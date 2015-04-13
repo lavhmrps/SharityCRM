@@ -18,7 +18,7 @@ if($result){
 
 		$res = $row['COUNT(*)'];
 
-		echo '<b>Nye</b> følgere: ' . $res . '<br>';
+		echo 'Nye følgere: ' . $res . '<br>';
 		
 	}
 }
