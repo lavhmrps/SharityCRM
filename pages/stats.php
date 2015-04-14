@@ -17,15 +17,81 @@
         });
 
         $('#statistikk').hide();
+        $('#incomeYear').hide();
+        $('#donationsYear').hide();
+        $('#followersYear').hide();
+        $('#incomeMnd').hide();
+        $('#donationsMnd').hide();
+        $('#followersMnd').hide();
+        $('input[name=date]').hide();
+        $('input[name=date2]').hide();
+        $('input[name=date3]').hide();
 
-		$("#money").click(function(){
-			if ($('input[name=date]').val() == "") {
+
+        $('select').change(function(){
+                
+            var index = $('select').val();
+            if(index == 0){
+                $('input[name=date3]').show();
+                $('input[name=date]').hide();
+                $('input[name=date2]').hide();
+                $('#left').hide();
+                $('#middle').hide();
+                $('#out').hide();
+            }
+            else if(index == 1){
+                $('input[name=date2]').show();
+                $('input[name=date]').hide();
+                $('input[name=date3]').hide();
+                $('#left').show();
+                $('#middle').show();
+                $('#incomeYear').hide();
+                $('#donationsYear').hide();
+                $('#followersYear').hide();
+                $('#out').hide();
+            }
+            else if(index == 2){
+                $('input[name=date]').show();
+                $('input[name=date2]').hide();
+                $('input[name=date3]').hide();
+                $('#left').show();
+                $('#middle').show();
+                $('#incomeMnd').hide();
+                $('#donationsMnd').hide();
+                $('#followersMnd').hide();
+                $('#out').hide();
+            }
+            else if(index == 3){
+                
+            }
+        });
+
+		$("#incomeYear").click(function(){
+			if ($('input[name=date]').val() == ""){
 				alert("Angi dato!");
 			}else{
 				showLineChartIncomeYear();
 				$('#statistikk').show();
 			}
 		});
+
+        $("#donationsYear").click(function(){
+            if ($('input[name=date]').val() == ""){
+                alert("Angi dato!");
+            }else{
+                //showLineChartDonationsYear();
+                $('#statistikk').show();
+            }
+        });
+
+        $("#followersYear").click(function(){
+            if ($('input[name=date]').val() == ""){
+                alert("Angi dato!");
+            }else{
+                //showLineChartFollowersYear();
+                $('#statistikk').show();
+            }
+        });
 
         $('#datepickerYear').datepicker({
             format: "yyyy",
@@ -39,10 +105,47 @@
             $(this).datepicker('hide');
             year();
             $('#statistikk').hide();
+            $('#incomeYear').show();
+            $('#donationsYear').show();
+            $('#followersYear').show();
+            $('#out').show();
+        });
+
+        $('#datepickerMnd').datepicker({
+            format: "yyyy-mm",
+            weekStart: 1,
+            startView: 0,
+            minViewMode: 1,
+            language: "no",
+            todayHighlight: true
+        });
+        $('#datepickerMnd').on('changeDate', function(ev){
+            $(this).datepicker('hide');
+            mnd();
+            $('#statistikk').hide();
+            $('#incomeMnd').show();
+            $('#donationsMnd').show();
+            $('#followersMnd').show();
+            $('#out').show();
+        });
+
+         $('#datepickerDay').datepicker({
+            format: "yyyy-mm-dd",
+            weekStart: 1,
+            startView: 0,
+            minViewMode: 0,
+            language: "no",
+            todayHighlight: true
+        });
+        $('#datepickerDay').on('changeDate', function(ev){
+            $(this).datepicker('hide');
+            day();
+            $('#statistikk').hide();
+            $('#out').show();
         });
  
         function day(){
-            var day = $('input[name=date]').val();
+            var day = $('input[name=date3]').val();
             var xmlhttp = new XMLHttpRequest();
 
             xmlhttp.onreadystatechange = function(){
@@ -51,7 +154,7 @@
                 }
             }
 
-            xmlhttp.open("GET", "../phpBackend/OrgStat/followersDay.php?date=" + day, true);
+            xmlhttp.open("GET", "../phpBackend/OrgStat/day.php?date=" + day, true);
             xmlhttp.send();
         }
 
@@ -187,24 +290,36 @@
 	<div class="row">
 		<div class="col-md-12" style="background:green; height:150px;">
 			<div class="input-append date">
+                <select>
+                    <option value="NULL">Velg statistkkktype</option>
+                    <option value="0">Dag</option>
+                    <option value="1">Mnd</option>
+                    <option value="2">År</option>
+                    <option value="3">Sammenlign</option>
+                </select>
+
                 <input class="span2" name="date" size="16" type="text" id="datepickerYear" readonly="readonly" />
-                <span class="add-on"><i class="icon-calendar"></i></span>
+                <input class="span2" name="date2" size="16" type="text" id="datepickerMnd" readonly="readonly" />
+                <input class="span2" name="date3" size="16" type="text" id="datepickerDay" readonly="readonly" />
             </div>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-md-2" style="background:red; height:650px;">
+		<div class="col-md-2" id="left" style="background:red; height:650px;">
 			<form>
-				<input id="money" type="button" value="Kroner donert" class="form-control">
+				<input id="incomeYear" type="button" value="Kroner donert" class="form-control">
+                <input id="incomeMnd" type="button" value="Kroner donert" class="form-control">
 				<br>
-				<input type="button" value="Antall donasjoner" class="form-control">
-				<br>
-				<input type="button" value="Nye følgere" class="form-control">
+				<input id="donationsYear" type="button" value="Antall donasjoner" class="form-control">
+				<input id="donationsMnd" type="button" value="Antall donasjoner" class="form-control">
+                <br>
+				<input id="followersYear" type="button" value="Nye følgere" class="form-control">
+                <input id="followersMnd" type="button" value="Nye følgere" class="form-control">
 				
 			</form>
 		</div>
-		<div class="col-md-8" height:650px;">
+		<div class="col-md-8" id="middle" height:650px;>
 			<canvas id="statistikk">
 			</canvas>
 		</div>

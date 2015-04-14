@@ -20,12 +20,8 @@ if($result){
 
 		$res = $row['COUNT(*)'];
 
-
-
-
 		echo 'Nye følgere: ' . $res . '<br>';
 
-		
 	}
 }
 
