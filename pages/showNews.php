@@ -30,7 +30,7 @@ $organizationNr = $_SESSION['organizationNr'];
 	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
 	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
 
-    <script src="../js/styleswitcher.js" type="text/javascript" ></script>
+	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
 
 </head>
 
@@ -42,6 +42,11 @@ $organizationNr = $_SESSION['organizationNr'];
 
 	
 	<div class="container">
+		<div class="col-lg-2 col-md-2 col-xs-0"></div>
+		<div class="col-lg-8 col-md-8 col-xs-12">
+			<input type="text" id="reg_project_input" class="form-control" name="projectsearch" placeholder="Søk.."/>
+		</div>
+		<div class="col-lg-2 col-md-2 col-xs-0"></div>
 		<div class="row">
 
 

@@ -83,7 +83,7 @@ if(isset($_POST['registerNews'])){
 				<p>Backend til alle sidene.</p>
 				<br/>
 				<p>APP:</p>
-				<p>Legge inn jquery lokalt i app</p>
+				<p>Legge inn jquery lokalt</p>
 				<p>Push</p>
 				<p>Betalingsløsning</p>
 				<br/>
