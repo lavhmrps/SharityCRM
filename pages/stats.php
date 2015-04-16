@@ -307,49 +307,8 @@
         ]
     }
 
-    var day = $('input[name=date2]').val();
-
-
-    var lineChartDataMonth 
-        /*if ($day.match(/^....-01$/)) {
-            labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
-        }
-        else if($day.match(/^....-02$/)){
-            labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29"],
-        }
-        else if ($day.match(/^....-02$/)) {
-            labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28"],
-        }
-        else if ($day.match(/^....-03$/)) {
-            labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
-        }
-        else if ($day.match(/^....-04$/)) {
-            labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],
-        }
-        else if ($day.match(/^....-05$/)) {
-            labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
-        }
-        else if ($day.match(/^....-06$/)) {
-            labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],
-        }
-        else if ($day.match(/^....-07$/)) {
-            labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
-        }
-        else if ($day.match(/^....-08$/)) {
-            labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
-        }
-        else if ($day.match(/^....-0$/)) {
-            labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],
-        }
-        else if ($day.match(/^....-10$/)) {
-            labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
-        }
-        else if ($day.match(/^....-11$/)) {
-            labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],
-        }
-        else if ($day.match(/^....-12$/)) {
-            labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
-        }*/
+    var lineChartDataJan = {
+        labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
         datasets : [
         {
             label: "12 mnd",
@@ -359,48 +318,200 @@
             pointStrokeColor : "blue", // fage på border til prikkene
             pointHighlightFill : "blue", //farge på prikk on hover
             pointHighlightStroke : "blue", // farge på border til prikk on hover
-
-/*
-            if ($day.match(/^....-01$/)) {
-                data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-            }
-            else if($day.match(/^....-02$/)){
-                data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-            }
-            else if ($day.match(/^....-02$/)) {
-                data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-            }
-            else if ($day.match(/^....-03$/)) {
-                data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-            }
-            else if ($day.match(/^....-04$/)) {
-                data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-            }
-            else if ($day.match(/^....-05$/)) {
-                data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-            }
-            else if ($day.match(/^....-06$/)) {
-                data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-            }
-            else if ($day.match(/^....-07$/)) {
-                data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-            }
-            else if ($day.match(/^....-08$/)) {
-                data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-            }
-            else if ($day.match(/^....-09$/)) {
-                data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-            }
-            else if ($day.match(/^....-10$/)) {
-                data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-            }
-            else if ($day.match(/^....-11$/)) {
-                data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-            }
-            else if ($day.match(/^....-12$/)) {
-                data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-            }
-*/
+            data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            
+        }
+        ]
+    }
+    var lineChartDataFeb29 = {
+        labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29"],
+        datasets : [
+        {
+            label: "12 mnd",
+            fillColor : "rgba(360,720,100,0.2)", //farge under grafen
+            strokeColor : "red", //farge på linja
+            pointColor : "blue", //farge på prikkene
+            pointStrokeColor : "blue", // fage på border til prikkene
+            pointHighlightFill : "blue", //farge på prikk on hover
+            pointHighlightStroke : "blue", // farge på border til prikk on hover
+            data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            
+        }
+        ]
+    }
+    var lineChartDataFeb = {
+        labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28"],
+        datasets : [
+        {
+            label: "12 mnd",
+            fillColor : "rgba(360,720,100,0.2)", //farge under grafen
+            strokeColor : "red", //farge på linja
+            pointColor : "blue", //farge på prikkene
+            pointStrokeColor : "blue", // fage på border til prikkene
+            pointHighlightFill : "blue", //farge på prikk on hover
+            pointHighlightStroke : "blue", // farge på border til prikk on hover
+            data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            
+        }
+        ]
+    }
+    var lineChartDataMar = {
+        labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
+        datasets : [
+        {
+            label: "12 mnd",
+            fillColor : "rgba(360,720,100,0.2)", //farge under grafen
+            strokeColor : "red", //farge på linja
+            pointColor : "blue", //farge på prikkene
+            pointStrokeColor : "blue", // fage på border til prikkene
+            pointHighlightFill : "blue", //farge på prikk on hover
+            pointHighlightStroke : "blue", // farge på border til prikk on hover
+            data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            
+        }
+        ]
+    }
+    var lineChartDataApr = {
+        labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],
+        datasets : [
+        {
+            label: "12 mnd",
+            fillColor : "rgba(360,720,100,0.2)", //farge under grafen
+            strokeColor : "red", //farge på linja
+            pointColor : "blue", //farge på prikkene
+            pointStrokeColor : "blue", // fage på border til prikkene
+            pointHighlightFill : "blue", //farge på prikk on hover
+            pointHighlightStroke : "blue", // farge på border til prikk on hover
+            data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            
+        }
+        ]
+    }
+    var lineChartDataMay = {
+        labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
+        datasets : [
+        {
+            label: "12 mnd",
+            fillColor : "rgba(360,720,100,0.2)", //farge under grafen
+            strokeColor : "red", //farge på linja
+            pointColor : "blue", //farge på prikkene
+            pointStrokeColor : "blue", // fage på border til prikkene
+            pointHighlightFill : "blue", //farge på prikk on hover
+            pointHighlightStroke : "blue", // farge på border til prikk on hover
+            data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            
+        }
+        ]
+    }
+    var lineChartDataJun = {
+        labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],
+        datasets : [
+        {
+            label: "12 mnd",
+            fillColor : "rgba(360,720,100,0.2)", //farge under grafen
+            strokeColor : "red", //farge på linja
+            pointColor : "blue", //farge på prikkene
+            pointStrokeColor : "blue", // fage på border til prikkene
+            pointHighlightFill : "blue", //farge på prikk on hover
+            pointHighlightStroke : "blue", // farge på border til prikk on hover
+            data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            
+        }
+        ]
+    }
+    var lineChartDataJul = {
+        labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
+        datasets : [
+        {
+            label: "12 mnd",
+            fillColor : "rgba(360,720,100,0.2)", //farge under grafen
+            strokeColor : "red", //farge på linja
+            pointColor : "blue", //farge på prikkene
+            pointStrokeColor : "blue", // fage på border til prikkene
+            pointHighlightFill : "blue", //farge på prikk on hover
+            pointHighlightStroke : "blue", // farge på border til prikk on hover
+            data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            
+        }
+        ]
+    }
+    var lineChartDataAug = {
+        labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
+        datasets : [
+        {
+            label: "12 mnd",
+            fillColor : "rgba(360,720,100,0.2)", //farge under grafen
+            strokeColor : "red", //farge på linja
+            pointColor : "blue", //farge på prikkene
+            pointStrokeColor : "blue", // fage på border til prikkene
+            pointHighlightFill : "blue", //farge på prikk on hover
+            pointHighlightStroke : "blue", // farge på border til prikk on hover
+            data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            
+        }
+        ]
+    }
+    var lineChartDataSep = {
+        labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],
+        datasets : [
+        {
+            label: "12 mnd",
+            fillColor : "rgba(360,720,100,0.2)", //farge under grafen
+            strokeColor : "red", //farge på linja
+            pointColor : "blue", //farge på prikkene
+            pointStrokeColor : "blue", // fage på border til prikkene
+            pointHighlightFill : "blue", //farge på prikk on hover
+            pointHighlightStroke : "blue", // farge på border til prikk on hover
+            data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            
+        }
+        ]
+    }
+    var lineChartDataOkt = {
+        labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
+        datasets : [
+        {
+            label: "12 mnd",
+            fillColor : "rgba(360,720,100,0.2)", //farge under grafen
+            strokeColor : "red", //farge på linja
+            pointColor : "blue", //farge på prikkene
+            pointStrokeColor : "blue", // fage på border til prikkene
+            pointHighlightFill : "blue", //farge på prikk on hover
+            pointHighlightStroke : "blue", // farge på border til prikk on hover
+            data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            
+        }
+        ]
+    }
+    var lineChartDataNov = {
+        labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],
+        datasets : [
+        {
+            label: "12 mnd",
+            fillColor : "rgba(360,720,100,0.2)", //farge under grafen
+            strokeColor : "red", //farge på linja
+            pointColor : "blue", //farge på prikkene
+            pointStrokeColor : "blue", // fage på border til prikkene
+            pointHighlightFill : "blue", //farge på prikk on hover
+            pointHighlightStroke : "blue", // farge på border til prikk on hover
+            data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            
+        }
+        ]
+    }
+    var lineChartDataDec = {
+        labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
+        datasets : [
+        {
+            label: "12 mnd",
+            fillColor : "rgba(360,720,100,0.2)", //farge under grafen
+            strokeColor : "red", //farge på linja
+            pointColor : "blue", //farge på prikkene
+            pointStrokeColor : "blue", // fage på border til prikkene
+            pointHighlightFill : "blue", //farge på prikk on hover
+            pointHighlightStroke : "blue", // farge på border til prikk on hover
+            data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            
         }
         ]
     }
