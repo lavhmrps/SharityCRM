@@ -1453,7 +1453,7 @@ input[id=menu]{
 }
 
 #main-themebtn{
-	width:98%;
+	width:96%;
 	margin:5px;
 	margin-top: 25px;
 	margin-bottom: 40px;
@@ -1475,9 +1475,9 @@ input[id=menu]{
 	min-width:98%; 
 	max-width:98%; 
 
-	height:200px; 
-	min-height:200px;  
-	max-height:200px;
+	height:100px; 
+	min-height:100px;  
+	max-height:100px;
 	resize:none;
 }
 

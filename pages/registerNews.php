@@ -41,57 +41,61 @@ if(isset($_POST['registerNews'])){
 
 
 	<div class="container" >
-		<div class="col-lg-12 col-md-12 col-xs-12 text-center" id="addprojectcontainer">
-			<h1>Legg til en nyhet</h1>
+		<div class="col-lg-2 col-md-1 col-xs-0"></div>
+		<div class="col-lg-8 col-md-10 col-xs-12 text-center" id="addprojectcontainer">
+			<h1>Opprett nyhet</h1>
 
-			<div class="col-lg-6 col-md-6 col-xs-6 text-left">
-				<div class="col-lg-12 col-md-12 col-xs-12">
-					<p>
-						<?php
-						$organizationNr=$_SESSION["organizationNr"];
-						$sql = "SELECT projectID, name FROM Project WHERE organizationNr = $organizationNr";
-						$result = mysqli_query($connection, $sql);
-						if ($result) {
-							echo "<label>Velg prosjekt</label>";
-							echo "<select id='selectproject' name='projectID'>";
-							echo "<option value='NULL'>Velg prosjekt</option>";
-							while ($row = mysqli_fetch_assoc($result)) {
-								echo "<option value=" . $row['projectID'] . ">" . $row['name'] . "</option>";
-							}
-							echo "</select>";
-						} else {
-							echo "<h2>Failure</h2>";
+			
+			<div class="col-lg-12 col-md-12 col-xs-12 text-left">
+				<label>Nyhetsbilde</label>
+				<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
+
+				<img src="../img/default.png" id="preview" alt="Click to upload img" name="preview" />
+
+				<p>
+					<?php
+					$organizationNr=$_SESSION["organizationNr"];
+					$sql = "SELECT projectID, name FROM Project WHERE organizationNr = $organizationNr";
+					$result = mysqli_query($connection, $sql);
+					if ($result) {
+						echo "<label>Velg prosjekt</label>";
+						echo "<select id='selectproject' name='projectID'>";
+						echo "<option value='NULL'>Velg prosjekt</option>";
+						while ($row = mysqli_fetch_assoc($result)) {
+							echo "<option value=" . $row['projectID'] . ">" . $row['name'] . "</option>";
 						}
-						?>
-					</p>
-					<label>Nyhetsbilde</label>
-					<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL" />
+						echo "</select>";
+					} else {
+						echo "<h2>Failure</h2>";
+					}
+					?>
+				</p>
 
-					<img src="../img/default.png" id="newspreview" alt="Click to upload img" name="preview" />
-
-					<button  class="btn" name="back" id="main-themebtn">
-						Tilbake
-					</button> <!-- Go back to last site -->
-
-
-				</div>
-			</div>
-			<div class="col-lg-6 col-md-6 col-xs-6 text-left">
-				<div class="col-lg-12 col-md-12 col-xs-12">
-
-					<label>Nyhetsoverskrift</label>
+				<label>Nyhetsoverskrift</label>
 					<input type="text" id="reg_news_input" class="form-control" name="newsHeader" placeholder=""/>
 					
 					<label id="newslabelmargin">Nyhetstekst</label>
-					<textarea class="form-control" id="aboutnews" rows="9" name="newsText" placeholder="Nyhetstekst" ></textarea>
-					<button  class="btn" name="insertNews" id="main-themebtn">
-						Publiser nyhet
-					</button>
+					<textarea class="form-control" id="aboutnews" rows="5" name="newsText" placeholder="Nyhetstekst" ></textarea>
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-xs-6">
+							<button  class="btn" name="registerProject" id="main-themebtn2">
+								Registrer prosjekt
+							</button>
+						</div>
+						<div class="col-lg-6 col-md-6 col-xs-6">
+							<button  class="btn" name="back" id="main-themebtn">
+								Avbryt
+							</button> <!-- Go back to last site -->
+						</div>
+					</div>
 
-				</div>
+
 			</div>
+			
+			
 
 		</div>
+		<div class="col-lg-2 col-md-1 col-xs-0"></div>
 		<div class="col-md-12" id="somespace"> </div>
 	</div>
 
@@ -101,10 +105,10 @@ if(isset($_POST['registerNews'])){
 
 	
 
-<script src="../js/stickyheader.js"></script>
+	<script src="../js/stickyheader.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="../js/bootstrap.min.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
 
