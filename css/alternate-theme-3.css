@@ -318,11 +318,87 @@ input[id="uname"]:-webkit-autofill, input[id="passwd"]:-webkit-autofill {
 	border:none;
 }
 /** end of textarea**/
+#registernewscontainer{
+	background-color: #111;
+}
+#registernewscontainer h1, #registernewscontainer p{
+	color: #fff;
+}
 
+#selectednewscontainer{
+	background-color: #111 ;
+	border:1px solid #222;
+	color: #FFF;
+}
+
+#changenewscontainer{
+	background-color: #111 ;
+	border:1px solid #222;
+	color: #FFF;
+}
+/** show all projects & news**/
+#projectcontainer{
+	background-color: #111 ;
+	border:1px solid #222;
+	color: #FFF;
+}
+
+#projectcontainer h1{
+	color: #000;
+}
+
+#projectcontainer a{
+	color: #fff;
+}
+#newscontainer{
+	background-color: #111 ;
+	border:1px solid #222;
+	color: #FFF;
+}
+
+#newscontainer h1{
+	color: #000;
+}
+
+#newscontainer a{
+	color: #fff;
+}
+
+
+#bottom{
+	background-color: #111;
+	/*border-top:1px solid #777;*/
+}
+
+#addprojectcontainer{
+	background-color: #111 ;
+	border:1px solid #222;
+	color: #FFF;
+}
+
+#uname.form-control::-webkit-input-placeholder, #passwd.form-control::-webkit-input-placeholder{ 
+	color: #fff; 
+}
+
+#uname, #passwd{
+	border-bottom: 1px solid #fff;
+}
 
 /** END OF INPUTS **/
 
 /** BUTTONS **/
+#deletehead{
+	color:#fff;
+}
+#deletebutton{
+	background-color: transparent;
+	border: 1px solid #333;
+	color: #fff;
+}
+#deletebutton:hover{
+	background-color: #000;
+}
+
 #alternate1btn{
 	background-color: #FFF100;
 	border: 1px solid #000;

@@ -334,6 +334,24 @@ input[id="uname"]:-webkit-autofill, input[id="passwd"]:-webkit-autofill {
 	border:none;
 }
 /** end of textarea**/
+#registernewscontainer{
+	background-color: #FF9AE6;
+}
+#registernewscontainer h1, #registernewscontainer p{
+	color: #fff;
+}
+
+#selectednewscontainer{
+	background-color: #FF9AE6 ;
+	border:1px solid #FF7AE6;
+	color: #FFF;
+}
+
+#changenewscontainer{
+	background-color: #FF9AE6 ;
+	border:1px solid #FF7AE6;
+	color: #FFF;
+}
 /** show all projects & news**/
 #projectcontainer{
 	background-color: #FF9AE6 ;
