@@ -123,9 +123,6 @@ include '../phpBackend/connect.php';
 
 
 
-
-
-
 					}
 				} ?>
 
@@ -141,8 +138,28 @@ include '../phpBackend/connect.php';
 
 
 			<div class="col-md-6" id="homeboxupperright">
-				<h2>Nylig aktivitet</h2>
+				<h2>Siste aktivitet</h2>
+				<?php
 				
+				
+				$sql = "SELECT * FROM activity WHERE organizationNr = $organizationNr LIMIT 7" ;
+				$result = mysqli_query($connection, $sql);
+				$row = mysqli_fetch_assoc($result);
+
+				if (mysqli_num_rows($result) >= 1) {
+					
+						while ($row = mysqli_fetch_assoc($result)) {
+					echo  '<p> - ' . $row["date"] . ' ' . $row["message"] .' </p>';
+				
+
+				}
+						
+					
+				} ?>
+
+
+			
+
 
 			</div>
 
