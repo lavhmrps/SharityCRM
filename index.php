@@ -34,16 +34,9 @@ include "phpBackend/connect.php";
 	<link href="css/fonts.css" rel="stylesheet"/>
 	<link href="css/main-theme.css" rel="stylesheet"/>
 
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
+	<!-- Scripts -->
 
 	</head>
-
-	<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
 
 	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
@@ -114,7 +107,7 @@ include "phpBackend/connect.php";
 											
 										</div>
 										<div class="form-group col-md-11">
-											<input type="text" class="form-control" name="organizationNr" id="unames" placeholder="Organisasjonsnummer" onkeyup ="checkUsername()" />
+											<input type="text" class="form-control" name="organizationNr" id="unames" placeholder="Organisasjonsnummer" />
 										</div>
 									</div>
 									<div class="row">
@@ -133,9 +126,9 @@ include "phpBackend/connect.php";
 											<button type="submit" class="btn whitebtn" name="login" id="loginbutton">
 												Logg inn
 											</button>
-											<button type="submit" class="btn whitebtn" id="registerbutton">
-												<a class="page-scroll" href="#register">Ny organisasjon</a>
-											</button>
+											
+											<a class="btn whitebtn page-scroll" id="registerbutton" href="#register">Ny organisasjon</a>
+											
 
 										</div>
 									</div>
@@ -163,28 +156,28 @@ include "phpBackend/connect.php";
 									
 									<div class="form-group">
 										<div class="col-md-12">
-											<label class="text-left">Organisasjonsnummer</label>
-											<input type="tel" class="form-control" name="reg_organizationNr" id="orgIDs" placeholder=""/>
+											<label for="reg_organizationNr" class="text-left">Organisasjonsnummer</label>
+											<input type="tel" class="form-control" name="reg_organizationNr" id="orgIDs" placeholder="" onblur ="validateOrgnr()" pattern="" title="Må inneholde tall fra 0-9 og presis 9 siffer" required>
 										</div>
 										
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
-											<label class="text-left">Organisasjonsnavn</label>
+											<label for="reg_name" class="text-left">Organisasjonsnavn</label>
 											<input type="text" class="form-control" name="reg_name" id="orgNames" placeholder=""/>
 										</div>
 										
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
-											<label class="text-left">Passord</label>
+											<label for="reg_password" class="text-left">Passord</label>
 											<input type="password" class="form-control" name="reg_password" id="newPasswds" placeholder=""/>
 										</div>
 										
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
-											<label class="text-left">Gjenta passord</label>
+											<label for="reg_password2" class="text-left">Gjenta passord</label>
 											<input type="password" class="form-control" name="reg_password2" id="rptPasswds" placeholder=""/>
 										</div>
 										
@@ -263,7 +256,9 @@ include "phpBackend/connect.php";
 				</div>
 			</div>
 		</section>
-
+		<?php 
+		
+		?>
 		<!-- jQuery -->
 		<script src="js/jquery.js"></script>
 
@@ -279,8 +274,7 @@ include "phpBackend/connect.php";
 
 		<!--Check login-->
 		<script src="js/checkLogin.js"></script>
-
+		
 	</body>
 
 	</html>
-
