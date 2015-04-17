@@ -252,6 +252,17 @@ input[id="uname"]:-webkit-autofill, input[id="passwd"]:-webkit-autofill {
 /** END OF INPUTS **/
 
 /** BUTTONS **/
+#deletehead{
+	color:#000;
+}
+#deletebutton{
+	background-color: transparent;
+	border: 1px solid #ccc;
+	color: #000;
+}
+#deletebutton:hover{
+	background-color: #ddd;
+}
 
 #alternate1btn{
 	background-color: #108F10;

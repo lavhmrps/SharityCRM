@@ -73,7 +73,7 @@ if($result){
 
 		<div class="col-lg-12 col-md-12 col-xs-12 text-center">
 			<form method="post">
-				<h1 style="color:white;">Bekreft sletting</h1>
+				<h1 id="deletehead">Bekreft sletting</h1>
 				<input type="text" name="organizationNr" class="form-control" id="uname" placeholder="Organisasjonsnummer"/>
 				<input type="password" name="password" class="form-control" id="passwd" placeholder="Passord"/>
 				

@@ -1204,15 +1204,8 @@ input[id="orgIDs"],input[id="orgNames"],input[id="newPasswds"],input[id="rptPass
 /******************** BUTTONS ********************/ 
 #deletebutton{
 	width:100%;
-	background-color: transparent;
 	border-radius: 5px;
-	border: 1px solid #fff;
-	color: #fff;
 }
-#deletebutton:hover{
-	background-color: #010101;
-}
-
 
 .greenbtn{
 	font-size:18px;
