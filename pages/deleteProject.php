@@ -1,13 +1,29 @@
 <?php
 session_start();
+include '../phpBackend/checkSession.php';
 include '../phpBackend/connect.php';
-include '../phpBackend/hash.php';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin</title>
-	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Sharity</title>
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+	<!-- Custom CSS -->
+	<link href="../css/scrolling-nav.css" rel="stylesheet"/>
+
+
+	<link href="../css/main.css" rel="stylesheet"/>
+	<link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
+	<link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
+	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
+	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
 	<link href="../css/Admin.css" rel="stylesheet">
 	<!-- jQuery -->
 	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -15,21 +31,97 @@ include '../phpBackend/hash.php';
 	<script src="../js/checkLogin.js"></script>
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
 </script>
 </head>
 </body>
+<?php
+include "../pages/header_nav.php";
+?>
 <div class="container">
-	<h1>Prject preview goes here</h1>
+	<?php
+$projectID = $_SESSION['projectIDtoShow'];
+
+$sql = "SELECT * FROM Project WHERE projectID = $projectID";
+$result = mysqli_query($connection, $sql);
+if($result){
+	if(mysqli_num_rows($result) == 1){
+		$row = mysqli_fetch_assoc($result);
+		$organizationNr = $row['organizationNr'];
+
+		$backgroundimgURL = $row['backgroundimgURL'];
+
+		if($backgroundimgURL == ""){
+			$backgroundimgURL = "../img/default.png";
+		}
+
+		$name = $row['name'];
+		$title = $row['title'];
+		$about = $row['about'];
+		$country = $row['country'];
+		$city = $row['city'];
+
+	}else{
+		die("Alvorlig feil! SQL sprørringen etter " . $projectID . " returnerte mindre enn 1 eller mer enn 1 Prosjekt");
+	}
+}else{
+	die("Feil i SQL spørringen: " . $_SESSION['projectIDtoShow']);
+}
+?>
 	<div class="col-md-3"></div>
-	<div class="col-md-6 text-center" id="adminlogin">
+	<div class="col-md-6" id="selectednewscontainer">
 
-		<form method="post">
-			<h1 style="color:white;">Skriv inn passord for å slette</h1>
-			<input type="text" name="organizationNr" class="form-control" id="organizationNr" placeholder="Organisasjonsnummer"/>
-			<input type="password" name="password" class="form-control" id="passwd" placeholder="Passord"/>
-			<input type="submit" name="confirmDelete" class="form-control" id="login_admin" value="Fjern prosjekt"/>
-		</form>
+		<div class="col-lg-12 col-md-12 col-xs-12 text-center">
+			<form method="post">
+				<h1 style="color:white;">Bekreft sletting</h1>
+				<input type="text" name="organizationNr" class="form-control" id="uname" placeholder="Organisasjonsnummer"/>
+				<input type="password" name="password" class="form-control" id="passwd" placeholder="Passord"/>
+				
 
+			</form>
+		</div>
+
+		
+
+		<div class="col-md-12 text-center" >
+			<?php
+
+			echo "<h1>" . $name . "</h1>";
+
+			?>
+		</div>
+
+
+		<div class="col-md-12">
+
+			<?php
+			echo '<input type="text" id="reg_project_input" class="form-control" name="projectName" placeholder="Prosjektnavn" value="' . $name . '" readonly/>
+			<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL"/>
+			<img src="'. $backgroundimgURL.'" id="Projectpreview" alt="Click to upload img" name="preview"/>
+			<input type="text" id="reg_project_input" class="form-control" name="country" placeholder="Land" value="' . $country. '" readonly/>
+			<input type="text" id="reg_project_input" class="form-control" name="city" placeholder="By" value="' . $city . '" readonly/>
+			<input type="text" id="reg_project_input" class="form-control" name="title" placeholder="Prosjekt tittel" value="' . $title . '" readonly/>
+			<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="about" placeholder="Prosjektbeskrivelse" readonly>' . $about . '</textarea>
+
+
+			';
+
+			?>
+			<?php 
+				echo '<div id="showselectednewsChange"onclick=showSelectedNews(' . $row['projectID'] . ')>';
+				echo '</div>';
+			?>
+			<input type="submit" name="confirmDelete" class="form-control" id="deletebutton" value="Fjern prosjekt"/>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+
+			
+
+		</div>
+		<div class="col-md-3"></div>
+
+		
 	</div>
 	<div class="col-md-3"></div>
 

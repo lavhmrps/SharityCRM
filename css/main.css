@@ -5,6 +5,7 @@ body{
 	margin:0;
 	padding:0;
 	overflow-x:hidden;
+	height:100%;
 }
 
 
@@ -1201,6 +1202,18 @@ input[id="orgIDs"],input[id="orgNames"],input[id="newPasswds"],input[id="rptPass
 
 
 /******************** BUTTONS ********************/ 
+#deletebutton{
+	width:100%;
+	background-color: transparent;
+	border-radius: 5px;
+	border: 1px solid #fff;
+	color: #fff;
+}
+#deletebutton:hover{
+	background-color: #010101;
+}
+
+
 .greenbtn{
 	font-size:18px;
 }
@@ -1301,23 +1314,6 @@ input[id="orgIDs"],input[id="orgNames"],input[id="newPasswds"],input[id="rptPass
 	padding-right: 0px;
 }
 
-
-
-
-/******************** NYTT ********************/
-
-
-
-
-
-
-
-
-
-
-
-/******Vegards KNOT*******/
-
 #reg_news_input, #reg_project_input,label{
 	margin: 5px;
 	width:98%;
@@ -1336,8 +1332,6 @@ input[id="orgIDs"],input[id="orgNames"],input[id="newPasswds"],input[id="rptPass
 	margin:5px; 
 
 }
-
-
 
 select{
 	margin: 10px;
