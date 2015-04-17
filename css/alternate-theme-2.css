@@ -163,6 +163,11 @@ html, body{
 	color: #fff;
 }
 
+#selectednewscontainer{
+	background-color: #FF9AE6 ;
+	border:1px solid #FF7AE6;
+	color: #FFF;
+}
 /** END **/
 
 /** register news  **/
@@ -329,21 +334,67 @@ input[id="uname"]:-webkit-autofill, input[id="passwd"]:-webkit-autofill {
 	border:none;
 }
 /** end of textarea**/
+/** show all projects & news**/
+#projectcontainer{
+	background-color: #FF9AE6 ;
+	border:1px solid #FF7AE6;
+	color: #FFF;
+}
 
+#projectcontainer h1{
+	color: #000;
+}
+
+#projectcontainer a{
+	color: #fff;
+}
+#newscontainer{
+	background-color: #FF9AE6 ;
+	border:1px solid #FF7AE6;
+	color: #FFF;
+}
+
+#newscontainer h1{
+	color: #000;
+}
+
+#newscontainer a{
+	color: #fff;
+}
+
+
+#bottom{
+	background-color: #FF9AE6;
+	/*border-top:1px solid #777;*/
+}
+
+#addprojectcontainer{
+	background-color: #FF9AE6 ;
+	border:1px solid #FF7AE6;
+	color: #FFF;
+}
+
+#uname.form-control::-webkit-input-placeholder, #passwd.form-control::-webkit-input-placeholder{ 
+	color: #fff; 
+}
+
+#uname, #passwd{
+	border-bottom: 1px solid #fff;
+}
 
 /** END OF INPUTS **/
 
 /** BUTTONS **/
 #deletehead{
-	color:#000;
+	color:#fff;
 }
 #deletebutton{
 	background-color: transparent;
-	border: 1px solid #ccc;
+	border: 1px solid #fff;
 	color: #000;
 }
 #deletebutton:hover{
-	background-color: #ddd;
+	background-color: #FF8BEF;
 }
 
 #alternate1btn{

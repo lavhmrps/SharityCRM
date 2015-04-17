@@ -333,7 +333,13 @@ input[id="uname"]:-webkit-autofill, input[id="passwd"]:-webkit-autofill {
 	border:none;
 }
 /** end of textarea**/
+#uname.form-control::-webkit-input-placeholder, #passwd.form-control::-webkit-input-placeholder{ 
+	color: #777; 
+}
 
+#uname, #passwd{
+	border-bottom: 1px solid #777;
+}
 
 /** END OF INPUTS **/
 
