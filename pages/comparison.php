@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+include '../phpBackend/checkSession.php';
+include '../phpBackend/connect.php';
+
+?>
+
 <html>
 <head>
 	<title></title>
@@ -27,6 +35,7 @@
 				$('#datepickerMnd2').hide();
 				$('#datepickerYear1').hide();
 				$('#datepickerYear2').hide();
+                localStorage.setItem('type','0');
             }
             else if(index == 1){
                 $('#datepickerMnd1').show();
@@ -35,6 +44,7 @@
 				$('#datepickerDay2').hide();
 				$('#datepickerYear1').hide();
 				$('#datepickerYear2').hide();
+                localStorage.setItem('type','1');
             }
             else if(index == 2){
                 $('#datepickerYear1').show();
@@ -42,7 +52,8 @@
 				$('#datepickerDay1').hide();
 				$('#datepickerDay2').hide();
 				$('#datepickerMnd1').hide();
-				$('#datepickerMnd2').hide();	
+				$('#datepickerMnd2').hide();
+                localStorage.setItem('type','2');	
             }
         });
 
@@ -57,7 +68,12 @@
         $('#datepickerDay1').on('changeDate', function(ev){
             $(this).datepicker('hide');
             day1();
-            showChartDay();
+            showChart1();
+            showChart2();
+            showChart3();
+            showChart4();
+            showChart5();
+            showChart6();
         });
         $('#datepickerDay2').datepicker({
             format: "yyyy-mm-dd",
@@ -220,7 +236,24 @@
 
 
 
-		function showChartDay(){
+		function showChart1(){
+
+            var date1 = "";
+            var date2 = "";
+            var x = localStorage.getItem('type');
+            if(x == 0){
+                var date1 = $('input[name=date]').val();
+                var date2 = $('input[name=date2]').val();
+
+            }else if(x == 1){
+                var date1 = $('input[name=date3]').val();
+                var date2 = $('input[name=date4]').val();
+
+            }else if(x == 2){
+                var date1 = $('input[name=date5]').val();
+                var date2 = $('input[name=date6]').val();
+            }
+            
 
             var data = [
                 {
@@ -246,6 +279,301 @@
                 onAnimationComplete: function() {
                     var canvasWidthvar = $('#statistikk1').width();
                     var canvasHeight = $('#statistikk1').height();
+                    var constant = 114;
+                    var fontsize = (canvasHeight/constant).toFixed(2);
+                    //ctx.font="2.8em Verdana";
+                    ctx.font=fontsize +"em Verdana";
+                    ctx.textBaseline="middle"; 
+                    var total = 0;
+                    $.each(data,function() {
+                        total += parseInt(this.value,10);
+                    });
+                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                    var textWidth = ctx.measureText(tpercentage).width;
+              
+                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                }
+            });
+        }
+        function showChart2(){
+
+            var date1 = "";
+            var date2 = "";
+            var x = localStorage.getItem('type');
+            if(x == 0){
+                var date1 = $('input[name=date]').val();
+                var date2 = $('input[name=date2]').val();
+
+            }else if(x == 1){
+                var date1 = $('input[name=date3]').val();
+                var date2 = $('input[name=date4]').val();
+
+            }else if(x == 2){
+                var date1 = $('input[name=date5]').val();
+                var date2 = $('input[name=date6]').val();
+            }
+
+            var data = [
+                {
+                    value: 100,
+                    color:"#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Yellow"
+                },
+                {
+                    value: 50,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Green"
+                }
+            ]
+
+            var ctx = $('#statistikk2').get(0).getContext("2d");
+            var myDoughnut = new Chart(ctx).Doughnut(data,{
+                animation:true,
+                showTooltips: false,
+                percentageInnerCutout : 70,
+                segmentShowStroke : false,
+                onAnimationComplete: function() {
+                    var canvasWidthvar = $('#statistikk2').width();
+                    var canvasHeight = $('#statistikk2').height();
+                    var constant = 114;
+                    var fontsize = (canvasHeight/constant).toFixed(2);
+                    //ctx.font="2.8em Verdana";
+                    ctx.font=fontsize +"em Verdana";
+                    ctx.textBaseline="middle"; 
+                    var total = 0;
+                    $.each(data,function() {
+                        total += parseInt(this.value,10);
+                    });
+                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                    var textWidth = ctx.measureText(tpercentage).width;
+              
+                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                }
+            });
+        }
+        function showChart3(){
+
+            var date1 = "";
+            var date2 = "";
+            var x = localStorage.getItem('type');
+            if(x == 0){
+                var date1 = $('input[name=date]').val();
+                var date2 = $('input[name=date2]').val();
+
+            }else if(x == 1){
+                var date1 = $('input[name=date3]').val();
+                var date2 = $('input[name=date4]').val();
+
+            }else if(x == 2){
+                var date1 = $('input[name=date5]').val();
+                var date2 = $('input[name=date6]').val();
+            }
+            
+            var data = [
+                {
+                    value: 100,
+                    color:"#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Yellow"
+                },
+                {
+                    value: 50,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Green"
+                }
+            ]
+
+            var ctx = $('#statistikk3').get(0).getContext("2d");
+            var myDoughnut = new Chart(ctx).Doughnut(data,{
+                animation:true,
+                showTooltips: false,
+                percentageInnerCutout : 70,
+                segmentShowStroke : false,
+                onAnimationComplete: function() {
+                    var canvasWidthvar = $('#statistikk3').width();
+                    var canvasHeight = $('#statistikk3').height();
+                    var constant = 114;
+                    var fontsize = (canvasHeight/constant).toFixed(2);
+                    //ctx.font="2.8em Verdana";
+                    ctx.font=fontsize +"em Verdana";
+                    ctx.textBaseline="middle"; 
+                    var total = 0;
+                    $.each(data,function() {
+                        total += parseInt(this.value,10);
+                    });
+                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                    var textWidth = ctx.measureText(tpercentage).width;
+              
+                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                }
+            });
+        }
+        function showChart4(){
+
+            var date1 = "";
+            var date2 = "";
+            var x = localStorage.getItem('type');
+            if(x == 0){
+                var date1 = $('input[name=date]').val();
+                var date2 = $('input[name=date2]').val();
+
+            }else if(x == 1){
+                var date1 = $('input[name=date3]').val();
+                var date2 = $('input[name=date4]').val();
+
+            }else if(x == 2){
+                var date1 = $('input[name=date5]').val();
+                var date2 = $('input[name=date6]').val();
+            }
+            
+            var data = [
+                {
+                    value: 100,
+                    color:"#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Yellow"
+                },
+                {
+                    value: 50,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Green"
+                }
+            ]
+
+            var ctx = $('#statistikk4').get(0).getContext("2d");
+            var myDoughnut = new Chart(ctx).Doughnut(data,{
+                animation:true,
+                showTooltips: false,
+                percentageInnerCutout : 70,
+                segmentShowStroke : false,
+                onAnimationComplete: function() {
+                    var canvasWidthvar = $('#statistikk4').width();
+                    var canvasHeight = $('#statistikk4').height();
+                    var constant = 114;
+                    var fontsize = (canvasHeight/constant).toFixed(2);
+                    //ctx.font="2.8em Verdana";
+                    ctx.font=fontsize +"em Verdana";
+                    ctx.textBaseline="middle"; 
+                    var total = 0;
+                    $.each(data,function() {
+                        total += parseInt(this.value,10);
+                    });
+                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                    var textWidth = ctx.measureText(tpercentage).width;
+              
+                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                }
+            });
+        }
+        function showChart5(){
+
+            var date1 = "";
+            var date2 = "";
+            var x = localStorage.getItem('type');
+            if(x == 0){
+                var date1 = $('input[name=date]').val();
+                var date2 = $('input[name=date2]').val();
+
+            }else if(x == 1){
+                var date1 = $('input[name=date3]').val();
+                var date2 = $('input[name=date4]').val();
+
+            }else if(x == 2){
+                var date1 = $('input[name=date5]').val();
+                var date2 = $('input[name=date6]').val();
+            }
+            
+            var data = [
+                {
+                    value: 100,
+                    color:"#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Yellow"
+                },
+                {
+                    value: 50,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Green"
+                }
+            ]
+
+            var ctx = $('#statistikk5').get(0).getContext("2d");
+            var myDoughnut = new Chart(ctx).Doughnut(data,{
+                animation:true,
+                showTooltips: false,
+                percentageInnerCutout : 70,
+                segmentShowStroke : false,
+                onAnimationComplete: function() {
+                    var canvasWidthvar = $('#statistikk5').width();
+                    var canvasHeight = $('#statistikk5').height();
+                    var constant = 114;
+                    var fontsize = (canvasHeight/constant).toFixed(2);
+                    //ctx.font="2.8em Verdana";
+                    ctx.font=fontsize +"em Verdana";
+                    ctx.textBaseline="middle"; 
+                    var total = 0;
+                    $.each(data,function() {
+                        total += parseInt(this.value,10);
+                    });
+                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                    var textWidth = ctx.measureText(tpercentage).width;
+              
+                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                }
+            });
+        }
+        function showChart6(){
+
+            var date1 = "";
+            var date2 = "";
+            var x = localStorage.getItem('type');
+            if(x == 0){
+                var date1 = $('input[name=date]').val();
+                var date2 = $('input[name=date2]').val();
+
+            }else if(x == 1){
+                var date1 = $('input[name=date3]').val();
+                var date2 = $('input[name=date4]').val();
+
+            }else if(x == 2){
+                var date1 = $('input[name=date5]').val();
+                var date2 = $('input[name=date6]').val();
+            }
+
+            var data = [
+                {
+                    value: 100,
+                    color:"#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Yellow"
+                },
+                {
+                    value: 50,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Green"
+                }
+            ]
+
+            var ctx = $('#statistikk6').get(0).getContext("2d");
+            var myDoughnut = new Chart(ctx).Doughnut(data,{
+                animation:true,
+                showTooltips: false,
+                percentageInnerCutout : 70,
+                segmentShowStroke : false,
+                onAnimationComplete: function() {
+                    var canvasWidthvar = $('#statistikk6').width();
+                    var canvasHeight = $('#statistikk6').height();
                     var constant = 114;
                     var fontsize = (canvasHeight/constant).toFixed(2);
                     //ctx.font="2.8em Verdana";

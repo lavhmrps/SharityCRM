@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+include '../phpBackend/checkSession.php';
+include '../phpBackend/connect.php';
+
+?>
+
 <html>
 <head>
 	<title></title>
