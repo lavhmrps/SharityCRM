@@ -39,6 +39,12 @@ if(isset($_POST['registerNews'])){
 	include "../pages/header_nav.php";
 	?>
 
+	<script>
+
+		
+		
+	</script>
+
 
 	<div class="container" >
 		<div class="col-lg-2 col-md-1 col-xs-0"></div>
