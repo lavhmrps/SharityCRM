@@ -76,16 +76,7 @@ include '../phpBackend/connect.php';
             $("p").show();
             $('canvas').hide();
         });
-
-        $('#1000').click(function(){
-            alert("Fitte");
-
-        });
-
-        $("#fittekalle").click(function(){
-            alert("FItte");
-        });
-
+        
         function day(){
             var day = $('input[name=date]').val();
             var xmlhttp = new XMLHttpRequest();

@@ -39,6 +39,70 @@ if(isset($_POST['registerNews'])){
 	include "../pages/header_nav.php";
 	?>
 
+	<script>
+
+		$(document).ready(function(){
+			$('input[name=projectName]').blur(function(){
+				var projectname = $('input[name=projectName]').val();
+
+				var letters = /^[0-9a-åA-Å ]+$/;  
+
+				if(projectname.match(letters)){
+					$('input[name=projectName]').css('color', 'black');
+					$('span[name=projectname_error]').text("");
+				}else{
+					$('input[name=projectName]').css('color', 'red');
+					$('span[name=projectname_error]').text("Kun tall og bokstaver");
+					$('span[name=projectname_error]').css('color', 'red');
+
+
+				}
+			});
+
+
+			$('input[name=country]').blur(function(){
+				var country = $('input[name=country]').val();
+
+
+				var letters = /^[-a-åA-Å ]+$/;
+				if(country.match(letters)){
+					
+				}else{
+					$('input[name=country]').css('color', "red");
+
+				}
+				
+			});
+
+
+			$('input[name=city]').keyup(function(){
+				var city = $('input[name=city]').val();
+				var letters = /^[-a-åA-Å ]+$/;
+
+				if(city.match(letters)){
+					$('input[name=city]').css('color', 'black');
+				}else{
+					$('input[name=city]').css('color', 'red');
+				}
+
+			});
+
+
+
+
+
+
+
+
+
+
+
+
+
+		});		
+		
+	</script>
+
 
 	<div class="container" >
 		<div class="col-lg-2 col-md-1 col-xs-0"></div>
@@ -49,7 +113,7 @@ if(isset($_POST['registerNews'])){
 				<label>Bakgrunnsbilde</label>
 				<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL"/>
 				<img src="../img/default.png" id="preview" alt="Click to upload img" name="preview" />
-				<label name="projectlabel" id="projectlabelmargin">Prosjektnavn</label>
+				<label name="projectlabel" id="projectlabelmargin">Prosjektnavn</label><span name="projectname_error"></span>
 				<input type="text" id="reg_project_input" class="form-control" name="projectName" placeholder=""/>
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-xs-6">
