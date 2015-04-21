@@ -25,6 +25,19 @@ if(isset($_POST['userLoginApp'])){
             return "OK";
         } 
     }else {
+        // Sjekker om det en organisasjon som logger inn
+        $sql = "SELECT password FROM organization WHERE name = '$username'";
+        $result = mysqli_query($connection, $sql);
+        if (mysqli_num_rows($result) == 1) {
+            $row = mysqli_fetch_assoc($result);
+            $dbpassword = $row['password'];
+            if ($dbpassword == $password) {
+                echo "ORG";
+                mysqli_close($connection);
+                return "ORG";
+            }
+        }
+
         mysqli_close($connection);
         echo "WRONG";
         return "WRONG";
