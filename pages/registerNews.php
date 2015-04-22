@@ -78,7 +78,7 @@ if(isset($_POST['registerNews'])){
 					<textarea class="form-control" id="aboutnews" rows="5" name="newsText" placeholder="Nyhetstekst" ></textarea>
 					<div class="row">
 						<div class="col-lg-6 col-md-6 col-xs-6">
-							<button  class="btn" name="registerProject" id="main-themebtn2">
+							<button  class="btn" name="insertNews" id="main-themebtn2">
 								Registrer prosjekt
 							</button>
 						</div>
@@ -113,9 +113,57 @@ if(isset($_POST['registerNews'])){
 </html>
 
 <script type="text/javascript">
+	
+	var OKheader = false;
+
+	$('input[name=newsHeader]').on("keyup keydown keypress", function(e){
+				if(e.type == "keyup" || e.type == "keydown" || e.type == "keypress"){
+					var pattern = /^[0-9-ÆØÅæøåAa-åA-Å ]+$/;
+
+					var reference = 'input[name='+this.name+']';
+					
+					OKheader = checkInput(reference, pattern);
+				}
+			});
+
+			
+			function checkInput(ref, pattern){
+
+				var string = $(ref).val();
+
+				if(string == ""){
+					$(ref).css('color', 'black');
+					return false;
+				}
+					
+				if(string.match(pattern)){
+					
+					$(ref).css('color', 'black');
+					return true;
+
+				}else{
+					
+					$(ref).css('color', 'red');
+					return false;
+				}
+				if(string == ""){
+					$(ref).css('color', 'black');
+					return false;
+				}
+				
+
+			}
+
+
+
 
 	$("button[name=insertNews]").click(function(){
-		insertNews();
+		if(OKheader){
+			insertNews();
+		}else{
+			alert("Feil input");
+		}
+		
 	});
 
 	$("#preview").click(function(){

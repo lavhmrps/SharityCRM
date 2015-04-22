@@ -39,71 +39,6 @@ if(isset($_POST['registerNews'])){
 	include "../pages/header_nav.php";
 	?>
 
-	<script>
-
-		$(document).ready(function(){
-			$('input[name=projectName]').blur(function(){
-				var projectname = $('input[name=projectName]').val();
-
-				var letters = /^[0-9a-åA-Å ]+$/;  
-
-				if(projectname.match(letters)){
-					$('input[name=projectName]').css('color', 'black');
-					$('span[name=projectname_error]').text("");
-				}else{
-					$('input[name=projectName]').css('color', 'red');
-					$('span[name=projectname_error]').text("Kun tall og bokstaver");
-					$('span[name=projectname_error]').css('color', 'red');
-
-
-				}
-			});
-
-
-			$('input[name=country]').blur(function(){
-				var country = $('input[name=country]').val();
-
-
-				var letters = /^[-a-åA-Å ]+$/;
-				if(country.match(letters)){
-					
-				}else{
-					$('input[name=country]').css('color', "red");
-
-				}
-				
-			});
-
-
-			$('input[name=city]').keyup(function(){
-				var city = $('input[name=city]').val();
-				var letters = /^[-a-åA-Å ]+$/;
-
-				if(city.match(letters)){
-					$('input[name=city]').css('color', 'black');
-				}else{
-					$('input[name=city]').css('color', 'red');
-				}
-
-			});
-
-
-
-
-
-
-
-
-
-
-
-
-
-		});		
-		
-	</script>
-
-
 	<div class="container" >
 		<div class="col-lg-2 col-md-1 col-xs-0"></div>
 		<div class="col-lg-8 col-md-10 col-xs-12 text-center" id="addprojectcontainer">
@@ -113,7 +48,7 @@ if(isset($_POST['registerNews'])){
 				<label>Bakgrunnsbilde</label>
 				<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL"/>
 				<img src="../img/default.png" id="preview" alt="Click to upload img" name="preview" />
-				<label name="projectlabel" id="projectlabelmargin">Prosjektnavn</label><span name="projectname_error"></span>
+				<label name="projectlabel" id="projectlabelmargin">Prosjektnavn</label><br><span name="projectname_error"></span>    <!--HER SKAL DET IKKE VÆRE BR-->
 				<input type="text" id="reg_project_input" class="form-control" name="projectName" placeholder=""/>
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-xs-6">
@@ -164,6 +99,85 @@ if(isset($_POST['registerNews'])){
 </html>
 
 <script type="text/javascript">
+	
+	var OKname = false;
+	var OKcountry = false;
+	var OKcity = false;
+	var OKtitle = false;
+
+	$('input[name=projectName]').on("keyup keydown keypress", function(e){
+				if(e.type == "keyup" || e.type == "keydown" || e.type == "keypress"){
+					var pattern = /^[ÆØÅæøåA0-9a-åA-Å ]+$/; 
+
+					var reference = 'input[name='+this.name+']';
+					
+					OKname = checkInput(reference, pattern);
+					
+
+
+
+				}
+			});
+
+			$('input[name=country]').on("keyup keydown keypress", function(e){
+				if(e.type == "keyup" || e.type == "keydown" || e.type == "keypress"){
+					var pattern = /^[-ÆØÅæøåAa-åA-Å ]+$/;
+
+					var reference = 'input[name='+this.name+']';
+					
+					OKcountry = checkInput(reference, pattern);
+				}
+			});
+
+			$('input[name=city]').on("keyup keydown keypress", function(e){
+				if(e.type == "keyup" || e.type == "keydown" || e.type == "keypress"){
+					var pattern = /^[-ÆØÅæøåAa-åA-Å ]+$/;
+
+					var reference = 'input[name='+this.name+']';
+					
+					OKcity = checkInput(reference, pattern);
+				}
+			});
+
+			$('input[name=title]').on("keyup keydown keypress", function(e){
+				if(e.type == "keyup" || e.type == "keydown" || e.type == "keypress"){
+					var pattern = /^[0-9-ÆØÅæøåAa-åA-Å ]+$/;
+
+					var reference = 'input[name='+this.name+']';
+					
+					OKtitle = checkInput(reference, pattern);
+				}
+			});
+
+			
+			function checkInput(ref, pattern){
+
+				var string = $(ref).val();
+
+				if(string == ""){
+					$(ref).css('color', 'black');
+					ok = false;
+					return false;
+				}
+					
+				if(string.match(pattern)){
+					
+					$(ref).css('color', 'black');
+					ok = true;
+					return true;
+
+				}else{
+					
+					$(ref).css('color', 'red');
+					return false;
+				}
+				if(string == ""){
+					$(ref).css('color', 'black');
+					return false;
+				}
+				
+
+			}
 
 	$("button[name=registerProject]").click(function(){
 		insertProject();
@@ -197,48 +211,10 @@ function insertProject(){
 	var city = $("input[name=city]").val();
 	var title = $("input[name=title]").val();
 	var about = $("textarea[name=about]").val();
-	
 
-	
-	var ok = 1;
 
-	$('input[name=projectName]').removeClass('empty_input');
-	$('input[name=country]').removeClass('empty_input');
-	$('input[name=city]').removeClass('empty_input');
-	$('input[name=title]').removeClass('empty_input');
-	$('textarea[name=about]').removeClass('empty_input');
-
-	
-
-	if(name ===""){
-		$('input[name=projectName]').addClass('empty_input');
-		
-		ok = 0;
-	}
-	if(country == ""){
-		$('input[name=country]').addClass('empty_input');
-		ok = 0;
-	}
-	if(city == ""){
-		$('input[name=city]').addClass('empty_input');
-
-		ok = 0;
-	}
-	if(title == ""){
-		$('input[name=title]').addClass('empty_input');
-		ok = 0;
-	}
-	if(about == ""){
-		$('textarea[name=about]').addClass('empty_input');
-		ok = 0;
-		
-	}
-
-	if(ok == 0){
-		return false;
-	}
-
-	var json = {
+	if(OKname && OKcountry && OKcity && OKtitle){
+		var json = {
 		"name" : name,
 		"title" : title,
 		"about" : about,
@@ -276,6 +252,12 @@ function insertProject(){
 		}
 	});
 
+
+	}
+
+	
+
+	
 }
 
 //ajax request to .php script (insertBackgroundimgProject.php) to insert image into database

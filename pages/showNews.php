@@ -40,6 +40,66 @@ $organizationNr = $_SESSION['organizationNr'];
 	?>
 
 
+<script >
+	$(document).ready(function(){
+
+		
+
+
+		$(function() {
+    $('input[name=projectsearch]').keydown();
+});
+
+		$('input[name=projectsearch]').on("keyup keydown keypress", function(e){
+
+
+			var searchstring = $('input[name=projectsearch]').val();
+			var sql = "SELECT * FROM news WHERE title LIKE '%"+searchstring+"%'";
+
+			$.ajax({
+				type : "POST",
+				dataType: "json",
+				url : "../phpBackend/getNews.php",
+				data : {"sql" : sql},
+				success : function(response){
+					//alert(response + " " + <?php $_SESSION['organizationNr']?>);
+
+					
+					var projectBox = "";					
+				
+					for(var i = 0; i < response.length; i++){
+						
+						projectBox += '<div class="col-lg-3 col-md-3 col-xs-2" id="projectcontainer">';
+						projectBox += '<div class="col-md-12" id="projectcontent">';
+						projectBox += "<h2>" + response[i].title + "</h2>";
+						projectBox += "<img src='" + response[i].backgroundimgURL + " ' alt='Bakgrunnsbilde' id='showprojectimg'/>";
+						projectBox += '</div>';
+						projectBox += "<div class='col-md-12' id='bottom'>";
+						projectBox += '<a href="../pages/showSelectedProject.php" onclick="showProject(' + response[i].projectID + ')">Vis</a> - ';
+						projectBox += '<a href="../pages/change_projectinfo.php" onclick="showProject(' + response[i].projectID +  ')">Endre</a> - ';
+						projectBox += '<a href="../pages/deleteProject.php" onclick="deleteProject(' + response[i].projectID + ')">Slett</a>';
+						projectBox += '</div>';
+						projectBox += '</div>';
+
+					}
+
+					$(".row").html(projectBox);
+
+
+			
+
+
+					
+					
+				}
+			});
+		});
+	});
+	
+
+</script>
+
+
 	
 	<div class="container">
 		<div class="col-lg-2 col-md-2 col-xs-0"></div>
@@ -52,7 +112,7 @@ $organizationNr = $_SESSION['organizationNr'];
 
 			
 			<?php
-
+			/*
 			$sql = "SELECT News.* FROM News INNER JOIN Project ON News.projectID = Project.projectID WHERE Project.organizationNr = $organizationNr";
 			//$sql = "SELECT title, txt FROM News WHERE projectID = 1";
 			$result = mysqli_query($connection, $sql);
@@ -66,7 +126,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					echo '<div class="col-md-12" id="newscontent">';
 					echo "<h3>" . $row['title'] . "</h3>";
 					echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='showprojectimg'/>";
-					/*echo "<p>" . $row['txt'] . "</p>";*/
+					
 					echo '</div>';
 					echo "<div class='col-md-12' id='bottom'>";
 					echo '<a href="../pages/showSelectedNews.php" onclick=showSelectedNews(' . $row['newsID'] . ')>Vis</a> - ';
@@ -77,7 +137,7 @@ $organizationNr = $_SESSION['organizationNr'];
 
 				}
 
-			}
+			}*/
 			?>
 		</div>
 	</div>

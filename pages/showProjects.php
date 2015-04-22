@@ -37,6 +37,65 @@ $organizationNr = $_SESSION['organizationNr'];
 
 </head>
 
+<script >
+	$(document).ready(function(){
+
+		
+
+
+		$(function() {
+    $('input[name=projectsearch]').keydown();
+});
+
+		$('input[name=projectsearch]').on("keyup keydown keypress", function(e){
+
+
+			var searchstring = $('input[name=projectsearch]').val();
+			var sql = "SELECT * FROM project WHERE name LIKE '%"+searchstring+"%'";
+
+			$.ajax({
+				type : "POST",
+				dataType: "json",
+				url : "../phpBackend/getProjects.php",
+				data : {"sql" : sql},
+				success : function(response){
+					//alert(response + " " + <?php $_SESSION['organizationNr']?>);
+
+					
+					var projectBox = "";					
+				
+					for(var i = 0; i < response.length; i++){
+						
+						projectBox += '<div class="col-lg-3 col-md-3 col-xs-2" id="projectcontainer">';
+						projectBox += '<div class="col-md-12" id="projectcontent">';
+						projectBox += "<h2>" + response[i].name + "</h2>";
+						projectBox += "<img src='" + response[i].backgroundimgURL + " ' alt='Bakgrunnsbilde' id='showprojectimg'/>";
+						projectBox += '</div>';
+						projectBox += "<div class='col-md-12' id='bottom'>";
+						projectBox += '<a href="../pages/showSelectedProject.php" onclick="showProject(' + response[i].projectID + ')">Vis</a> - ';
+						projectBox += '<a href="../pages/change_projectinfo.php" onclick="showProject(' + response[i].projectID +  ')">Endre</a> - ';
+						projectBox += '<a href="../pages/deleteProject.php" onclick="deleteProject(' + response[i].projectID + ')">Slett</a>';
+						projectBox += '</div>';
+						projectBox += '</div>';
+
+					}
+
+					$(".row").html(projectBox);
+
+
+			
+
+
+					
+					
+				}
+			});
+		});
+	});
+	
+
+</script>
+
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 	<?php
 	include '../pages/header_nav.php';
@@ -48,8 +107,11 @@ $organizationNr = $_SESSION['organizationNr'];
 		</div>
 		<div class="col-lg-2 col-md-2 col-xs-0"></div>
 
-
+		
 		<div class="row">
+
+
+
 
 
 			<?php
@@ -58,15 +120,14 @@ $organizationNr = $_SESSION['organizationNr'];
 			$result = mysqli_query($connection, $sql);
 
 
-
+			/*
 			if (mysqli_num_rows($result) >= 1) {
 				while ($row = mysqli_fetch_assoc($result)) {
-					echo '<div class="col-lg-3 col-md-3 col-xs-2" id="projectcontainer">';
-					echo '<div class="col-md-12" id="projectcontent">';
-					echo "<h2>" . $row['name'] . "</h2>"; 
-					echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='showprojectimg'/>";
-				/*echo "<h3>" . $row['title'] . "</h3>";
-				echo "<p>" . $row['about'] . "</p><br/>";*/
+				echo '<div class="col-lg-3 col-md-3 col-xs-2" id="projectcontainer">';
+				echo '<div class="col-md-12" id="projectcontent">';
+				echo "<h2>" . $row['name'] . "</h2>"; 
+				echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='showprojectimg'/>";
+				
 				echo '</div>';
 				echo "<div class='col-md-12' id='bottom'>";
 
@@ -79,7 +140,7 @@ $organizationNr = $_SESSION['organizationNr'];
 				echo '</div>';
 				echo '</div>';
 			}
-		}
+		}*/
 		?>
 	</div>
 </div>
