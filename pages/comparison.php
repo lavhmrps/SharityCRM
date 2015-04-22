@@ -84,6 +84,12 @@ include '../phpBackend/connect.php';
         $('#datepickerDay2').on('changeDate', function(ev){
             $(this).datepicker('hide');
             day2();
+            showChart1();
+            showChart2();
+            showChart3();
+            showChart4();
+            showChart5();
+            showChart6();
         });
         $('#datepickerYear1').datepicker({
             format: "yyyy",
@@ -96,6 +102,12 @@ include '../phpBackend/connect.php';
         $('#datepickerYear1').on('changeDate', function(ev){
             $(this).datepicker('hide');
             year1();
+            showChart1();
+            showChart2();
+            showChart3();
+            showChart4();
+            showChart5();
+            showChart6();
         });
         $('#datepickerYear2').datepicker({
             format: "yyyy",
@@ -108,6 +120,12 @@ include '../phpBackend/connect.php';
         $('#datepickerYear2').on('changeDate', function(ev){
             $(this).datepicker('hide');
             year2();
+            showChart1();
+            showChart2();
+            showChart3();
+            showChart4();
+            showChart5();
+            showChart6();
         });
 
         $('#datepickerMnd1').datepicker({
@@ -121,6 +139,12 @@ include '../phpBackend/connect.php';
         $('#datepickerMnd1').on('changeDate', function(ev){
             $(this).datepicker('hide');
             mnd1();
+            showChart1();
+            showChart2();
+            showChart3();
+            showChart4();
+            showChart5();
+            showChart6();
         });
         $('#datepickerMnd2').datepicker({
             format: "yyyy-mm",
@@ -133,6 +157,12 @@ include '../phpBackend/connect.php';
         $('#datepickerMnd2').on('changeDate', function(ev){
             $(this).datepicker('hide');
             mnd2();
+            showChart1();
+            showChart2();
+            showChart3();
+            showChart4();
+            showChart5();
+            showChart6();
         });
 
         $('#backBtn').on('click', function(ev){
@@ -234,17 +264,28 @@ include '../phpBackend/connect.php';
         }
 
 
-
-
 		function showChart1(){
-
-            var date1 = "";
-            var date2 = "";
+            var res1 ="";
+            var res2 ="";
             var x = localStorage.getItem('type');
             if(x == 0){
                 var date1 = $('input[name=date]').val();
                 var date2 = $('input[name=date2]').val();
-
+                alert(1);
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 1,
+                    success: function(data) {
+                        var res1 = parseInt(data);
+                        alert(2);
+                    },
+                });
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 1,
+                    success: function(data) {
+                        var res2 = parseInt(data);
+                        alert(3);
+                    },
+                });
             }else if(x == 1){
                 var date1 = $('input[name=date3]').val();
                 var date2 = $('input[name=date4]').val();
@@ -253,17 +294,18 @@ include '../phpBackend/connect.php';
                 var date1 = $('input[name=date5]').val();
                 var date2 = $('input[name=date6]').val();
             }
+            alert(4);
             
 
             var data = [
                 {
-                    value: 100,
+                    value: res1,
                     color:"#F7464A",
                     highlight: "#FF5A5E",
                     label: "Yellow"
                 },
                 {
-                    value: 50,
+                    value: res2,
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Green"
