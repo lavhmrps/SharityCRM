@@ -39,36 +39,22 @@ $organizationNr = $_SESSION['organizationNr'];
 	include '../pages/header_nav.php';
 	?>
 
-
 <script >
 	$(document).ready(function(){
-
-		
-
-
 		$(function() {
-    $('input[name=projectsearch]').keydown();
-});
-
+			$('input[name=projectsearch]').keydown();
+		});
 		$('input[name=projectsearch]').on("keyup keydown keypress", function(e){
-
-
 			var searchstring = $('input[name=projectsearch]').val();
 			var sql = "SELECT * FROM news WHERE title LIKE '%"+searchstring+"%'";
-
 			$.ajax({
 				type : "POST",
 				dataType: "json",
 				url : "../phpBackend/getNews.php",
 				data : {"sql" : sql},
 				success : function(response){
-					//alert(response + " " + <?php $_SESSION['organizationNr']?>);
-
-					
 					var projectBox = "";					
-				
 					for(var i = 0; i < response.length; i++){
-						
 						projectBox += '<div class="col-lg-3 col-md-3 col-xs-2" id="projectcontainer">';
 						projectBox += '<div class="col-md-12" id="projectcontent">';
 						projectBox += "<h2>" + response[i].title + "</h2>";
@@ -80,45 +66,34 @@ $organizationNr = $_SESSION['organizationNr'];
 						projectBox += '<a href="../pages/deleteNews.php" onclick="deleteNews(' + response[i].projectID + ')">Slett</a>';
 						projectBox += '</div>';
 						projectBox += '</div>';
-
 					}
-
-					$("#news").html(projectBox);
-
-
-			
-
-
-					
-					
+					$("#news").html(projectBox);	
 				}
 			});
 		});
 	});
-	
-
 </script>
 
 
-	
-	<div class="container">
-		<div class="col-lg-2 col-md-2 col-xs-0"></div>
-		<div class="col-lg-8 col-md-8 col-xs-12">
-			<input type="text" id="reg_project_input" class="form-control" name="projectsearch" placeholder="Søk.."/>
-		</div>
-		<div class="col-lg-2 col-md-2 col-xs-0"></div>
-		<div class="row" id="news">
 
-		</div>
+<div class="container">
+	<div class="col-lg-2 col-md-2 col-xs-0"></div>
+	<div class="col-lg-8 col-md-8 col-xs-12">
+		<input type="text" id="reg_project_input" class="form-control" name="projectsearch" placeholder="Søk.."/>
 	</div>
+	<div class="col-lg-2 col-md-2 col-xs-0"></div>
+	<div class="row" id="news">
 
-	<!-- jQuery -->
-	<script src="../js/jquery.js"></script>
-	<script src="../js/stickyheader.js"></script>
+	</div>
+</div>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/showNews.js"></script>
+<!-- jQuery -->
+<script src="../js/jquery.js"></script>
+<script src="../js/stickyheader.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/showNews.js"></script>
 
 
 

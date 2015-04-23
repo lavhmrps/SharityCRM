@@ -38,32 +38,28 @@ $organizationNr = $_SESSION['organizationNr'];
 </head>
 
 <script >
-	$(document).ready(function(){
+$(document).ready(function(){
+	$(function() {
+		$('input[name=projectsearch]').keydown();
+	});
 
-		
-
-
-		$(function() {
-    $('input[name=projectsearch]').keydown();
-});
-
-		$('input[name=projectsearch]').on("keyup keydown keypress", function(e){
+	$('input[name=projectsearch]').on("keyup keydown keypress", function(e){
 
 
-			var searchstring = $('input[name=projectsearch]').val();
-			var sql = "SELECT * FROM project WHERE name LIKE '%"+searchstring+"%'";
+		var searchstring = $('input[name=projectsearch]').val();
+		var sql = "SELECT * FROM project WHERE name LIKE '%"+searchstring+"%'";
 
-			$.ajax({
-				type : "POST",
-				dataType: "json",
-				url : "../phpBackend/getProjects.php",
-				data : {"sql" : sql},
-				success : function(response){
+		$.ajax({
+			type : "POST",
+			dataType: "json",
+			url : "../phpBackend/getProjects.php",
+			data : {"sql" : sql},
+			success : function(response){
 					//alert(response + " " + <?php $_SESSION['organizationNr']?>);
 
 					
 					var projectBox = "";					
-				
+
 					for(var i = 0; i < response.length; i++){
 						
 						projectBox += '<div class="col-lg-3 col-md-3 col-xs-2" id="projectcontainer">';
@@ -83,7 +79,7 @@ $organizationNr = $_SESSION['organizationNr'];
 					$("#projects").html(projectBox);
 
 
-			
+
 
 
 					
@@ -92,8 +88,6 @@ $organizationNr = $_SESSION['organizationNr'];
 			});
 		});
 	});
-	
-
 </script>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -106,22 +100,15 @@ $organizationNr = $_SESSION['organizationNr'];
 			<input type="text" id="reg_project_input" class="form-control" name="projectsearch" placeholder="Søk.."/>
 		</div>
 		<div class="col-lg-2 col-md-2 col-xs-0"></div>
+		<div class="row" id="projects"></div>
+	</div>
 
 
-		
-		<div class="row" id="projects">
+	<!-- jQuery -->
+	<script src="../js/stickyheader.js"></script>
 
-
-
-		</div>
-</div>
-
-
-<!-- jQuery -->
-<script src="../js/stickyheader.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="../js/bootstrap.min.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
 
 
 </body>

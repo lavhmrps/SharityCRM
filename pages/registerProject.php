@@ -144,12 +144,8 @@ if(isset($_POST['registerNews'])){
 </html>
 
 <script type="text/javascript">
-	
-	var OKname = false;
-	var OKcountry = false;
-	var OKcity = false;
-	var OKtitle = false;
 
+<<<<<<< Updated upstream
 	$('input[name=projectName]').on("keyup keydown keypress", function(e){
 		if(e.type == "keyup" || e.type == "keydown" || e.type == "keypress"){
 			var pattern = /^[ÆØÅæøåA0-9a-åA-Å ]+$/; 
@@ -159,10 +155,25 @@ if(isset($_POST['registerNews'])){
 			var errorRef = 'span[name='+this.name+']';
 
 			OKname = checkInput(reference, pattern, errorRef);
+=======
+var OKname = false;
+var OKcountry = false;
+var OKcity = false;
+var OKtitle = false;
+
+$('input[name=projectName]').on("keyup keydown keypress", function(e){
+	if(e.type == "keyup" || e.type == "keydown" || e.type == "keypress"){
+		var pattern = /^[ÆØÅæøåA0-9a-åA-Å ]+$/; 
+
+		var reference = 'input[name='+this.name+']';
+
+		OKname = checkInput(reference, pattern);
+>>>>>>> Stashed changes
 
 
 
 
+<<<<<<< Updated upstream
 		}
 	});
 
@@ -232,14 +243,78 @@ if(isset($_POST['registerNews'])){
 
 
 	}
+=======
+	}
+});
 
-	$("button[name=registerProject]").click(function(){
-		insertProject();
-	});
+$('input[name=country]').on("keyup keydown keypress", function(e){
+	if(e.type == "keyup" || e.type == "keydown" || e.type == "keypress"){
+		var pattern = /^[-ÆØÅæøåAa-åA-Å ]+$/;
 
-	$("#preview").click(function(){
-		$("#file_background").trigger("click");
-	});
+		var reference = 'input[name='+this.name+']';
+
+		OKcountry = checkInput(reference, pattern);
+	}
+});
+
+$('input[name=city]').on("keyup keydown keypress", function(e){
+	if(e.type == "keyup" || e.type == "keydown" || e.type == "keypress"){
+		var pattern = /^[-ÆØÅæøåAa-åA-Å ]+$/;
+
+		var reference = 'input[name='+this.name+']';
+
+		OKcity = checkInput(reference, pattern);
+	}
+});
+
+$('input[name=title]').on("keyup keydown keypress", function(e){
+	if(e.type == "keyup" || e.type == "keydown" || e.type == "keypress"){
+		var pattern = /^[0-9-ÆØÅæøåAa-åA-Å ]+$/;
+>>>>>>> Stashed changes
+
+		var reference = 'input[name='+this.name+']';
+
+		OKtitle = checkInput(reference, pattern);
+	}
+});
+
+
+function checkInput(ref, pattern){
+
+	var string = $(ref).val();
+
+	if(string == ""){
+		$(ref).css('color', 'black');
+		ok = false;
+		return false;
+	}
+
+	if(string.match(pattern)){
+
+		$(ref).css('color', 'black');
+		ok = true;
+		return true;
+
+	}else{
+
+		$(ref).css('color', 'red');
+		return false;
+	}
+	if(string == ""){
+		$(ref).css('color', 'black');
+		return false;
+	}
+
+
+}
+
+$("button[name=registerProject]").click(function(){
+	insertProject();
+});
+
+$("#preview").click(function(){
+	$("#file_background").trigger("click");
+});
 
 //triggered when user selects image to upload
 $("#file_background").change(function(){

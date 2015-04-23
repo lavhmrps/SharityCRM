@@ -19,10 +19,10 @@ if(isset($_POST['sql'])){
 	$json = Array();
 
 	while($row = mysqli_fetch_assoc($result)){
-			$json[] = $row;
-		}
+		$json[] = $row;
+	}
 	echo json_encode($json);
-		
+	
 }
 
 ?>
