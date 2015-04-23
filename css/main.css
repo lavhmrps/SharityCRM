@@ -1575,6 +1575,11 @@ input[id=menu]{
 	padding-bottom: 0;
 	
 }
+.spanpadding2{
+	padding-top:20px;
+	padding-bottom: 0;
+	
+}
 
 .errorspan{
 	color:#FA0000;

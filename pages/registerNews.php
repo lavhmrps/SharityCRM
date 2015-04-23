@@ -71,23 +71,38 @@ if(isset($_POST['registerNews'])){
 					?>
 				</p>
 
-				<label>Nyhetsoverskrift</label>
-					<input type="text" id="reg_news_input" class="form-control" name="newsHeader" placeholder=""/>
-					
-					<label id="newslabelmargin">Nyhetstekst</label>
-					<textarea class="form-control" id="aboutnews" rows="5" name="newsText" placeholder="Nyhetstekst" ></textarea>
-					<div class="row">
-						<div class="col-lg-6 col-md-6 col-xs-6">
-							<button  class="btn" name="insertNews" id="main-themebtn2">
-								Registrer prosjekt
-							</button>
-						</div>
-						<div class="col-lg-6 col-md-6 col-xs-6">
-							<button  class="btn" name="back" id="main-themebtn">
-								Avbryt
-							</button> <!-- Go back to last site -->
-						</div>
+				<div class="row">
+					<div class="col-md-9">
+						<label>Nyhetsoverskrift</label>
 					</div>
+					<div class="col-md-3 spanpadding">
+						<span hidden name="title" class="errorspan">Kun bokstaver og tall</span>  
+					</div>
+				</div>
+				<input type="text" id="reg_news_input" class="form-control" name="newsHeader" placeholder=""/>
+
+				<div class="row">
+					<div class="col-md-8">
+						<label id="newslabelmargin">Nyhetstekst</label>
+					</div>
+					<div class="col-md-4 spanpadding2">
+						<span hidden name="title" class="errorspan">Minimum 20 tegn og maks 300 tegn</span>  
+					</div>
+				</div>
+
+				<textarea class="form-control" id="aboutnews" rows="5" name="newsText" placeholder="Nyhetstekst" ></textarea>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-xs-6">
+						<button  class="btn" name="insertNews" id="main-themebtn2">
+							Registrer prosjekt
+						</button>
+					</div>
+					<div class="col-lg-6 col-md-6 col-xs-6">
+						<button  class="btn" name="back" id="main-themebtn">
+							Avbryt
+						</button> <!-- Go back to last site -->
+					</div>
+				</div>
 
 
 			</div>
@@ -117,42 +132,42 @@ if(isset($_POST['registerNews'])){
 	var OKheader = false;
 
 	$('input[name=newsHeader]').on("keyup keydown keypress", function(e){
-				if(e.type == "keyup" || e.type == "keydown" || e.type == "keypress"){
-					var pattern = /^[0-9-ÆØÅæøåAa-åA-Å ]+$/;
+		if(e.type == "keyup" || e.type == "keydown" || e.type == "keypress"){
+			var pattern = /^[0-9-ÆØÅæøåAa-åA-Å ]+$/;
 
-					var reference = 'input[name='+this.name+']';
-					
-					OKheader = checkInput(reference, pattern);
-				}
-			});
+			var reference = 'input[name='+this.name+']';
 
-			
-			function checkInput(ref, pattern){
+			OKheader = checkInput(reference, pattern);
+		}
+	});
 
-				var string = $(ref).val();
 
-				if(string == ""){
-					$(ref).css('color', 'black');
-					return false;
-				}
-					
-				if(string.match(pattern)){
-					
-					$(ref).css('color', 'black');
-					return true;
+	function checkInput(ref, pattern){
 
-				}else{
-					
-					$(ref).css('color', 'red');
-					return false;
-				}
-				if(string == ""){
-					$(ref).css('color', 'black');
-					return false;
-				}
-				
+		var string = $(ref).val();
 
-			}
+		if(string == ""){
+			$(ref).css('color', 'black');
+			return false;
+		}
+
+		if(string.match(pattern)){
+
+			$(ref).css('color', 'black');
+			return true;
+
+		}else{
+
+			$(ref).css('color', 'red');
+			return false;
+		}
+		if(string == ""){
+			$(ref).css('color', 'black');
+			return false;
+		}
+
+
+	}
 
 
 
