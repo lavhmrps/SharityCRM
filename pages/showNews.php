@@ -72,7 +72,7 @@ $organizationNr = $_SESSION['organizationNr'];
 						projectBox += '<div class="col-lg-3 col-md-3 col-xs-2" id="projectcontainer">';
 						projectBox += '<div class="col-md-12" id="projectcontent">';
 						projectBox += "<h2>" + response[i].title + "</h2>";
-						projectBox += "<img src='" + response[i].backgroundimgURL + " ' alt='Bakgrunnsbilde' id='showprojectimg'/>";
+						projectBox += "<img src='http://localhost/SharityCRM/phpBackend/" + response[i].backgroundimgURL + " ' alt='Bakgrunnsbilde' id='showprojectimg'/>";
 						projectBox += '</div>';
 						projectBox += "<div class='col-md-12' id='bottom'>";
 						projectBox += '<a href="../pages/showSelectedProject.php" onclick="showProject(' + response[i].projectID + ')">Vis</a> - ';

@@ -12,7 +12,7 @@ if (isset($_SESSION['organizationNr'])) {
 		if (!file_exists($path)) {
 			mkdir($path, 0777, true);
 		}
-		chmod($path, 0777);
+		
 		$target_dir = $path;
 		$target_file = $target_dir . basename($_FILES["file_background"]["name"]);
 		move_uploaded_file($_FILES["file_background"]["tmp_name"], $target_file);
