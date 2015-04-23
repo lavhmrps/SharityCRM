@@ -55,6 +55,7 @@ if(isset($_POST['registerNews'])){
 			<a href="#" onclick="setActiveStyleSheet('alternate2'); return false;">Pink</a> - 
 			<a href="#" onclick="setActiveStyleSheet('alternate3'); return false;">Black&Yellow</a>
 			<br/><br/>
+			<a href="../pages/change_orginfo.php" class="settinglink">Endre organisasjon</a>
 
 			<h1>To do:</h1>
 			<div class="col-md-6 text-left">

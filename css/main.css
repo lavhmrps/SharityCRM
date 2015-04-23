@@ -1581,7 +1581,11 @@ input[id=menu]{
 	
 }
 
+/* Må fordeles på themes*/ 
 .errorspan{
 	color:#FA0000;
+}
+.settinglink{
+	color:#337ab7;
 }
 
