@@ -81,9 +81,6 @@ if(isset($_POST['registerNews'])){
 				</div>
 			</div>
 		</div>
-
-
-		<div class="col-md-12" id="somespace"></div>
 	</div>
 
 

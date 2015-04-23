@@ -80,7 +80,7 @@ $organizationNr = $_SESSION['organizationNr'];
 
 					}
 
-					$(".row").html(projectBox);
+					$("#projects").html(projectBox);
 
 
 			
@@ -107,42 +107,13 @@ $organizationNr = $_SESSION['organizationNr'];
 		</div>
 		<div class="col-lg-2 col-md-2 col-xs-0"></div>
 
+
 		
-		<div class="row">
+		<div class="row" id="projects">
 
 
 
-
-
-			<?php
-
-			$sql = "SELECT * FROM Project WHERE organizationNr = $organizationNr";
-			$result = mysqli_query($connection, $sql);
-
-
-			/*
-			if (mysqli_num_rows($result) >= 1) {
-				while ($row = mysqli_fetch_assoc($result)) {
-				echo '<div class="col-lg-3 col-md-3 col-xs-2" id="projectcontainer">';
-				echo '<div class="col-md-12" id="projectcontent">';
-				echo "<h2>" . $row['name'] . "</h2>"; 
-				echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='showprojectimg'/>";
-				
-				echo '</div>';
-				echo "<div class='col-md-12' id='bottom'>";
-
-				echo '<a href="../pages/showSelectedProject.php" onclick="showProject(' . $row['projectID'] . ')">Vis</a> - ';
-
-				echo '<a href="../pages/change_projectinfo.php" onclick="showProject(' . $row['projectID'] . ')">Endre</a> - ';
-
-				echo '<a href="../pages/deleteProject.php" onclick="deleteProject(' . $row['projectID'] . ')">Slett</a>';
-
-				echo '</div>';
-				echo '</div>';
-			}
-		}*/
-		?>
-	</div>
+		</div>
 </div>
 
 

@@ -75,15 +75,15 @@ $organizationNr = $_SESSION['organizationNr'];
 						projectBox += "<img src='http://localhost/SharityCRM/phpBackend/" + response[i].backgroundimgURL + " ' alt='Bakgrunnsbilde' id='showprojectimg'/>";
 						projectBox += '</div>';
 						projectBox += "<div class='col-md-12' id='bottom'>";
-						projectBox += '<a href="../pages/showSelectedProject.php" onclick="showProject(' + response[i].projectID + ')">Vis</a> - ';
-						projectBox += '<a href="../pages/change_projectinfo.php" onclick="showProject(' + response[i].projectID +  ')">Endre</a> - ';
-						projectBox += '<a href="../pages/deleteProject.php" onclick="deleteProject(' + response[i].projectID + ')">Slett</a>';
+						projectBox += '<a href="../pages/showSelectedNews.php" onclick="showSelectedNews(' + response[i].projectID + ')">Vis</a> - ';
+						projectBox += '<a href="../pages/change_newsinfo.php" onclick="showSelectedNews(' + response[i].projectID +  ')">Endre</a> - ';
+						projectBox += '<a href="../pages/deleteNews.php" onclick="deleteNews(' + response[i].projectID + ')">Slett</a>';
 						projectBox += '</div>';
 						projectBox += '</div>';
 
 					}
 
-					$(".row").html(projectBox);
+					$("#news").html(projectBox);
 
 
 			
@@ -107,38 +107,8 @@ $organizationNr = $_SESSION['organizationNr'];
 			<input type="text" id="reg_project_input" class="form-control" name="projectsearch" placeholder="Søk.."/>
 		</div>
 		<div class="col-lg-2 col-md-2 col-xs-0"></div>
-		<div class="row">
+		<div class="row" id="news">
 
-
-			
-			<?php
-			/*
-			$sql = "SELECT News.* FROM News INNER JOIN Project ON News.projectID = Project.projectID WHERE Project.organizationNr = $organizationNr";
-			//$sql = "SELECT title, txt FROM News WHERE projectID = 1";
-			$result = mysqli_query($connection, $sql);
-
-
-
-			if (mysqli_num_rows($result) >= 1) {
-
-				while ($row = mysqli_fetch_assoc($result)) {
-					echo '<div class="col-lg-3 col-md-3 col-xs-2" id="newscontainer">';
-					echo '<div class="col-md-12" id="newscontent">';
-					echo "<h3>" . $row['title'] . "</h3>";
-					echo "<img src='" . $row['backgroundimgURL'] . " ' alt='Bakgrunnsbilde' id='showprojectimg'/>";
-					
-					echo '</div>';
-					echo "<div class='col-md-12' id='bottom'>";
-					echo '<a href="../pages/showSelectedNews.php" onclick=showSelectedNews(' . $row['newsID'] . ')>Vis</a> - ';
-					echo '<a href="change_newsinfo.php" onclick=showSelectedNews(' . $row['newsID'] . ')>Endre</a> - ';
-					echo '<a href="deleteNews.php" onclick=deleteNews(' . $row['newsID'] . ')>Slett</a>';
-					echo '</div>';
-					echo '</div>';
-
-				}
-
-			}*/
-			?>
 		</div>
 	</div>
 
