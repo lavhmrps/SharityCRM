@@ -88,22 +88,54 @@ include '../phpBackend/connect.php';
                     $backgroundimgURL = $row['backgroundimgURL'];
 
 
-
-                    echo "<label>Tittel</label>";
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-4'>";
+                    echo "<label>Prosjektnavn</label>";
+                    echo "</div>";
+                    echo "<div class='col-md-8 text-right spanpadding'>";
+                    echo "<span hidden name='title' class='errorspan'>Kun bokstaver, tall og mellomrom</span>";
+                    echo "</div>";
+                    echo "</div>";
                     echo '<input type="text" class="form-control" name="name" id="reg_pt2_input" placeholder="" value="' . $name . '"/>';
-
-                    echo "<label>Brødtekst</label>";
+                    
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-4'>";
+                    echo "<label>Tittel</label>";
+                    echo "</div>";
+                    echo "<div class='col-md-8 text-right spanpadding'>";
+                    echo "<span hidden name='title' class='errorspan'>Kun bokstaver, tall og mellomrom</span>";
+                    echo "</div>";
+                    echo "</div>";
                     echo '<input type="tel" class="form-control" name="title" id="reg_pt2_input" placeholder="" value="' . $title . '"/>';
 
-
-
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-4'>";
                     echo "<label>Land</label>";
+                    echo "</div>";
+                    echo "<div class='col-md-8 text-right spanpadding'>";
+                    echo "<span hidden name='title' class='errorspan'>Kun bokstaver, tall og mellomrom</span>";
+                    echo "</div>";
+                    echo "</div>";
                     echo '<input type="email" class="form-control" name="country" id="reg_pt2_input" placeholder="" value="'. $country . '"/>';
 
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-4'>";
                     echo "<label>By</label>";
+                    echo "</div>";
+                    echo "<div class='col-md-8 text-right spanpadding'>";
+                    echo "<span hidden name='title' class='errorspan'>Kun bokstaver, tall og mellomrom</span>";
+                    echo "</div>";
+                    echo "</div>";
                     echo '<input type="text" class="form-control" name="city" id="reg_pt2_input" placeholder="" value="' . $city . '"/>'; 
 
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-4'>";
                     echo "<label>Om prosjektet</label>";
+                     echo "</div>";
+                    echo "<div class='col-md-8 text-right spanpadding'>";
+                    echo "<span hidden name='title' class='errorspan'>Minimum 20 tegn og maks 300 tegn</span>";
+                    echo "</div>";
+                    echo "</div>";
                     echo '<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="about" id="aboutOrg" placeholder="Om prosjektet">' . $about . '</textarea>';
 
 

@@ -96,23 +96,64 @@ $organizationNr = $_SESSION['organizationNr'];
                             $email = $row['email'];
                             $about = $row['about'];
 
-
+                            echo "<div class='row'>";
+                            echo "<div class='col-md-4'>";
                             echo "<label>Adresse</label>";
+                            echo "</div>";
+                            echo "<div class='col-md-8 text-right spanpadding'>";
+                            echo "<span name='title' class='errorspan'>Kun bokstaver, tall og mellomrom</span>";
+                            echo "</div>";
+                            echo "</div>";
                             echo '<input type="text" class="form-control" name="address" id="reg_pt2_input" placeholder="" value="' . $address . '"/>';
 
+                            echo "<div class='row'>";
+                            echo "<div class='col-md-4'>";
                             echo "<label>Postnummer</label>";
+                            echo "</div>";
+                            echo "<div class='col-md-8 text-right spanpadding'>";
+                            echo "<span name='title' class='errorspan'>Kun akkurat 4 tall</span>";
+                            echo "</div>";
+                            echo "</div>";
                             echo '<input type="tel" class="form-control" name="zipcode" id="reg_pt2_input" placeholder="" value="' . $zipcode . '"/>';
 
+                            echo "<div class='row'>";
+                            echo "<div class='col-md-4'>";
                             echo "<label>Telefonnummer</label>";
+                            echo "</div>";
+                            echo "<div class='col-md-8 text-right spanpadding'>";
+                            echo "<span name='title' class='errorspan'>Kun akkurat 8 tall</span>";
+                            echo "</div>";
+                            echo "</div>";
                             echo '<input type="tel" class="form-control" name="phone" id="reg_pt2_input" placeholder="" value = "' . $phone . '"/>';
                             
+                            echo "<div class='row'>";
+                            echo "<div class='col-md-4'>";
                             echo "<label>E-postadresse</label>";
+                            echo "</div>";
+                            echo "<div class='col-md-8 text-right spanpadding'>";
+                            echo "<span name='title' class='errorspan'>Ugyldig epostadresse</span>";
+                            echo "</div>";
+                            echo "</div>";
                             echo '<input type="email" class="form-control" name="email" id="reg_pt2_input" placeholder="" value="'. $email . '"/>';
                             
+                            echo "<div class='row'>";
+                            echo "<div class='col-md-4'>";
                             echo "<label>Link til hjemmeside</label>";
+                            echo "</div>";
+                            echo "<div class='col-md-8 text-right spanpadding'>";
+                            echo "<span name='title' class='errorspan'>Følg dette formatet: eksempel.no</span>";
+                            echo "</div>";
+                            echo "</div>";
                             echo '<input type="text" class="form-control" name="website" id="reg_pt2_input" placeholder="" value="' . $website . '"/>';
                             
+                            echo "<div class='row'>";
+                            echo "<div class='col-md-4'>";
                             echo "<label>Kontonummer</label>";
+                            echo "</div>";
+                            echo "<div class='col-md-8 text-right spanpadding'>";
+                            echo "<span name='title' class='errorspan'>Kun akkurat 11 tall</span>";
+                            echo "</div>";
+                            echo "</div>";
                             echo '<input type="tel" class="form-control" name="accountnumber" id="reg_pt2_input" placeholder="" value="' . $accountnumber . '"/>';
 
 
@@ -127,7 +168,14 @@ $organizationNr = $_SESSION['organizationNr'];
                             </select>
                             </div>';
 
+                            echo "<div class='row'>";
+                            echo "<div class='col-md-5'>";
                             echo "<label>Beskrivelse av organisasjonen</label>";
+                            echo "</div>";
+                            echo "<div class='col-md-7 text-right spanpadding'>";
+                            echo "<span name='title' class='errorspan'>Minimum 20 tegn og maks 300 tegn</span>";
+                            echo "</div>";
+                            echo "</div>";
                             echo '<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="about" id="aboutOrg" placeholder="Om organisasjonen">' . $about . '</textarea>';
                             echo '
                             <button class="btn bluebtn" name="backgroundimgURLbutton">

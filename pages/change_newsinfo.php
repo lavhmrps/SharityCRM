@@ -90,11 +90,24 @@ include '../phpBackend/connect.php';
                             $backgroundimgURL = $row['backgroundimgURL'];
 
 
-
+                            echo "<div class='row'>";
+                            echo "<div class='col-md-4'>";
                             echo "<label>Tittel</label>";
+                            echo "</div>";
+                            echo "<div class='col-md-8 text-right spanpadding'>";
+                            echo "<span hidden name='title' class='errorspan'>Kun bokstaver, tall og mellomrom</span>";
+                            echo "</div>";
+                            echo "</div>";
                             echo '<input type="text" class="form-control" name="title" id="reg_pt2_input" placeholder="" value="' . $title . '"/>'; 
 
+                            echo "<div class='row'>";
+                            echo "<div class='col-md-4'>";
                             echo "<label>Om nyheten</label>";
+                            echo "</div>";
+                            echo "<div class='col-md-8 text-right spanpadding'>";
+                            echo "<span hidden name='title' class='errorspan'>Minimum 20 tegn og maks 300 tegn</span>";
+                            echo "</div>";
+                            echo "</div>";
                             echo '<textarea class="form-control" id="aboutOrg_pt2" rows="5" name="txt" id="aboutOrg" placeholder="Om nyheten">' . $txt . '</textarea>';
 
                             
