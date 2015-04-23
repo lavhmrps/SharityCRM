@@ -28,7 +28,7 @@ include '../phpBackend/connect.php';
 		$('select').change(function(){
                 
             var index = $('select').val();
-            if(index == 0){
+            if(index == 0){ //day
                 $('#datepickerDay1').show();
 				$('#datepickerDay2').show();
 				$('#datepickerMnd1').hide();
@@ -37,7 +37,7 @@ include '../phpBackend/connect.php';
 				$('#datepickerYear2').hide();
                 localStorage.setItem('type','0');
             }
-            else if(index == 1){
+            else if(index == 1){ //month
                 $('#datepickerMnd1').show();
 				$('#datepickerMnd2').show();
 				$('#datepickerDay1').hide();
@@ -46,7 +46,7 @@ include '../phpBackend/connect.php';
 				$('#datepickerYear2').hide();
                 localStorage.setItem('type','1');
             }
-            else if(index == 2){
+            else if(index == 2){ //year
                 $('#datepickerYear1').show();
 				$('#datepickerYear2').show();
 				$('#datepickerDay1').hide();
@@ -68,12 +68,14 @@ include '../phpBackend/connect.php';
         $('#datepickerDay1').on('changeDate', function(ev){
             $(this).datepicker('hide');
             day1();
-            showChart1();
-            showChart2();
-            showChart3();
-            showChart4();
-            showChart5();
-            showChart6();
+            if ($('input[name=date2]').val() != "") {
+                showChart1();
+                showChart2();
+                showChart3();
+                showChart4();
+                showChart5();
+                showChart6();
+            }
         });
         $('#datepickerDay2').datepicker({
             format: "yyyy-mm-dd",
@@ -84,12 +86,14 @@ include '../phpBackend/connect.php';
         $('#datepickerDay2').on('changeDate', function(ev){
             $(this).datepicker('hide');
             day2();
-            showChart1();
-            showChart2();
-            showChart3();
-            showChart4();
-            showChart5();
-            showChart6();
+            if ($('input[name=date]').val() != "") {
+                showChart1();
+                showChart2();
+                showChart3();
+                showChart4();
+                showChart5();
+                showChart6();
+            }
         });
         $('#datepickerYear1').datepicker({
             format: "yyyy",
@@ -102,12 +106,14 @@ include '../phpBackend/connect.php';
         $('#datepickerYear1').on('changeDate', function(ev){
             $(this).datepicker('hide');
             year1();
-            showChart1();
-            showChart2();
-            showChart3();
-            showChart4();
-            showChart5();
-            showChart6();
+            if ($('input[name=date6]').val() != "") {
+                showChart1();
+                showChart2();
+                showChart3();
+                showChart4();
+                showChart5();
+                showChart6();
+            }
         });
         $('#datepickerYear2').datepicker({
             format: "yyyy",
@@ -120,12 +126,14 @@ include '../phpBackend/connect.php';
         $('#datepickerYear2').on('changeDate', function(ev){
             $(this).datepicker('hide');
             year2();
-            showChart1();
-            showChart2();
-            showChart3();
-            showChart4();
-            showChart5();
-            showChart6();
+            if ($('input[name=date5]').val() != "") {
+                showChart1();
+                showChart2();
+                showChart3();
+                showChart4();
+                showChart5();
+                showChart6();
+            }
         });
 
         $('#datepickerMnd1').datepicker({
@@ -139,12 +147,14 @@ include '../phpBackend/connect.php';
         $('#datepickerMnd1').on('changeDate', function(ev){
             $(this).datepicker('hide');
             mnd1();
-            showChart1();
-            showChart2();
-            showChart3();
-            showChart4();
-            showChart5();
-            showChart6();
+            if ($('input[name=date4]').val() != "") {
+                showChart1();
+                showChart2();
+                showChart3();
+                showChart4();
+                showChart5();
+                showChart6();
+            }
         });
         $('#datepickerMnd2').datepicker({
             format: "yyyy-mm",
@@ -157,12 +167,14 @@ include '../phpBackend/connect.php';
         $('#datepickerMnd2').on('changeDate', function(ev){
             $(this).datepicker('hide');
             mnd2();
-            showChart1();
-            showChart2();
-            showChart3();
-            showChart4();
-            showChart5();
-            showChart6();
+            if ($('input[name=date3]').val() != "") {
+                showChart1();
+                showChart2();
+                showChart3();
+                showChart4();
+                showChart5();
+                showChart6();
+            }
         });
 
         $('#backBtn').on('click', function(ev){
@@ -265,373 +277,1036 @@ include '../phpBackend/connect.php';
 
 
 		function showChart1(){
-            var res1 ="";
-            var res2 ="";
+            
+            var res1;
+            var res2;
             var x = localStorage.getItem('type');
-            if(x == 0){
+            if(x == 0){ //day
+                
                 var date1 = $('input[name=date]').val();
                 var date2 = $('input[name=date2]').val();
-                alert(1);
                 $.ajax({
                     url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 1,
                     success: function(data) {
-                        var res1 = parseInt(data);
-                        alert(2);
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 1,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk1').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk1').width();
+                                        var canvasHeight = $('#statistikk1').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
                     },
                 });
+                
+            }else if(x == 1){ //month
+                var date1 = $('input[name=date3]').val() + '-01';
+                var date2 = $('input[name=date4]').val() + '-01';
                 $.ajax({
-                    url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 1,
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 2,
                     success: function(data) {
-                        var res2 = parseInt(data);
-                        alert(3);
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 2,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk1').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk1').width();
+                                        var canvasHeight = $('#statistikk1').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
                     },
                 });
-            }else if(x == 1){
-                var date1 = $('input[name=date3]').val();
-                var date2 = $('input[name=date4]').val();
 
-            }else if(x == 2){
+            }else if(x == 2){ //year
                 var date1 = $('input[name=date5]').val();
                 var date2 = $('input[name=date6]').val();
-            }
-            alert(4);
-            
-
-            var data = [
-                {
-                    value: res1,
-                    color:"#F7464A",
-                    highlight: "#FF5A5E",
-                    label: "Yellow"
-                },
-                {
-                    value: res2,
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
-                    label: "Green"
-                }
-            ]
-
-            var ctx = $('#statistikk1').get(0).getContext("2d");
-            var myDoughnut = new Chart(ctx).Doughnut(data,{
-                animation:true,
-                showTooltips: false,
-                percentageInnerCutout : 70,
-                segmentShowStroke : false,
-                onAnimationComplete: function() {
-                    var canvasWidthvar = $('#statistikk1').width();
-                    var canvasHeight = $('#statistikk1').height();
-                    var constant = 114;
-                    var fontsize = (canvasHeight/constant).toFixed(2);
-                    //ctx.font="2.8em Verdana";
-                    ctx.font=fontsize +"em Verdana";
-                    ctx.textBaseline="middle"; 
-                    var total = 0;
-                    $.each(data,function() {
-                        total += parseInt(this.value,10);
-                    });
-                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                    var textWidth = ctx.measureText(tpercentage).width;
-              
-                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                }
-            });
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 3,
+                    success: function(data) {
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 3,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk1').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk1').width();
+                                        var canvasHeight = $('#statistikk1').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
+                    },
+                });
+            } 
         }
         function showChart2(){
 
-            var date1 = "";
-            var date2 = "";
+            var res1;
+            var res2;
             var x = localStorage.getItem('type');
-            if(x == 0){
+            if(x == 0){ //day
+                
                 var date1 = $('input[name=date]').val();
                 var date2 = $('input[name=date2]').val();
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 4,
+                    success: function(data) {
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 4,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk2').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk2').width();
+                                        var canvasHeight = $('#statistikk2').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
+                    },
+                });
+                
+            }else if(x == 1){ //month
+                var date1 = $('input[name=date3]').val() + '-01';
+                var date2 = $('input[name=date4]').val() + '-01';
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 5,
+                    success: function(data) {
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 5,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk2').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk2').width();
+                                        var canvasHeight = $('#statistikk2').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
+                    },
+                });
 
-            }else if(x == 1){
-                var date1 = $('input[name=date3]').val();
-                var date2 = $('input[name=date4]').val();
-
-            }else if(x == 2){
+            }else if(x == 2){ //year
                 var date1 = $('input[name=date5]').val();
                 var date2 = $('input[name=date6]').val();
-            }
-
-            var data = [
-                {
-                    value: 100,
-                    color:"#F7464A",
-                    highlight: "#FF5A5E",
-                    label: "Yellow"
-                },
-                {
-                    value: 50,
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
-                    label: "Green"
-                }
-            ]
-
-            var ctx = $('#statistikk2').get(0).getContext("2d");
-            var myDoughnut = new Chart(ctx).Doughnut(data,{
-                animation:true,
-                showTooltips: false,
-                percentageInnerCutout : 70,
-                segmentShowStroke : false,
-                onAnimationComplete: function() {
-                    var canvasWidthvar = $('#statistikk2').width();
-                    var canvasHeight = $('#statistikk2').height();
-                    var constant = 114;
-                    var fontsize = (canvasHeight/constant).toFixed(2);
-                    //ctx.font="2.8em Verdana";
-                    ctx.font=fontsize +"em Verdana";
-                    ctx.textBaseline="middle"; 
-                    var total = 0;
-                    $.each(data,function() {
-                        total += parseInt(this.value,10);
-                    });
-                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                    var textWidth = ctx.measureText(tpercentage).width;
-              
-                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                }
-            });
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 6,
+                    success: function(data) {
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 6,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk2').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk2').width();
+                                        var canvasHeight = $('#statistikk2').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
+                    },
+                });
+            } 
         }
         function showChart3(){
 
-            var date1 = "";
-            var date2 = "";
+            var res1;
+            var res2;
             var x = localStorage.getItem('type');
-            if(x == 0){
+            if(x == 0){ //day
+                
                 var date1 = $('input[name=date]').val();
                 var date2 = $('input[name=date2]').val();
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 7,
+                    success: function(data) {
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 7,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk3').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk3').width();
+                                        var canvasHeight = $('#statistikk3').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
+                    },
+                });
+                
+            }else if(x == 1){ //month
+                var date1 = $('input[name=date3]').val() + '-01';
+                var date2 = $('input[name=date4]').val() + '-01';
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 8,
+                    success: function(data) {
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 8,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk3').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk3').width();
+                                        var canvasHeight = $('#statistikk3').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
+                    },
+                });
 
-            }else if(x == 1){
-                var date1 = $('input[name=date3]').val();
-                var date2 = $('input[name=date4]').val();
-
-            }else if(x == 2){
+            }else if(x == 2){ //year
                 var date1 = $('input[name=date5]').val();
                 var date2 = $('input[name=date6]').val();
-            }
-            
-            var data = [
-                {
-                    value: 100,
-                    color:"#F7464A",
-                    highlight: "#FF5A5E",
-                    label: "Yellow"
-                },
-                {
-                    value: 50,
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
-                    label: "Green"
-                }
-            ]
-
-            var ctx = $('#statistikk3').get(0).getContext("2d");
-            var myDoughnut = new Chart(ctx).Doughnut(data,{
-                animation:true,
-                showTooltips: false,
-                percentageInnerCutout : 70,
-                segmentShowStroke : false,
-                onAnimationComplete: function() {
-                    var canvasWidthvar = $('#statistikk3').width();
-                    var canvasHeight = $('#statistikk3').height();
-                    var constant = 114;
-                    var fontsize = (canvasHeight/constant).toFixed(2);
-                    //ctx.font="2.8em Verdana";
-                    ctx.font=fontsize +"em Verdana";
-                    ctx.textBaseline="middle"; 
-                    var total = 0;
-                    $.each(data,function() {
-                        total += parseInt(this.value,10);
-                    });
-                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                    var textWidth = ctx.measureText(tpercentage).width;
-              
-                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                }
-            });
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 9,
+                    success: function(data) {
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 9,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk3').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk3').width();
+                                        var canvasHeight = $('#statistikk3').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
+                    },
+                });
+            } 
         }
         function showChart4(){
 
-            var date1 = "";
-            var date2 = "";
+            var res1;
+            var res2;
             var x = localStorage.getItem('type');
-            if(x == 0){
+            if(x == 0){ //day
+                
                 var date1 = $('input[name=date]').val();
                 var date2 = $('input[name=date2]').val();
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 10,
+                    success: function(data) {
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 10,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk4').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk4').width();
+                                        var canvasHeight = $('#statistikk4').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
+                    },
+                });
+                
+            }else if(x == 1){ //month
+                var date1 = $('input[name=date3]').val() + '-01';
+                var date2 = $('input[name=date4]').val() + '-01';
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 11,
+                    success: function(data) {
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 11,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk4').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk4').width();
+                                        var canvasHeight = $('#statistikk4').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
+                    },
+                });
 
-            }else if(x == 1){
-                var date1 = $('input[name=date3]').val();
-                var date2 = $('input[name=date4]').val();
-
-            }else if(x == 2){
+            }else if(x == 2){ //year
                 var date1 = $('input[name=date5]').val();
                 var date2 = $('input[name=date6]').val();
-            }
-            
-            var data = [
-                {
-                    value: 100,
-                    color:"#F7464A",
-                    highlight: "#FF5A5E",
-                    label: "Yellow"
-                },
-                {
-                    value: 50,
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
-                    label: "Green"
-                }
-            ]
-
-            var ctx = $('#statistikk4').get(0).getContext("2d");
-            var myDoughnut = new Chart(ctx).Doughnut(data,{
-                animation:true,
-                showTooltips: false,
-                percentageInnerCutout : 70,
-                segmentShowStroke : false,
-                onAnimationComplete: function() {
-                    var canvasWidthvar = $('#statistikk4').width();
-                    var canvasHeight = $('#statistikk4').height();
-                    var constant = 114;
-                    var fontsize = (canvasHeight/constant).toFixed(2);
-                    //ctx.font="2.8em Verdana";
-                    ctx.font=fontsize +"em Verdana";
-                    ctx.textBaseline="middle"; 
-                    var total = 0;
-                    $.each(data,function() {
-                        total += parseInt(this.value,10);
-                    });
-                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                    var textWidth = ctx.measureText(tpercentage).width;
-              
-                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                }
-            });
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 12,
+                    success: function(data) {
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 12,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk4').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk4').width();
+                                        var canvasHeight = $('#statistikk4').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
+                    },
+                });
+            } 
         }
         function showChart5(){
 
-            var date1 = "";
-            var date2 = "";
+            var res1;
+            var res2;
             var x = localStorage.getItem('type');
-            if(x == 0){
+            if(x == 0){ //day
+                
                 var date1 = $('input[name=date]').val();
                 var date2 = $('input[name=date2]').val();
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 13,
+                    success: function(data) {
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 13,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk5').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk5').width();
+                                        var canvasHeight = $('#statistikk5').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
+                    },
+                });
+                
+            }else if(x == 1){ //month
+                var date1 = $('input[name=date3]').val() + '-01';
+                var date2 = $('input[name=date4]').val() + '-01';
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 14,
+                    success: function(data) {
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 14,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk5').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk5').width();
+                                        var canvasHeight = $('#statistikk5').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
+                    },
+                });
 
-            }else if(x == 1){
-                var date1 = $('input[name=date3]').val();
-                var date2 = $('input[name=date4]').val();
-
-            }else if(x == 2){
+            }else if(x == 2){ //year
                 var date1 = $('input[name=date5]').val();
                 var date2 = $('input[name=date6]').val();
-            }
-            
-            var data = [
-                {
-                    value: 100,
-                    color:"#F7464A",
-                    highlight: "#FF5A5E",
-                    label: "Yellow"
-                },
-                {
-                    value: 50,
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
-                    label: "Green"
-                }
-            ]
-
-            var ctx = $('#statistikk5').get(0).getContext("2d");
-            var myDoughnut = new Chart(ctx).Doughnut(data,{
-                animation:true,
-                showTooltips: false,
-                percentageInnerCutout : 70,
-                segmentShowStroke : false,
-                onAnimationComplete: function() {
-                    var canvasWidthvar = $('#statistikk5').width();
-                    var canvasHeight = $('#statistikk5').height();
-                    var constant = 114;
-                    var fontsize = (canvasHeight/constant).toFixed(2);
-                    //ctx.font="2.8em Verdana";
-                    ctx.font=fontsize +"em Verdana";
-                    ctx.textBaseline="middle"; 
-                    var total = 0;
-                    $.each(data,function() {
-                        total += parseInt(this.value,10);
-                    });
-                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                    var textWidth = ctx.measureText(tpercentage).width;
-              
-                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                }
-            });
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 15,
+                    success: function(data) {
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 15,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk5').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk5').width();
+                                        var canvasHeight = $('#statistikk5').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
+                    },
+                });
+            } 
         }
         function showChart6(){
 
-            var date1 = "";
-            var date2 = "";
+            var res1;
+            var res2;
             var x = localStorage.getItem('type');
-            if(x == 0){
+            if(x == 0){ //day
+                
                 var date1 = $('input[name=date]').val();
                 var date2 = $('input[name=date2]').val();
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 16,
+                    success: function(data) {
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 16,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk6').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk6').width();
+                                        var canvasHeight = $('#statistikk6').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
+                    },
+                });
+                
+            }else if(x == 1){ //month
+                var date1 = $('input[name=date3]').val() + '-01';
+                var date2 = $('input[name=date4]').val() + '-01';
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 17,
+                    success: function(data) {
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 17,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk6').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk6').width();
+                                        var canvasHeight = $('#statistikk6').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
+                    },
+                });
 
-            }else if(x == 1){
-                var date1 = $('input[name=date3]').val();
-                var date2 = $('input[name=date4]').val();
-
-            }else if(x == 2){
+            }else if(x == 2){ //year
                 var date1 = $('input[name=date5]').val();
                 var date2 = $('input[name=date6]').val();
-            }
-
-            var data = [
-                {
-                    value: 100,
-                    color:"#F7464A",
-                    highlight: "#FF5A5E",
-                    label: "Yellow"
-                },
-                {
-                    value: 50,
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
-                    label: "Green"
-                }
-            ]
-
-            var ctx = $('#statistikk6').get(0).getContext("2d");
-            var myDoughnut = new Chart(ctx).Doughnut(data,{
-                animation:true,
-                showTooltips: false,
-                percentageInnerCutout : 70,
-                segmentShowStroke : false,
-                onAnimationComplete: function() {
-                    var canvasWidthvar = $('#statistikk6').width();
-                    var canvasHeight = $('#statistikk6').height();
-                    var constant = 114;
-                    var fontsize = (canvasHeight/constant).toFixed(2);
-                    //ctx.font="2.8em Verdana";
-                    ctx.font=fontsize +"em Verdana";
-                    ctx.textBaseline="middle"; 
-                    var total = 0;
-                    $.each(data,function() {
-                        total += parseInt(this.value,10);
-                    });
-                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                    var textWidth = ctx.measureText(tpercentage).width;
-              
-                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                }
-            });
+                $.ajax({
+                    url: '../phpBackend/doughnut.php?date='+ date1 + '&num=' + 18,
+                    success: function(data) {
+                        res1 = parseInt(data);
+                        $.ajax({
+                            url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 18,
+                            success: function(data) {
+                                res2 = parseInt(data);
+                                var data = [
+                                    {
+                                        value: res2,
+                                        color:"#F7464A",
+                                        highlight: "#FF5A5E",
+                                        label: "Yellow"
+                                    },
+                                    {
+                                        value: res1,
+                                        color: "#46BFBD",
+                                        highlight: "#5AD3D1",
+                                        label: "Green"
+                                    }
+                                ]
+                                var ctx = $('#statistikk6').get(0).getContext("2d");
+                                var myDoughnut = new Chart(ctx).Doughnut(data,{
+                                    animation:true,
+                                    showTooltips: false,
+                                    percentageInnerCutout : 70,
+                                    segmentShowStroke : false,
+                                    onAnimationComplete: function() {
+                                        var canvasWidthvar = $('#statistikk6').width();
+                                        var canvasHeight = $('#statistikk6').height();
+                                        var constant = 114;
+                                        var fontsize = (canvasHeight/constant).toFixed(2);
+                                        //ctx.font="2.8em Verdana";
+                                        ctx.font=fontsize +"em Verdana";
+                                        ctx.textBaseline="middle"; 
+                                        var total = 0;
+                                        $.each(data,function() {
+                                            total += parseInt(this.value,10);
+                                        });
+                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                                        var textWidth = ctx.measureText(tpercentage).width;
+                                  
+                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                                    }
+                                });
+                            },
+                        });
+                    },
+                });
+            } 
         }
 	});
 	</script>

@@ -34,8 +34,6 @@ include '../phpBackend/connect.php';
         $('input[name=date]').hide();
         $('input[name=date2]').hide();
         $('input[name=date3]').hide();
-        //$('input[name=date4]').hide();
-        //$('input[name=date5]').hide();
 
 
         $('select').change(function(){
@@ -45,8 +43,6 @@ include '../phpBackend/connect.php';
                 $('input[name=date3]').show();
                 $('input[name=date]').hide();
                 $('input[name=date2]').hide();
-                //$('input[name=date4]').hide();
-                //$('input[name=date5]').hide();
                 $('#left').hide();
                 $('#middle').hide();
                 $('#out').hide();
@@ -55,8 +51,6 @@ include '../phpBackend/connect.php';
                 $('input[name=date2]').show();
                 $('input[name=date]').hide();
                 $('input[name=date3]').hide();
-                //$('input[name=date4]').hide();
-                //$('input[name=date5]').hide();
                 $('#left').show();
                 $('#middle').show();
                 $('#incomeYear').hide();
@@ -68,8 +62,6 @@ include '../phpBackend/connect.php';
                 $('input[name=date]').show();
                 $('input[name=date2]').hide();
                 $('input[name=date3]').hide();
-                //$('input[name=date4]').hide();
-                //$('input[name=date5]').hide();
                 $('#left').show();
                 $('#middle').show();
                 $('#incomeMnd').hide();
@@ -78,17 +70,6 @@ include '../phpBackend/connect.php';
                 $('#out').hide();
             }
             else if(index == 3){
-                /*$('input[name=date4]').show();
-                $('input[name=date5]').show();
-                $('input[name=date3]').hide();
-                $('input[name=date]').hide();
-                $('input[name=date2]').hide();
-                $('#left').show();
-                $('#middle').show();
-                $('#incomeMnd').hide();
-                $('#donationsMnd').hide();
-                $('#followersMnd').hide();
-                $('#out').hide();*/
                 window.location.replace("../pages/comparison.php");
             }
         });
@@ -170,37 +151,7 @@ include '../phpBackend/connect.php';
             $('#statistikk').hide();
             $('#out').show();
         });
-/*
-        $('#datepicker1').datepicker({
-            format: "yyyy-mm-dd",
-            weekStart: 1,
-            startView: 0,
-            minViewMode: 0,
-            language: "no",
-            todayHighlight: true
-        });
-        $('#datepicker1').on('changeDate', function(ev){
-            $(this).datepicker('hide');
-            day();
-            $('#statistikk').hide();
-            $('#out').show();
-        });
 
-        $('#datepicker2').datepicker({
-            format: "yyyy-mm-dd",
-            weekStart: 1,
-            startView: 0,
-            minViewMode: 0,
-            language: "no",
-            todayHighlight: true
-        });
-        $('#datepicker2').on('changeDate', function(ev){
-            $(this).datepicker('hide');
-            day();
-            $('#statistikk').hide();
-            $('#out').show();
-        });
- */
         function day(){
             var day = $('input[name=date3]').val();
             var xmlhttp = new XMLHttpRequest();
@@ -597,8 +548,6 @@ include '../phpBackend/connect.php';
                 <input class="span2" name="date" size="16" type="text" id="datepickerYear" readonly="readonly" />
                 <input class="span2" name="date2" size="16" type="text" id="datepickerMnd" readonly="readonly" />
                 <input class="span2" name="date3" size="16" type="text" id="datepickerDay" readonly="readonly" />
-                <!--<input class="span2" name="date4" size="16" type="text" id="datepicker1" readonly="readonly" />
-                <input class="span2" name="date5" size="16" type="text" id="datepicker2" readonly="readonly" />-->
             </div>
 		</div>
 	</div>
