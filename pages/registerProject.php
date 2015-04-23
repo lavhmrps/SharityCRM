@@ -108,8 +108,8 @@ if(isset($_POST['registerNews'])){
 
 				<div class="row">
 					<div class="col-md-8">
-				<label name="aboutlabel">Beskrivelse av prosjektet</label>
-				</div>
+						<label name="aboutlabel">Beskrivelse av prosjektet</label>
+					</div>
 					<div class="col-md-4 spanpadding">
 						<span hidden name="title" class="errorspan">Minimum 20 tegn og maks 300 tegn</span>  
 					</div>
@@ -145,9 +145,17 @@ if(isset($_POST['registerNews'])){
 
 <script type="text/javascript">
 
-<<<<<<< Updated upstream
+$(document).ready(function(){
+
+	var OKname = false;
+	var OKcountry = false;
+	var OKcity = false;
+	var OKtitle = false;
+
+
 	$('input[name=projectName]').on("keyup keydown keypress", function(e){
 		if(e.type == "keyup" || e.type == "keydown" || e.type == "keypress"){
+			
 			var pattern = /^[ÆØÅæøåA0-9a-åA-Å ]+$/; 
 
 			var reference = 'input[name='+this.name+']';
@@ -155,25 +163,6 @@ if(isset($_POST['registerNews'])){
 			var errorRef = 'span[name='+this.name+']';
 
 			OKname = checkInput(reference, pattern, errorRef);
-=======
-var OKname = false;
-var OKcountry = false;
-var OKcity = false;
-var OKtitle = false;
-
-$('input[name=projectName]').on("keyup keydown keypress", function(e){
-	if(e.type == "keyup" || e.type == "keydown" || e.type == "keypress"){
-		var pattern = /^[ÆØÅæøåA0-9a-åA-Å ]+$/; 
-
-		var reference = 'input[name='+this.name+']';
-
-		OKname = checkInput(reference, pattern);
->>>>>>> Stashed changes
-
-
-
-
-<<<<<<< Updated upstream
 		}
 	});
 
@@ -184,7 +173,7 @@ $('input[name=projectName]').on("keyup keydown keypress", function(e){
 			var reference = 'input[name='+this.name+']';
 			var errorRef = 'span[name='+this.name+']';
 
-			OKtitle = checkInput(reference, pattern, errorRef);
+			OKcountry = checkInput(reference, pattern, errorRef);
 		}
 	});
 
@@ -195,7 +184,7 @@ $('input[name=projectName]').on("keyup keydown keypress", function(e){
 			var reference = 'input[name='+this.name+']';
 			var errorRef = 'span[name='+this.name+']';
 
-			OKtitle = checkInput(reference, pattern, errorRef);
+			OKcity = checkInput(reference, pattern, errorRef);
 		}
 	});
 
@@ -219,6 +208,9 @@ $('input[name=projectName]').on("keyup keydown keypress", function(e){
 			$(ref).css('color', 'black');
 			ok = false; //kan vi fjerne dette?
 			$(errorRef).prop("hidden", true);
+
+
+
 			return false;
 		}
 
@@ -226,7 +218,7 @@ $('input[name=projectName]').on("keyup keydown keypress", function(e){
 
 			$(ref).css('color', 'black');
 			$(errorRef).prop("hidden", true);
-			ok = true;
+			
 			return true;
 
 		}else{
@@ -235,6 +227,8 @@ $('input[name=projectName]').on("keyup keydown keypress", function(e){
 			$(errorRef).prop("hidden", false);
 			return false;
 		}
+
+
 		if(string == ""){
 			$(ref).css('color', 'black');
 			$(errorRef).prop("hidden", true);
@@ -243,78 +237,15 @@ $('input[name=projectName]').on("keyup keydown keypress", function(e){
 
 
 	}
-=======
-	}
-});
 
-$('input[name=country]').on("keyup keydown keypress", function(e){
-	if(e.type == "keyup" || e.type == "keydown" || e.type == "keypress"){
-		var pattern = /^[-ÆØÅæøåAa-åA-Å ]+$/;
+	$("button[name=registerProject]").click(function(){
 
-		var reference = 'input[name='+this.name+']';
+		insertProject();
+	});
 
-		OKcountry = checkInput(reference, pattern);
-	}
-});
-
-$('input[name=city]').on("keyup keydown keypress", function(e){
-	if(e.type == "keyup" || e.type == "keydown" || e.type == "keypress"){
-		var pattern = /^[-ÆØÅæøåAa-åA-Å ]+$/;
-
-		var reference = 'input[name='+this.name+']';
-
-		OKcity = checkInput(reference, pattern);
-	}
-});
-
-$('input[name=title]').on("keyup keydown keypress", function(e){
-	if(e.type == "keyup" || e.type == "keydown" || e.type == "keypress"){
-		var pattern = /^[0-9-ÆØÅæøåAa-åA-Å ]+$/;
->>>>>>> Stashed changes
-
-		var reference = 'input[name='+this.name+']';
-
-		OKtitle = checkInput(reference, pattern);
-	}
-});
-
-
-function checkInput(ref, pattern){
-
-	var string = $(ref).val();
-
-	if(string == ""){
-		$(ref).css('color', 'black');
-		ok = false;
-		return false;
-	}
-
-	if(string.match(pattern)){
-
-		$(ref).css('color', 'black');
-		ok = true;
-		return true;
-
-	}else{
-
-		$(ref).css('color', 'red');
-		return false;
-	}
-	if(string == ""){
-		$(ref).css('color', 'black');
-		return false;
-	}
-
-
-}
-
-$("button[name=registerProject]").click(function(){
-	insertProject();
-});
-
-$("#preview").click(function(){
-	$("#file_background").trigger("click");
-});
+	$("#preview").click(function(){
+		$("#file_background").trigger("click");
+	});
 
 //triggered when user selects image to upload
 $("#file_background").change(function(){
@@ -335,6 +266,9 @@ function previewImage(input) {
 }
 
 function insertProject(){
+
+
+
 	var name = $("input[name=projectName]").val();
 	var country = $("input[name=country]").val();
 	var city = $("input[name=city]").val();
@@ -342,7 +276,13 @@ function insertProject(){
 	var about = $("textarea[name=about]").val();
 
 
+	alert("OKname: " + OKname);
+	alert("OKcountry: " + OKcountry);
+	alert("OKcity: " + OKcity);
+
+
 	if(OKname && OKcountry && OKcity && OKtitle){
+
 		var json = {
 			"name" : name,
 			"title" : title,
@@ -382,11 +322,9 @@ function insertProject(){
 		});
 
 
-	}
-
-	
-
-	
+	}else{
+		alert("Ikke alle er true");
+	}	
 }
 
 //ajax request to .php script (insertBackgroundimgProject.php) to insert image into database
@@ -422,6 +360,11 @@ function clearInput(){
 	$("textarea[name=about]").val("");
 	
 }
+
+});
+
+
+
 
 
 </script>	
