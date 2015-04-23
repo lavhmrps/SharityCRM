@@ -47,9 +47,9 @@ include '../phpBackend/connect.php';
         <?php
         include 'header_nav.php';
         ?>
-        
-        <div class="col-md-4"></div>
-        <div class="col-md-4" id="changenewscontainer">
+        <div class="container">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" id="changenewscontainer">
             <div class="col-md-12 text-center" id="reg_pt2_head">
                 <?php
 
@@ -158,8 +158,8 @@ include '../phpBackend/connect.php';
             ?>
 
         </div>
-        <div class="col-md-4"></div>
-        <div class="col-md-12" id="somespace"></div>
+        <div class="col-md-2"></div>
+        </div>
 
         <!-- Bootstrap Core JavaScript -->
         <script src="../js/bootstrap.min.js"></script>
