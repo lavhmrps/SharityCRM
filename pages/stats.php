@@ -87,7 +87,7 @@ include '../phpBackend/connect.php';
             if ($('input[name=date]').val() == ""){
                 alert("Angi dato!");
             }else{
-                //showLineChartDonationsYear();
+                showLineChartDonationsYear();
                 $('#statistikk').show();
             }
         });
@@ -290,6 +290,93 @@ include '../phpBackend/connect.php';
 
         function showLineChartDonationsYear(){
         }
+            var day = $('input[name=date]').val();
+
+            var sumJan = 0;
+            var sumFeb = 0;
+            var sumMar = 0;
+            var sumApr = 0;
+            var sumMay = 0;
+            var sumJun = 0;
+            var sumJul = 0;
+            var sumAug = 0;
+            var sumSep = 0;
+            var sumOkt = 0;
+            var sumNov = 0;
+            var sumDec = 0;
+
+            $.ajax({
+                url : "../phpBackend/OrgStat/getDonationsYear.php?date=" + day,
+                dataType : "json",
+                success : function(response){
+                    var sum = 0;
+                    var content = "";
+
+                    for(var i = 0; i < response.length; i++){
+                        var y = parseInt(response[i]['date'].substring(0, 4));
+                        var m = parseInt(response[i]['date'].substring(5, 7));
+                        var d = parseInt(response[i]['date'].substring(8, 10));
+
+                        switch(m){
+                            case 1:
+                            sumJan += parseInt(response[i]['sum']);
+                            break;
+                            case 2:
+                            sumFeb += parseInt(response[i]['sum']);
+                            break;
+                            case 3:
+                            sumMar += parseInt(response[i]['sum']);
+                            break;
+                            case 4:
+                            sumApr += parseInt(response[i]['sum']);
+                            break;
+                            case 5:
+                            sumMay += parseInt(response[i]['sum']);
+                            break;
+                            case 6:
+                            sumJun += parseInt(response[i]['sum']);
+                            break;
+                            case 7:
+                            sumJul += parseInt(response[i]['sum']);
+                            break;
+                            case 8:
+                            sumAug += parseInt(response[i]['sum']);
+                            break;
+                            case 9:
+                            sumSep += parseInt(response[i]['sum']);
+                            break;
+                            case 10:
+                            sumOkt += parseInt(response[i]['sum']);
+                            break;
+                            case 11:
+                            sumNov += parseInt(response[i]['sum']);
+                            break;
+                            case 12:
+                            sumDec += parseInt(response[i]['sum']);
+                            break;
+                        }
+                    }
+
+                    myLine.datasets[0].points[0].value = sumJan;
+                    myLine.datasets[0].points[1].value = sumFeb;
+                    myLine.datasets[0].points[2].value = sumMar;
+                    myLine.datasets[0].points[3].value = sumApr;
+                    myLine.datasets[0].points[4].value = sumMay;
+                    myLine.datasets[0].points[5].value = sumJun;
+                    myLine.datasets[0].points[6].value = sumJul;
+                    myLine.datasets[0].points[7].value = sumAug;
+                    myLine.datasets[0].points[8].value = sumSep;
+                    myLine.datasets[0].points[9].value = sumOkt;
+                    myLine.datasets[0].points[10].value = sumNov;
+                    myLine.datasets[0].points[11].value = sumDec;
+                    // Would update the first dataset
+                    myLine.update();
+
+                },
+                error : function(){
+                    alert("Something went worng");
+                }
+            });  
 
         function showLineChartFollowersYear(){
         }
