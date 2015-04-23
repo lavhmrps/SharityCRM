@@ -1569,3 +1569,14 @@ input[id=menu]{
 	margin: 5px;
 	padding:20px;
 }
+
+.spanpadding{
+	padding-top:5px;
+	padding-bottom: 0;
+	
+}
+
+.errorspan{
+	color:#FA0000;
+}
+
