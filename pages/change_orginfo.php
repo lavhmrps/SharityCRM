@@ -26,6 +26,7 @@ $organizationNr = $_SESSION['organizationNr'];
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
 
     <!-- Custom CSS -->
+    <link href="../css/scrolling-nav.css" rel="stylesheet">
     <link href="../css/main.css" rel="stylesheet"/>
     <link href="../css/fonts.css" rel="stylesheet"/>
     <link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
