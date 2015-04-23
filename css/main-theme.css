@@ -4,7 +4,7 @@ body{
 
 
 #topheader{
-	background-color: #006dfe; /*#333*/
+	background-color: red; /*#333*/
 }
 
 #topheader h2{
@@ -12,7 +12,7 @@ body{
 }
 
 #newsMenu, #statsMenu, #projectMenu, #organizationMenu{
-	background-color: #333;
+	background-color: #006DFE;
 }
 
 #newsMenu ul li a, #statsMenu ul li a, #projectMenu ul li a, #organizationMenu ul li a{
@@ -35,8 +35,9 @@ body{
 
 /** STICKY HEADER**/
 .scroller{  
+	background-color: #006DFE;
 	border:none;	
-	background-color: #fff;
+	
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
@@ -436,10 +437,10 @@ a.navbar-brand.page-scroll:hover, #header ul.nav.navbar-nav a.page-scroll:hover{
 /** New stuff **/
 
 .header{
-	background-color: #010101;
+	background-color: #006DFE;
+	border: 1px solid: #003DFE;
+	color: #fff;
 }
-
-
 
 #homeboxupperright{
 	background-color: #efefef;
