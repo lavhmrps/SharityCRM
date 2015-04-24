@@ -108,7 +108,7 @@ else if ($num == 7) {
 
 			$sum = $res;
 
-			$res = number_format($res,0,"."," ");
+			//$res = number_format($res,0,"."," ");
 
 			if ($res == "") {
 				echo 0;
@@ -166,6 +166,38 @@ else if ($num == 9) {
 	}
 }
 else if ($num == 10) {
+
+	$sql = "SELECT COUNT(*) FROM donation INNER JOIN project ON donation.projectID = project.projectID WHERE DATE(donation.date) = '" . $date . "' AND  project.organizationNr = '".$organizationNr."'";
+	$result = mysqli_query($connection, $sql);
+
+	if($result){
+		if(mysqli_num_rows($result) == 1){
+			$row = mysqli_fetch_assoc($result);
+
+			$res = $row['COUNT(*)'];
+
+			$donate = $res;
+		}	
+	}
+
+	$sql2 = "SELECT SUM(sum) FROM donation INNER JOIN project ON donation.projectID = project.projectID WHERE DATE(donation.date) = '" . $date . "' AND  project.organizationNr = '".$organizationNr."'";
+	$result2 = mysqli_query($connection, $sql2);
+
+	if($result2){
+		if(mysqli_num_rows($result2) == 1){
+			$row = mysqli_fetch_assoc($result2);
+
+			$res = $row['SUM(sum)'];
+
+			if ($res == "") {
+				$sum = 0;
+			}
+			else{
+				$sum = $res;
+			}
+		}
+	}
+
 	if($donate != 0){
 		$totalt = $sum/$donate;
 	}
@@ -176,6 +208,38 @@ else if ($num == 10) {
 	echo $totalt;
 }
 else if ($num == 11) {
+	$sql = "SELECT COUNT(*) FROM donation INNER JOIN project ON donation.projectID = project.projectID  WHERE MONTH(date(donation.date)) = MONTH('" . $date . "') AND YEAR(date(donation.date)) = YEAR('" . $date . "') AND  project.organizationNr = '".$organizationNr."'";
+	$result = mysqli_query($connection, $sql);
+
+	if($result){
+		if(mysqli_num_rows($result) == 1){
+			$row = mysqli_fetch_assoc($result);
+
+			$res = $row['COUNT(*)'];
+
+			$donate = $res;
+		}	
+	}
+
+	$sql2 = "SELECT SUM(sum) FROM donation INNER JOIN project ON donation.projectID = project.projectID  WHERE MONTH(date(donation.date)) = MONTH('" . $date . "') AND YEAR(date(donation.date)) = YEAR('" . $date . "') AND  project.organizationNr = '".$organizationNr."'";
+	$result2 = mysqli_query($connection, $sql2);
+
+	if($result2){
+		if(mysqli_num_rows($result2) == 1){
+			$row = mysqli_fetch_assoc($result2);
+
+			$res = $row['SUM(sum)'];
+
+			if ($res == "") {
+				$sum = 0;
+			}
+			else{
+				$sum = $res;
+			}
+		}
+	}	
+
+
 	if($donate != 0){
 		$totalt = $sum/$donate;
 	}
@@ -186,13 +250,44 @@ else if ($num == 11) {
 	echo $totalt;
 }
 else if ($num == 12) {
+	$sql = "SELECT COUNT(*) FROM donation INNER JOIN project ON donation.projectID = project.projectID WHERE YEAR(date(donation.date)) = '" . $date . "' AND  project.organizationNr = '".$organizationNr."'";
+	$result = mysqli_query($connection, $sql);
+
+	if($result){
+		if(mysqli_num_rows($result) == 1){
+			$row = mysqli_fetch_assoc($result);
+
+			$res = $row['COUNT(*)'];
+
+			$donate = $res;
+		}	
+	}
+
+
+	$sql2 = "SELECT SUM(sum) FROM donation INNER JOIN project ON donation.projectID = project.projectID WHERE YEAR(date(donation.date)) = '" . $date . "' AND  project.organizationNr = '".$organizationNr."'";
+	$result2 = mysqli_query($connection, $sql2);
+
+	if($result2){
+		if(mysqli_num_rows($result2) == 1){
+			$row = mysqli_fetch_assoc($result2);
+
+			$res = $row['SUM(sum)'];
+
+			if ($res == "") {
+				$sum = 0;
+			}
+			else{
+				$sum = $res;
+			}
+		}
+	}
+
 	if($donate != 0){
 		$totalt = $sum/$donate;
 	}
 	else{
 		$totalt = 0;
 	}
-
 	echo $totalt;
 }
 else if ($num == 13) {

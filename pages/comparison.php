@@ -275,8 +275,47 @@ include '../phpBackend/connect.php';
             xmlhttp.send();
         }
 
-
 		function showChart1(){
+
+            var data = [
+                {
+                    value: 1,
+                    color:"#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Yellow"
+                },
+                {
+                    value: 2,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Green"
+                }
+            ]
+            var ctx = $('#statistikk1').get(0).getContext("2d");
+            var myDoughnut = new Chart(ctx).Doughnut(data,{
+                animation:true,
+                showTooltips: false,
+                percentageInnerCutout : 70,
+                segmentShowStroke : false,
+                onAnimationComplete: function() {
+                    var canvasWidthvar = $('#statistikk1').width();
+                    var canvasHeight = $('#statistikk1').height();
+                    var constant = 114;
+                    var fontsize = (canvasHeight/constant).toFixed(2);
+                    //ctx.font="2.8em Verdana";
+                    ctx.font=fontsize +"em Verdana";
+                    ctx.textBaseline="middle"; 
+                    var total = 0;
+                    $.each(data,function() {
+                        total += parseInt(this.value,10);
+                    });
+                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                    var textWidth = ctx.measureText(tpercentage).width;
+              
+                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                }
+            });
             
             var res1;
             var res2;
@@ -293,50 +332,28 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 1,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk1').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk1').width();
-                                        var canvasHeight = $('#statistikk1').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+
+                                    /*myDoughnut.segments[0].value = 0;
+                                    myDoughnut.segments[1].value = 0;
+                                    myDoughnut.update();*/
+                                    myDoughnut.destroy();
+
+                                    /*var ctx = document.getElementById("myChartLine").getContext("2d");
+                                    myLineChart = new Chart(ctx).Line(data, options);
+                                    
+                                    myDoughnut.font="15px Georgia";
+                                    myDoughnut.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);*/
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
                             },
                         });
                     },
-                });
-                
+                });    
             }else if(x == 1){ //month
                 var date1 = $('input[name=date3]').val() + '-01';
                 var date2 = $('input[name=date4]').val() + '-01';
@@ -348,45 +365,18 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 2,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk1').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk1').width();
-                                        var canvasHeight = $('#statistikk1').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+                                    var c=document.getElementById("statistikk1");
+                                    var ctx=c.getContext("2d");
+
+                                    ctx.font="15px Georgia";
+                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
                             },
                         });
                     },
@@ -403,45 +393,18 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 3,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk1').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk1').width();
-                                        var canvasHeight = $('#statistikk1').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+                                    var c=document.getElementById("statistikk1");
+                                    var ctx=c.getContext("2d");
+
+                                    ctx.font="15px Georgia";
+                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
                             },
                         });
                     },
@@ -449,6 +412,46 @@ include '../phpBackend/connect.php';
             } 
         }
         function showChart2(){
+
+            var data = [
+                {
+                    value: 1,
+                    color:"#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Yellow"
+                },
+                {
+                    value: 1,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Green"
+                }
+            ]
+            var ctx = $('#statistikk2').get(0).getContext("2d");
+            var myDoughnut = new Chart(ctx).Doughnut(data,{
+                animation:true,
+                showTooltips: false,
+                percentageInnerCutout : 70,
+                segmentShowStroke : false,
+                onAnimationComplete: function() {
+                    var canvasWidthvar = $('#statistikk2').width();
+                    var canvasHeight = $('#statistikk2').height();
+                    var constant = 114;
+                    var fontsize = (canvasHeight/constant).toFixed(2);
+                    //ctx.font="2.8em Verdana";
+                    ctx.font=fontsize +"em Verdana";
+                    ctx.textBaseline="middle"; 
+                    var total = 0;
+                    $.each(data,function() {
+                        total += parseInt(this.value,10);
+                    });
+                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                    var textWidth = ctx.measureText(tpercentage).width;
+              
+                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                }
+            });
 
             var res1;
             var res2;
@@ -465,45 +468,18 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 4,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk2').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk2').width();
-                                        var canvasHeight = $('#statistikk2').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+                                    var c=document.getElementById("statistikk2");
+                                    var ctx=c.getContext("2d");
+
+                                    ctx.font="15px Georgia";
+                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
                             },
                         });
                     },
@@ -520,45 +496,18 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 5,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk2').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk2').width();
-                                        var canvasHeight = $('#statistikk2').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+                                    var c=document.getElementById("statistikk2");
+                                    var ctx=c.getContext("2d");
+
+                                    ctx.font="15px Georgia";
+                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
                             },
                         });
                     },
@@ -575,45 +524,18 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 6,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk2').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk2').width();
-                                        var canvasHeight = $('#statistikk2').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+                                    var c=document.getElementById("statistikk2");
+                                    var ctx=c.getContext("2d");
+
+                                    ctx.font="15px Georgia";
+                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
                             },
                         });
                     },
@@ -621,6 +543,47 @@ include '../phpBackend/connect.php';
             } 
         }
         function showChart3(){
+
+
+            var data = [
+                {
+                    value: 1,
+                    color:"#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Yellow"
+                },
+                {
+                    value: 1,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Green"
+                }
+            ]
+            var ctx = $('#statistikk3').get(0).getContext("2d");
+            var myDoughnut = new Chart(ctx).Doughnut(data,{
+                animation:true,
+                showTooltips: false,
+                percentageInnerCutout : 70,
+                segmentShowStroke : false,
+                onAnimationComplete: function() {
+                    var canvasWidthvar = $('#statistikk3').width();
+                    var canvasHeight = $('#statistikk3').height();
+                    var constant = 114;
+                    var fontsize = (canvasHeight/constant).toFixed(2);
+                    //ctx.font="2.8em Verdana";
+                    ctx.font=fontsize +"em Verdana";
+                    ctx.textBaseline="middle"; 
+                    var total = 0;
+                    $.each(data,function() {
+                        total += parseInt(this.value,10);
+                    });
+                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                    var textWidth = ctx.measureText(tpercentage).width;
+              
+                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                }
+            });
 
             var res1;
             var res2;
@@ -637,45 +600,19 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 7,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk3').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk3').width();
-                                        var canvasHeight = $('#statistikk3').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+                                    var c=document.getElementById("statistikk3");
+                                    var ctx=c.getContext("2d");
+
+                                    ctx.font="15px Georgia";
+                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
+                                    
                             },
                         });
                     },
@@ -692,45 +629,18 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 8,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk3').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk3').width();
-                                        var canvasHeight = $('#statistikk3').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+                                    var c=document.getElementById("statistikk3");
+                                    var ctx=c.getContext("2d");
+
+                                    ctx.font="15px Georgia";
+                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
                             },
                         });
                     },
@@ -747,45 +657,18 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 9,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk3').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk3').width();
-                                        var canvasHeight = $('#statistikk3').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+                                    var c=document.getElementById("statistikk3");
+                                    var ctx=c.getContext("2d");
+
+                                    ctx.font="15px Georgia";
+                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
                             },
                         });
                     },
@@ -793,6 +676,46 @@ include '../phpBackend/connect.php';
             } 
         }
         function showChart4(){
+
+            var data = [
+                {
+                    value: 1,
+                    color:"#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Yellow"
+                },
+                {
+                    value: 1,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Green"
+                }
+            ]
+            var ctx = $('#statistikk4').get(0).getContext("2d");
+            var myDoughnut = new Chart(ctx).Doughnut(data,{
+                animation:true,
+                showTooltips: false,
+                percentageInnerCutout : 70,
+                segmentShowStroke : false,
+                onAnimationComplete: function() {
+                    var canvasWidthvar = $('#statistikk4').width();
+                    var canvasHeight = $('#statistikk4').height();
+                    var constant = 114;
+                    var fontsize = (canvasHeight/constant).toFixed(2);
+                    //ctx.font="2.8em Verdana";
+                    ctx.font=fontsize +"em Verdana";
+                    ctx.textBaseline="middle"; 
+                    var total = 0;
+                    $.each(data,function() {
+                        total += parseInt(this.value,10);
+                    });
+                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                    var textWidth = ctx.measureText(tpercentage).width;
+              
+                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                }
+            });
 
             var res1;
             var res2;
@@ -809,45 +732,18 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 10,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk4').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk4').width();
-                                        var canvasHeight = $('#statistikk4').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+                                    var c=document.getElementById("statistikk4");
+                                    var ctx=c.getContext("2d");
+
+                                    ctx.font="15px Georgia";
+                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
                             },
                         });
                     },
@@ -864,45 +760,18 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 11,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk4').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk4').width();
-                                        var canvasHeight = $('#statistikk4').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+                                    var c=document.getElementById("statistikk4");
+                                    var ctx=c.getContext("2d");
+
+                                    ctx.font="15px Georgia";
+                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
                             },
                         });
                     },
@@ -919,45 +788,18 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 12,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk4').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk4').width();
-                                        var canvasHeight = $('#statistikk4').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+                                    var c=document.getElementById("statistikk4");
+                                    var ctx=c.getContext("2d");
+
+                                    ctx.font="15px Georgia";
+                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
                             },
                         });
                     },
@@ -965,6 +807,46 @@ include '../phpBackend/connect.php';
             } 
         }
         function showChart5(){
+
+            var data = [
+                {
+                    value: 1,
+                    color:"#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Yellow"
+                },
+                {
+                    value: 1,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Green"
+                }
+            ]
+            var ctx = $('#statistikk5').get(0).getContext("2d");
+            var myDoughnut = new Chart(ctx).Doughnut(data,{
+                animation:true,
+                showTooltips: false,
+                percentageInnerCutout : 70,
+                segmentShowStroke : false,
+                onAnimationComplete: function() {
+                    var canvasWidthvar = $('#statistikk5').width();
+                    var canvasHeight = $('#statistikk5').height();
+                    var constant = 114;
+                    var fontsize = (canvasHeight/constant).toFixed(2);
+                    //ctx.font="2.8em Verdana";
+                    ctx.font=fontsize +"em Verdana";
+                    ctx.textBaseline="middle"; 
+                    var total = 0;
+                    $.each(data,function() {
+                        total += parseInt(this.value,10);
+                    });
+                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                    var textWidth = ctx.measureText(tpercentage).width;
+              
+                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                }
+            });
 
             var res1;
             var res2;
@@ -981,45 +863,18 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 13,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk5').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk5').width();
-                                        var canvasHeight = $('#statistikk5').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+                                    var c=document.getElementById("statistikk5");
+                                    var ctx=c.getContext("2d");
+
+                                    ctx.font="15px Georgia";
+                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
                             },
                         });
                     },
@@ -1036,45 +891,18 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 14,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk5').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk5').width();
-                                        var canvasHeight = $('#statistikk5').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+                                    var c=document.getElementById("statistikk5");
+                                    var ctx=c.getContext("2d");
+
+                                    ctx.font="15px Georgia";
+                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
                             },
                         });
                     },
@@ -1091,45 +919,18 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 15,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk5').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk5').width();
-                                        var canvasHeight = $('#statistikk5').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+                                    var c=document.getElementById("statistikk5");
+                                    var ctx=c.getContext("2d");
+
+                                    ctx.font="15px Georgia";
+                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
                             },
                         });
                     },
@@ -1137,6 +938,46 @@ include '../phpBackend/connect.php';
             } 
         }
         function showChart6(){
+
+            var data = [
+                {
+                    value: 1,
+                    color:"#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Yellow"
+                },
+                {
+                    value: 1,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Green"
+                }
+            ]
+            var ctx = $('#statistikk6').get(0).getContext("2d");
+            var myDoughnut = new Chart(ctx).Doughnut(data,{
+                animation:true,
+                showTooltips: false,
+                percentageInnerCutout : 70,
+                segmentShowStroke : false,
+                onAnimationComplete: function() {
+                    var canvasWidthvar = $('#statistikk6').width();
+                    var canvasHeight = $('#statistikk6').height();
+                    var constant = 114;
+                    var fontsize = (canvasHeight/constant).toFixed(2);
+                    //ctx.font="2.8em Verdana";
+                    ctx.font=fontsize +"em Verdana";
+                    ctx.textBaseline="middle"; 
+                    var total = 0;
+                    $.each(data,function() {
+                        total += parseInt(this.value,10);
+                    });
+                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
+                    var textWidth = ctx.measureText(tpercentage).width;
+              
+                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
+                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
+                }
+            });
 
             var res1;
             var res2;
@@ -1153,45 +994,18 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 16,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk6').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk6').width();
-                                        var canvasHeight = $('#statistikk6').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+                                    /*var c=document.getElementById("statistikk6");
+                                    var ctx=c.getContext("2d");*/
+
+                                    myDoughnut.font="15px Georgia";
+                                    myDoughnut.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
                             },
                         });
                     },
@@ -1208,45 +1022,18 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 17,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk6').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk6').width();
-                                        var canvasHeight = $('#statistikk6').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+                                    var c=document.getElementById("statistikk6");
+                                    var ctx=c.getContext("2d");
+
+                                    ctx.font="15px Georgia";
+                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
                             },
                         });
                     },
@@ -1263,45 +1050,18 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 18,
                             success: function(data) {
                                 res2 = parseInt(data);
-                                var data = [
-                                    {
-                                        value: res2,
-                                        color:"#F7464A",
-                                        highlight: "#FF5A5E",
-                                        label: "Yellow"
-                                    },
-                                    {
-                                        value: res1,
-                                        color: "#46BFBD",
-                                        highlight: "#5AD3D1",
-                                        label: "Green"
-                                    }
-                                ]
-                                var ctx = $('#statistikk6').get(0).getContext("2d");
-                                var myDoughnut = new Chart(ctx).Doughnut(data,{
-                                    animation:true,
-                                    showTooltips: false,
-                                    percentageInnerCutout : 70,
-                                    segmentShowStroke : false,
-                                    onAnimationComplete: function() {
-                                        var canvasWidthvar = $('#statistikk6').width();
-                                        var canvasHeight = $('#statistikk6').height();
-                                        var constant = 114;
-                                        var fontsize = (canvasHeight/constant).toFixed(2);
-                                        //ctx.font="2.8em Verdana";
-                                        ctx.font=fontsize +"em Verdana";
-                                        ctx.textBaseline="middle"; 
-                                        var total = 0;
-                                        $.each(data,function() {
-                                            total += parseInt(this.value,10);
-                                        });
-                                        var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                                        var textWidth = ctx.measureText(tpercentage).width;
-                                  
-                                        var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                                        ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                                    }
-                                });
+
+                                if(res1 == 0 && res2 == 0){
+                                    var c=document.getElementById("statistikk6");
+                                    var ctx=c.getContext("2d");
+
+                                    ctx.font="15px Georgia";
+                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
+                                }else{
+                                    myDoughnut.segments[0].value = res2;
+                                    myDoughnut.segments[1].value = res1;
+                                    myDoughnut.update();
+                                }
                             },
                         });
                     },
