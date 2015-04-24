@@ -67,54 +67,54 @@ include '../phpBackend/checkSession.php';
           url : "../phpBackend/getFollowers.php",
           dataType : "json",
           success : function(response){
-            alert(response.length + " er responsen");
-             var sum = 0;
-             var content = "";
+            
+            var sum = 0;
+            var content = "";
 
-             for(var i = 0; i < response.length; i++){
-                var y = parseInt(response[i]['date'].substring(0, 4));
-                var m = parseInt(response[i]['date'].substring(5, 7));
-                var d = parseInt(response[i]['date'].substring(8, 10));
+            for(var i = 0; i < response.length; i++){
+              var y = parseInt(response[i]['date_added'].substring(0, 4));
+              var m = parseInt(response[i]['date_added'].substring(5, 7));
+              var d = parseInt(response[i]['date_added'].substring(8, 10));
 
 
-                switch(m){
-                   case 1:
-                   sumJan += 1;
-                   break;
-                   case 2:
-                   sumFeb += 1;
-                   break;
-                   case 3:
-                   sumMar += 1;
-                   break;
-                   case 4:
-                   sumApr += 1;
-                   break;
-                   case 5:
-                   sumMay += 1;
-                   break;
-                   case 6:
-                   sumJun += 1;
-                   break;
-                   case 7:
-                   sumJul += 1;
-                   break;
-                   case 8:
-                   sumAug += 1;
-                   break;
-                   case 9:
-                   sumSep += 1;
-                   break;
-                   case 10:
-                   sumOkt += 1;
-                   break;
-                   case 11:
-                   sumNov += 1;
-                   break;
-                   case 12:
-                   sumDec += 1;
-                   break;
-               }
+              switch(m){
+                  case 1:
+                  sumJan += 1;
+                  break;
+                  case 2:
+                  sumFeb += 1;
+                  break;
+                  case 3:
+                  sumMar += 1;
+                  break;
+                  case 4:
+                  sumApr += 1;
+                  break;
+                  case 5:
+                  sumMay += 1;
+                  break;
+                  case 6:
+                  sumJun += 1;
+                  break;
+                  case 7:
+                  sumJul += 1;
+                  break;
+                  case 8:
+                  sumAug += 1;
+                  break;
+                  case 9:
+                  sumSep += 1;
+                  break;
+                  case 10:
+                  sumOkt += 1;
+                  break;
+                  case 11:
+                  sumNov += 1;
+                  break;
+                  case 12:
+                  sumDec += 1;
+                  break;
+              }
 
 
 
