@@ -508,3 +508,20 @@ input[id=menu]{
 #main-themebtn3:hover{
 	background-color: #ddd;
 }
+
+ul.nav.navbar-nav.navbar-right a{
+	color: #fff;
+}
+ul.nav.navbar-nav.navbar-right a:hover{
+	color: #ccc;
+}
+
+.navbar-header a.navbar-brand{
+	color:#fff;
+}
+.navbar-header a.navbar-brand:hover{
+	color:#ccc;
+}
+#maindropdown a{
+	color: black;
+}

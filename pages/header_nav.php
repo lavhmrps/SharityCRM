@@ -43,7 +43,7 @@ $(document).ready(function(){
         </li>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Prosjekt<span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
+            <ul class="dropdown-menu" id="maindropdown" role="menu">
                 <li>
                     <a href="../pages/registerProject.php">Registrer prosjekt</a>
                 </li>
@@ -55,7 +55,7 @@ $(document).ready(function(){
         </li>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nyhet<span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
+            <ul class="dropdown-menu" id="maindropdown" role="menu">
                 <li>
                     <a href="../pages/registerNews.php">Registrer nyhet</a>
                 </li>
