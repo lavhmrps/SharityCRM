@@ -63,8 +63,8 @@ if($result){
 }
 ?>
 <div class="container" >
-	<div class="col-md-3"></div>
-	<div class="col-md-6" id="selectednewscontainer">
+	<div class="col-md-2"></div>
+	<div class="col-md-8" id="selectednewscontainer">
 
 		<div class="col-md-12 text-center" >
 			<?php
@@ -97,7 +97,7 @@ if($result){
 			?>
 
 		</div>
-		<div class="col-md-3"></div>
+		<div class="col-md-2"></div>
 	</div>
 </div>
 

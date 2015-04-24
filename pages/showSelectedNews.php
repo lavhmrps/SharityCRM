@@ -82,8 +82,8 @@ if(isset($_POST['registerNews'])){
 
 	?>
 	<div class="container" >
-		<div class="col-md-3"></div>
-		<div class="col-md-6" id="selectednewscontainer">
+		<div class="col-md-2"></div>
+		<div class="col-md-8" id="selectednewscontainer">
 
 
 
@@ -111,7 +111,7 @@ if(isset($_POST['registerNews'])){
 				
 
 			</div>
-			<div class="col-md-3"></div>
+			<div class="col-md-2"></div>
 
 
 		</div>
