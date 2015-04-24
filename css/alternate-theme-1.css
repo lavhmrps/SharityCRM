@@ -549,9 +549,16 @@ input[id=menu]{
 #main-themebtn3:hover{
 	background-color: #111;
 }
+#selectproject{
+	color: #999;
+}
 
+#selectproject ul li{
+	color: #fff;
+}
 #selectproject option{
 	background-color: #222;
+	color: #fff;
 }
 
 #selectednewscontainer{
