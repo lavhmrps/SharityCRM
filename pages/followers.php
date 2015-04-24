@@ -41,6 +41,7 @@ include '../phpBackend/checkSession.php';
 
     $(document).ready(function(){
 
+
         var ctx = document.getElementById("canvas").getContext("2d");
         window.myLine = new Chart(ctx).Line(lineChartData, {
             responsive: true
@@ -59,10 +60,14 @@ include '../phpBackend/checkSession.php';
         var sumNov = 0;
         var sumDec = 0;
 
+
+
+
         $.ajax({
-          url : "../phpBackend/getStatistics.php",
+          url : "../phpBackend/getFollowers.php",
           dataType : "json",
           success : function(response){
+            alert(response.length + " er responsen");
              var sum = 0;
              var content = "";
 
@@ -74,40 +79,40 @@ include '../phpBackend/checkSession.php';
 
                 switch(m){
                    case 1:
-                   sumJan += parseInt(response[i]['sum']);
+                   sumJan += 1;
                    break;
                    case 2:
-                   sumFeb += parseInt(response[i]['sum']);
+                   sumFeb += 1;
                    break;
                    case 3:
-                   sumMar += parseInt(response[i]['sum']);
+                   sumMar += 1;
                    break;
                    case 4:
-                   sumApr += parseInt(response[i]['sum']);
+                   sumApr += 1;
                    break;
                    case 5:
-                   sumMay += parseInt(response[i]['sum']);
+                   sumMay += 1;
                    break;
                    case 6:
-                   sumJun += parseInt(response[i]['sum']);
+                   sumJun += 1;
                    break;
                    case 7:
-                   sumJul += parseInt(response[i]['sum']);
+                   sumJul += 1;
                    break;
                    case 8:
-                   sumAug += parseInt(response[i]['sum']);
+                   sumAug += 1;
                    break;
                    case 9:
-                   sumSep += parseInt(response[i]['sum']);
+                   sumSep += 1;
                    break;
                    case 10:
-                   sumOkt += parseInt(response[i]['sum']);
+                   sumOkt += 1;
                    break;
                    case 11:
-                   sumNov += parseInt(response[i]['sum']);
+                   sumNov += 1;
                    break;
                    case 12:
-                   sumDec += parseInt(response[i]['sum']);
+                   sumDec += 1;
                    break;
                }
 
@@ -115,9 +120,7 @@ include '../phpBackend/checkSession.php';
 
 
                
-               sum += parseInt(response[i]['sum']);
-               content += "<tr><td>" + response[i]['projectID'] + " </td><td>" + response[i]['name'] + "</td><td>" + response[i]['sum'] + "</td><td>" + response[i]['type'] + "</td><td>" + d + "." + m + "." + y + "</td></tr>";
-
+           
            }
 
 
@@ -135,13 +138,10 @@ include '../phpBackend/checkSession.php';
            localStorage.setItem("november", sumNov);
            localStorage.setItem("december", sumDec);
 
-           
-           $('#tabell').append(content);
-
-
 
        },
-       error : function(){
+       error : function(error){
+       
          alert("Something went worng statistics2.php");
      }
  });
@@ -196,34 +196,6 @@ window.onload = function(){
 
 
 
-
-	
-	<table border="5" margin="2" style="width:100%; border: 1px soild black;" id="tabell">
-		<tr>
-			<td style="font-weight:bold;"><u>ProsjektID</u></td>
-			<td style="font-weight:bold;"><u>Prosjektnavn</u></td>		
-			<td style="font-weight:bold;"><u>Sum</u></td>
-			<td style="font-weight:bold;"><u>Donasjonstype</u></td>
-			<td style="font-weight:bold;"><u>Dato</u></td>		
-		</tr>
-	</table>
-
-
-
-	<p id="sum"></p>		
-	<!--
-	<p id="sumJan" onclick="alert(localStorage['januar'])">Sum jan</p>
-	<p id="sumFeb"></p>
-	<p id="sumMar"></p>
-	<p id="sumApr"></p>
-	<p id="sumMay"></p>
-	<p id="sumJun"></p>
-	<p id="sumJul"></p>
-	<p id="sumAug"></p>
-	<p id="sumSep"></p>
-	<p id="sumOkt"></p>
-	<p id="sumNov"></p>
-	<p id="sumDec"></p>-->
 	
 
 </body>

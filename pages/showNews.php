@@ -55,10 +55,31 @@ $organizationNr = $_SESSION['organizationNr'];
 				success : function(response){
 					var projectBox = "";					
 					for(var i = 0; i < response.length; i++){
+
+
+
+
+
 						projectBox += '<div class="col-lg-3 col-md-3 col-xs-2" id="projectcontainer">';
 						projectBox += '<div class="col-md-12" id="projectcontent">';
 						projectBox += "<h2>" + response[i].title + "</h2>";
-						projectBox += "<img src='http://localhost/SharityCRM/phpBackend/" + response[i].backgroundimgURL + " ' alt='Bakgrunnsbilde' id='showprojectimg'/>";
+
+
+						var url = response[i].backgroundimgURL;
+
+
+						if(url == null){
+							
+							projectBox += "<img src='http://localhost/SharityCRM/img/noimage.jpg' alt='Bakgrunnsbilde' id='showprojectimg'/>";
+						}else{
+							projectBox += "<img src='http://localhost/SharityCRM/phpBackend/" + response[i].backgroundimgURL + "' alt='Bakgrunnsbilde' id='showprojectimg'/>";
+						}
+						
+
+
+
+
+
 						projectBox += '</div>';
 						projectBox += "<div class='col-md-12' id='bottom'>";
 						projectBox += '<a href="../pages/showSelectedNews.php" onclick="showSelectedNews(' + response[i].projectID + ')">Vis</a> - ';

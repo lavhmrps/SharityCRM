@@ -58,14 +58,25 @@ $(document).ready(function(){
 					//alert(response + " " + <?php $_SESSION['organizationNr']?>);
 
 					
+
 					var projectBox = "";					
 
 					for(var i = 0; i < response.length; i++){
+
 						
+						
+
+						var url = response[i].backgroundimgURL;
+
+
+						if(url == null){
+							
+							url = "http://localhost/SharityCRM/img/noimage.jpg";
+						}
 						projectBox += '<div class="col-lg-3 col-md-3 col-xs-2" id="projectcontainer">';
 						projectBox += '<div class="col-md-12" id="projectcontent">';
 						projectBox += "<h2>" + response[i].name + "</h2>";
-						projectBox += "<img src='" + response[i].backgroundimgURL + " ' alt='Bakgrunnsbilde' id='showprojectimg'/>";
+						projectBox += "<img src='" + url + "' alt='Bakgrunnsbilde' id='showprojectimg'/>";
 						projectBox += '</div>';
 						projectBox += "<div class='col-md-12' id='bottom'>";
 						projectBox += '<a href="../pages/showSelectedProject.php" onclick="showProject(' + response[i].projectID + ')">Vis</a> - ';

@@ -276,11 +276,6 @@ function insertProject(){
 	var about = $("textarea[name=about]").val();
 
 
-	alert("OKname: " + OKname);
-	alert("OKcountry: " + OKcountry);
-	alert("OKcity: " + OKcity);
-
-
 	if(OKname && OKcountry && OKcity && OKtitle){
 
 		var json = {
@@ -322,9 +317,7 @@ function insertProject(){
 		});
 
 
-	}else{
-		alert("Ikke alle er true");
-	}	
+	}
 }
 
 //ajax request to .php script (insertBackgroundimgProject.php) to insert image into database

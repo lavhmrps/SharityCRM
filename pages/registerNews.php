@@ -76,7 +76,7 @@ if(isset($_POST['registerNews'])){
 						<label>Nyhetsoverskrift</label>
 					</div>
 					<div class="col-md-3 spanpadding">
-						<span hidden name="title" class="errorspan">Kun bokstaver og tall</span>  
+						<span hidden name="newsHeader" class="errorspan">Kun bokstaver og tall</span>  
 					</div>
 				</div>
 				<input type="text" id="reg_news_input" class="form-control" name="newsHeader" placeholder=""/>
@@ -136,33 +136,38 @@ if(isset($_POST['registerNews'])){
 			var pattern = /^[0-9-ÆØÅæøåAa-åA-Å ]+$/;
 
 			var reference = 'input[name='+this.name+']';
+			var errorRef = 'span[name='+this.name+']';
 
-			OKheader = checkInput(reference, pattern);
+			OKheader = checkInput(reference, pattern, errorRef);
 		}
 	});
 
 
-	function checkInput(ref, pattern){
+	function checkInput(ref, pattern, errorRef){
 
 		var string = $(ref).val();
 
 		if(string == ""){
 			$(ref).css('color', 'black');
+			$(errorRef).prop("hidden", true);
 			return false;
 		}
 
 		if(string.match(pattern)){
 
 			$(ref).css('color', 'black');
+			$(errorRef).prop("hidden", true);
 			return true;
 
 		}else{
 
 			$(ref).css('color', 'red');
+			$(errorRef).prop("hidden", false);
 			return false;
 		}
 		if(string == ""){
 			$(ref).css('color', 'black');
+			$(errorRef).prop("hidden", true);
 			return false;
 		}
 
