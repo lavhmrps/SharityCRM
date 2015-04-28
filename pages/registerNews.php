@@ -94,7 +94,7 @@ if(isset($_POST['registerNews'])){
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-xs-6">
 						<button  class="btn" name="insertNews" id="main-themebtn2">
-							Registrer prosjekt
+							Registrer nyhet
 						</button>
 					</div>
 					<div class="col-lg-6 col-md-6 col-xs-6">
