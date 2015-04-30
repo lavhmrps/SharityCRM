@@ -896,7 +896,7 @@ function showChart1(){
 			<div class="col-md-8">
 				<div class="input-append date">
 					<div class="col-md-6">
-					<select>
+					<select id="choosecriteria">
 						<option value="NULL">Hva vil du sammenligne? </option>
 						<option value="0">Dager</option>
 						<option value="1">Måneder</option>

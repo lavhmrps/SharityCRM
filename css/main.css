@@ -1596,6 +1596,7 @@ input[id=menu]{
 #statstext{
 	margin:0px;
 	margin-top:20px;
+	margin-bottom: 50px;
 	border-radius: 4px;
 	height:300px;
 }
