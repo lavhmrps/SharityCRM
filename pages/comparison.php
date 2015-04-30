@@ -889,12 +889,12 @@ function showChart1(){
 	<div class="container">
 
 		
-		<div class="col-md-12" style="background:green;">
+		<div class="col-md-12" style="background:#efefef;">
 			<div class="col-md-2">
 				<button class="button" id="backBtn">Gå tilbake</button>
 			</div>
 			<div class="col-md-8">
-				<p>På denne siden kan du sammenligne en dag med en annen, en måned med en annen, eller år med et annet år.</p>
+				<p>På denne siden kan du sammenligne en dag med en annen, en måned med en annen, og et år med et annet år.</p>
 				<div class="input-append date">
 					
 					<select>
@@ -914,103 +914,126 @@ function showChart1(){
 			</div>
 			<div class="col-md-2"></div>
 		</div>
-		
 
-		<div class="row">
-			<div class="col-md-2" id="left" style="background:red; height:650px;">
-				<span id="firstDate"></span> 
-			</div>
-			<div class="col-md-8" id="middle" height:650px;>
-				<div class="row">
-					<div class="col-md-4" id="middle" style="background:red;">
-						<h2>Nye følgere</h2>
-						<div class="row">
-							<div class="col-md-2">
-								<span id="followersFirstDate"></span> 
-							</div>
-							<div class="col-md-8">
-								<canvas id="statistikk1">
-								</canvas>
-							</div>
-							<div class="col-md-2">
-								<span id="followersLastDate"></span> 
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4" id="middle" style="background:blue;">
-						<h2>Donasjoner</h2>
+
+		<div class="col-md-12">
+			<div class="row">
+
+				<div class="col-md-4" id="statbox3">
+					<h2>Nye følgere</h2>
+					<div class="row">
 						<div class="col-md-2">
-							<span id="donationsFirstDate"></span> 
+							<span id="followersFirstDate"></span> 
 						</div>
 						<div class="col-md-8">
-							<canvas id="statistikk2">
+							<canvas id="statistikk1">
 							</canvas>
 						</div>
 						<div class="col-md-2">
-							<span id="donationsLastDate"></span> 
-						</div>
-					</div>
-					<div class="col-md-4" id="middle" style="background:black;">
-						<h2>Kroner donert</h2>
-						<div class="col-md-2">
-							<span id="moneyDonatedFirstDate"></span> 
-						</div>
-						<div class="col-md-8">
-							<canvas id="statistikk3">
-							</canvas>
-						</div>
-						<div class="col-md-2">
-							<span id="moneyDonatedLastDate"></span> 
+							<span id="followersLastDate"></span> 
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-4" id="middle" style="background:red;">
-						<h2>Gjennomsnittdonasjon</h2>
-						<div class="col-md-2">
-							<span id="averageDonationFirstDate"></span> 
-						</div>
-						<div class="col-md-8">
-							<canvas id="statistikk4">
-							</canvas>
-						</div>
-						<div class="col-md-2">
-							<span id="averageDonationLastDate"></span> 
-						</div>
+
+				<div class="col-md-4" id="statbox3">
+					<h2>Donasjoner</h2>
+					<div class="col-md-2">
+						<span id="donationsFirstDate"></span> 
 					</div>
-					<div class="col-md-4" id="middle" style="background:blue;">
-						<h2>Nye nyheter</h2>
-						<div class="col-md-2">
-							<span id="newsFirstDate"></span> 
-						</div>
-						<div class="col-md-8">
-							<canvas id="statistikk5">
-							</canvas>
-						</div>
-						<div class="col-md-2">
-							<span id="newsLastDate"></span> 
-						</div>
+					<div class="col-md-8">
+						<canvas id="statistikk2">
+						</canvas>
 					</div>
-					<div class="col-md-4" id="middle" style="background:black;">
-						<h2>Nye prosjekter</h2>
-						<div class="col-md-2">
-							<span id="prosjectsFirstDate"></span> 
-						</div>
-						<div class="col-md-8">
-							<canvas id="statistikk6">
-							</canvas>
-						</div>
-						<div class="col-md-2">
-							<span id="prosjectsLastDate"></span> 
-						</div>
+					<div class="col-md-2">
+						<span id="donationsLastDate"></span> 
 					</div>
 				</div>
+
+				<div class="col-md-4" id="statbox3">
+					<h2>Kroner donert</h2>
+					<div class="col-md-2">
+						<span id="moneyDonatedFirstDate"></span> 
+					</div>
+					<div class="col-md-8">
+						<canvas id="statistikk3">
+						</canvas>
+					</div>
+					<div class="col-md-2">
+						<span id="moneyDonatedLastDate"></span> 
+					</div>
+				</div>
+
+
 			</div>
-			<div class="col-md-2" style="background:yellow; height:650px;">
-				<span id="lastDate"></span>  
+			
+		</div>
+
+
+		<div class="col-md-12">
+			<div class="row">
+				
+				<div class="col-md-4" id="statbox3">
+					<h2>Gjennomsnittdonasjon</h2>
+					<div class="col-md-2">
+						<span id="averageDonationFirstDate"></span> 
+					</div>
+					<div class="col-md-8">
+						<canvas id="statistikk4">
+						</canvas>
+					</div>
+					<div class="col-md-2">
+						<span id="averageDonationLastDate"></span> 
+					</div>
+				</div>
+				<div class="col-md-4" id="statbox3">
+					<h2>Nye nyheter</h2>
+					<div class="col-md-2">
+						<span id="newsFirstDate"></span> 
+					</div>
+					<div class="col-md-8">
+						<canvas id="statistikk5">
+						</canvas>
+					</div>
+					<div class="col-md-2">
+						<span id="newsLastDate"></span> 
+					</div>
+				</div>
+				<div class="col-md-4" id="statbox3">
+					<h2>Nye prosjekter</h2>
+					<div class="col-md-2">
+						<span id="prosjectsFirstDate"></span> 
+					</div>
+					<div class="col-md-8">
+						<canvas id="statistikk6">
+						</canvas>
+					</div>
+					<div class="col-md-2">
+						<span id="prosjectsLastDate"></span> 
+					</div>
+				</div>
 			</div>
 		</div>
+
+
+		<!-- Written stats-->
+		<div class="col-md-3"></div>
+
+		<div class="col-md-7">
+			<div class="col-md-6" id="statbox2">
+				<span id="firstDate"></span> 
+			</div>
+			<div class="col-md-6" id="statbox2">
+				<span id="lastDate"></span> 
+			</div>
+		</div>
+
+		<div class="col-md-2"></div>
+		<!-- /written stats -->
+
+
 	</div>
+
+
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
 </body>

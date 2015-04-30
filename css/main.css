@@ -1581,6 +1581,13 @@ input[id=menu]{
 	
 }
 
+#statbox3{
+	margin: 10px;
+	margin-top:20px;
+	border-radius: 4px;
+	height:250px;
+	width: 360px;	
+}
 /* Må fordeles på themes*/ 
 .errorspan{
 	color:#FA0000;
