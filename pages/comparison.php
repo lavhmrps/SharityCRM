@@ -896,20 +896,24 @@ function showChart1(){
 			<div class="col-md-8">
 				<p>På denne siden kan du sammenligne en dag med en annen, en måned med en annen, og et år med et annet år.</p>
 				<div class="input-append date">
-					
+					<div class="col-md-6">
 					<select>
-						<option value="NULL">Sammenlign.. </option>
+						<option value="NULL">Hva vil du sammenligne? </option>
 						<option value="0">Dager</option>
 						<option value="1">Måneder</option>
 						<option value="2">År</option>
 					</select>
-
+					</div>
+					<div class="col-md-3">
 					<input class="span2" name="date" size="16" type="text" id="datepickerDay1" readonly="readonly" />
-					<input class="span2" name="date2" size="16" type="text" id="datepickerDay2" readonly="readonly" />
 					<input class="span2" name="date3" size="16" type="text" id="datepickerMnd1" readonly="readonly" />
-					<input class="span2" name="date4" size="16" type="text" id="datepickerMnd2" readonly="readonly" />
 					<input class="span2" name="date5" size="16" type="text" id="datepickerYear1" readonly="readonly" />
+					</div>
+					<div class="col-md-3">
+					<input class="span2" name="date2" size="16" type="text" id="datepickerDay2" readonly="readonly" />
+					<input class="span2" name="date4" size="16" type="text" id="datepickerMnd2" readonly="readonly" />
 					<input class="span2" name="date6" size="16" type="text" id="datepickerYear2" readonly="readonly" />
+					</div>
 				</div>
 			</div>
 			<div class="col-md-2"></div>
@@ -941,7 +945,7 @@ function showChart1(){
 						<span id="donationsFirstDate"></span> 
 					</div>
 					<div class="col-md-8">
-						<canvas id="statistikk2">
+						<canvas class="" id="statistikk2">
 						</canvas>
 					</div>
 					<div class="col-md-2">
@@ -985,6 +989,7 @@ function showChart1(){
 						<span id="averageDonationLastDate"></span> 
 					</div>
 				</div>
+
 				<div class="col-md-4" id="statbox3">
 					<h2>Nye nyheter</h2>
 					<div class="col-md-2">
@@ -998,6 +1003,7 @@ function showChart1(){
 						<span id="newsLastDate"></span> 
 					</div>
 				</div>
+
 				<div class="col-md-4" id="statbox3">
 					<h2>Nye prosjekter</h2>
 					<div class="col-md-2">
@@ -1016,9 +1022,8 @@ function showChart1(){
 
 
 		<!-- Written stats-->
-		<div class="col-md-3"></div>
-
-		<div class="col-md-7">
+		<div class="col-md-12 text-center" id="statstext">
+			<h2>Skriftlig statistikk</h2>
 			<div class="col-md-6" id="statbox2">
 				<span id="firstDate"></span> 
 			</div>
@@ -1027,14 +1032,14 @@ function showChart1(){
 			</div>
 		</div>
 
-		<div class="col-md-2"></div>
-		<!-- /written stats -->
+
+	<!-- /written stats -->
 
 
-	</div>
+</div>
 
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="../js/bootstrap.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>

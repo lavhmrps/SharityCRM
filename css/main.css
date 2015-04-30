@@ -1588,6 +1588,19 @@ input[id=menu]{
 	height:250px;
 	width: 360px;	
 }
+
+.doughnutchart{
+	
+	padding:10px;
+}
+
+#statstext{
+	margin:0px;
+	margin-top:20px;
+	border-radius: 4px;
+	height:300px;
+}
+
 /* Må fordeles på themes*/ 
 .errorspan{
 	color:#FA0000;
