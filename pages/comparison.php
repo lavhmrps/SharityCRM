@@ -889,12 +889,11 @@ function showChart1(){
 	<div class="container">
 
 		
-		<div class="col-md-12" style="background:#efefef;">
+		<div class="col-md-12" id="statschooser">
 			<div class="col-md-2">
-				<button class="button" id="backBtn">Gå tilbake</button>
+				
 			</div>
 			<div class="col-md-8">
-				<p>På denne siden kan du sammenligne en dag med en annen, en måned med en annen, og et år med et annet år.</p>
 				<div class="input-append date">
 					<div class="col-md-6">
 					<select>
@@ -904,15 +903,15 @@ function showChart1(){
 						<option value="2">År</option>
 					</select>
 					</div>
-					<div class="col-md-3">
-					<input class="span2" name="date" size="16" type="text" id="datepickerDay1" readonly="readonly" />
-					<input class="span2" name="date3" size="16" type="text" id="datepickerMnd1" readonly="readonly" />
-					<input class="span2" name="date5" size="16" type="text" id="datepickerYear1" readonly="readonly" />
+					<div class="col-md-3" id="inputdatepadding">
+					<input class="span2" name="date" size="16" type="text" id="datepickerDay1" readonly="readonly" placeholder="Dag 1" />
+					<input class="span2" name="date3" size="16" type="text" id="datepickerMnd1" readonly="readonly" placeholder="Måned 1" />
+					<input class="span2" name="date5" size="16" type="text" id="datepickerYear1" readonly="readonly" placeholder="År 1" />
 					</div>
-					<div class="col-md-3">
-					<input class="span2" name="date2" size="16" type="text" id="datepickerDay2" readonly="readonly" />
-					<input class="span2" name="date4" size="16" type="text" id="datepickerMnd2" readonly="readonly" />
-					<input class="span2" name="date6" size="16" type="text" id="datepickerYear2" readonly="readonly" />
+					<div class="col-md-3" id="inputdatepadding">
+					<input class="span2" name="date2" size="16" type="text" id="datepickerDay2" readonly="readonly" placeholder="Dag 2" />
+					<input class="span2" name="date4" size="16" type="text" id="datepickerMnd2" readonly="readonly" placeholder="Måned 2" />
+					<input class="span2" name="date6" size="16" type="text" id="datepickerYear2" readonly="readonly" placeholder="År 2"/>
 					</div>
 				</div>
 			</div>

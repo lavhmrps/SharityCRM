@@ -572,3 +572,30 @@ input[id=menu]{
 	border:1px solid #000;
 	color: #FFF;
 }
+
+#statbox3{
+	background:#212121;
+	border:1px solid #000;
+	color:#fff;
+}
+
+#statbox2{
+	background:#212121;
+	color:#fff;
+}
+
+#statstext{
+	background:#212121;
+	border:1px solid #000;
+	color:#fff;
+}
+
+#statschooser{
+	background:#212121;
+	border:1px solid #000;
+	color:#fff;
+}
+
+input[id="choosecriteria"]{
+	color: #000;
+}

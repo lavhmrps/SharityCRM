@@ -1585,12 +1585,11 @@ input[id=menu]{
 	margin: 10px;
 	margin-top:20px;
 	border-radius: 4px;
-	height:250px;
+	height:260px;
 	width: 360px;	
 }
 
-.doughnutchart{
-	
+.doughnutchart{	
 	padding:10px;
 }
 
@@ -1601,6 +1600,25 @@ input[id=menu]{
 	height:300px;
 }
 
+#inputdatepadding{
+	padding:8px;
+}
+#statistikk1, #statistikk2, #statistikk3, #statistikk4, #statistikk5, #statistikk6{
+	margin-left: -55px;
+	margin-top: 10px;
+}
+
+#datepickerday1, #datepickerday2, #datepickerMnd1, #datepickerMnd2, #datepickerYear1, #datepickerYear2{
+	height:26px;
+	margin-top:3px;
+	font-size: 18px;
+	width:98%;
+	color: #000;
+}
+
+#statschooser{
+	padding:10px;
+}
 /* Må fordeles på themes*/ 
 .errorspan{
 	color:#FA0000;
