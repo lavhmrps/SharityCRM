@@ -197,7 +197,7 @@ include '../phpBackend/connect.php';
         }
 
 
-        function showLineChartIncomeYear(){
+        /*function showLineChartIncomeYear(){
 
             var day = $('input[name=date]').val();
 
@@ -289,7 +289,6 @@ include '../phpBackend/connect.php';
         }
 
         function showLineChartDonationsYear(){
-        }
             var day = $('input[name=date]').val();
 
             var sumJan = 0;
@@ -377,7 +376,8 @@ include '../phpBackend/connect.php';
                     alert("Something went worng");
                 }
             });  
-
+        }*/
+        
         function showLineChartFollowersYear(){
         }
 

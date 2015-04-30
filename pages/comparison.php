@@ -135,7 +135,6 @@ include '../phpBackend/connect.php';
                 showChart6();
             }
         });
-
         $('#datepickerMnd1').datepicker({
             format: "yyyy-mm",
             weekStart: 1,
@@ -182,12 +181,6 @@ include '../phpBackend/connect.php';
         });
 
 
-
-
-
-
-
-        
         function day1(){
             var day = $('input[name=date]').val();
             var xmlhttp = new XMLHttpRequest();
@@ -201,7 +194,6 @@ include '../phpBackend/connect.php';
             xmlhttp.open("GET", "../phpBackend/OrgStat/day.php?date=" + day, true);
             xmlhttp.send();
         }
-
         function day2(){
             var day = $('input[name=date2]').val();
             var xmlhttp = new XMLHttpRequest();
@@ -231,7 +223,6 @@ include '../phpBackend/connect.php';
             xmlhttp.open("GET", "../phpBackend/OrgStat/month.php?date=" + day, true);
             xmlhttp.send();
         }
-
         function mnd2(){
             var day = $('input[name=date4]').val() + '-01';
 
@@ -285,36 +276,19 @@ include '../phpBackend/connect.php';
                     label: "Yellow"
                 },
                 {
-                    value: 2,
+                    value: 1,
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Green"
                 }
             ]
+
             var ctx = $('#statistikk1').get(0).getContext("2d");
             var myDoughnut = new Chart(ctx).Doughnut(data,{
                 animation:true,
-                showTooltips: false,
-                percentageInnerCutout : 70,
-                segmentShowStroke : false,
-                onAnimationComplete: function() {
-                    var canvasWidthvar = $('#statistikk1').width();
-                    var canvasHeight = $('#statistikk1').height();
-                    var constant = 114;
-                    var fontsize = (canvasHeight/constant).toFixed(2);
-                    //ctx.font="2.8em Verdana";
-                    ctx.font=fontsize +"em Verdana";
-                    ctx.textBaseline="middle"; 
-                    var total = 0;
-                    $.each(data,function() {
-                        total += parseInt(this.value,10);
-                    });
-                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                    var textWidth = ctx.measureText(tpercentage).width;
-              
-                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                }
+                showTooltips: true,
+                percentageInnerCutout : 65,
+                segmentShowStroke : false
             });
             
             var res1;
@@ -333,23 +307,13 @@ include '../phpBackend/connect.php';
                             success: function(data) {
                                 res2 = parseInt(data);
 
-                                if(res1 == 0 && res2 == 0){
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update();
 
-                                    /*myDoughnut.segments[0].value = 0;
-                                    myDoughnut.segments[1].value = 0;
-                                    myDoughnut.update();*/
-                                    myDoughnut.destroy();
-
-                                    /*var ctx = document.getElementById("myChartLine").getContext("2d");
-                                    myLineChart = new Chart(ctx).Line(data, options);
-                                    
-                                    myDoughnut.font="15px Georgia";
-                                    myDoughnut.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);*/
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
+                                $("#followersFirstDate").text(res1);
+                                $("#followersLastDate").text(res2);
+                                
                             },
                         });
                     },
@@ -365,23 +329,19 @@ include '../phpBackend/connect.php';
                             url: '../phpBackend/doughnut.php?date='+ date2 + '&num=' + 2,
                             success: function(data) {
                                 res2 = parseInt(data);
+        
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update(); 
 
-                                if(res1 == 0 && res2 == 0){
-                                    var c=document.getElementById("statistikk1");
-                                    var ctx=c.getContext("2d");
 
-                                    ctx.font="15px Georgia";
-                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
+                                $("#followersFirstDate").text(res1);
+                                $("#followersLastDate").text(res2); 
+                                
                             },
                         });
                     },
                 });
-
             }else if(x == 2){ //year
                 var date1 = $('input[name=date5]').val();
                 var date2 = $('input[name=date6]').val();
@@ -394,23 +354,19 @@ include '../phpBackend/connect.php';
                             success: function(data) {
                                 res2 = parseInt(data);
 
-                                if(res1 == 0 && res2 == 0){
-                                    var c=document.getElementById("statistikk1");
-                                    var ctx=c.getContext("2d");
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update();
 
-                                    ctx.font="15px Georgia";
-                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
+                                $("#followersFirstDate").text(res1);
+                                $("#followersLastDate").text(res2); 
                             },
                         });
                     },
                 });
             } 
         }
+
         function showChart2(){
 
             var data = [
@@ -427,30 +383,13 @@ include '../phpBackend/connect.php';
                     label: "Green"
                 }
             ]
+
             var ctx = $('#statistikk2').get(0).getContext("2d");
             var myDoughnut = new Chart(ctx).Doughnut(data,{
                 animation:true,
-                showTooltips: false,
-                percentageInnerCutout : 70,
-                segmentShowStroke : false,
-                onAnimationComplete: function() {
-                    var canvasWidthvar = $('#statistikk2').width();
-                    var canvasHeight = $('#statistikk2').height();
-                    var constant = 114;
-                    var fontsize = (canvasHeight/constant).toFixed(2);
-                    //ctx.font="2.8em Verdana";
-                    ctx.font=fontsize +"em Verdana";
-                    ctx.textBaseline="middle"; 
-                    var total = 0;
-                    $.each(data,function() {
-                        total += parseInt(this.value,10);
-                    });
-                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                    var textWidth = ctx.measureText(tpercentage).width;
-              
-                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                }
+                showTooltips: true,
+                percentageInnerCutout : 65,
+                segmentShowStroke : false
             });
 
             var res1;
@@ -469,22 +408,17 @@ include '../phpBackend/connect.php';
                             success: function(data) {
                                 res2 = parseInt(data);
 
-                                if(res1 == 0 && res2 == 0){
-                                    var c=document.getElementById("statistikk2");
-                                    var ctx=c.getContext("2d");
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update();
 
-                                    ctx.font="15px Georgia";
-                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
+                                $("#donationsFirstDate").text(res1);
+                                $("#donationsLastDate").text(res2); 
+                                
                             },
                         });
                     },
                 });
-                
             }else if(x == 1){ //month
                 var date1 = $('input[name=date3]').val() + '-01';
                 var date2 = $('input[name=date4]').val() + '-01';
@@ -497,22 +431,16 @@ include '../phpBackend/connect.php';
                             success: function(data) {
                                 res2 = parseInt(data);
 
-                                if(res1 == 0 && res2 == 0){
-                                    var c=document.getElementById("statistikk2");
-                                    var ctx=c.getContext("2d");
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update();
 
-                                    ctx.font="15px Georgia";
-                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
+                                $("#donationsFirstDate").text(res1);
+                                $("#donationsLastDate").text(res2);
                             },
                         });
                     },
                 });
-
             }else if(x == 2){ //year
                 var date1 = $('input[name=date5]').val();
                 var date2 = $('input[name=date6]').val();
@@ -525,23 +453,19 @@ include '../phpBackend/connect.php';
                             success: function(data) {
                                 res2 = parseInt(data);
 
-                                if(res1 == 0 && res2 == 0){
-                                    var c=document.getElementById("statistikk2");
-                                    var ctx=c.getContext("2d");
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update();
 
-                                    ctx.font="15px Georgia";
-                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
+                                $("#donationsFirstDate").text(res1);
+                                $("#donationsLastDate").text(res2);
                             },
                         });
                     },
                 });
             } 
         }
+
         function showChart3(){
 
 
@@ -562,27 +486,9 @@ include '../phpBackend/connect.php';
             var ctx = $('#statistikk3').get(0).getContext("2d");
             var myDoughnut = new Chart(ctx).Doughnut(data,{
                 animation:true,
-                showTooltips: false,
-                percentageInnerCutout : 70,
-                segmentShowStroke : false,
-                onAnimationComplete: function() {
-                    var canvasWidthvar = $('#statistikk3').width();
-                    var canvasHeight = $('#statistikk3').height();
-                    var constant = 114;
-                    var fontsize = (canvasHeight/constant).toFixed(2);
-                    //ctx.font="2.8em Verdana";
-                    ctx.font=fontsize +"em Verdana";
-                    ctx.textBaseline="middle"; 
-                    var total = 0;
-                    $.each(data,function() {
-                        total += parseInt(this.value,10);
-                    });
-                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                    var textWidth = ctx.measureText(tpercentage).width;
-              
-                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                }
+                showTooltips: true,
+                percentageInnerCutout : 65,
+                segmentShowStroke : false
             });
 
             var res1;
@@ -601,23 +507,17 @@ include '../phpBackend/connect.php';
                             success: function(data) {
                                 res2 = parseInt(data);
 
-                                if(res1 == 0 && res2 == 0){
-                                    var c=document.getElementById("statistikk3");
-                                    var ctx=c.getContext("2d");
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update();  
 
-                                    ctx.font="15px Georgia";
-                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
-                                    
+                                $("#moneyDonatedFirstDate").text(res1 + ",-");
+                                $("#moneyDonatedLastDate").text(res2 + ",-"); 
+                                
                             },
                         });
                     },
-                });
-                
+                }); 
             }else if(x == 1){ //month
                 var date1 = $('input[name=date3]').val() + '-01';
                 var date2 = $('input[name=date4]').val() + '-01';
@@ -630,22 +530,16 @@ include '../phpBackend/connect.php';
                             success: function(data) {
                                 res2 = parseInt(data);
 
-                                if(res1 == 0 && res2 == 0){
-                                    var c=document.getElementById("statistikk3");
-                                    var ctx=c.getContext("2d");
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update();
 
-                                    ctx.font="15px Georgia";
-                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
+                                $("#moneyDonatedFirstDate").text(res1 + ",-");
+                                $("#moneyDonatedLastDate").text(res2 + ",-"); 
                             },
                         });
                     },
                 });
-
             }else if(x == 2){ //year
                 var date1 = $('input[name=date5]').val();
                 var date2 = $('input[name=date6]').val();
@@ -658,23 +552,19 @@ include '../phpBackend/connect.php';
                             success: function(data) {
                                 res2 = parseInt(data);
 
-                                if(res1 == 0 && res2 == 0){
-                                    var c=document.getElementById("statistikk3");
-                                    var ctx=c.getContext("2d");
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update();
 
-                                    ctx.font="15px Georgia";
-                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
+                                $("#moneyDonatedFirstDate").text(res1 + ",-");
+                                $("#moneyDonatedLastDate").text(res2 + ",-"); 
                             },
                         });
                     },
                 });
             } 
         }
+
         function showChart4(){
 
             var data = [
@@ -694,27 +584,9 @@ include '../phpBackend/connect.php';
             var ctx = $('#statistikk4').get(0).getContext("2d");
             var myDoughnut = new Chart(ctx).Doughnut(data,{
                 animation:true,
-                showTooltips: false,
-                percentageInnerCutout : 70,
-                segmentShowStroke : false,
-                onAnimationComplete: function() {
-                    var canvasWidthvar = $('#statistikk4').width();
-                    var canvasHeight = $('#statistikk4').height();
-                    var constant = 114;
-                    var fontsize = (canvasHeight/constant).toFixed(2);
-                    //ctx.font="2.8em Verdana";
-                    ctx.font=fontsize +"em Verdana";
-                    ctx.textBaseline="middle"; 
-                    var total = 0;
-                    $.each(data,function() {
-                        total += parseInt(this.value,10);
-                    });
-                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                    var textWidth = ctx.measureText(tpercentage).width;
-              
-                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                }
+                showTooltips: true,
+                percentageInnerCutout : 65,
+                segmentShowStroke : false
             });
 
             var res1;
@@ -733,22 +605,18 @@ include '../phpBackend/connect.php';
                             success: function(data) {
                                 res2 = parseInt(data);
 
-                                if(res1 == 0 && res2 == 0){
-                                    var c=document.getElementById("statistikk4");
-                                    var ctx=c.getContext("2d");
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update();
 
-                                    ctx.font="15px Georgia";
-                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
+                                
+                                $("#averageDonationFirstDate").text(res1 + ",-");
+                                $("#averageDonationLastDate").text(res2 + ",-");
+                                
                             },
                         });
                     },
                 });
-                
             }else if(x == 1){ //month
                 var date1 = $('input[name=date3]').val() + '-01';
                 var date2 = $('input[name=date4]').val() + '-01';
@@ -761,22 +629,16 @@ include '../phpBackend/connect.php';
                             success: function(data) {
                                 res2 = parseInt(data);
 
-                                if(res1 == 0 && res2 == 0){
-                                    var c=document.getElementById("statistikk4");
-                                    var ctx=c.getContext("2d");
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update();
 
-                                    ctx.font="15px Georgia";
-                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
+                                $("#averageDonationFirstDate").text(res1 + ",-");
+                                $("#averageDonationLastDate").text(res2 + ",-");
                             },
                         });
                     },
                 });
-
             }else if(x == 2){ //year
                 var date1 = $('input[name=date5]').val();
                 var date2 = $('input[name=date6]').val();
@@ -789,25 +651,20 @@ include '../phpBackend/connect.php';
                             success: function(data) {
                                 res2 = parseInt(data);
 
-                                if(res1 == 0 && res2 == 0){
-                                    var c=document.getElementById("statistikk4");
-                                    var ctx=c.getContext("2d");
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update();
 
-                                    ctx.font="15px Georgia";
-                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
+                                $("#averageDonationFirstDate").text(res1 + ",-");
+                                $("#averageDonationLastDate").text(res2 + ",-");
                             },
                         });
                     },
                 });
             } 
         }
-        function showChart5(){
 
+        function showChart5(){
             var data = [
                 {
                     value: 1,
@@ -822,37 +679,19 @@ include '../phpBackend/connect.php';
                     label: "Green"
                 }
             ]
+
             var ctx = $('#statistikk5').get(0).getContext("2d");
             var myDoughnut = new Chart(ctx).Doughnut(data,{
                 animation:true,
-                showTooltips: false,
-                percentageInnerCutout : 70,
-                segmentShowStroke : false,
-                onAnimationComplete: function() {
-                    var canvasWidthvar = $('#statistikk5').width();
-                    var canvasHeight = $('#statistikk5').height();
-                    var constant = 114;
-                    var fontsize = (canvasHeight/constant).toFixed(2);
-                    //ctx.font="2.8em Verdana";
-                    ctx.font=fontsize +"em Verdana";
-                    ctx.textBaseline="middle"; 
-                    var total = 0;
-                    $.each(data,function() {
-                        total += parseInt(this.value,10);
-                    });
-                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                    var textWidth = ctx.measureText(tpercentage).width;
-              
-                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                }
+                showTooltips: true,
+                percentageInnerCutout : 65,
+                segmentShowStroke : false
             });
 
             var res1;
             var res2;
             var x = localStorage.getItem('type');
             if(x == 0){ //day
-                
                 var date1 = $('input[name=date]').val();
                 var date2 = $('input[name=date2]').val();
                 $.ajax({
@@ -864,22 +703,18 @@ include '../phpBackend/connect.php';
                             success: function(data) {
                                 res2 = parseInt(data);
 
-                                if(res1 == 0 && res2 == 0){
-                                    var c=document.getElementById("statistikk5");
-                                    var ctx=c.getContext("2d");
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update();
 
-                                    ctx.font="15px Georgia";
-                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
+                                
+                                $("#newsFirstDate").text(res1);
+                                $("#newsLastDate").text(res2);
+                                
                             },
                         });
                     },
-                });
-                
+                });    
             }else if(x == 1){ //month
                 var date1 = $('input[name=date3]').val() + '-01';
                 var date2 = $('input[name=date4]').val() + '-01';
@@ -892,22 +727,16 @@ include '../phpBackend/connect.php';
                             success: function(data) {
                                 res2 = parseInt(data);
 
-                                if(res1 == 0 && res2 == 0){
-                                    var c=document.getElementById("statistikk5");
-                                    var ctx=c.getContext("2d");
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update();
 
-                                    ctx.font="15px Georgia";
-                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
+                                $("#newsFirstDate").text(res1);
+                                $("#newsLastDate").text(res2);
                             },
                         });
                     },
                 });
-
             }else if(x == 2){ //year
                 var date1 = $('input[name=date5]').val();
                 var date2 = $('input[name=date6]').val();
@@ -920,25 +749,20 @@ include '../phpBackend/connect.php';
                             success: function(data) {
                                 res2 = parseInt(data);
 
-                                if(res1 == 0 && res2 == 0){
-                                    var c=document.getElementById("statistikk5");
-                                    var ctx=c.getContext("2d");
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update();
 
-                                    ctx.font="15px Georgia";
-                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
+                                $("#newsFirstDate").text(res1);
+                                $("#newsLastDate").text(res2);
                             },
                         });
                     },
                 });
             } 
         }
-        function showChart6(){
 
+        function showChart6(){
             var data = [
                 {
                     value: 1,
@@ -953,30 +777,13 @@ include '../phpBackend/connect.php';
                     label: "Green"
                 }
             ]
+
             var ctx = $('#statistikk6').get(0).getContext("2d");
             var myDoughnut = new Chart(ctx).Doughnut(data,{
                 animation:true,
-                showTooltips: false,
-                percentageInnerCutout : 70,
-                segmentShowStroke : false,
-                onAnimationComplete: function() {
-                    var canvasWidthvar = $('#statistikk6').width();
-                    var canvasHeight = $('#statistikk6').height();
-                    var constant = 114;
-                    var fontsize = (canvasHeight/constant).toFixed(2);
-                    //ctx.font="2.8em Verdana";
-                    ctx.font=fontsize +"em Verdana";
-                    ctx.textBaseline="middle"; 
-                    var total = 0;
-                    $.each(data,function() {
-                        total += parseInt(this.value,10);
-                    });
-                    var tpercentage = ((data[0].value/total)*100).toFixed(2)+"%";
-                    var textWidth = ctx.measureText(tpercentage).width;
-              
-                    var txtPosx = Math.round((canvasWidthvar - textWidth)/2);
-                    ctx.fillText(tpercentage, txtPosx, canvasHeight/2);
-                }
+                showTooltips: true,
+                percentageInnerCutout : 65,
+                segmentShowStroke : false
             });
 
             var res1;
@@ -995,22 +802,18 @@ include '../phpBackend/connect.php';
                             success: function(data) {
                                 res2 = parseInt(data);
 
-                                if(res1 == 0 && res2 == 0){
-                                    /*var c=document.getElementById("statistikk6");
-                                    var ctx=c.getContext("2d");*/
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update();
 
-                                    myDoughnut.font="15px Georgia";
-                                    myDoughnut.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
+                                
+                                $("#prosjectsFirstDate").text(res1);
+                                $("#prosjectsLastDate").text(res2);
+                                
                             },
                         });
                     },
                 });
-                
             }else if(x == 1){ //month
                 var date1 = $('input[name=date3]').val() + '-01';
                 var date2 = $('input[name=date4]').val() + '-01';
@@ -1023,22 +826,16 @@ include '../phpBackend/connect.php';
                             success: function(data) {
                                 res2 = parseInt(data);
 
-                                if(res1 == 0 && res2 == 0){
-                                    var c=document.getElementById("statistikk6");
-                                    var ctx=c.getContext("2d");
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update();
 
-                                    ctx.font="15px Georgia";
-                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
+                                $("#prosjectsFirstDate").text(res1);
+                                $("#prosjectsLastDate").text(res2);
                             },
                         });
                     },
                 });
-
             }else if(x == 2){ //year
                 var date1 = $('input[name=date5]').val();
                 var date2 = $('input[name=date6]').val();
@@ -1051,17 +848,12 @@ include '../phpBackend/connect.php';
                             success: function(data) {
                                 res2 = parseInt(data);
 
-                                if(res1 == 0 && res2 == 0){
-                                    var c=document.getElementById("statistikk6");
-                                    var ctx=c.getContext("2d");
+                                myDoughnut.segments[0].value = res2;
+                                myDoughnut.segments[1].value = res1;
+                                myDoughnut.update();
 
-                                    ctx.font="15px Georgia";
-                                    ctx.fillText("Både " + date1 + " og " + date2 + " er 0!",10,50);
-                                }else{
-                                    myDoughnut.segments[0].value = res2;
-                                    myDoughnut.segments[1].value = res1;
-                                    myDoughnut.update();
-                                }
+                                $("#prosjectsFirstDate").text(res1);
+                                $("#prosjectsLastDate").text(res2);
                             },
                         });
                     },
@@ -1099,25 +891,90 @@ include '../phpBackend/connect.php';
 			<span id="firstDate"></span> 
 		</div>
 		<div class="col-md-8" id="middle" height:650px;>
-
-			<div class="col-md-4" id="middle" style="background:red;">
-				<canvas id="statistikk1">
-				</canvas>
-				<canvas id="statistikk4">
-				</canvas>
-			</div>
-			<div class="col-md-4" id="middle" style="background:blue;">
-				<canvas id="statistikk2">
-				</canvas>
-				<canvas id="statistikk5">
-				</canvas>
-			</div>
-			<div class="col-md-4" id="middle" style="background:black;">
-				<canvas id="statistikk3">
-				</canvas>
-				<canvas id="statistikk6">
-				</canvas>
-			</div>
+            <div class="row">
+    			<div class="col-md-4" id="middle" style="background:red;">
+                    <h2>Nye følgere</h2>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <span id="followersFirstDate"></span> 
+                        </div>
+                        <div class="col-md-8">
+        				    <canvas id="statistikk1">
+        				    </canvas>
+                        </div>
+                        <div class="col-md-2">
+                            <span id="followersLastDate"></span> 
+                        </div>
+                    </div>
+    			</div>
+    			<div class="col-md-4" id="middle" style="background:blue;">
+                    <h2>Donasjoner</h2>
+    				<div class="col-md-2">
+                        <span id="donationsFirstDate"></span> 
+                    </div>
+                    <div class="col-md-8">
+                        <canvas id="statistikk2">
+                        </canvas>
+                    </div>
+                    <div class="col-md-2">
+                        <span id="donationsLastDate"></span> 
+                    </div>
+    			</div>
+    			<div class="col-md-4" id="middle" style="background:black;">
+                    <h2>Kroner donert</h2>
+    				<div class="col-md-2">
+                        <span id="moneyDonatedFirstDate"></span> 
+                    </div>
+                    <div class="col-md-8">
+                        <canvas id="statistikk3">
+                        </canvas>
+                    </div>
+                    <div class="col-md-2">
+                        <span id="moneyDonatedLastDate"></span> 
+                    </div>
+    			</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" id="middle" style="background:red;">
+                    <h2>Gjennomsnittdonasjon</h2>
+                    <div class="col-md-2">
+                        <span id="averageDonationFirstDate"></span> 
+                    </div>
+                    <div class="col-md-8">
+                        <canvas id="statistikk4">
+                        </canvas>
+                    </div>
+                    <div class="col-md-2">
+                        <span id="averageDonationLastDate"></span> 
+                    </div>
+                </div>
+                <div class="col-md-4" id="middle" style="background:blue;">
+                    <h2>Nye nyheter</h2>
+                    <div class="col-md-2">
+                        <span id="newsFirstDate"></span> 
+                    </div>
+                    <div class="col-md-8">
+                        <canvas id="statistikk5">
+                        </canvas>
+                    </div>
+                    <div class="col-md-2">
+                        <span id="newsLastDate"></span> 
+                    </div>
+                </div>
+                <div class="col-md-4" id="middle" style="background:black;">
+                    <h2>Nye prosjekter</h2>
+                    <div class="col-md-2">
+                        <span id="prosjectsFirstDate"></span> 
+                    </div>
+                    <div class="col-md-8">
+                        <canvas id="statistikk6">
+                        </canvas>
+                    </div>
+                    <div class="col-md-2">
+                        <span id="prosjectsLastDate"></span> 
+                    </div>
+                </div>
+            </div>
 		</div>
 		<div class="col-md-2" style="background:yellow; height:650px;">
 			<span id="lastDate"></span>  

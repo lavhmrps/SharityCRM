@@ -131,7 +131,7 @@ else if ($num == 8) {
 
 			$sum = $res;
 
-			$res = number_format($res,0,"."," ");
+			//$res = number_format($res,0,"."," ");
 
 			if ($res == "") {
 				echo 0;
@@ -154,7 +154,7 @@ else if ($num == 9) {
 
 			$sum = $res;
 
-			$res = number_format($res,0,"."," ");
+			//$res = number_format($res,0,"."," ");
 
 			if ($res == "") {
 				echo 0;
