@@ -526,22 +526,10 @@ ul.nav.navbar-nav.navbar-right a:hover{
 	color: black;
 }
 
-#statbox3{
+#statbox3, #statbox2, #statbox-1, #statbox-2, #statbox-3, #statstext, #statschooser{
 	background:#efefef;
 	color:#000;
 }
 
-#statbox2{
-	background:#efefef;
-	color:#000;
-}
 
-#statstext{
-	background:#efefef;
-	color:#000;
-}
 
-#statschooser{
-	background:#efefef;
-	color:#000;
-}

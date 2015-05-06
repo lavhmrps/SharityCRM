@@ -1589,6 +1589,33 @@ input[id=menu]{
 	width: 360px;	
 }
 
+#statbox-1{
+	margin: 5px;
+	margin-top:20px;
+	border-radius: 4px;
+	height:410px;
+}
+
+#statbox-2{
+	margin: 5px;
+	padding-top:15px;
+	padding-left:20px;
+	margin-top:20px;
+	border-radius: 4px;
+	height:200px;
+	width: 310px;
+}
+
+#statbox-3{
+	margin-left: 5px;
+	margin-top: 5px;
+	padding-top:15px;
+	padding-left:20px;
+	border-radius: 4px;
+	height:200px;
+	width: 310px;
+}
+
 .doughnutchart{	
 	padding:10px;
 }
@@ -1608,6 +1635,10 @@ input[id=menu]{
 	margin-left: -55px;
 	margin-top: 10px;
 }
+#statistikk{
+	margin-left: -15px;
+	margin-top: 10px;
+}
 
 #datepickerday1, #datepickerday2, #datepickerMnd1, #datepickerMnd2, #datepickerYear1, #datepickerYear2{
 	height:26px;
@@ -1620,6 +1651,11 @@ input[id=menu]{
 #statschooser{
 	padding:10px;
 }
+
+span[id="out"]{
+	font-size: 20px;
+}
+
 /* Må fordeles på themes*/ 
 .errorspan{
 	color:#FA0000;

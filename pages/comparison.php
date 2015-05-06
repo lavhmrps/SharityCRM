@@ -789,9 +789,9 @@ function showChart1(){
         	},
         	{
         		value: 1,
-        		color: "#46BFBD",
+        		color: "#010101",
         		highlight: "#5AD3D1",
-        		label: "Green"
+        		label: "Black"
         	}
         	]
 

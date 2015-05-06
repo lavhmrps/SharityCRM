@@ -573,24 +573,7 @@ input[id=menu]{
 	color: #FFF;
 }
 
-#statbox3{
-	background:#212121;
-	border:1px solid #000;
-	color:#fff;
-}
-
-#statbox2{
-	background:#212121;
-	color:#fff;
-}
-
-#statstext{
-	background:#212121;
-	border:1px solid #000;
-	color:#fff;
-}
-
-#statschooser{
+#statbox3,#statbox2, #statbox-1,#statbox-2, #statstext, #statschooser{
 	background:#212121;
 	border:1px solid #000;
 	color:#fff;

@@ -68,10 +68,7 @@ $(document).ready(function(){
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Statistikk<span class="caret"></span></a>
             <ul class="dropdown-menu" id="maindropdown" role="menu">
                 <li>
-                    <a href="../pages/newStatistics.php">Enkel</a>
-                </li>
-                <li>
-                    <a href="../pages/comparison.php">Enkel2</a>
+                    <a href="../pages/stats.php">Enkel</a>
                 </li>
                 <li>
                     <a href="../pages/comparison.php">Sammenligning</a>
