@@ -1602,19 +1602,11 @@ input[id=menu]{
 	padding-left:20px;
 	margin-top:20px;
 	border-radius: 4px;
-	height:200px;
-	width: 310px;
+	height:410px;
+	width: 360px;
 }
 
-#statbox-3{
-	margin-left: 5px;
-	margin-top: 5px;
-	padding-top:15px;
-	padding-left:20px;
-	border-radius: 4px;
-	height:200px;
-	width: 310px;
-}
+
 
 .doughnutchart{	
 	padding:10px;

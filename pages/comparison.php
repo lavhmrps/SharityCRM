@@ -286,26 +286,26 @@ function year2(){
 function showChart1(){
 
 	var data = [
-	{
-		value: 1,
-		color:"#F7464A",
-		highlight: "#FF5A5E",
-		label: "Yellow"
-	},
-	{
-		value: 1,
-		color: "#46BFBD",
-		highlight: "#5AD3D1",
-		label: "Green"
-	}
-	]
+            {
+                value: 1,
+                color:"#1AA24C",
+                highlight: "#1AD24C",
+                label: "Valg 2"
+            },
+            {
+                value: 1,
+        color: "#000000",
+        highlight: "#333333",
+        label: "Valg 1"
+            }
+            ]
 
 	var ctx = $('#statistikk1').get(0).getContext("2d");
 	var myDoughnut = new Chart(ctx).Doughnut(data,{
 		animation:true,
 		showTooltips: true,
-		percentageInnerCutout : 65,
-		segmentShowStroke : false
+		percentageInnerCutout : 0,
+		segmentShowStroke : true
 	});
 
 	var res1;
@@ -389,15 +389,16 @@ function showChart1(){
         	var data = [
         	{
         		value: 1,
-        		color:"#F7464A",
-        		highlight: "#FF5A5E",
-        		label: "Yellow"
+        		color:"#1AA24C",
+        		highlight: "#1AD24C",
+        		label: "Valg 2"
         	},
         	{
         		value: 1,
-        		color: "#46BFBD",
-        		highlight: "#5AD3D1",
-        		label: "Green"
+        color: "#000000",
+        highlight: "#333333",
+        label: "Valg 1"
+
         	}
         	]
 
@@ -405,8 +406,8 @@ function showChart1(){
         	var myDoughnut = new Chart(ctx).Doughnut(data,{
         		animation:true,
         		showTooltips: true,
-        		percentageInnerCutout : 65,
-        		segmentShowStroke : false
+        		percentageInnerCutout : 0,
+        		segmentShowStroke : true
         	});
 
         	var res1;
@@ -487,25 +488,25 @@ function showChart1(){
 
 
         	var data = [
-        	{
-        		value: 1,
-        		color:"#F7464A",
-        		highlight: "#FF5A5E",
-        		label: "Yellow"
-        	},
-        	{
-        		value: 1,
-        		color: "#46BFBD",
-        		highlight: "#5AD3D1",
-        		label: "Green"
-        	}
-        	]
+            {
+                value: 1,
+                color:"#1AA24C",
+                highlight: "#1AD24C",
+                label: "Valg 2"
+            },
+            {
+                value: 1,
+        color: "#000000",
+        highlight: "#333333",
+        label: "Valg 1"
+            }
+            ]
         	var ctx = $('#statistikk3').get(0).getContext("2d");
         	var myDoughnut = new Chart(ctx).Doughnut(data,{
         		animation:true,
         		showTooltips: true,
-        		percentageInnerCutout : 65,
-        		segmentShowStroke : false
+        		percentageInnerCutout : 0,
+        		segmentShowStroke : true
         	});
 
         	var res1;
@@ -585,25 +586,25 @@ function showChart1(){
         function showChart4(){
 
         	var data = [
-        	{
-        		value: 1,
-        		color:"#F7464A",
-        		highlight: "#FF5A5E",
-        		label: "Yellow"
-        	},
-        	{
-        		value: 1,
-        		color: "#46BFBD",
-        		highlight: "#5AD3D1",
-        		label: "Green"
-        	}
-        	]
+            {
+                value: 1,
+                color:"#1AA24C",
+                highlight: "#1AD24C",
+                label: "Valg 2"
+            },
+            {
+                value: 1,
+        color: "#000000",
+        highlight: "#333333",
+        label: "Valg 1"
+            }
+            ]
         	var ctx = $('#statistikk4').get(0).getContext("2d");
         	var myDoughnut = new Chart(ctx).Doughnut(data,{
         		animation:true,
         		showTooltips: true,
-        		percentageInnerCutout : 65,
-        		segmentShowStroke : false
+        		percentageInnerCutout : 0,
+        		segmentShowStroke : true
         	});
 
         	var res1;
@@ -683,26 +684,26 @@ function showChart1(){
 
         function showChart5(){
         	var data = [
-        	{
-        		value: 1,
-        		color:"#F7464A",
-        		highlight: "#FF5A5E",
-        		label: "Yellow"
-        	},
-        	{
-        		value: 1,
-        		color: "#46BFBD",
-        		highlight: "#5AD3D1",
-        		label: "Green"
-        	}
-        	]
+            {
+                value: 1,
+                color:"#1AA24C",
+                highlight: "#1AD24C",
+                label: "Valg 2"
+            },
+            {
+                value: 1,
+        color: "#000000",
+        highlight: "#333333",
+        label: "Valg 1"
+            }
+            ]
 
         	var ctx = $('#statistikk5').get(0).getContext("2d");
         	var myDoughnut = new Chart(ctx).Doughnut(data,{
         		animation:true,
         		showTooltips: true,
-        		percentageInnerCutout : 65,
-        		segmentShowStroke : false
+        		percentageInnerCutout : 0,
+        		segmentShowStroke : true
         	});
 
         	var res1;
@@ -781,26 +782,26 @@ function showChart1(){
 
         function showChart6(){
         	var data = [
-        	{
-        		value: 1,
-        		color:"#F7464A",
-        		highlight: "#FF5A5E",
-        		label: "Yellow"
-        	},
-        	{
-        		value: 1,
-        		color: "#010101",
-        		highlight: "#5AD3D1",
-        		label: "Black"
-        	}
-        	]
+            {
+                value: 1,
+                color:"#1AA24C",
+                highlight: "#1AD24C",
+                label: "Valg 2"
+            },
+            {
+                value: 1,
+        color: "#000000",
+        highlight: "#333333",
+        label: "Valg 1"
+            }
+            ]
 
         	var ctx = $('#statistikk6').get(0).getContext("2d");
         	var myDoughnut = new Chart(ctx).Doughnut(data,{
         		animation:true,
         		showTooltips: true,
-        		percentageInnerCutout : 65,
-        		segmentShowStroke : false
+        		percentageInnerCutout : 0,
+        		segmentShowStroke : true
         	});
 
         	var res1;

@@ -41,6 +41,12 @@ include '../phpBackend/connect.php';
         //Boolean - Whether to show vertical lines (except Y axis)
         scaleShowVerticalLines: false,
     });
+      $(document).ready(function(){
+  var canvas = document.getElementById("statistikk");
+
+  canvas.style.width = '755px';
+
+});
 
 
 
@@ -509,7 +515,7 @@ var lineChartData = {
         label: "12 mnd",
         fillColor : "#1A324C", //farge under grafen
         strokeColor : "#1A324C", //farge på linja
-        pointColor : "lightgreen", //farge på prikkene
+        pointColor : "#fff", //farge på prikkene
         pointStrokeColor : "1A324C", // farge på border til prikkene
         pointHighlightFill : "green", //farge på prikk on hover
         pointHighlightStroke : "1A324C", // farge på border til prikk on hover
@@ -524,7 +530,7 @@ var lineChartDataJan = {
         label: "12 mnd",
                 fillColor : "#1A324C", //farge under grafen
     strokeColor : "#1A324C", //farge på linja
-    pointColor : "lightgreen", //farge på prikkene
+    pointColor : "#fff", //farge på prikkene
     pointStrokeColor : "1A324C", // farge på border til prikkene
     pointHighlightFill : "green", //farge på prikk on hover
     pointHighlightStroke : "1A324C", // farge på border til prikk on hover
@@ -540,7 +546,7 @@ var lineChartDataFeb29 = {
         label: "12 mnd",
         fillColor : "#1A324C", //farge under grafen
     strokeColor : "#1A324C", //farge på linja
-    pointColor : "lightgreen", //farge på prikkene
+   pointColor : "#fff", //farge på prikkene
     pointStrokeColor : "1A324C", // farge på border til prikkene
     pointHighlightFill : "green", //farge på prikk on hover
     pointHighlightStroke : "1A324C", // farge på border til prikk on hover
@@ -556,7 +562,7 @@ var lineChartDataFeb = {
         label: "12 mnd",
             fillColor : "#1A324C", //farge under grafen
     strokeColor : "#1A324C", //farge på linja
-    pointColor : "lightgreen", //farge på prikkene
+    pointColor : "#fff", //farge på prikkene
     pointStrokeColor : "1A324C", // farge på border til prikkene
     pointHighlightFill : "green", //farge på prikk on hover
     pointHighlightStroke : "1A324C", // farge på border til prikk on hover
@@ -572,7 +578,7 @@ var lineChartDataMar = {
         label: "12 mnd",
         fillColor : "#1A324C", //farge under grafen
     strokeColor : "#1A324C", //farge på linja
-    pointColor : "lightgreen", //farge på prikkene
+    pointColor : "#fff", //farge på prikkene
     pointStrokeColor : "1A324C", // farge på border til prikkene
     pointHighlightFill : "green", //farge på prikk on hover
     pointHighlightStroke : "1A324C", // farge på border til prikk on hover
@@ -588,7 +594,7 @@ var lineChartDataApr = {
         label: "12 mnd",
         fillColor : "#1A324C", //farge under grafen
     strokeColor : "#1A324C", //farge på linja
-    pointColor : "lightgreen", //farge på prikkene
+    pointColor : "#fff", //farge på prikkene
     pointStrokeColor : "1A324C", // farge på border til prikkene
     pointHighlightFill : "green", //farge på prikk on hover
     pointHighlightStroke : "1A324C", // farge på border til prikk on hover
@@ -604,7 +610,7 @@ var lineChartDataMay = {
         label: "12 mnd",
          fillColor : "#1A324C", //farge under grafen
     strokeColor : "#1A324C", //farge på linja
-    pointColor : "lightgreen", //farge på prikkene
+    pointColor : "#fff", //farge på prikkene
     pointStrokeColor : "1A324C", // farge på border til prikkene
     pointHighlightFill : "green", //farge på prikk on hover
     pointHighlightStroke : "1A324C", // farge på border til prikk on hover
@@ -620,7 +626,7 @@ var lineChartDataJun = {
         label: "12 mnd",
         fillColor : "#1A324C", //farge under grafen
     strokeColor : "#1A324C", //farge på linja
-    pointColor : "lightgreen", //farge på prikkene
+    pointColor : "#fff", //farge på prikkene
     pointStrokeColor : "1A324C", // farge på border til prikkene
     pointHighlightFill : "green", //farge på prikk on hover
     pointHighlightStroke : "1A324C", // farge på border til prikk on hover
@@ -636,7 +642,7 @@ var lineChartDataJul = {
         label: "12 mnd",
            fillColor : "#1A324C", //farge under grafen
     strokeColor : "#1A324C", //farge på linja
-    pointColor : "lightgreen", //farge på prikkene
+    pointColor : "#fff", //farge på prikkene
     pointStrokeColor : "1A324C", // farge på border til prikkene
     pointHighlightFill : "green", //farge på prikk on hover
     pointHighlightStroke : "1A324C", // farge på border til prikk on hover
@@ -652,7 +658,7 @@ var lineChartDataAug = {
         label: "12 mnd",
         fillColor : "#1A324C", //farge under grafen
     strokeColor : "#1A324C", //farge på linja
-    pointColor : "lightgreen", //farge på prikkene
+    pointColor : "#fff", //farge på prikkene
     pointStrokeColor : "1A324C", // farge på border til prikkene
     pointHighlightFill : "green", //farge på prikk on hover
     pointHighlightStroke : "1A324C", // farge på border til prikk on hover
@@ -668,7 +674,7 @@ var lineChartDataSep = {
         label: "12 mnd",
          fillColor : "#1A324C", //farge under grafen
     strokeColor : "#1A324C", //farge på linja
-    pointColor : "lightgreen", //farge på prikkene
+    pointColor : "#fff", //farge på prikkene
     pointStrokeColor : "1A324C", // farge på border til prikkene
     pointHighlightFill : "green", //farge på prikk on hover
     pointHighlightStroke : "1A324C", // farge på border til prikk on hover
@@ -684,7 +690,7 @@ var lineChartDataOkt = {
         label: "12 mnd",
         fillColor : "#1A324C", //farge under grafen
     strokeColor : "#1A324C", //farge på linja
-    pointColor : "lightgreen", //farge på prikkene
+    pointColor : "#fff", //farge på prikkene
     pointStrokeColor : "1A324C", // farge på border til prikkene
     pointHighlightFill : "green", //farge på prikk on hover
     pointHighlightStroke : "1A324C", // farge på border til prikk on hover
@@ -700,7 +706,7 @@ var lineChartDataNov = {
         label: "12 mnd",
         fillColor : "#1A324C", //farge under grafen
     strokeColor : "#1A324C", //farge på linja
-    pointColor : "lightgreen", //farge på prikkene
+   pointColor : "#fff", //farge på prikkene
     pointStrokeColor : "1A324C", // farge på border til prikkene
     pointHighlightFill : "green", //farge på prikk on hover
     pointHighlightStroke : "1A324C", // farge på border til prikk on hover
@@ -716,7 +722,7 @@ var lineChartDataDec = {
         label: "12 mnd",
         fillColor : "#1A324C", //farge under grafen
     strokeColor : "#1A324C", //farge på linja
-    pointColor : "lightgreen", //farge på prikkene
+    pointColor : "#fff", //farge på prikkene
     pointStrokeColor : "1A324C", // farge på border til prikkene
     pointHighlightFill : "green", //farge på prikk on hover
     pointHighlightStroke : "1A324C", // farge på border til prikk on hover
@@ -787,11 +793,6 @@ var lineChartDataDec = {
 
 
    <div class="col-md-4" id="statbox-2">
-
-       <span id="out"></span> 
-
-   </div>
-   <div class="col-md-4" id="statbox-3">
 
        <span id="out"></span> 
 
