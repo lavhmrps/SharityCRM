@@ -200,6 +200,22 @@ $(document).ready(function(){
 	});
 
 
+	$("input[name='projectName']").blur(function(){
+
+		var string = $("input[name='projectName']").val();
+
+		alert(string);
+
+		var pattern = /^[ÆØÅæøåA0-9a-åA-Å ]+$/; 
+		if(string.match(pattern)){
+
+			$("input[name='projectName']").css('color', 'green');
+		
+
+		}
+	});
+
+
 	function checkInput(ref, pattern, errorRef){
 
 		var string = $(ref).val();
