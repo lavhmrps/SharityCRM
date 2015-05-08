@@ -62,7 +62,7 @@ if(isset($_POST['registerNews'])){
 				<p>fikse font</p>
 
 				<p>ORGSIDEN:</p>
-				<p>Statistikk</p>
+				
 				<p>Brødsmulesti</p>
 				<p>Vaske og trimme stringer før de sendes til db</p>
 				<p>Sjekke siden opp mot andre browsere</p>
@@ -72,6 +72,11 @@ if(isset($_POST['registerNews'])){
 				<p>Fullfør-knappen på reg_pt2 sender deg ikke til home.php. fikse!</p>
 				<p>Lage nylig aktivitet delen til home.php, slik at dette fungerer som det skal.</p>
 				<p>Fikse statistikk på home.php</p>
+				<br/>
+				<p>Statistikk:</p>
+				<p>Lage ferdig stats.php</p>
+				<p>evt. også legge til oversikt over nyheter og prosjekt pr dag/mnd/år</p>
+				<p>Få opp et 50/50 doughnutchart om det er 0 og 0 som verdier på comparison.php</p>
 				<br/>
 				
 
