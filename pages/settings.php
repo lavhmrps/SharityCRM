@@ -62,34 +62,30 @@ if(isset($_POST['registerNews'])){
 				<p>fikse font</p>
 
 				<p>ORGSIDEN:</p>
-				<p>statistikk</p>
-				<p>Internal frames på statistikk? og gjøre de visible</p>
+				<p>Statistikk</p>
 				<p>Brødsmulesti</p>
-				<p>Alle script skal si "OK" om de blir kjørt</p>
 				<p>Vaske og trimme stringer før de sendes til db</p>
 				<p>Sjekke siden opp mot andre browsere</p>
 				<p>Fikse last opp bilde og logo knapp på endre org siden</p>
 				<p>Fikse bilde opplasting på reg nyhet og endre nyhet</p>
-				<p>Generelt fikse bildeopplastning slik at vi har tillatelse til å bruke bildene som blir lagt inn i db</p>
-				<p>Vis alle nyheter til prosjekt-knapp når man er inne på vis prosjekt?</p>
 				<p>Change newsinfo funker det ikke å oppdatere.. legge til backend </p>
-				<p>Lage FAQ-side</p>
+				<p>Fullfør-knappen på reg_pt2 sender deg ikke til home.php. fikse!</p>
+				<p>Lage nylig aktivitet delen til home.php, slik at dette fungerer som det skal.</p>
+				<p>Fikse statistikk på home.php</p>
 				<br/>
 				
 
 			</div>
 			<div class="col-md-6 text-left">
-				<p>ADMINSIDEN:</p>
-				<p>Statistikk</p>
-				<p>Backend til alle sidene.</p>
-				<br/>
 				<p>APP:</p>
 				<p>Legge inn jquery lokalt</p>
 				<p>Push</p>
 				<p>Betalingsløsning</p>
+				<p>Dele på Facebook</p>
 				<br/>
 				<p>NICE TO HAVE GENERELT:</p>
 				<p>knapp for å ukryptere passord (login)</p>
+				<p>Vis alle nyheter til prosjekt-knapp når man er inne på vis prosjekt?</p>
 			</div>
 		</div>
 

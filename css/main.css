@@ -770,6 +770,8 @@ input[id="projectSavebtn"]{
 		margin-top: 0px
 	}
 
+
+
 }
 
 @media screen and (max-width: 767px) {
@@ -1618,6 +1620,12 @@ input[id=menu]{
 	margin-bottom: 50px;
 	border-radius: 4px;
 	height:300px;
+}
+
+@media screen and (max-width: 991px) {
+	#statstext{
+		height:450px;
+	}
 }
 
 #inputdatepadding{

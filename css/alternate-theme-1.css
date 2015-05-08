@@ -549,14 +549,14 @@ input[id=menu]{
 #main-themebtn3:hover{
 	background-color: #111;
 }
-#selectproject{
+#selectproject, #choosecriteria{
 	color: #999;
 }
 
-#selectproject ul li{
+#selectproject ul li, #choosecriteria ul li{
 	color: #fff;
 }
-#selectproject option{
+#selectproject option, #choosecriteria option{
 	background-color: #222;
 	color: #fff;
 }
@@ -573,12 +573,21 @@ input[id=menu]{
 	color: #FFF;
 }
 
-#statbox3,#statbox2, #statbox-1,#statbox-2, #statstext, #statschooser{
+#statbox3, #statbox-1,#statbox-2, #statstext{
 	background:#212121;
 	border:1px solid #000;
 	color:#fff;
 }
 
+#statbox2, #statschooser{
+	background:#212121;
+	color:#fff;
+}
+
 input[id="choosecriteria"]{
+	color: #000;
+}
+
+#datepickerYear, #datepickerMnd, #datepickerDay{
 	color: #000;
 }

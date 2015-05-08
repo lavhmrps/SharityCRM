@@ -1023,18 +1023,24 @@ function showChart1(){
 
 		<!-- Written stats-->
 		<div class="col-md-12 text-center" id="statstext">
+
 			<h2>Skriftlig statistikk</h2>
-			<div class="col-md-6" id="statbox2">
+			<div class="col-md-6 text-left" id="statbox2">
+                <div class="col-md-5"></div>
+                <div class="col-md-7">
 				<span id="firstDate"></span> 
+                </div>
 			</div>
-			<div class="col-md-6" id="statbox2">
-				<span id="lastDate"></span> 
+
+			<div class="col-md-6 text-left" id="statbox2">
+				<div class="col-md-4"></div>
+                <div class="col-md-8">
+                <span id="lastDate"></span> 
+                </div>
 			</div>
+
 		</div>
-
-
-	<!-- /written stats -->
-
+	   <!-- /written stats -->
 
 </div>
 

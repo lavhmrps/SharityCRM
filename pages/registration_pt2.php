@@ -124,7 +124,7 @@ $organizationNr = $_SESSION['organizationNr'];
 									echo "<span hidden name='title' class='errorspan'>Kun bokstaver, tall og mellomrom</span>";
 									echo "</div>";
 									echo "</div>";
-									echo '<input type="text" class="form-control" name="address" id="reg_pt2_input" />';
+									echo '<input type="text" class="form-control" placeholder="Eksempelveien 1" name="address" id="reg_pt2_input" />';
 								}
 								echo '</div>';
 								echo '<div class="col-md-2" id="registration_pt2_margin2">';
@@ -137,7 +137,7 @@ $organizationNr = $_SESSION['organizationNr'];
 									echo "<span hidden name='title' class='errorspan'>4 tall</span>";
 									echo "</div>";
 									echo "</div>";
-									echo '<input type="tel" class="form-control" name="zipcode" id="reg_pt2_inputZipcode"/>';
+									echo '<input type="tel" class="form-control" name="zipcode" placeholder="0000" id="reg_pt2_inputZipcode"/>';
 								}
 								echo '</div>';
 
@@ -150,7 +150,7 @@ $organizationNr = $_SESSION['organizationNr'];
 									echo "<span hidden name='title' class='errorspan'>Kun akkurat 8 siffer</span>";
 									echo "</div>";
 									echo "</div>";
-									echo '<input type="tel" class="form-control" name="phone" id="reg_pt2_input" />';
+									echo '<input type="tel" class="form-control" name="phone" placeholder="12345678" id="reg_pt2_input" />';
 								}
 								if($email == NULL || $email == ""){
 									echo "<div class='row'>";
@@ -161,7 +161,7 @@ $organizationNr = $_SESSION['organizationNr'];
 									echo "<span hidden name='title' class='errorspan'>Ugyldig epost</span>";
 									echo "</div>";
 									echo "</div>";
-									echo '<input type="email" class="form-control" name="email" id="reg_pt2_input" />';
+									echo '<input type="email" class="form-control" name="email" placeholder="eksempel@epost.no" id="reg_pt2_input" />';
 								}
 								
 								if($website == NULL || $website == ""){
@@ -173,7 +173,7 @@ $organizationNr = $_SESSION['organizationNr'];
 									echo "<span hidden name='title' class='errorspan'>Følg dette formatet: eksempel.no</span>";
 									echo "</div>";
 									echo "</div>";
-									echo '<input type="text" class="form-control" name="website" id="reg_pt2_input" />';
+									echo '<input type="text" class="form-control" name="website" placeholder="eksempel.no" id="reg_pt2_input" />';
 								}
 								if(strlen($accountnumber) != 11){
 									echo "<div class='row'>";
@@ -184,7 +184,7 @@ $organizationNr = $_SESSION['organizationNr'];
 									echo "<span hidden name='title' class='errorspan'>Kun akkurat 11 siffer</span>";
 									echo "</div>";
 									echo "</div>";
-									echo '<input type="tel" class="form-control" name="accountnumber" id="reg_pt2_input" />';
+									echo '<input type="tel" class="form-control" name="accountnumber" placeholder="1234 56 78901" id="reg_pt2_input" />';
 								}
 								if($category == NULL || $category == "NULL"){
 									echo '<label id="registerorglabel">Kategori</label><div class="regOrgDropdown">
@@ -261,7 +261,7 @@ $organizationNr = $_SESSION['organizationNr'];
 							&& $accountnumber != "" && $email != "" && $about != ""
 
 							){
-							header("Location: ../pages/home.php");
+							header("Location: home.php");
 
 					}else{
 						echo '
