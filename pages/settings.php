@@ -66,9 +66,9 @@ if(isset($_POST['registerNews'])){
 			<h1>Velg tema:</h1>
 
 			<a href="#" onclick="setActiveStyleSheet('default'); return false;">Default</a> - 
-			<a href="#" onclick="setActiveStyleSheet('alternate'); return false;">Dark</a> - 
-			<a href="#" onclick="setActiveStyleSheet('alternate2'); return false;">Pink</a> - 
-			<a href="#" onclick="setActiveStyleSheet('alternate3'); return false;">Black&Yellow</a>
+			<a href="#" onclick="setActiveStyleSheet('alternate'); return false;">Dark</a>
+			<!--<a href="#" onclick="setActiveStyleSheet('alternate2'); return false;">Pink</a> - 
+			<a href="#" onclick="setActiveStyleSheet('alternate3'); return false;">Black&Yellow</a>-->
 			<br/><br/>
 			<a href="../pages/change_orginfo.php" class="settinglink">Endre organisasjon</a>
 
@@ -87,13 +87,14 @@ if(isset($_POST['registerNews'])){
 				<p>Fullfør-knappen på reg_pt2 sender deg ikke til home.php. fikse!</p>
 				<p>Lage nylig aktivitet delen til home.php, slik at dette fungerer som det skal.</p>
 				<p>Fikse statistikk på home.php</p>
+				<p>Maks 8 prosjekter/nyheter pr side på "vis alle"?</p>
 				<br/>
 				<p>Statistikk:</p>
 				<p>Lage ferdig stats.php</p>
 				<p>evt. også legge til oversikt over nyheter og prosjekt pr dag/mnd/år</p>
 				<p>Få opp et 50/50 doughnutchart om det er 0 og 0 som verdier på comparison.php</p>
-				<p>Gjennomsnittsfølgere pr år/mnd/uke/dag</p>
-				<p>Gjennomsnittsnyhet/prosjekt pr år/mnd/uke/dag</p>
+				<p>Gjennomsnittsfølgere pr år/mnd/uke/dag på stats.php</p>
+				<p>Gjennomsnittsnyhet/prosjekt pr år/mnd/uke/dag på stats.php</p>
 				<br/>
 				
 
