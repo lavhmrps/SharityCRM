@@ -24,33 +24,40 @@ include '../phpBackend/connect.php';
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <!--  /Bootstrap Core CSS -->
 
     <!-- Custom CSS -->
     <link href="../css/main.css" rel="stylesheet"/>
     <link href="../css/fonts.css" rel="stylesheet"/>
+
+    <!--  Default CSS -->
     <link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
+    <!--  /Degault CSS -->
+
+    <!--  Alternate CSS -->
     <link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
     <link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
     <link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
+    <!--  /Alternate CSS -->
+    <!--  /Custom CSS -->
 
+    <!--  Script to change CSS -->
     <script src="../js/styleswitcher.js" type="text/javascript" ></script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+    <!--  End of script -->
 
     </head>
     <body>
-
+    <!--  Includes header -->
         <?php
         include 'header_nav.php';
         ?>
+        <!--  End of header -->
+
         <div class="container">
         <div class="col-md-2"></div>
         <div class="col-md-8" id="changenewscontainer">
             <div class="col-md-12 text-center" id="reg_pt2_head">
+                <!--  Connects to database and gets the name of the project-->
                 <?php
 
                 $projectID = $_SESSION['projectIDtoShow'];
@@ -64,11 +71,12 @@ include '../phpBackend/connect.php';
                     }
                 }
                 ?>
+                <!--  End of databaseconnection -->
 
             </div>
 
 
-
+            <!-- Connects to database and gets the remaining info about the project -->
             <?php
 
             $sql = "SELECT * FROM Project WHERE projectID = $projectID";
@@ -156,6 +164,7 @@ include '../phpBackend/connect.php';
                 }
             }
             ?>
+            <!--  End of databaseconnection -->
 
         </div>
         <div class="col-md-2"></div>
@@ -164,6 +173,7 @@ include '../phpBackend/connect.php';
         <!-- Bootstrap Core JavaScript -->
         <script src="../js/bootstrap.min.js"></script>
 
+        <!--  Script to update the projectinformation -->
         <script type="text/javascript">
 
             $(document).ready(function(){
@@ -261,6 +271,7 @@ $("#uploadimg").click(function() {
 
 
 </script>
+<!--  End of script -->
 
 
 </body>

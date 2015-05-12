@@ -24,12 +24,15 @@ $organizationNr = $_SESSION['organizationNr'];
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+	<!-- /Bootstrap Core CSS -->
 
 	<!-- Custom CSS -->
 	<link href="../css/main.css" rel="stylesheet"/>
 	<link href="../css/fonts.css" rel="stylesheet"/>
 	<link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
+	<!-- /Custom CSS -->
 
+	<!-- Scripts -->
 	<script type="text/javascript">
 		function skip(){
 			window.location.replace('../pages/home.php');
@@ -46,20 +49,13 @@ $organizationNr = $_SESSION['organizationNr'];
 	<!--Sript for insert images to database through AJAX request-->
 	<script src="../js/insertImg.js"></script>
 
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-
+	<!-- End of scripts -->
 	</head>
-
-	<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
-
 	<body>
 
 		<div class="col-md-3"></div>
+
+		<!-- Box with all the inputs which have not yet been entered by the organization -->
 		<div class="col-md-6" id="addprojectcontainer">
 			<div class="col-md-12 text-center" id="reg_pt2_head">
 				<?php
@@ -293,17 +289,15 @@ $organizationNr = $_SESSION['organizationNr'];
 
 
 </div>
+<!-- End of organizationregistration -->
+
+<!-- Box to include a option to skip this site -->
 <div class="col-md-3" id="skipContainer">
 
 	<a style="cursor:pointer" onclick="skip()">Hopp over</a>
 </div>
-
-
-
-
-
+<!-- End of skipbox -->
 
 </body>
-
 </html>
 

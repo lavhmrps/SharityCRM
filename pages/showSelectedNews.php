@@ -1,7 +1,3 @@
-
-
-
-
 <?php
 session_start();
 include '../phpBackend/checkSession.php';
@@ -19,30 +15,41 @@ if(isset($_POST['registerNews'])){
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
+
 	<title>Sharity</title>
+
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+	<!-- /Bootstrap Core CSS -->
+
 	<!-- Custom CSS -->
 	<link href="../css/scrolling-nav.css" rel="stylesheet"/>
-
-
 	<link href="../css/main.css" rel="stylesheet"/>
+
+	<!-- Default CSS -->
 	<link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
+	<!-- /Default CSS -->
+
+	<!-- Alternate CSS -->
 	<link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
 	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
 	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
+	<!-- /Alternate CSS -->
 
+	<!-- Script to change CSS -->
 	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
-
+	<!-- End of script -->
 
 
 </head>
 <body>
-
+	<!-- Indluded header -->
 	<?php
 	include "../pages/header_nav.php";
 	?>
+	<!-- End of header -->
 
+	<!-- Php to fetch clicked news -->
 	<?php
 
 	$newsID = $_SESSION['newsIDtoShow'];
@@ -79,10 +86,14 @@ if(isset($_POST['registerNews'])){
 
 	}
 
-
 	?>
+	<!-- end of php to fetch clicked news -->
+
+
 	<div class="container" >
 		<div class="col-md-2"></div>
+
+		<!-- Box which containts php to show fetched news -->
 		<div class="col-md-8" id="selectednewscontainer">
 
 
@@ -115,6 +126,7 @@ if(isset($_POST['registerNews'])){
 
 
 		</div>
+		<!-- End of showing of fetched news -->
 	</div>
 </body>
 </html>

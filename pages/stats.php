@@ -13,19 +13,30 @@ include '../phpBackend/connect.php';
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+
     <title>Sharity</title>
+
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- /Bootstrap Core CSS -->
 
     <!-- Custom CSS -->
     <link href="../css/scrolling-nav.css" rel="stylesheet">
     <link href="../css/main.css" rel="stylesheet"/>
     <link href="../css/fonts.css" rel="stylesheet"/>
+
+    <!-- Default CSS -->
     <link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
+    <!-- /Default CSS -->
+
+    <!-- Alternate CSS -->
     <link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
     <link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
     <link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
+    <!-- /Alternate CSS -->
+
     <link href="../css/datepicker.css" rel="stylesheet"/>
+    <!-- /Custom CSS -->
 
     <!-- Scripts -->
     <script src="../js/styleswitcher.js" type="text/javascript" ></script>
@@ -42,11 +53,11 @@ include '../phpBackend/connect.php';
         scaleShowVerticalLines: false,
     });
       $(document).ready(function(){
-  var canvas = document.getElementById("statistikk");
+          var canvas = document.getElementById("statistikk");
 
-  canvas.style.width = '755px';
+          canvas.style.width = '755px';
 
-});
+      });
 
 
 
@@ -101,7 +112,7 @@ include '../phpBackend/connect.php';
     });
 
 $("#incomeYear").click(function(){
-   if ($('input[name=date]').val() == ""){
+ if ($('input[name=date]').val() == ""){
     alert("Angi dato!");
 }else{
     showLineChartIncomeYear();
@@ -519,9 +530,9 @@ var lineChartData = {
         pointStrokeColor : "1A324C", // farge på border til prikkene
         pointHighlightFill : "green", //farge på prikk on hover
         pointHighlightStroke : "1A324C", // farge på border til prikk on hover
-    data : [0,0,0,0,0,0,0,0,0,0,0,0]
-}
-]
+        data : [0,0,0,0,0,0,0,0,0,0,0,0]
+    }
+    ]
 }
 var lineChartDataJan = {
     labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
@@ -732,19 +743,25 @@ var lineChartDataDec = {
 ]
 }
 </script>
+<!-- End of scripts -->
+
 </head>
 <body>
+    <!-- Includes header -->
     <?php
     include 'header_nav.php';
     ?>
+    <!-- End of header -->
+
     <div class="container">
 
+        <!-- Box to pick dates -->
         <div class="col-md-12" id="statschooser">
             <div class="col-md-2">
 
             </div>
             <div class="col-md-8">
-               <div class="input-append date">
+             <div class="input-append date">
                 <div class="col-md-6">
 
 
@@ -767,7 +784,9 @@ var lineChartDataDec = {
         </div>
         <div class="col-md-2"></div>
     </div>
+    <!-- End of box to pick dates -->
 
+    <!-- Buttons to choose which stats to get a graph of -->
     <div class="row" id="statschooser">
         <div class="col-md-3"></div>
         <div class="col-md-2">
@@ -779,25 +798,28 @@ var lineChartDataDec = {
             <input id="donationsMnd" type="button" value="Antall donasjoner" class="form-control">
         </div>
         <div class="col-md-2">
-            <input id="followersYear" type="button" value="Nye følgere" class="form-control">
-            <input id="followersMnd" type="button" value="Nye følgere" class="form-control">
+            <input id="followersYear" type="button" value="Følgere" class="form-control">
+            <input id="followersMnd" type="button" value="Følgere" class="form-control">
         </div>
         <div class="col-md-3"></div>
     </div>
+    <!-- End of buttons to choose graph -->
 
-
+    <!-- Box to append graph -->
     <div class="col-md-8" id="statbox-1">
-       <canvas id="statistikk">
-       </canvas>
-   </div>
+     <canvas id="statistikk">
+     </canvas>
+ </div>
+ <!-- End of graphbox -->
 
+<!-- Box to append text stats -->
+ <div class="col-md-4" id="statbox-2">
 
-   <div class="col-md-4" id="statbox-2">
+     <span id="out"></span> 
 
-       <span id="out"></span> 
+ </div>
+ <!-- End of textstats -->
 
-   </div>
-</div>
 </div>
 
 <!-- Bootstrap Core JavaScript -->

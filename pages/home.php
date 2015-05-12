@@ -24,19 +24,30 @@ include '../phpBackend/connect.php';
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<!-- /Bootstrap Core CSS -->
 
 	<!-- Custom CSS -->
 	<link href="../css/scrolling-nav.css" rel="stylesheet">
 	<link href="../css/main.css" rel="stylesheet">
 	<link href="../css/font.css" rel="stylesheet">
+
+	<!-- Default CSS -->
 	<link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
+	<!-- /Default CSS -->
+
+	<!-- Alternate CSS -->
 	<link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
 	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
 	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
+	<!-- /Alternate CSS -->
+	<!-- /Custom CSS -->
 
+	<!-- Scripts -->
+		<!-- Script to change CSS -->
 	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
 	<script src="../js/Chart.min.js"></script>
 	<script src="../js/this_month_statistics.js"></script>
+	<!-- End of Scripts -->
 	
 
 </head>
@@ -45,14 +56,17 @@ include '../phpBackend/connect.php';
 	
 
 
-
+	<!-- Includes header -->
 	<?php
 	include "header_nav.php";
 	?>
+	<!-- End of header -->
 
 
 	<div class="container">
 		<div class="col-lg-12 col-md-12 col-xs-12 homecontent">
+
+			<!-- Organization infobox -->
 			<div class="col-md-6" id="homebox">
 
 				<div class="portrait">
@@ -121,8 +135,6 @@ include '../phpBackend/connect.php';
 
 						echo '<textarea class="form-control" name="about" id="aboutOrg" rows="4" style="cursor:default;" id="aboutproject" readonly>' . $row["about"] . '</textarea>';
 
-
-
 					}
 				} ?>
 
@@ -131,12 +143,10 @@ include '../phpBackend/connect.php';
 					<a href="../pages/change_orginfo.php" id="changeOrginfoA">Endre informasjon</a>
 				</div>
 
-
-
-
 			</div>
+			<!-- End of organization infobox -->
 
-
+			<!-- Latest activities box -->
 			<div class="col-md-6" id="homeboxupperright">
 				<h2>Siste aktivitet</h2>
 				<?php
@@ -157,16 +167,13 @@ include '../phpBackend/connect.php';
 					
 				} ?>
 
-
-			
-
-
 			</div>
+			<!-- End of latest activities -->
 
 
 
 
-
+			<!-- Home statistics box -->
 			<div class="col-md-6" id="homeboxlowerright" style="text-align:center;">
 				<h3>Donasjoner inneværende mnd</h3>
 				<canvas id="this_month"></canvas>
@@ -174,12 +181,12 @@ include '../phpBackend/connect.php';
 
 
 			</div>
+			<!-- End of home statistics -->
 
 		</div>
 	</div>
 	<!-- jQuery -->
 	<script src="../js/jquery.js"></script>
-	<script src="../js/stickyheader.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>

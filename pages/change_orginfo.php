@@ -24,29 +24,41 @@ $organizationNr = $_SESSION['organizationNr'];
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <!--  /Bootstrap Core CSS -->
 
     <!-- Custom CSS -->
     <link href="../css/scrolling-nav.css" rel="stylesheet">
     <link href="../css/main.css" rel="stylesheet"/>
     <link href="../css/fonts.css" rel="stylesheet"/>
+
+    <!--  Default CSS -->
     <link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
+    <!--  /Default CSS -->
+
+    <!--  Alternate CSS -->
     <link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
     <link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
     <link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
+    <!--  /Alternate CSS -->
+    <!--  /Custom CSS -->
 
+    <!--  Script to change css -->
     <script src="../js/styleswitcher.js" type="text/javascript" ></script>
-
+    <!--  End of script -->
 </head>
 
 <body>
-
+    <!--  includes header-->
     <?php
     include 'header_nav.php';
     ?>
+    <!--  End of header -->
+
     <div class="container">
         <div class="col-md-2"></div>
         <div class="col-md-8" id="addprojectcontainer">
             <div class="col-md-12 text-center" id="reg_pt2_head">
+                <!--  Connects to database and gets the name of the organization -->
                 <?php
 
                 $sql = "SELECT * FROM Organization WHERE organizationNr = $organizationNr";
@@ -59,6 +71,7 @@ $organizationNr = $_SESSION['organizationNr'];
                     }
                 }
                 ?>
+                <!--  End of databaseconnection -->
 
             </div>
             <div class="row">
@@ -74,7 +87,7 @@ $organizationNr = $_SESSION['organizationNr'];
 
 
 
-
+                    <!--  Connects to database and gets the remaining info about the organization -->
                     <?php
 
                     $sql = "SELECT * FROM Organization WHERE organizationNr = $organizationNr";
@@ -202,6 +215,7 @@ $organizationNr = $_SESSION['organizationNr'];
                     }
                 }
                 ?>
+                <!--  End of databaseconnection -->
             </div>
             <div class="col-md-2"></div>
         </div>
@@ -212,6 +226,8 @@ $organizationNr = $_SESSION['organizationNr'];
 <!-- Bootstrap Core JavaScript -->
 <script src="../js/bootstrap.min.js"></script>
 
+
+<!--  Script to update organizationinfo -->
 <script type="text/javascript">
 
     $(document).ready(function(){
@@ -323,8 +339,9 @@ $organizationNr = $_SESSION['organizationNr'];
     });
 
 </script>
+<!--  End of script -->
 
-<script src="../js/stickyheader.js"></script>
+
 </body>
 
 </html>

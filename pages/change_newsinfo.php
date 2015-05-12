@@ -13,7 +13,6 @@ include '../phpBackend/connect.php';
 <html lang="en">
 
 <head>
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,6 +23,7 @@ include '../phpBackend/connect.php';
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- End of Bootstrap Core CSS-->
 
     <!-- Custom CSS -->
     <link href="../css/main.css" rel="stylesheet"/>
@@ -34,26 +34,25 @@ include '../phpBackend/connect.php';
 	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
 
     <script src="../js/styleswitcher.js" type="text/javascript" ></script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+    <!-- End of Custom CSS-->
+
+    <!-- Inkluderer JQuerybiblioteket-->
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
     </head>
-
-    <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
-
     <body>
-
+    	<!-- header -->
         <?php
         include 'header_nav.php';
         ?>
-        
+        <!--  End of header-->
+
+
         <div class="col-md-4"></div>
         <div class="col-md-4" id="changenewscontainer">
             <div class="col-md-12 text-center" id="reg_pt2_head">
+
+            	<!--  Går inn i databasen og skriver ut tittelen til nyheten-->
                 <?php
 
                 $newsID = $_SESSION['newsIDtoShow'];
@@ -67,13 +66,14 @@ include '../phpBackend/connect.php';
                     }
                 }
                 ?>
+                <!-- End -->
 
             </div>
            
      
 
           
-
+            		<!--  Går inn i databasen og skriver ut resten av feltene til nyheten som er hentet-->
                     <?php
 
                     $sql = "SELECT * FROM News WHERE newsID = $newsID";
@@ -128,6 +128,7 @@ include '../phpBackend/connect.php';
                         }
                     }
                     ?>
+                    <!--  End of databasekobling-->
           
         </div>
         <div class="col-md-4"></div>

@@ -13,26 +13,44 @@ include '../phpBackend/connect.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
+
 	<title>Sharity</title>
+
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+	<!-- /Bootstrap Core CSS -->
+
 	<!-- Custom CSS -->
 	<link href="../css/scrolling-nav.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" href="../css/index.css" />
 	<link rel="stylesheet" type="text/css" href="../css/list_project.css">
 	<link href="../css/main.css" rel="stylesheet"/>
 	<link href="../css/fonts.css" rel="stylesheet"/>
+
+	<!-- Default CSS -->
 	<link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
+	<!-- /Default CSS -->
+
+	<!-- Alternate CSS -->
 	<link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
 	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
 	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
+	<!-- /Alternate CSS -->
+	<!-- /Custom CSS -->
 
+	<!-- Script to change CSS -->
 	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
+	<!-- End of script -->
+
 </head>
+
+<!-- Includes header -->
 <?php
 include "../pages/header_nav.php";
 ?>
+<!-- End of header -->
 
+<!-- php with HTML to fetch the project which is clicked -->
 <?php
 $projectID = $_SESSION['projectIDtoShow'];
 
@@ -72,11 +90,12 @@ if($result){
 			echo "<h1>" . $name . "</h1>";
 
 			?>
+			<!-- End of fetch clicked project -->
 		</div>
 
 
 		<div class="col-md-12">
-
+		<!-- php to show the fetched project -->
 			<?php
 			echo '<input type="text" id="reg_project_input" class="form-control" name="projectName" placeholder="Prosjektnavn" value="' . $name . '" readonly/>
 			<input type="file" id="file_background" style="display:none" accept="image/*" name="backgroundimgURL"/>
@@ -95,6 +114,7 @@ if($result){
 				echo '<a href="change_projectinfo.php" id="Changebutton" onclick="showProject(' . $row['projectID'] . ')">Endre</a>';
 				echo '</div>';
 			?>
+			<!-- End of showing fetched project -->
 
 		</div>
 		<div class="col-md-2"></div>
@@ -105,7 +125,6 @@ if($result){
 
 <!-- jQuery -->
 <script src="../js/jquery.js"></script>
-<script src="../js/stickyheader.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="../js/bootstrap.min.js"></script>
 <!-- Upload img js -->

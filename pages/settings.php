@@ -15,29 +15,44 @@ if(isset($_POST['registerNews'])){
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
+
 	<title>Sharity</title>
+
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+	<!-- /Bootstrap Core CSS -->
+
 	<!-- Custom CSS -->
 	<link href="../css/scrolling-nav.css" rel="stylesheet"/>
-
-
 	<link href="../css/main.css" rel="stylesheet"/>
+
+	<!-- Default CSS -->
 	<link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
+	<!-- /Default CSS -->
+
+	<!-- Alternate CSS -->
 	<link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
 	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
 	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
+	<!-- /Alternate CSS -->
+	<!-- /Custom CSS -->
 
+	<!-- Script to change CSS -->
 	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
+	<!-- End of script -->
 
 </head>
 <body>
 
+	<!-- Includes header -->
 	<?php
 	include "../pages/header_nav.php";
 	?>
+	<!-- End of header -->
 
 	<div class="col-md-3"></div>
+
+	<!-- Settings container -->
 	<div class="col-md-6" id="registernewscontainer">
 		<div class="col-md-12 text-center" id="reg_pt2_head">
 
@@ -77,6 +92,8 @@ if(isset($_POST['registerNews'])){
 				<p>Lage ferdig stats.php</p>
 				<p>evt. også legge til oversikt over nyheter og prosjekt pr dag/mnd/år</p>
 				<p>Få opp et 50/50 doughnutchart om det er 0 og 0 som verdier på comparison.php</p>
+				<p>Gjennomsnittsfølgere pr år/mnd/uke/dag</p>
+				<p>Gjennomsnittsnyhet/prosjekt pr år/mnd/uke/dag</p>
 				<br/>
 				
 
@@ -95,11 +112,11 @@ if(isset($_POST['registerNews'])){
 		</div>
 
 	</div>
+	<!-- End of settingscontainer -->
 
 	<div class="col-md-3"></div>
 	<div class="col-md-12" id="somespace"></div>
 </div>
-<script src="../js/stickyheader.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="../js/bootstrap.min.js"></script>

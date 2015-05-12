@@ -13,19 +13,30 @@ include '../phpBackend/connect.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
+
 	<title>Sharity</title>
+
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <!--  /Bootstrap Core CSS -->
 
 	<!-- Custom CSS -->
 	<link href="../css/scrolling-nav.css" rel="stylesheet">
 	<link href="../css/main.css" rel="stylesheet"/>
 	<link href="../css/fonts.css" rel="stylesheet"/>
+
+    <!--  Default CSS -->
 	<link href="../css/main-theme.css" rel="stylesheet" type="text/css" title="default" />
+    <!--  /Default CSS -->
+
+    <!--  Alternate CSS -->
 	<link href="../css/alternate-theme-1.css" rel="stylesheet" type="text/css" title="alternate" />
 	<link href="../css/alternate-theme-2.css" rel="stylesheet" type="text/css" title="alternate2" />
 	<link href="../css/alternate-theme-3.css" rel="stylesheet" type="text/css" title="alternate3" />
+    <!--  /alternate CSS -->
+
 	<link href="../css/datepicker.css" rel="stylesheet"/>
+    <!--  /CUstom CSS -->
 
 	<!-- Scripts -->
 	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
@@ -880,16 +891,19 @@ function showChart1(){
         }
     });
 </script>
+<!--  /Scripts -->
 
 </head>
 <body>
+    <!--  includes header-->
 	<?php
 	include 'header_nav.php';
 	?>
+    <!--  End of header -->
 
 	<div class="container">
 
-		
+		<!--  Inputbox for dates -->
 		<div class="col-md-12" id="statschooser">
 			<div class="col-md-2">
 				
@@ -918,8 +932,9 @@ function showChart1(){
 			</div>
 			<div class="col-md-2"></div>
 		</div>
+        <!--  End of inputbox for dates -->
 
-
+        <!--  3 first boxes which contains compared statistics -->
 		<div class="col-md-12">
 			<div class="row">
 
@@ -971,8 +986,9 @@ function showChart1(){
 			</div>
 			
 		</div>
+        <!--  End of 3 first statistics boxes -->
 
-
+        <!--  Last 3  boxes which contains compared statistics-->
 		<div class="col-md-12">
 			<div class="row">
 				
@@ -1019,7 +1035,7 @@ function showChart1(){
 				</div>
 			</div>
 		</div>
-
+        <!--  End of 3 last statistics boxes -->
 
 		<!-- Written stats-->
 		<div class="col-md-12 text-center" id="statstext">
@@ -1040,7 +1056,7 @@ function showChart1(){
 			</div>
 
 		</div>
-	   <!-- /written stats -->
+	   <!-- End of written stats -->
 
 </div>
 

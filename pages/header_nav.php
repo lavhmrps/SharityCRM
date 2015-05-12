@@ -19,7 +19,7 @@ $(document).ready(function(){
 });
 </script>
 
-
+<!-- Bootstrap header (barely changed)-->
 
 <nav class="navbar navbar-inverse navbar-static-top header">
   <div class="container-fluid">
@@ -85,6 +85,7 @@ $(document).ready(function(){
 </div><!-- /.navbar-collapse -->
 </div><!-- /.container-fluid -->
 </nav>
+<!-- /Bootstrap header -->
 
 <script type="text/javascript" src="../js/menuBar.js"></script>
 
