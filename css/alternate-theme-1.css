@@ -591,3 +591,12 @@ input[id="choosecriteria"]{
 #datepickerYear, #datepickerMnd, #datepickerDay{
 	color: #000;
 }
+
+/*SETTINGS - CHOOSE THEME*/
+#themeheaderbox{
+	background-color: #212121;
+}
+
+
+
+/* END OF CHOOSE THEME*/

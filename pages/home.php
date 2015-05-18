@@ -149,23 +149,13 @@ include '../phpBackend/connect.php';
 			<!-- Latest activities box -->
 			<div class="col-md-6" id="homeboxupperright">
 				<h2>Siste aktivitet</h2>
-				<?php
-				
-				
-				$sql = "SELECT * FROM activity WHERE organizationNr = $organizationNr LIMIT 7" ;
-				$result = mysqli_query($connection, $sql);
-				$row = mysqli_fetch_assoc($result);
-
-				if (mysqli_num_rows($result) >= 1) {
-					
-						while ($row = mysqli_fetch_assoc($result)) {
-					echo  '<p> - ' . $row["date"] . ' ' . $row["message"] .' </p>';
-				
-
-				}
+				<h3> - 26 nye følgere</h3>
+				<h3> - 173 nye donasjoner</h3>
+				<h3> - 48364kr donert</h3>
+				<h3> - siden 05.06.2015</h3>
 						
 					
-				} ?>
+				
 
 			</div>
 			<!-- End of latest activities -->

@@ -1656,6 +1656,111 @@ span[id="out"]{
 	font-size: 20px;
 }
 
+/*SETTINGS - CHOOSE THEME*/
+
+
+#themeheaderbox{
+	padding: 20px;
+	margin-bottom: 10px;
+	background-color: #efefef;
+}
+
+#themechoice1{
+	margin: 15px;
+	margin-left: 15px;
+	padding: 5px;
+	width:555px;
+	height:500px;
+	background-color: #323232;
+}
+
+#themechoice2{
+	margin:15px;
+	width:555px;
+	padding: 5px;
+	height:500px;
+	background-color: #fff;
+	border: 1px solid #efefef;
+	border-top: none;
+}
+
+#themeheader{
+	background-color: #006DFE;
+}
+
+#themeheader h3{
+	color: #fff;
+}
+
+#themebody{
+	height:433px;
+	background-color: #fff;
+}
+
+#themebox{
+	background-color: #efefef;
+	height:300px;
+	margin-top: 20px;
+}
+
+#themebox h3, #themebox p{
+	padding: 5px;
+	color: #000;
+}
+
+#themebox a{
+	float:center;
+	color: blue;
+	font-size: 30px;
+	margin-left:70px;
+}
+
+
+#themeheader2{
+	background-color: #212121;
+}
+
+#themeheader2 h3{
+	color: #fff;
+}
+
+#themebody2{
+	height:433px;
+	background-color: #323232;
+}
+
+#themebox2{
+	background-color: #212121;
+	height:300px;
+	margin-top: 20px;
+}
+
+#themebox2 h3, #themebox2 p{
+	padding: 5px;
+	color: #fff;
+}
+
+#themebox2 a{
+	float:center;
+	color: lightgreen;
+	font-size: 30px;
+	margin-left:70px;
+}
+label[id="themelabel"]{
+	color: #000;
+}
+label[id="themelabel2"]{
+	color: #efefef;
+}
+
+/* END OF CHOOSE THEME*/
+
+
+
+
+
+
+
 /* Må fordeles på themes*/ 
 .errorspan{
 	color:#FA0000;
@@ -1663,4 +1768,6 @@ span[id="out"]{
 .settinglink{
 	color:#337ab7;
 }
+
+
 

@@ -63,14 +63,6 @@ if(isset($_POST['registerNews'])){
 
 
 		<div class="col-lg-12 col-md-12 col-xs-12 text-center">
-			<h1>Velg tema:</h1>
-
-			<a href="#" onclick="setActiveStyleSheet('default'); return false;">Default</a> - 
-			<a href="#" onclick="setActiveStyleSheet('alternate'); return false;">Dark</a>
-			<!--<a href="#" onclick="setActiveStyleSheet('alternate2'); return false;">Pink</a> - 
-			<a href="#" onclick="setActiveStyleSheet('alternate3'); return false;">Black&Yellow</a>-->
-			<br/><br/>
-			<a href="../pages/change_orginfo.php" class="settinglink">Endre organisasjon</a>
 
 			<h1>To do:</h1>
 			<div class="col-md-6 text-left">

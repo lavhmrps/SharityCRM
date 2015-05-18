@@ -75,8 +75,19 @@ $(document).ready(function(){
                 </li>
             </ul>
         </li>
-        <li>
-            <a href="../pages/settings.php">Innstillinger</a>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Innstillinger<span class="caret"></span></a>
+            <ul class="dropdown-menu" id="maindropdown" role="menu">
+                <li>
+                    <a href="../pages/changetheme.php">Velg tema</a>
+                </li>
+                <li>
+                    <a href="../pages/change_orginfo.php">Endre organisasjon</a>
+                </li>
+                <li>
+                    <a href="../pages/settings.php">To do</a>
+                </li>
+            </ul>
         </li>
         <li>
             <a href="#" name="loggUt">Logg ut</a>
