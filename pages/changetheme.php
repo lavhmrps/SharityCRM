@@ -120,17 +120,11 @@ if(isset($_POST['registerNews'])){
 
 	</div>
 	<!-- End of theme container-->
-	<a href="#" onclick="setActiveStyleSheet('default'); return false;">Default</a>
-	<a href="#" onclick="setActiveStyleSheet('alternate'); return false;">Dark</a>
 
-
-	
-
-	
-	
-			<!--<a href="#" onclick="setActiveStyleSheet('alternate2'); return false;">Pink</a> - 
-			<a href="#" onclick="setActiveStyleSheet('alternate3'); return false;">Black&Yellow</a>-->
-
+			<!-- Two other alternate themes, but not good enough for use -->
+				<!--<a href="#" onclick="setActiveStyleSheet('alternate2'); return false;">Pink</a> - 
+				<a href="#" onclick="setActiveStyleSheet('alternate3'); return false;">Black&Yellow</a>-->
+			<!-- End of unused alternate css choices -->
 
 
 
