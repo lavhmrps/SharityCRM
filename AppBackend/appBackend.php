@@ -22,7 +22,7 @@ if(isset($_POST['userLoginApp'])){
         if ($dbpassword == $password) {
             echo "OK";
             mysqli_close($connection);
-            return "OK";
+            return;
         } 
     }else {
         // Sjekker om det en organisasjon som logger inn
@@ -34,13 +34,26 @@ if(isset($_POST['userLoginApp'])){
             if ($dbpassword == $password) {
                 echo "ORG";
                 mysqli_close($connection);
-                return "ORG";
+                return;
+            }
+        }else{
+            $sql = "SELECT password FROM organization WHERE organizationNr = '$username'";
+            $result = mysqli_query($connection, $sql);
+            if (mysqli_num_rows($result) == 1) {
+                $row = mysqli_fetch_assoc($result);
+                $dbpassword = $row['password'];
+                if ($dbpassword == $password) {
+                    echo "ORG2";
+                    mysqli_close($connection);
+                    return;
+                }
             }
         }
+        
 
         mysqli_close($connection);
-        echo "WRONG";
-        return "WRONG";
+        echo "Feil brukernavn/passord kombinasjon";
+        return ;
     }
 }
 if(isset($_POST['getSQL'])){
