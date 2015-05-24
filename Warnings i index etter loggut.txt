@@ -1,8 +1,0 @@
-Warning: include(../phpBackend/connect.php): failed to open stream: No such file or directory in C:\xampp\htdocs\SharityCRM\index.php on line 11
-
-Warning: include(): Failed opening '../phpBackend/connect.php' for inclusion (include_path='.;C:\xampp\php\PEAR') in C:\xampp\htdocs\SharityCRM\index.php on line 11
-
-
-Superekstra beskjeder til Vegard:
-
-1. Bildene jeg laster opp blir ikke vist.. 
