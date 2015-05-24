@@ -981,7 +981,20 @@ input#logoutbtn{
 		margin-top: 0;
 		padding-top: 0;
 	}
-	
+	#projectcontainer{
+	border-radius: 0px;
+	margin:20px;
+	margin-top: 20px;
+	width:90%;
+	height:250px;
+	}
+	#bottom{
+	font-size: 18px;
+	bottom:0;
+	position:absolute;
+	text-align: center;
+	margin-left:120px;
+}
 }
 
 
