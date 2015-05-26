@@ -55,7 +55,6 @@ include "../pages/header_nav.php";
 ?>
 <!-- End of header -->
 
-
 <div class="container">
 	<!-- Connects to database and gets the projectinformation -->
 	<?php

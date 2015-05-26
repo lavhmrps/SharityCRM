@@ -223,13 +223,14 @@ $organizationNr = $_SESSION['organizationNr'];
 								header("Location: home.php");
 
 						}else{
-							echo '
+							echo '<div class="col-md-6">
 							<button  class="btn btn-success" name="complete_registration">
 							Last opp infromasjon (2/2)
-							</button>
+							</button></div>
+							<div class="col-md-6">
 							<button  class="btn btn-success" name="complete_registration" onclick="skip()">
 							Gå videre
-							</button>
+							</button></div>
 
 							';
 						}

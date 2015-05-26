@@ -51,6 +51,8 @@ if(isset($_POST['registerNews'])){
 	?>
 	<!-- End of header -->
 
+
+
 	<!-- Connects to database and gets the newsinfo -->
 	<?php
 
@@ -94,8 +96,8 @@ if(isset($_POST['registerNews'])){
 
 	<!-- Comfirm deletion -->
 	<div class="container" >
-		<div class="col-md-3"></div>
-		<div class="col-md-6" id="selectednewscontainer">
+		<div class="col-md-2"></div>
+		<div class="col-md-8" id="selectednewscontainer">
 
 			<div class="col-lg-12 col-md-12 col-xs-12 text-center">
 			<form method="post">
@@ -131,10 +133,11 @@ if(isset($_POST['registerNews'])){
 				
 
 			</div>
-			<div class="col-md-3"></div>
+			
 
 
 		</div>
+		<div class="col-md-2"></div>
 	</div>
 	<!-- End of confirmation -->
 </body>

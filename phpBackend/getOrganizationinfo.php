@@ -109,12 +109,14 @@ if($result){
 
 
         echo '
+        <div class="col-md-6">
         <button  class="btn btn-success" name="complete_registration">
         Oppdater
-        </button>
+        </button></div>
+        <div class="col-md-6">
         <button  class="btn btn-success" name="complete_registration" onclick="skip()">
         Gå videre
-        </button>
+        </button></div>
         ';
 
     }
