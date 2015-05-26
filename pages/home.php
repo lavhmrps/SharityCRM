@@ -79,7 +79,7 @@ include '../phpBackend/connect.php';
 
 				<?php
 				$organizationNr = $_SESSION['organizationNr'];
-				$sql = "SELECT * FROM Organization WHERE organizationNr = $organizationNr";
+				$sql = "SELECT * FROM organization WHERE organizationNr = $organizationNr";
 				$result = mysqli_query($connection, $sql);
 
 				if ($result) {

@@ -1,6 +1,6 @@
 <?php
 
-$connection = mysqli_connect("localhost", "root", "", "database") or die("Kunne ikke koble til database");
+$connection = mysqli_connect("student.cs.hioa.no", "s188081", "", "s188081") or die("Kunne ikke koble til database");
 
 function insertInto($connection, $sql) {
 	if (mysqli_query($connection, $sql) === TRUE) {

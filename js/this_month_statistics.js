@@ -102,7 +102,7 @@ $(document).ready(function(){
 
  },
  error : function(){
-   alert("Something went worng");
+  
  }
 });
 

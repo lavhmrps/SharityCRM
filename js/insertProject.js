@@ -49,7 +49,8 @@ $("input[name=complete_ProjectReg]").click(function(){
 			}
 		},
 		error : function(response){
-			alert("ERROR INSRT PROJECT.js ajax request error : " + response.message);
+			//alert("ERROR INSRT PROJECT.js ajax request error : " + response.message);
+			console.log( "ERROR INSRT PROJECT.js ajax request error : " + response.message );
 		}
 	});
 	return false;
@@ -67,10 +68,10 @@ function insertBackground(file_data_background){
 		data: form_data_background,
 		type: 'POST',
 		success: function(response){
-			alert("insertProject.js ajax request success Bakgrunnsbilde: " + response);
+			console.log("insertProject.js ajax request success Bakgrunnsbilde: " + response);
 		},
 		error : function(response){
-			alert(" insertProject.js : insertBackground ajax request ERROR: " + response);
+			//alert(" insertProject.js : insertBackground ajax request ERROR: " + response);
 			console.log(response.message);
 		}
 	});

@@ -10,7 +10,7 @@ if(isset($_POST['credit_card'])){
 	$visa_expire_year = $credit_card['visa_expire_year'];
 	$ccv = $credit_card['ccv'];
 
-	$sql = "INSERT INTO Card (cardnr, month, year, CCV) VALUES ('$visa_number','$visa_expire_month', '$visa_expire_year', '$ccv')";
+	$sql = "INSERT INTO card (cardnr, month, year, CCV) VALUES ('$visa_number','$visa_expire_month', '$visa_expire_year', '$ccv')";
 	$mysql_status = insertInto($connection, $sql);
 	echo $mysql_status;
 }else{

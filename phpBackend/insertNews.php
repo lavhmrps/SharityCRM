@@ -15,7 +15,7 @@ if (isset($_SESSION['organizationNr'])) {
 		if($projectID !='NULL'){
 
 			
-			$sql = "INSERT INTO News (title, txt, projectID, organizationNr) VALUES('$title', '$txt', '$projectID', '$organizationNr')";
+			$sql = "INSERT INTO news (title, txt, projectID, organizationNr) VALUES('$title', '$txt', '$projectID', '$organizationNr')";
 			$mysql_status = insertInto($connection, $sql);
 			$_SESSION['IDofLastNewsInsert'] = mysqli_insert_id($connection);
 			$_SESSION['projectIDtoRegisterNews'] = $projectID;

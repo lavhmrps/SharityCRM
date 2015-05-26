@@ -46,45 +46,45 @@ include "../pages/header_nav.php";
 							<?php
 							$organizationNr = $_SESSION['organizationNr'];
 							$sql = "SELECT logoURL FROM Organization WHERE organizationNr = $organizationNr";
-$logoURL = "..."; // husk å sette dette til default bilde
-if($result = mysqli_query($connection, $sql)){
-	if(mysqli_num_rows($result) == 1){
-		$row = mysqli_fetch_assoc($result);
-		$logoURL = $row['logoURL'];
-	}else{
-		die("Alvorlig feil, sprørring etter org med orgnr ". $organizationNr . " returnerte 0 eller flere enn 1 rad");
-	}
-}else{
-	die('Feil i sql spørringen etter logoURL fra Organizaton');
-}
-echo "<img id='logoimg' src='../phpBackend/" . $logoURL . "'/>";
-?>
-</div>
-</div>
-<div class="space_btn">
-	<button class="ui-btn btn_single_project_donate">
-		DONÉR
-	</button>
-</div>
-<div class="main_content">
-	<h4>
-		<span>
-			<input type="text" name = "country" id="inCountry" placeholder="Skriv inn land" />
-		</span> , <span>
-		<input type="text" name="city" id="inCity" placeholder="Skriv inn by" />
-	</span>
-</h4>
-<input type="text" name="title" id="bottomTitle" placeholder="Skriv prosjektets tittel"/>
-<div class="form-group">
-	<textarea class="form-control" name="about" id="aboutProj" rows="5" id="aboutproject" placeholder="Skriv om prosjektet"></textarea>
-</div>
-</div>
-<div class="col-md-12" id="aligncenter">
-	<input type="button" name="complete_ProjectReg" id="registerphonebutton" value="Lagre"/>
-</div>
-</form>
-</div>
-</div>
+							$logoURL = "...";
+							if($result = mysqli_query($connection, $sql)){
+								if(mysqli_num_rows($result) == 1){
+									$row = mysqli_fetch_assoc($result);
+									$logoURL = $row['logoURL'];
+								}else{
+									die("Alvorlig feil, sprørring etter org med orgnr ". $organizationNr . " returnerte 0 eller flere enn 1 rad");
+								}
+							}else{
+								die('Feil i sql spørringen etter logoURL fra Organizaton');
+							}
+							echo "<img id='logoimg' src='../phpBackend/" . $logoURL . "'/>";
+							?>
+						</div>
+					</div>
+					<div class="space_btn">
+						<button class="ui-btn btn_single_project_donate">
+							DONÉR
+						</button>
+					</div>
+					<div class="main_content">
+						<h4>
+							<span>
+								<input type="text" name = "country" id="inCountry" placeholder="Skriv inn land" />
+							</span> , <span>
+							<input type="text" name="city" id="inCity" placeholder="Skriv inn by" />
+						</span>
+					</h4>
+					<input type="text" name="title" id="bottomTitle" placeholder="Skriv prosjektets tittel"/>
+					<div class="form-group">
+						<textarea class="form-control" name="about" id="aboutProj" rows="5" id="aboutproject" placeholder="Skriv om prosjektet"></textarea>
+					</div>
+				</div>
+				<div class="col-md-12" id="aligncenter">
+					<input type="button" name="complete_ProjectReg" id="registerphonebutton" value="Lagre"/>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
 </div>
 <!-- jQuery -->

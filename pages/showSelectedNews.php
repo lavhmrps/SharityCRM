@@ -53,14 +53,16 @@ if(isset($_POST['registerNews'])){
 	<?php
 
 	$newsID = $_SESSION['newsIDtoShow'];
-	$sql = "SELECT * FROM News WHERE newsID = $newsID";
+
+	$sql = "SELECT * FROM news WHERE newsID = $newsID";
 	$result = mysqli_query($connection, $sql);
 	if($result){
+		
 		if(mysqli_num_rows($result) == 1){
 			$row = mysqli_fetch_assoc($result);
 			$projectID = $row['projectID'];
 
-			$sql1 = "SELECT name FROM Project WHERE projectID = '$projectID'";
+			$sql1 = "SELECT name FROM project WHERE projectID = '$projectID'";
 			$result1 = mysqli_query($connection, $sql1);
 
 			if($result1){
@@ -78,6 +80,7 @@ if(isset($_POST['registerNews'])){
 			$title = $row['title'];
 
 			$txt = $row['txt'];
+
 
 		}else{
 

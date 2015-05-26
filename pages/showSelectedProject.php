@@ -54,7 +54,7 @@ include "../pages/header_nav.php";
 <?php
 $projectID = $_SESSION['projectIDtoShow'];
 
-$sql = "SELECT * FROM Project WHERE projectID = $projectID";
+$sql = "SELECT * FROM project WHERE projectID = $projectID";
 $result = mysqli_query($connection, $sql);
 if($result){
 	if(mysqli_num_rows($result) == 1){

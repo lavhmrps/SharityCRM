@@ -36,7 +36,7 @@ $(document).ready(function() {
 		try{
 			var file_data_background = $('#photoimg').prop('files')[0];  
 		}catch(error){
-			alert(error.message);
+			console.log(error.message);
 		}
 
 

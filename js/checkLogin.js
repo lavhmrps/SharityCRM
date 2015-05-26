@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
 	$('#loginbutton').click(function(){
+
 		var organizationNr = $('input[name=organizationNr]').val();
 		var password = $('input[type=password]').val();
 
@@ -10,6 +11,8 @@ $(document).ready(function(){
 		};
 
 		combinationJSON = JSON.stringify(combinationJSON);
+
+
 
 		$.ajax({
 			type: "POST",
@@ -30,7 +33,8 @@ $(document).ready(function(){
 				}
 			},
 			error: function(response){
-				alert(response);
+				console.log(response);
+				alert("Feil");
 			}
 		});
 
@@ -61,7 +65,7 @@ $(document).ready(function(){
 				}
 			},
 			error: function(response){
-				alert(response);
+				console.log(response);
 			}
 		});
 

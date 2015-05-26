@@ -23,7 +23,7 @@ include "../phpBackend/connect.php";
 		if(isset($organization['email'])){
 			$email = $organization['email'];
 			$emailOld = $organization['emailOld'];
-			$sql = "UPDATE User SET email = '$email' WHERE email = '$emailOld'";
+			$sql = "UPDATE user SET email = '$email' WHERE email = '$emailOld'";
 			$mysql_status = insertInto($connection, $sql);
 			if($mysql_status != "OK"){
 				$statusEmail = FALSE;
@@ -32,7 +32,7 @@ include "../phpBackend/connect.php";
 
 		if(isset($organization['name'])){
 			$phone = $organization['name'];
-			$sql = "UPDATE User SET name = '$name' WHERE email = '$email'";
+			$sql = "UPDATE user SET name = '$name' WHERE email = '$email'";
 			$mysql_status = insertInto($connection, $sql);
 			if($mysql_status != "OK"){
 				$statusName = FALSE;
@@ -40,7 +40,7 @@ include "../phpBackend/connect.php";
 		}
 		if(isset($organization['phone'])){
 			$email = $organization['phone'];
-			$sql = "UPDATE User SET phone = '$phone' WHERE email = '$email'";
+			$sql = "UPDATE user SET phone = '$phone' WHERE email = '$email'";
 			$mysql_status = insertInto($connection, $sql);
 			if($mysql_status != "OK"){
 				$statusPhone = FALSE;
@@ -48,7 +48,7 @@ include "../phpBackend/connect.php";
 		}
 		if(isset($organization['address'])){
 			$zipcode = $organization['address'];
-			$sql = "UPDATE User SET address = '$address' WHERE email = '$email'";
+			$sql = "UPDATE user SET address = '$address' WHERE email = '$email'";
 			$mysql_status = insertInto($connection, $sql);
 			if($mysql_status != "OK"){
 				$statusAddress = FALSE;
@@ -56,7 +56,7 @@ include "../phpBackend/connect.php";
 		}
 		if(isset($organization['zip'])){
 			$website = $organization['zip'];
-			$sql = "UPDATE User SET zip = '$zip' WHERE email = '$email'";
+			$sql = "UPDATE user SET zip = '$zip' WHERE email = '$email'";
 			$mysql_status = insertInto($connection, $sql);
 			if($mysql_status != "OK"){
 				$statusZip = FALSE;
@@ -65,7 +65,7 @@ include "../phpBackend/connect.php";
 
 		if(isset($organization['picURL'])){
 			$accountnumber = $organization['accountnumber'];
-			$sql = "UPDATE User SET picURL = '$picURL' WHERE email = '$email'";
+			$sql = "UPDATE user SET picURL = '$picURL' WHERE email = '$email'";
 			$mysql_status = insertInto($connection, $sql);
 			if($mysql_status != "OK"){
 				$statusPicURL = FALSE;
@@ -73,7 +73,7 @@ include "../phpBackend/connect.php";
 		}
 		if(isset($organization['password'])){
 			$category = $organization['password'];
-			$sql = "UPDATE User SET password = '$password' WHERE email = '$email'";
+			$sql = "UPDATE user SET password = '$password' WHERE email = '$email'";
 			$mysql_status = insertInto($connection, $sql);
 			if($mysql_status != "OK"){
 				$statusPassword = FALSE;

@@ -23,7 +23,7 @@ if (isset($_SESSION['organizationNr'])) {
 
 		if(isset($organization['title'])){
 			$title = $organization['title'];
-			$sql = "UPDATE News SET title = '$title' WHERE newsID = '$newsID'";
+			$sql = "UPDATE news SET title = '$title' WHERE newsID = '$newsID'";
 			$mysql_status = insertInto($connection, $sql);
 			if($mysql_status != "OK"){
 				$statusTitle = FALSE;
@@ -32,7 +32,7 @@ if (isset($_SESSION['organizationNr'])) {
 
 		if(isset($organization['txt'])){
 			$txt = $organization['txt'];
-			$sql = "UPDATE News SET txt = '$txt' WHERE newsID = '$newsID'";
+			$sql = "UPDATE news SET txt = '$txt' WHERE newsID = '$newsID'";
 			$mysql_status = insertInto($connection, $sql);
 			if($mysql_status != "OK"){
 				$statusAbout = FALSE;

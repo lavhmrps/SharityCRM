@@ -69,11 +69,13 @@ $('#completeReg').click(function(){
 				$('input[name=password]').focus();
 				$("#goToLogin").trigger("click");
 			}else{
-				alert(response);
+	
+				console.log(response);
 			}
 		},
 		error: function(response){
-			alert("ERROR: INSERT ORGANIZATION : " + response.message);
+			
+			console.log("ERROR: INSERT ORGANIZATION : " + response.message);
 			console.log(response.message); //skriver feilmelding i consol i nettleser
 		}	
 	});

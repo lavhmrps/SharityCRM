@@ -12,7 +12,7 @@ if(isset($_POST['userLoginApp'])){
     $username = $userLoginApp['email'];
     $password = $userLoginApp['password'];
 
-    $sql = "SELECT password FROM User WHERE email = '$username'";
+    $sql = "SELECT password FROM user WHERE email = '$username'";
     $result = mysqli_query($connection, $sql);
 
     if (mysqli_num_rows($result) == 1) {
@@ -104,7 +104,7 @@ if(isset($_POST['organizationSQL']))
 }
 
 function getProjectCount($orgnr, $con){
-    $sql = "SELECT * FROM Project WHERE organizationNr = '$orgnr'";
+    $sql = "SELECT * FROM project WHERE organizationNr = '$orgnr'";
     $result = mysqli_query($con, $sql);
     return mysqli_num_rows($result);
 }

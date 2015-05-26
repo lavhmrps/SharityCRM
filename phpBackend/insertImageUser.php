@@ -15,6 +15,8 @@ if(isset($_SESSION['userEmailToInsertImage'])){
 		$path = "image_user/" . $email . "/portrait/";
 		if (!file_exists($path)) {
 			mkdir($path, 0777, true);
+			chmod($target_file, 0777);
+
 		}
 		chmod($path, 0777);
 
@@ -27,8 +29,8 @@ if(isset($_SESSION['userEmailToInsertImage'])){
 
 		chmod($target_file, 0777);
 
-		$picURL = "http://localhost/SharityCRM/phpBackend/" . $target_file;
-		$sql = "UPDATE User SET picURL = '$picURL' WHERE email = '$email'";
+		$picURL = "http://student.cs.hioa.no/~s188081/SharityCRM/phpBackend/" . $target_file;
+		$sql = "UPDATE user SET picURL = '$picURL' WHERE email = '$email'";
 		if (mysqli_query($connection, $sql)) {
 			echo "Successful MySQL query INSERT Background";
 		} else {

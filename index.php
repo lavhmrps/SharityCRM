@@ -175,7 +175,7 @@ include "phpBackend/connect.php";
 												<label for="reg_name" class="text-left">Organisasjonsnavn</label>
 											</div>
 											<div class="col-md-9 text-right spanpadding">
-											<span hidden name="newsHeader" class="errorspan">Kun bokstaver, mellomrom og bindestrek</span>  
+												<span hidden name="newsHeader" class="errorspan">Kun bokstaver, mellomrom og bindestrek</span>  
 											</div>
 										</div>
 										<input type="text" class="form-control" name="reg_name" id="orgNames" placeholder=""/>

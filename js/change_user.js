@@ -39,7 +39,7 @@
            
 
             if(ok == 0){
-                alert("Fyll inn alle felters, informasjon kan gå tapt, trykk ok for å samtykke");
+                console.log("Fyll inn alle felters, informasjon kan gå tapt, trykk ok for å samtykke");
             }
 
 
@@ -63,13 +63,14 @@
                 data : {"organization" : json},
                 success : function(response){
                     if(response == "OK"){
-                        alert("Successful ajax request from change_user.js calling to change_user.php " + response);
+                        console.log("Successful ajax request from change_user.js calling to change_user.php " + response);
                         window.location.replace("../pages/Admin/change_user.php");
 
                     }
                 },
                 error : function(response){
-                    alert("changeorginfor.js error feil fra update organization.php feil i ajax request");
+               
+                    console.log("changeorginfor.js error feil fra update organization.php feil i ajax request");
                 }
 
             });

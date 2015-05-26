@@ -1776,19 +1776,18 @@ label[id="themelabel2"]{
 /* END OF CHOOSE THEME*/
 
 
-/* ERRORMESSAGE INFO IN*/
 
+
+
+
+
+/* Må fordeles på themes*/ 
 .errorspan{
 	color:#FA0000;
 }
 .settinglink{
 	color:#337ab7;
 }
-/* END OF ERRORMESSAGE */
-
-
-
-
 
 
 

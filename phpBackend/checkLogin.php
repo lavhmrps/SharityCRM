@@ -14,7 +14,7 @@ if (isset($_POST['combination'])) {
     $organizationNr = $combination['organizationNr'];
     $password = $combination['password'];
     
-    $sql = "SELECT * FROM Organization WHERE organizationNr = '$organizationNr'";
+    $sql = "SELECT * FROM organization WHERE organizationNr = '$organizationNr'";
     $result = mysqli_query($connection, $sql);
     
     if (mysqli_num_rows($result) == 1) {
@@ -47,7 +47,7 @@ if (isset($_POST['adminCombination'])) {
     $username = $adminCombination['username'];
     $password = $adminCombination['password'];
     
-    $sql = "SELECT * FROM Admin WHERE username = '$username'";
+    $sql = "SELECT * FROM admin WHERE username = '$username'";
     $result = mysqli_query($connection, $sql);
     
     if (mysqli_num_rows($result) == 1) {

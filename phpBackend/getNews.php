@@ -5,8 +5,7 @@ session_start();
 header('Content-Type: application/javascript');
 
 
-$connection = mysqli_connect("localhost", "root", "", "database");
-
+include 'connect.php';
 if(isset($_POST['sql'])){
 	$sql = $_POST['sql'];
 

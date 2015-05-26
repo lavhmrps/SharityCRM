@@ -106,9 +106,13 @@ function insertInformation(){
 
 			}
 
+			
+
+
 		},
 		error : function(response){
-			alert("Organization: feil i success updateOrganization.js feil til updateOrganization.php");
+			
+			console.log("Organization: feil i success updateOrganization.js feil til updateOrganization.php");
 		}
 	});
 }
@@ -125,11 +129,11 @@ function insertBackground(file_data_background){
 		data: form_data_background,
 		type: 'POST',
 		success: function(response){
-			alert("RESPONSE FRA UPADATE PRGANIZATIN.JS : AJAX TO insertBackground.PHP" +response);
+			console.log("RESPONSE FRA UPADATE PRGANIZATIN.JS : AJAX TO insertBackground.PHP" +response);
 		},
 		error : function(response){
-			alert(" updateOrganization.js : insertBackground ajax request ERROR : " + response);
-			console.log(response.message);
+			
+			console.log(" updateOrganization.js : insertBackground ajax request ERROR : " + response);
 		}
 	});
 }
@@ -146,11 +150,11 @@ function insertLogo(file_data_logo){
 		data: form_data_logo,
 		type: 'POST',
 		success: function(response){
-			alert("insertLogo() updateOrganization" + response);
+			
+			console.log("insertLogo() updateOrganization" + response);
 		},
 		error : function(response){
-			alert(" updateOrganization.js : insertLogo ajax request ERROR : " + response);
-			console.log(response.message);
+			console.log(" updateOrganization.js : insertLogo ajax request ERROR : " + response);
 		}
 	});
 }

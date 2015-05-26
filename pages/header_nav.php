@@ -84,9 +84,6 @@ $(document).ready(function(){
                 <li>
                     <a href="../pages/change_orginfo.php">Endre organisasjon</a>
                 </li>
-                <li>
-                    <a href="../pages/settings.php">To do</a>
-                </li>
             </ul>
         </li>
         <li>

@@ -7,8 +7,6 @@ include '../phpBackend/connect.php';
 $organizationNr = $_SESSION['organizationNr'];
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,9 +32,9 @@ $organizationNr = $_SESSION['organizationNr'];
 
 	<!-- Scripts -->
 	<script type="text/javascript">
-		function skip(){
-			window.location.replace('../pages/home.php');
-		}
+	function skip(){
+		window.location.replace('../pages/home.php');
+	}
 	</script>
 
 	<!-- Bootstrap Core JavaScript -->
@@ -46,151 +44,139 @@ $organizationNr = $_SESSION['organizationNr'];
 	<script src="../js/updateOrganization.js"></script>
 	
 
-	<!--Sript for insert images to database through AJAX request-->
-	<script src="../js/insertImg.js"></script>
-
 	<!-- End of scripts -->
-	</head>
-	<body>
+</head>
+<body>
 
-		<div class="col-md-3"></div>
+	<div class="col-md-3"></div>
 
-		<!-- Box with all the inputs which have not yet been entered by the organization -->
-		<div class="col-md-6" id="addprojectcontainer">
-			<div class="col-md-12 text-center" id="reg_pt2_head">
-				<?php
+	<!-- Box with all the inputs which have not yet been entered by the organization -->
+	<div class="col-md-6" id="addprojectcontainer">
+		<div class="col-md-12 text-center" id="reg_pt2_head">
+			<?php
+			$sql = "SELECT * FROM organization WHERE organizationNr = $organizationNr";
+			$result = mysqli_query($connection, $sql);
 
-				$sql = "SELECT * FROM Organization WHERE organizationNr = $organizationNr";
-				$result = mysqli_query($connection, $sql);
-
-				if($result){
-					if(mysqli_num_rows($result) == 1){
-						$row = mysqli_fetch_assoc($result);
-						echo "<h1>" . $row['name'] . "</h1>";
-					}
+			if($result){
+				if(mysqli_num_rows($result) == 1){
+					$row = mysqli_fetch_assoc($result);
+					echo "<h1>" . $row['name'] . "</h1>";
 				}
-				?>
-
+			}
+			?>
+		</div>
+		<div class="col-md-12 text-center">
+			<p>For å få full ytelse fra denne nettsiden og appen på telefon må disse feltene fylles ut. <br/>
+				Disse feltene kan endres under "Min Organisasjon"-fanen når det måtte ønskes. <br/>
+				Du kan utsette dette til neste innlogging ved å trykke på "Hopp over".</p>
 			</div>
-			
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<?php
 
-			<div class="col-md-12 text-center">
-				<p>For å få full ytelse fra denne nettsiden og appen på telefon må disse feltene fylles ut. <br/>
-					Disse feltene kan endres under "Min Organisasjon"-fanen når det måtte ønskes. <br/>
-					Du kan utsette dette til neste innlogging ved å trykke på "Hopp over".</p>
-				</div>
+					$sql = "SELECT * FROM organization WHERE organizationNr = $organizationNr";
+					$result = mysqli_query($connection, $sql);
 
-				
-				<div class="row">
-					<div class="col-md-2"></div>
-					<div class="col-md-8">
-
-
-
-						<?php
-
-						$sql = "SELECT * FROM Organization WHERE organizationNr = $organizationNr";
-						$result = mysqli_query($connection, $sql);
-
-						if($result){
-							if(mysqli_num_rows($result) == 1){
-								$row = mysqli_fetch_assoc($result);
+					if($result){
+						if(mysqli_num_rows($result) == 1){
+							$row = mysqli_fetch_assoc($result);
 
 
 
-								$category = $row['category'];
-								$phone = $row['phone'];
-								$address = $row['address'];
-								$zipcode = $row['zipcode'];
-								$logoURL = $row['logoURL'];
-								$backgroundimgURL = $row['backgroundimgURL'];
-								$website = $row['website'];
-								$accountnumber = $row['accountnumber'];
-								$email = $row['email'];
-								$about = $row['about'];
+							$category = $row['category'];
+							$phone = $row['phone'];
+							$address = $row['address'];
+							$zipcode = $row['zipcode'];
+							$logoURL = $row['logoURL'];
+							$backgroundimgURL = $row['backgroundimgURL'];
+							$website = $row['website'];
+							$accountnumber = $row['accountnumber'];
+							$email = $row['email'];
+							$about = $row['about'];
 
-								
-								echo '<div class="col-md-10" id="registration_pt2_margin">';
-								if($address == NULL || $address == ""){
-									echo "<div class='row'>";
-									echo "<div class='col-md-2'>";
-									echo '<label id="registerorglabel">Adresse</label>';
-									echo "</div>";
-									echo "<div class='col-md-10 text-right spanpadding'>";
-									echo "<span hidden name='title' class='errorspan'>Kun bokstaver, tall og mellomrom</span>";
-									echo "</div>";
-									echo "</div>";
-									echo '<input type="text" class="form-control" placeholder="Eksempelveien 1" name="address" id="reg_pt2_input" />';
-								}
-								echo '</div>';
-								echo '<div class="col-md-2" id="registration_pt2_margin2">';
-								if($zipcode == NULL || $zipcode == ""){
-									echo "<div class='row'>";
-									echo "<div class='col-md-4'>";
-									echo '<label id="registerorglabel">Postnr</label>';
-									echo "</div>";
-									echo "<div class='col-md-8 text-right spanpadding'>";
-									echo "<span hidden name='title' class='errorspan'>4 tall</span>";
-									echo "</div>";
-									echo "</div>";
-									echo '<input type="tel" class="form-control" name="zipcode" placeholder="0000" id="reg_pt2_inputZipcode"/>';
-								}
-								echo '</div>';
 
-								if($phone == NULL || $phone == "" ){
-									echo "<div class='row'>";
-									echo "<div class='col-md-3'>";
-									echo '<label id="registerorglabel">Telefonnummer</label>';
-									echo "</div>";
-									echo "<div class='col-md-9 text-right spanpadding'>";
-									echo "<span hidden name='title' class='errorspan'>Kun akkurat 8 siffer</span>";
-									echo "</div>";
-									echo "</div>";
-									echo '<input type="tel" class="form-control" name="phone" placeholder="12345678" id="reg_pt2_input" />';
-								}
-								if($email == NULL || $email == ""){
-									echo "<div class='row'>";
-									echo "<div class='col-md-3'>";
-									echo '<label id="registerorglabel">Epost</label>';
-									echo "</div>";
-									echo "<div class='col-md-9 text-right spanpadding'>";
-									echo "<span hidden name='title' class='errorspan'>Ugyldig epost</span>";
-									echo "</div>";
-									echo "</div>";
-									echo '<input type="email" class="form-control" name="email" placeholder="eksempel@epost.no" id="reg_pt2_input" />';
-								}
-								
-								if($website == NULL || $website == ""){
-									echo "<div class='row'>";
-									echo "<div class='col-md-3'>";
-									echo '<label id="registerorglabel">Nettside</label>';
-									echo "</div>";
-									echo "<div class='col-md-9 text-right spanpadding'>";
-									echo "<span hidden name='title' class='errorspan'>Følg dette formatet: eksempel.no</span>";
-									echo "</div>";
-									echo "</div>";
-									echo '<input type="text" class="form-control" name="website" placeholder="eksempel.no" id="reg_pt2_input" />';
-								}
-								if(strlen($accountnumber) != 11){
-									echo "<div class='row'>";
-									echo "<div class='col-md-3'>";
-									echo '<label id="registerorglabel">Kontonummer</label>';
-									echo "</div>";
-									echo "<div class='col-md-9 text-right spanpadding'>";
-									echo "<span hidden name='title' class='errorspan'>Kun akkurat 11 siffer</span>";
-									echo "</div>";
-									echo "</div>";
-									echo '<input type="tel" class="form-control" name="accountnumber" placeholder="1234 56 78901" id="reg_pt2_input" />';
-								}
-								if($category == NULL || $category == "NULL"){
-									echo '<label id="registerorglabel">Kategori</label><div class="regOrgDropdown">
-									<select class="orgbtn1" name="category">
-										<option value="NULL">Velg kategori</option>
-										<option value="Humanitært" >Humanitært</option>
-										<option value="Dyrevern" >Dyrevern</option>
-										<option value="Forskning" >Forskning</option>
-										<option value="Fundraising" >Fundraising</option>
-									</select>
+							echo '<div class="col-md-10" id="registration_pt2_margin">';
+							if($address == NULL || $address == ""){
+								echo "<div class='row'>";
+								echo "<div class='col-md-2'>";
+								echo '<label id="registerorglabel">Adresse</label>';
+								echo "</div>";
+								echo "<div class='col-md-10 text-right spanpadding'>";
+								echo "<span hidden name='title' class='errorspan'>Kun bokstaver, tall og mellomrom</span>";
+								echo "</div>";
+								echo "</div>";
+								echo '<input type="text" class="form-control" placeholder="Eksempelveien 1" name="address" id="reg_pt2_input" />';
+							}
+							echo '</div>';
+							echo '<div class="col-md-2" id="registration_pt2_margin2">';
+							if($zipcode == NULL || $zipcode == ""){
+								echo "<div class='row'>";
+								echo "<div class='col-md-4'>";
+								echo '<label id="registerorglabel">Postnr</label>';
+								echo "</div>";
+								echo "<div class='col-md-8 text-right spanpadding'>";
+								echo "<span hidden name='title' class='errorspan'>4 tall</span>";
+								echo "</div>";
+								echo "</div>";
+								echo '<input type="tel" class="form-control" name="zipcode" placeholder="0000" id="reg_pt2_inputZipcode"/>';
+							}
+							echo '</div>';
+
+							if($phone == NULL || $phone == "" ){
+								echo "<div class='row'>";
+								echo "<div class='col-md-3'>";
+								echo '<label id="registerorglabel">Telefonnummer</label>';
+								echo "</div>";
+								echo "<div class='col-md-9 text-right spanpadding'>";
+								echo "<span hidden name='title' class='errorspan'>Kun akkurat 8 siffer</span>";
+								echo "</div>";
+								echo "</div>";
+								echo '<input type="tel" class="form-control" name="phone" placeholder="12345678" id="reg_pt2_input" />';
+							}
+							if($email == NULL || $email == ""){
+								echo "<div class='row'>";
+								echo "<div class='col-md-3'>";
+								echo '<label id="registerorglabel">Epost</label>';
+								echo "</div>";
+								echo "<div class='col-md-9 text-right spanpadding'>";
+								echo "<span hidden name='title' class='errorspan'>Ugyldig epost</span>";
+								echo "</div>";
+								echo "</div>";
+								echo '<input type="email" class="form-control" name="email" placeholder="eksempel@epost.no" id="reg_pt2_input" />';
+							}
+
+							if($website == NULL || $website == ""){
+								echo "<div class='row'>";
+								echo "<div class='col-md-3'>";
+								echo '<label id="registerorglabel">Nettside</label>';
+								echo "</div>";
+								echo "<div class='col-md-9 text-right spanpadding'>";
+								echo "<span hidden name='title' class='errorspan'>Følg dette formatet: eksempel.no</span>";
+								echo "</div>";
+								echo "</div>";
+								echo '<input type="text" class="form-control" name="website" placeholder="eksempel.no" id="reg_pt2_input" />';
+							}
+							if(strlen($accountnumber) != 11){
+								echo "<div class='row'>";
+								echo "<div class='col-md-3'>";
+								echo '<label id="registerorglabel">Kontonummer</label>';
+								echo "</div>";
+								echo "<div class='col-md-9 text-right spanpadding'>";
+								echo "<span hidden name='title' class='errorspan'>Kun akkurat 11 siffer</span>";
+								echo "</div>";
+								echo "</div>";
+								echo '<input type="tel" class="form-control" name="accountnumber" placeholder="1234 56 78901" id="reg_pt2_input" />';
+							}
+							if($category == NULL || $category == "NULL"){
+								echo '<label id="registerorglabel">Kategori</label><div class="regOrgDropdown">
+								<select class="orgbtn1" name="category">
+								<option value="NULL">Velg kategori</option>
+								<option value="Humanitært" >Humanitært</option>
+								<option value="Dyrevern" >Dyrevern</option>
+								<option value="Forskning" >Forskning</option>
+								<option value="Fundraising" >Fundraising</option>
+								</select>
 								</div>';
 							}
 							if($about == NULL || $about == ""){
@@ -214,89 +200,58 @@ $organizationNr = $_SESSION['organizationNr'];
 
 								<img src="../img/default.png" id="preview"  alt="Click to upload img" name="preview" />
 								';
-								/*<button  class="btn bluebtn" name="backgroundimgURLbutton" >
-								Last opp bakgrunnsbilde
-							</button>
+							}
+							if($logoURL == NULL || $logoURL == ""){
+								echo '
 
-							<form enctype="multipart/form-data">
-								<input type="file" name="backgroundimgURL" style="display:none">
-							</form> */
+								<label>Logo</label>
+								<input type="file" id="file_logo" style="display:none" accept="image/*" name="logoURL" />
 
-						}
+								<img src="../img/default.png" id="previewLogo"  alt="Click to upload img" name="previewLogo" />
 
-						if($logoURL == NULL || $logoURL == ""){
-							/*echo '
-							<button  class="btn bluebtn" name="logoURLbutton">
-								Last opp logo
-							</button>
+								';
+							}
+							if($category != NULL && $phone != NULL && $address != NULL && $zipcode != NULL
+								&& $logoURL != NULL && $backgroundimgURL != NULL && $website != NULL 
+								&& $accountnumber != NULL && $email != NULL && $about != NULL &&
 
-							<form enctype="multipart/form-data">
-								<input type="file" name="logoURL" style="display:none">
-							</form> 
+								$category != "" && $phone != "" && $address != "" && $zipcode != "" 
+								&& $logoURL != "" && $backgroundimgURL != "" && $website != "" 
+								&& $accountnumber != "" && $email != "" && $about != ""
 
-							';*/
+								){
+								header("Location: home.php");
 
+						}else{
 							echo '
-
-							<label>Logo</label>
-							<input type="file" id="file_logo" style="display:none" accept="image/*" name="logoURL" />
-
-							<img src="../img/default.png" id="previewLogo"  alt="Click to upload img" name="previewLogo" />
+							<button  class="btn btn-success" name="complete_registration">
+							Last opp infromasjon (2/2)
+							</button>
+							<button  class="btn btn-success" name="complete_registration" onclick="skip()">
+							Gå videre
+							</button>
 
 							';
 						}
-
-
-
-						if($category != NULL && $phone != NULL && $address != NULL && $zipcode != NULL
-							&& $logoURL != NULL && $backgroundimgURL != NULL && $website != NULL 
-							&& $accountnumber != NULL && $email != NULL && $about != NULL &&
-
-							$category != "" && $phone != "" && $address != "" && $zipcode != "" 
-							&& $logoURL != "" && $backgroundimgURL != "" && $website != "" 
-							&& $accountnumber != "" && $email != "" && $about != ""
-
-							){
-							header("Location: home.php");
-
-					}else{
-						echo '
-						<button  class="btn btn-success" name="complete_registration">
-							Fullfør (2/2)
-						</button>
-
-
-
-
-						';
 					}
-
-
-
-
 				}
-			}
 
 
-			?>
+				?>
 
 
+			</div>
+			<div class="col-md-2"></div>
 		</div>
-		<div class="col-md-2"></div>
 	</div>
+	<!-- End of organizationregistration -->
 
+	<!-- Box to include a option to skip this site -->
+	<div class="col-md-3" id="skipContainer">
 
-
-
-</div>
-<!-- End of organizationregistration -->
-
-<!-- Box to include a option to skip this site -->
-<div class="col-md-3" id="skipContainer">
-
-	<a style="cursor:pointer" onclick="skip()">Hopp over</a>
-</div>
-<!-- End of skipbox -->
+		<a style="cursor:pointer" onclick="skip()">Hopp over</a>
+	</div>
+	<!-- End of skipbox -->
 
 </body>
 </html>

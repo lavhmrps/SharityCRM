@@ -5,7 +5,7 @@ include '../phpBackend/connect.php';
 
 $organizationNr = $_SESSION['organizationNr'];
 
-$sql = "SELECT category FROM Organization WHERE organizationNr = '$organizationNr'";
+$sql = "SELECT category FROM organization WHERE organizationNr = '$organizationNr'";
 $result = mysqli_query($connection, $sql);
 
 if($result){

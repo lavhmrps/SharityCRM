@@ -61,7 +61,7 @@ if (isset($_SESSION['organizationNr'])) {
 		else {
 			if (move_uploaded_file($_FILES["file_background"]["tmp_name"], $target_file)) {
 				//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-				$sql = "UPDATE Organization SET backgroundimgURL = '$target_file' WHERE organizationNr = '$organizationNr'";
+				$sql = "UPDATE organization SET backgroundimgURL = '$target_file' WHERE organizationNr = '$organizationNr'";
 				$mysql_status = insertInto($connection, $sql);
 				echo $mysql_status;
 

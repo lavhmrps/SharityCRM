@@ -10,7 +10,7 @@ if(isset($_POST['user'])){
 	$email = $user['email'];
 	$password = $user['password'];
 
-	$sql = "INSERT INTO User (name, phone, email, password) VALUES ('$name','$phone', '$email', '$password')";
+	$sql = "INSERT INTO user (name, phone, email, password) VALUES ('$name','$phone', '$email', '$password')";
 	$mysql_status = insertInto($connection, $sql);
 	echo $mysql_status;
 }else{

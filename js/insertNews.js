@@ -9,7 +9,8 @@ $("#registerphonebutton").click(function(){
 	var txt = $('textarea[name=txt]').val();
 	var projectID = $('select[name=projectID]').val();
 	if(projectID == "NULL"){
-		alert("Feil: Alert fra insertNews.js prosjektID er NULL");
+	
+		console.log("Feil: Alert fra insertNews.js prosjektID er NULL");
 return false; //gi beskjed til brukeren, gjerne med bruk av var validinputs = true/false
 }
 var newsJSON = {
@@ -54,16 +55,16 @@ alert(newsJSON);
 		url: "../phpBackend/insertNews.php",
 		data: {'news' : newsJSON},
 		success: function (response) {
-			alert(response);
+			console.log(response);
 			if(response == "OK"){
 				insertBackground();
 				clearInputs();
 			}else{
-				alert("ERROR: Alert fra insertNews.js Feil ved insert til MySQL database");
+				console.log("ERROR: Alert fra insertNews.js Feil ved insert til MySQL database");
 			}
 		},
 		error: function (error) {
-			alert(error);
+			console.log(error);
 		}
 	});
 //}
@@ -89,10 +90,10 @@ processData: false,
 data: form_data_background,
 type: 'POST',
 success: function(response){
-	alert("Bakgrunnsbilde: " + response);
+	console.log("Bakgrunnsbilde: " + response);
 },
 error : function(response){
-	alert("ERROR : " + response.message);
+
 	console.log(response.message);
 }
 });

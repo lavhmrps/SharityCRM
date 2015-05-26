@@ -39,6 +39,7 @@ if(isset($_POST['registerNews'])){
 
 	<!-- Script to change CSS -->
 	<script src="../js/styleswitcher.js" type="text/javascript" ></script>
+
 	<!-- End of script -->
 
 </head>
@@ -80,7 +81,7 @@ if(isset($_POST['registerNews'])){
 						</div>
 
 
-						<a href="#" onclick="setActiveStyleSheet('default'); return false;">Velg denne stilen!</a>
+						<a href="#" id="choice1" onclick="setActiveStyleSheet('default'); return false;">Velg denne stilen!</a>
 					</div>
 
 					<div class="col-md-1 col-xs-0"></div>
@@ -108,7 +109,7 @@ if(isset($_POST['registerNews'])){
 							<input type="text" id="reg_project_input" class="form-control" name="city" placeholder=""/>
 						</div>
 
-						<a href="#" onclick="setActiveStyleSheet('alternate'); return false;">Velg denne stilen!</a>
+						<a href="#" id="choice2" onclick="setActiveStyleSheet('alternate'); return false;">Velg denne stilen!</a>
 					</div>
 
 					<div class="col-md-1 col-xs-0"></div>
@@ -131,5 +132,6 @@ if(isset($_POST['registerNews'])){
 
 			<!-- Bootstrap Core JavaScript -->
 			<script src="../js/bootstrap.min.js"></script>
+			<script src="../js/changeTheme.js"></script>
 		</body>
 		</html>

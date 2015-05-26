@@ -6,7 +6,7 @@ include '../phpBackend/checkSession.php';
 $date = $_REQUEST["date"];
 
 $organizationNr = $_SESSION['organizationNr'];
-$sql = "SELECT Donation.* , Project.name FROM Donation INNER JOIN Project ON Donation.projectID = Project.projectID WHERE YEAR(date(Donation.date)) = '" . $date . "' AND Project.organizationNr = '".$organizationNr."' ORDER BY date";
+$sql = "SELECT donation.* , project.name FROM donation INNER JOIN project ON donation.projectID = project.projectID WHERE YEAR(date(donation.date)) = '" . $date . "' AND project.organizationNr = '".$organizationNr."' ORDER BY date";
 $result = mysqli_query($connection, $sql);
 $json_response = array();
 if ($result) {

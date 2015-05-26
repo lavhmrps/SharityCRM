@@ -45,15 +45,15 @@ include '../phpBackend/connect.php';
     <script src="../js/styleswitcher.js" type="text/javascript" ></script>
     <!--  End of script -->
 
-    </head>
-    <body>
+</head>
+<body>
     <!--  Includes header -->
-        <?php
-        include 'header_nav.php';
-        ?>
-        <!--  End of header -->
+    <?php
+    include 'header_nav.php';
+    ?>
+    <!--  End of header -->
 
-        <div class="container">
+    <div class="container">
         <div class="col-md-2"></div>
         <div class="col-md-8" id="changenewscontainer">
             <div class="col-md-12 text-center" id="reg_pt2_head">
@@ -61,7 +61,7 @@ include '../phpBackend/connect.php';
                 <?php
 
                 $projectID = $_SESSION['projectIDtoShow'];
-                $sql = "SELECT * FROM Project WHERE projectID = $projectID";
+                $sql = "SELECT * FROM project WHERE projectID = $projectID";
                 $result = mysqli_query($connection, $sql);
 
                 if($result){
@@ -79,7 +79,7 @@ include '../phpBackend/connect.php';
             <!-- Connects to database and gets the remaining info about the project -->
             <?php
 
-            $sql = "SELECT * FROM Project WHERE projectID = $projectID";
+            $sql = "SELECT * FROM project WHERE projectID = $projectID";
             $result = mysqli_query($connection, $sql);
 
             if($result){
@@ -139,7 +139,7 @@ include '../phpBackend/connect.php';
                     echo "<div class='row'>";
                     echo "<div class='col-md-4'>";
                     echo "<label>Om prosjektet</label>";
-                     echo "</div>";
+                    echo "</div>";
                     echo "<div class='col-md-8 text-right spanpadding'>";
                     echo "<span hidden name='title' class='errorspan'>Minimum 20 tegn og maks 300 tegn</span>";
                     echo "</div>";
@@ -149,16 +149,16 @@ include '../phpBackend/connect.php';
 
                     echo '
                     <button class="btn bluebtn" name="backgroundimgURLbutton">
-                        Last opp bakgrunnsbilde
+                    Last opp bakgrunnsbilde
                     </button>
                     <form enctype="multipart/form-data">
-                        <input type="file" name="backgroundimgURL" style="display:none">
+                    <input type="file" name="backgroundimgURL" style="display:none">
                     </form> 
                     ';
 
                     echo '
                     <button  class="btn btn-success" id="main-themebtn3" name="update_info">
-                        Oppdater informasjon
+                    Oppdater informasjon
                     </button>
                     ';
                 }
@@ -168,110 +168,17 @@ include '../phpBackend/connect.php';
 
         </div>
         <div class="col-md-2"></div>
-        </div>
+    </div>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="../js/bootstrap.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
 
-        <!--  Script to update the projectinformation -->
-        <script type="text/javascript">
-
-            $(document).ready(function(){
-                $.ajax({
-                    url : "../phpBackend/getCategoryOrganization.php",
-                    success : function(response){
-                        $('select[name=category]').val(response);
-                    }
-                });
-            });
-
-            $('button[name=update_info]').click(function(){
-                var name = $('input[name=name]').val();
-                var title = $('input[name=title]').val();
-                var country = $('input[name=country]').val();
-                var city = $('input[name=city]').val();
-                var about = $('textarea[name=about]').val();
+    <!--  Script to update the projectinformation -->
+    <script type="text/javascript" src="../js/change_projectinfo.js">
 
 
-                $('input[name=name]').removeClass('empty_input');
-                $('input[name=title]').removeClass('empty_input');
-                $('input[name=country]').removeClass('empty_input');
-                $('input[name=city]').removeClass('empty_input');
-                $('textarea[name=about]').removeClass('empty_input');
-
-
-
-
-                var ok = 1;
-
-                if(name == ""){
-                    $('input[name=name]').addClass('empty_input');
-                    ok = 0;
-                }
-                if(title == ""){
-                    $('input[name=title]').addClass('empty_input');
-                    ok = 0;
-                }
-                if(country == ""){
-                    $('input[name=country]').addClass('empty_input');
-                    ok= 0;
-                }
-                if(city == ""){
-                    $('input[name=city]').addClass('empty_input');
-                    ok = 0;
-                }
-                if(about == ""){
-                    $('textarea[name=about]').addClass('empty_input');
-                    ok = 0; 
-                }
-
-                if(ok == 0){
-                    alert("Fyll inn alle felter, informasjon kan gå tapt, trykk ok for å samtykke");
-                }
-
-
-
-                var json = {
-                    'name' : name,
-                    'title' : title,
-                    'country' : country,
-                    'city' : city,
-                    'about' : about
-                };
-
-                json = JSON.stringify(json);
-
-                $.ajax({
-                    type: "POST",
-                    dataType : "text",
-                    url : "../phpBackend/updateProject.php",
-                    data : {"project" : json},
-                    success : function(response){
-                        if(response == "OK"){
-                            alert("Successful ajax request from change_projectinfo.js calling to updateProject.php " + response);
-                            window.location.replace("../pages/showProjects.php");
-
-                        }else{
-                            alert("Response: " + response);
-                        }
-
-
-                    },
-                    error : function(response){
-                        alert("changeorginfor.js error feil fra update organization.php feil i ajax request");
-                    }
-
-                });
-
-            });
-
-$("#uploadimg").click(function() {
-    $("#file1").trigger('click');
-});
-
-
-</script>
-<!--  End of script -->
+    </script>
+    <!--  End of script -->
 
 
 </body>
